@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" type="image/svg+xml" sizes="64x64" href="images/favicon.svg">
+  <title>Accepted Papers</title>
+  <style>
+    :root {
+      --ink: #17213b;
+      --muted: #667085;
+      --canvas: #eef2f6;
+      --line: #d5dde7;
+      --blue: #2367a8;
+      --blue-soft: #e8f2fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--canvas);
+      font: 14px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .shell { width: min(1040px, calc(100% - 32px)); margin: 44px auto 72px; }
+    .page-title-row { margin-bottom: 22px; display: flex; align-items: center; gap: 13px; }
+    .home-logo { width: 116px; height: 76px; flex: 0 0 auto; display: block; }
+    .home-logo img { width: 100%; height: 100%; display: block; object-fit: contain; }
+    .home-logo:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 3px; }
+    h1 { margin: 0; font: 600 clamp(28px, 4vw, 42px)/1.1 Georgia, "Times New Roman", serif; }
+    .controls {
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    #paperSearch {
+      width: min(520px, 100%);
+      padding: 10px 12px;
+      border: 1px solid #bfcbd8;
+      border-radius: 5px;
+      color: var(--ink);
+      background: white;
+      outline: none;
+    }
+    #paperSearch:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(35, 103, 168, .13); }
+    .venue-filters { margin-top: 12px; }
+    .year-filters { margin-top: 7px; }
+    .venue-filters, .year-filters { display: flex; gap: 7px; flex-wrap: wrap; }
+    .venue-chip, .year-chip {
+      padding: 5px 10px;
+      border: 1px solid #bcc9d6;
+      border-radius: 999px;
+      color: #475467;
+      background: white;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .venue-chip[aria-pressed="true"], .year-chip[aria-pressed="true"] {
+      border-color: var(--blue);
+      color: white;
+      background: var(--blue);
+    }
+    .list-meta { margin: 16px 0 8px; color: var(--muted); font-size: 12px; }
+    .paper-list { border-top: 1px solid var(--line); }
+    .paper-row {
+      padding: 18px 4px;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      color: inherit;
+      text-decoration: none;
+    }
+    .paper-row-link:hover { background: rgba(255, 255, 255, .58); }
+    .paper-row-link:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .paper-title-line { display: flex; align-items: center; gap: 9px; }
+    .paper-title { margin: 0; font: 600 20px/1.3 Georgia, "Times New Roman", serif; }
+    .processed-dot {
+      width: 13px;
+      height: 13px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: #1f9d55;
+    }
+    .paper-authors { margin: 5px 0 0; color: #475467; }
+    .paper-venues { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+    .paper-venue { color: #245980; font-size: 11px; font-weight: 750; }
+    .paper-venue + .paper-venue::before { content: "·"; margin-right: 6px; color: #98a2b3; }
+    .paper-side { color: var(--muted); text-align: right; white-space: nowrap; font-size: 12px; }
+    .paper-side strong { display: block; color: var(--ink); font-size: 13px; }
+    .empty { padding: 36px 4px; color: var(--muted); }
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 22px, 1040px); margin-top: 26px; }
+      .paper-row { grid-template-columns: 1fr; gap: 8px; }
+      .paper-side { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="page-title-row">
+      <a class="home-logo" href="./" aria-label="PAC Papers home">
+        <img src="images/logo.svg" alt="">
+      </a>
+      <h1>PACMan: PAC Papers</h1>
+    </div>
+    <section class="controls" aria-label="Paper filters">
+      <input id="paperSearch" type="search" placeholder="Search papers or authors" autocomplete="off">
+      <div id="venueFilters" class="venue-filters" aria-label="Filter by venue"></div>
+      <div id="yearFilters" class="year-filters" aria-label="Filter by year"></div>
+    </section>
+    <p id="listMeta" class="list-meta" aria-live="polite">Loading papers…</p>
+    <div id="paperList" class="paper-list"></div>
+  </main>
+  <script>
+    (() => {
+      'use strict';
+
+      const search = document.getElementById('paperSearch');
+      const filters = document.getElementById('venueFilters');
+      const yearFilters = document.getElementById('yearFilters');
+      const list = document.getElementById('paperList');
+      const meta = document.getElementById('listMeta');
+      let papers = [];
+      let activeVenue = 'All';
+      let activeYear = 'All';
+
+      const venueAcronyms = Object.freeze({
+        'AAAI Conference on Artificial Intelligence': 'AAAI',
+        'ACM Symposium on Theory of Computing (STOC)': 'STOC',
+        'Advances in Neural Information Processing Systems': 'NIPS',
+        'Annals of Statistics': 'AoS',
+        'Artificial Intelligence': 'AIJ',
+        'Bernoulli': 'Bernoulli',
+        'Communications of the ACM': 'CACM',
+        'Conference on Learning Theory (COLT)': 'COLT',
+        'Discrete Applied Mathematics': 'DAM',
+        'IEEE International Symposium on Information Theory (ISIT)': 'ISIT',
+        'IEEE Symposium on Foundations of Computer Science (FOCS)': 'FOCS',
+        'IEEE Transactions on Information Theory': 'TIT',
+        'Information Processing Letters': 'IPL',
+        'Information and Computation': 'I&C',
+        'Information and Inference: A Journal of the IMA': 'IMA I&I',
+        'Innovations in Theoretical Computer Science (ITCS)': 'ITCS',
+        'International Conference on Algorithmic Learning Theory': 'ALT',
+        'International Conference on Artificial Intelligence and Statistics': 'AISTATS',
+        'International Conference on Formal Concept Analysis': 'ICFCA',
+        'International Conference on Learning Representations': 'ICLR',
+        'International Conference on Machine Learning': 'ICML',
+        'Journal of Artificial Intelligence Research': 'JAIR',
+        'Journal of Computer and System Sciences': 'JCSS',
+        'Journal of Machine Learning Research': 'JMLR',
+        'Journal of the ACM': 'JACM',
+        'Machine Learning': 'MLJ',
+        'Mathematical and Scientific Machine Learning': 'MSML',
+        'Neurocomputing': 'Neurocomputing',
+        'Physical Review A': 'PRA',
+        'SIAM International Conference on Data Mining (SDM)': 'SDM',
+        'SIAM Journal on Computing': 'SICOMP',
+        'SSRN (preprint)': 'SSRN',
+        'Theory of Probability and Its Applications': 'TPA',
+        'Transactions on Machine Learning Research': 'TMLR',
+        'arXiv (preprint)': 'arXiv'
+      });
+
+      function setVenue(venue) {
+        activeVenue = venue !== 'All' && venue === activeVenue ? 'All' : venue;
+        for (const button of filters.querySelectorAll('button')) {
+          button.setAttribute('aria-pressed', String(button.dataset.venue === activeVenue));
+        }
+        renderPapers();
+      }
+
+      function renderVenues() {
+        const venues = [...new Set(papers.map(paper => paper.venue).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+        filters.replaceChildren();
+        for (const venue of ['All', ...venues]) {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'venue-chip';
+          button.dataset.venue = venue;
+          const acronym = venueAcronyms[venue];
+          button.textContent = venue === 'All' ? 'All' : acronym || venue;
+          if (venue !== 'All') {
+            button.title = venue;
+            button.setAttribute('aria-label', `Filter by ${venue}`);
+          }
+          button.setAttribute('aria-pressed', String(venue === activeVenue));
+          button.addEventListener('click', () => setVenue(venue));
+          filters.appendChild(button);
+        }
+      }
+
+      function setYear(year) {
+        activeYear = year !== 'All' && year === activeYear ? 'All' : year;
+        for (const button of yearFilters.querySelectorAll('button')) {
+          button.setAttribute('aria-pressed', String(button.dataset.year === activeYear));
+        }
+        renderPapers();
+      }
+
+      function renderYears() {
+        const years = [...new Set(papers.map(paper => paper.year).filter(Boolean))]
+          .sort((a, b) => b - a)
+          .map(String);
+        yearFilters.replaceChildren();
+        for (const year of ['All', ...years]) {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'year-chip';
+          button.dataset.year = year;
+          button.textContent = year === 'All' ? 'All years' : year;
+          button.setAttribute('aria-pressed', String(year === activeYear));
+          button.addEventListener('click', () => setYear(year));
+          yearFilters.appendChild(button);
+        }
+      }
+
+      function paperRow(paper) {
+        const row = document.createElement('a');
+        row.className = 'paper-row paper-row-link';
+        row.href = `paper-viewer.html?id=${encodeURIComponent(paper.id)}`;
+
+        const main = document.createElement('div');
+        const titleLine = document.createElement('div');
+        titleLine.className = 'paper-title-line';
+        const title = document.createElement('h2');
+        title.className = 'paper-title';
+        title.textContent = paper.title;
+        if (paper.processed) {
+          const dot = document.createElement('span');
+          dot.className = 'processed-dot';
+          dot.setAttribute('role', 'img');
+          dot.setAttribute('aria-label', 'Processed: theorem JSON available');
+          dot.title = 'Processed';
+          titleLine.appendChild(dot);
+        }
+        titleLine.appendChild(title);
+        const authors = document.createElement('p');
+        authors.className = 'paper-authors';
+        authors.textContent = (paper.authors || []).join(' · ');
+        const venues = document.createElement('div');
+        venues.className = 'paper-venues';
+        for (const venue of paper.venue ? [paper.venue] : []) {
+          const item = document.createElement('span');
+          item.className = 'paper-venue';
+          item.textContent = venue;
+          venues.appendChild(item);
+        }
+        main.append(titleLine, authors, venues);
+
+        const side = document.createElement('div');
+        side.className = 'paper-side';
+        const year = document.createElement('strong');
+        year.textContent = paper.year || 'Year unavailable';
+        side.append(year);
+        row.append(main, side);
+        return row;
+      }
+
+      function renderPapers() {
+        const query = search.value.trim().toLowerCase();
+        const visible = papers.filter(paper => {
+          if (activeVenue !== 'All' && paper.venue !== activeVenue) return false;
+          if (activeYear !== 'All' && String(paper.year) !== activeYear) return false;
+          if (!query) return true;
+          return [paper.title, ...(paper.authors || []), paper.year, paper.venue, paper.venue_type]
+            .join(' ').toLowerCase().includes(query);
+        });
+        list.replaceChildren(...visible.map(paperRow));
+        const processed = visible.filter(paper => paper.processed).length;
+        meta.textContent = `${visible.length} of ${papers.length} paper${papers.length === 1 ? '' : 's'} · ${processed} processed`;
+        if (!visible.length) {
+          const empty = document.createElement('p');
+          empty.className = 'empty';
+          empty.textContent = 'No papers match the current filters.';
+          list.appendChild(empty);
+        }
+      }
+
+      search.addEventListener('input', renderPapers);
+      fetch('accepted-catalog.json', { cache: 'no-store' })
+        .then(response => {
+          if (!response.ok) throw new Error(`Catalogue could not load (${response.status}).`);
+          return response.json();
+        })
+        .then(catalogue => {
+          papers = Array.isArray(catalogue) ? catalogue : [];
+          renderVenues();
+          renderYears();
+          renderPapers();
+        })
+        .catch(error => {
+          console.error('Paper catalogue:', error);
+          meta.textContent = error.message;
+        });
+    })();
+  </script>
+</body>
+</html>

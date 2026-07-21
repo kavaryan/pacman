@@ -1,0 +1,4 @@
+interface:
+  display_name: "PDF to Theorem JSON"
+  short_description: "Extract verified theorem and proof JSON"
+  default_prompt: "Use $pdf-to-theorem-json to convert an accepted paper PDF into verified theorem and proof JSON."

@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" type="image/svg+xml" sizes="64x64" href="images/favicon.svg">
+  <title>Paper Viewer</title>
+  <style>
+    :root {
+      --ink: #17213b;
+      --muted: #667085;
+      --paper: #fffefa;
+      --canvas: #eef2f6;
+      --line: #d9e0e8;
+      --navy: #15294b;
+      --blue: #2367a8;
+      --blue-soft: #e8f2fb;
+      --gold: #d79b32;
+      --gold-soft: #fff3d8;
+      --green: #23705d;
+      --shadow: 0 12px 34px rgba(31, 45, 70, .09);
+      --radius: 16px;
+      --pdf-panel-width: clamp(390px, 47vw, 780px);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(65, 125, 178, .11), transparent 27rem),
+        linear-gradient(180deg, #f5f7fa 0, var(--canvas) 23rem);
+      font: 15px/1.62 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      transition: padding-right .22s ease;
+    }
+    body.pdf-pinned { padding-right: var(--pdf-panel-width); }
+    button, input { font: inherit; }
+    a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: #104d84; }
+    .viewer-status {
+      position: fixed;
+      z-index: 100;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: var(--ink);
+      background: var(--canvas);
+      text-align: center;
+      font-weight: 700;
+    }
+    .viewer-status[hidden] { display: none; }
+
+    .masthead {
+      color: white;
+      background: linear-gradient(125deg, #10213f 0%, #183b63 65%, #1d5576 100%);
+      border-bottom: 4px solid var(--gold);
+    }
+    .masthead-inner {
+      width: min(1480px, calc(100% - 40px));
+      margin: auto;
+      padding: 28px 0 25px;
+    }
+    .masthead-title-row { display: flex; align-items: center; gap: 14px; }
+    .home-logo { width: 128px; height: 84px; flex: 0 0 auto; display: block; }
+    .home-logo img { width: 100%; height: 100%; display: block; object-fit: contain; }
+    .home-logo:focus-visible { outline: 2px solid white; outline-offset: 3px; border-radius: 3px; }
+    .masthead h1 {
+      margin: 0;
+      width: 100%;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 3.2vw, 44px);
+      line-height: 1.08;
+      font-weight: 600;
+      letter-spacing: -.02em;
+    }
+    .author-line {
+      margin-top: 11px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .authors { margin: 0; color: #dbe8f2; font-size: 14px; }
+    .resource-links { display: inline-flex; align-items: center; gap: 7px; }
+    .resource-link {
+      width: 23px;
+      height: 23px;
+      padding: 1px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      background: transparent;
+    }
+    .resource-link img { width: 19px; height: 19px; display: block; }
+    .resource-link:hover img { filter: brightness(.82); transform: scale(1.07); }
+    .resource-link:focus-visible { outline: 2px solid white; outline-offset: 2px; border-radius: 3px; }
+    .workspace {
+      width: min(1480px, calc(100% - 40px));
+      margin: 24px auto 60px;
+      display: grid;
+      grid-template-columns: 330px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .sidebar {
+      position: sticky;
+      top: 18px;
+      max-height: calc(100vh - 36px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.93);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .theorem-list { padding: 9px; overflow-y: auto; overscroll-behavior: contain; }
+    .nav-item {
+      width: 100%;
+      padding: 10px 11px;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      display: grid;
+      grid-template-columns: auto minmax(0,1fr);
+      gap: 10px;
+      text-align: left;
+      color: inherit;
+      background: transparent;
+      cursor: pointer;
+    }
+    .nav-item:hover { background: #f1f6fb; }
+    .nav-item.active { border-color: #b9d2e8; background: var(--blue-soft); box-shadow: inset 3px 0 0 var(--blue); }
+    .nav-no {
+      min-width: 41px;
+      padding: 3px 6px;
+      border-radius: 7px;
+      text-align: center;
+      color: #164d7e;
+      background: #dbeaf7;
+      font-size: 11px;
+      font-weight: 850;
+    }
+    .nav-item.active .nav-no { color: white; background: var(--blue); }
+    .nav-title { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; font-weight: 750; }
+    .nav-meta { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; }
+    .empty { padding: 26px 14px; color: var(--muted); text-align: center; }
+
+    .content { min-width: 0; }
+    .result-header {
+      padding: 4px 1px;
+    }
+    #resultLabel {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(21px, 2.2vw, 27px);
+      line-height: 1.2;
+      letter-spacing: -.01em;
+      font-weight: 600;
+    }
+    .source-note {
+      margin-bottom: 18px;
+      padding: 13px 15px;
+      border-left: 4px solid var(--gold);
+      border-radius: 4px 11px 11px 4px;
+      color: #5b4a29;
+      background: #fff9eb;
+      font-size: 13px;
+    }
+    .source-note[hidden] { display: none; }
+
+    .result-section {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: rgba(255,255,255,.96);
+      box-shadow: var(--shadow);
+    }
+    .section-head {
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff, #fafbfd);
+    }
+    .section-head h2 { margin: 0; font: 600 20px/1.2 Georgia, "Times New Roman", serif; }
+    .section-head span { color: var(--muted); font-size: 11px; }
+    .section-head-meta { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
+    .section-body { padding: 22px; }
+    .transcript {
+      color: #1f2937;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.68;
+    }
+    .transcript p:first-child { margin-top: 0; }
+    .transcript p:last-child { margin-bottom: 0; }
+    .transcript .theorem-source { padding: 16px 18px; border-left: 4px solid var(--blue); background: #f6faff; }
+    .transcript .proof { padding-left: 18px; border-left: 2px solid #d8dee8; }
+    .transcript .math.display { overflow-x: auto; overflow-y: hidden; padding: 5px 0; }
+    .transcript ul, .transcript ol { padding-left: 24px; }
+    .transcript a[data-result-link] { font-family: Inter, ui-sans-serif, sans-serif; font-size: .8em; font-weight: 750; }
+
+    .pdf-source-button {
+      width: 24px;
+      height: 24px;
+      padding: 1px;
+      border: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      cursor: pointer;
+    }
+    .pdf-source-button:hover img { filter: brightness(.82); transform: scale(1.06); }
+    .pdf-source-button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 3px; }
+    .pdf-source-button img { width: 20px; height: 20px; display: block; }
+
+    .pdf-panel {
+      position: fixed;
+      z-index: 30;
+      top: 0;
+      right: 0;
+      width: var(--pdf-panel-width);
+      height: 100dvh;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      border-left: 1px solid #aebdca;
+      color: var(--ink);
+      background: #e6ebf0;
+      box-shadow: -18px 0 48px rgba(15, 31, 52, .24);
+      transform: translateX(100%);
+      transition: transform .22s ease;
+    }
+    .pdf-panel.open { transform: translateX(0); }
+    body.pdf-pinned .pdf-panel { box-shadow: -1px 0 0 rgba(15, 31, 52, .18); }
+    body.pdf-pinned .pdf-edge-toggle { display: none; }
+    body.pdf-pinned .workspace {
+      width: min(100% - 24px, 1480px);
+      grid-template-columns: minmax(230px, 29%) minmax(0, 1fr);
+      gap: 16px;
+    }
+    body.pdf-pinned .masthead-inner { width: min(100% - 24px, 1480px); }
+    .pdf-edge-toggle {
+      position: absolute;
+      top: 46%;
+      left: -43px;
+      width: 43px;
+      min-height: 112px;
+      padding: 10px 8px;
+      border: 1px solid #9fb3c4;
+      border-right: 0;
+      border-radius: 12px 0 0 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      color: white;
+      background: var(--navy);
+      box-shadow: -5px 5px 17px rgba(20, 39, 65, .2);
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .pdf-edge-toggle img { width: 19px; height: 19px; flex: none; }
+    .pdf-edge-toggle span {
+      color: inherit;
+      font: inherit;
+      letter-spacing: inherit;
+      line-height: 1;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+    .pdf-panel-head {
+      min-width: 0;
+      padding: 15px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: white;
+      background: linear-gradient(125deg, #10213f, #1a4a70);
+      border-bottom: 3px solid var(--gold);
+    }
+    .pdf-panel-logo { width: 25px; height: 25px; flex: none; }
+    .pdf-panel-actions { display: flex; align-items: center; gap: 7px; flex: none; }
+    .pdf-panel-action {
+      width: 34px;
+      height: 34px;
+      flex: none;
+      border: 1px solid rgba(255,255,255,.32);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      background: rgba(255,255,255,.08);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .pdf-panel-action:hover { border-color: rgba(255,255,255,.66); background: rgba(255,255,255,.16); }
+    .pdf-panel-action img { width: 17px; height: 17px; }
+    .pdf-panel-action[aria-pressed="true"] { border-color: #f3bf5f; background: rgba(215,155,50,.27); }
+    .pdf-viewer-host {
+      position: relative;
+      min-height: 0;
+      background: #cfd6dd;
+    }
+    .pdf-viewer-frame {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      background: #cfd6dd;
+    }
+    .pdf-status {
+      position: absolute;
+      z-index: 2;
+      top: 24px;
+      left: 50%;
+      width: min(330px, calc(100% - 36px));
+      padding: 14px 16px;
+      border-radius: 10px;
+      color: #475467;
+      background: rgba(255,255,255,.94);
+      box-shadow: var(--shadow);
+      text-align: center;
+      font-size: 12px;
+      transform: translateX(-50%);
+    }
+    .pdf-status[hidden] { display: none; }
+    body.pdf-only .workspace { display: block; }
+    body.pdf-only .sidebar,
+    body.pdf-only .content { display: none; }
+    body.pdf-only .pdf-edge-toggle,
+    body.pdf-only .pdf-pin,
+    body.pdf-only #pdfClose { display: none; }
+    .pdf-only-note {
+      max-width: 620px;
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: #475467;
+      background: rgba(255,255,255,.93);
+      box-shadow: var(--shadow);
+    }
+    .pdf-only-note h2 { margin: 0 0 7px; color: var(--ink); font: 600 22px/1.25 Georgia, "Times New Roman", serif; }
+    .pdf-only-note p { margin: 0; }
+
+    @media (max-width: 1050px) {
+      .workspace { grid-template-columns: 280px minmax(0,1fr); }
+      body.pdf-pinned .workspace { grid-template-columns: 1fr; }
+      body.pdf-pinned .sidebar { position: static; max-height: 390px; }
+    }
+    @media (max-width: 760px) {
+      body.pdf-pinned { padding-right: 0; }
+      .masthead-inner { width: min(100% - 26px, 1480px); }
+      .workspace { width: min(100% - 22px, 1480px); grid-template-columns: 1fr; margin-top: 12px; }
+      .sidebar { position: static; max-height: none; }
+      .theorem-list { display: flex; overflow-x: auto; overflow-y: hidden; }
+      .nav-item { min-width: 220px; }
+      .section-body { padding: 15px; }
+      .section-head { align-items: flex-start; }
+      .section-head-meta > span { display: none; }
+      .pdf-panel { width: calc(100vw - 42px); }
+      .pdf-pin { display: none; }
+    }
+    @media print {
+      .resource-links, .sidebar, .pdf-panel, .pdf-source-button { display: none !important; }
+      body { background: white; }
+      .masthead { color: black; background: white; border-bottom-color: black; }
+      .masthead-inner, .workspace { width: 100%; }
+      .masthead .authors { color: #333; }
+      .workspace { display: block; margin: 15px 0; }
+      .result-section { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        macros: {
+          one: '{\\mathbf{1}}', zero: '{\\mathbf{0}}', eps: '{\\varepsilon}',
+          Var: '{\\operatorname{Var}}', E: '{\\mathbb{E}}',
+          argmax: '{\\operatorname*{arg\\,max}}', argmin: '{\\operatorname*{arg\\,min}}',
+          er: '{\\operatorname{er}}', sign: '{\\operatorname{sign}}', spn: '{\\operatorname{span}}', mode: '{\\operatorname{mode}}',
+          A: '{\\mathbb{A}}', C: '{\\mathbb{C}}', F: '{\\mathbb{F}}', H: '{\\mathbb{H}}', N: '{\\mathbb{N}}', R: '{\\mathbb{R}}', Z: '{\\mathbb{Z}}',
+          cA: '{\\mathcal{A}}', cD: '{\\mathcal{D}}', cH: '{\\mathcal{H}}', cI: '{\\mathcal{I}}', cU: '{\\mathcal{U}}', cX: '{\\mathcal{X}}'
+        }
+      },
+      chtml: { scale: .95 },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <div id="viewerStatus" class="viewer-status">Loading paper…</div>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="masthead-title-row">
+        <a class="home-logo" href="./" aria-label="PAC Papers home">
+          <img src="images/logo.svg" alt="">
+        </a>
+        <h1 id="paperTitle"></h1>
+      </div>
+      <div class="author-line">
+        <p id="paperAuthors" class="authors"></p>
+        <nav id="resourceLinks" class="resource-links" aria-label="Paper resources"></nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <aside class="sidebar" aria-label="Theorem navigator">
+      <nav id="theoremList" class="theorem-list"></nav>
+    </aside>
+
+    <main class="content">
+      <section class="result-header">
+        <h2 id="resultLabel"></h2>
+      </section>
+
+      <div id="sourceNote" class="source-note" hidden></div>
+
+      <section class="result-section" aria-labelledby="statementHeading">
+        <div class="section-head">
+          <h2 id="statementHeading">Statement</h2>
+          <div class="section-head-meta">
+            <span>Author text · not paraphrased</span>
+            <button id="statementPdfButton" class="pdf-source-button" type="button" aria-label="Open statement in PDF panel">
+              <img src="images/pdf-acrobat.svg" alt="" aria-hidden="true">
+            </button>
+          </div>
+        </div>
+        <div class="section-body">
+          <div id="statementText" class="transcript"></div>
+        </div>
+      </section>
+
+      <section class="result-section" aria-labelledby="proofHeading">
+        <div class="section-head">
+          <h2 id="proofHeading">Proof</h2>
+          <div class="section-head-meta">
+            <span id="proofLabel"></span>
+            <button id="proofPdfButton" class="pdf-source-button" type="button" aria-label="Open proof in PDF panel">
+              <img src="images/pdf-acrobat.svg" alt="" aria-hidden="true">
+            </button>
+          </div>
+        </div>
+        <div class="section-body">
+          <div id="proofText" class="transcript"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <aside id="pdfPanel" class="pdf-panel" aria-label="Source PDF panel" aria-hidden="true">
+    <button id="pdfEdgeToggle" class="pdf-edge-toggle" type="button" aria-label="Open source PDF panel" aria-expanded="false">
+      <img src="images/pdf-acrobat.svg" alt="" aria-hidden="true">
+      <span>PDF</span>
+    </button>
+    <div class="pdf-panel-head">
+      <img class="pdf-panel-logo" src="images/pdf-acrobat.svg" alt="" aria-hidden="true">
+      <div class="pdf-panel-actions">
+        <a id="pdfDownload" class="pdf-panel-action" href="#" download aria-label="Download original PDF" title="Download original PDF">
+          <img src="images/download.svg" alt="" aria-hidden="true">
+        </a>
+        <button id="pdfPin" class="pdf-panel-action pdf-pin" type="button" aria-label="Pin PDF panel" aria-pressed="false" title="Pin PDF panel">
+          <img id="pdfPinIcon" src="images/pin.svg" alt="" aria-hidden="true">
+        </button>
+        <button id="pdfClose" class="pdf-panel-action" type="button" aria-label="Close PDF panel" title="Close PDF panel">
+          <img src="images/close.svg" alt="" aria-hidden="true">
+        </button>
+      </div>
+    </div>
+    <div class="pdf-viewer-host">
+      <div id="pdfStatus" class="pdf-status">Open a statement or proof to load the original PDF.</div>
+      <iframe id="pdfViewerFrame" class="pdf-viewer-frame" title="Original paper in Mozilla PDF.js" src="about:blank"></iframe>
+    </div>
+  </aside>
+
+  <script>
+    (async () => {
+      'use strict';
+
+      const $ = id => document.getElementById(id);
+      const requestedId = new URLSearchParams(location.search).get('id') || '';
+      if (!/^[a-z0-9][a-z0-9-]*$/.test(requestedId)) {
+        throw new Error('A valid paper id is required. Return to the paper catalogue and select a paper.');
+      }
+      const catalogueResponse = await fetch('accepted-catalog.json', { cache: 'no-store' });
+      if (!catalogueResponse.ok) throw new Error(`Paper catalogue could not load (${catalogueResponse.status}).`);
+      const catalogue = await catalogueResponse.json();
+      const metadata = (Array.isArray(catalogue) ? catalogue : []).find(item => item.id === requestedId);
+      if (!metadata) throw new Error('The requested paper is not present in the accepted catalogue.');
+      const dataUrl = `pdfs/${requestedId}.json`;
+      const pdfUrl = metadata.pdf_path ? `pdfs/${metadata.pdf_path.split('/').pop()}` : '';
+      if (!pdfUrl) throw new Error('The accepted catalogue does not provide a PDF for this paper.');
+      let paperData = null;
+      if (metadata.processed) {
+        const response = await fetch(dataUrl, { cache: 'no-store' });
+        if (response.ok) {
+          const theorem = await response.json();
+          paperData = Array.isArray(theorem) ? theorem[0] : theorem;
+          if (!paperData || !Array.isArray(paperData.theorems)) throw new Error('The paper data has an invalid structure.');
+        } else if (response.status !== 404) {
+          throw new Error(`Paper data could not load (${response.status}).`);
+        }
+      }
+      const results = paperData ? paperData.theorems : [];
+      const byId = new Map(results.map(item => [item.id, item]));
+      let activeId = location.hash.slice(1);
+      if (results.length && !byId.has(activeId)) activeId = results[0].id;
+      let pdfViewerPromise = null;
+      let pdfHighlightRequest = 0;
+      let pdfPinned = false;
+
+      const PDFJS_VIEWER = 'pdfjs-6.1.200/web/viewer.html';
+      const PDF_PIN_STORAGE_KEY = `paper-viewer:${requestedId}:pdf-pinned`;
+
+      const list = $('theoremList');
+
+      function addResourceLink(href, label, icon, download = false) {
+        if (!href) return;
+        const link = document.createElement('a');
+        link.className = 'resource-link';
+        link.href = href;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.setAttribute('aria-label', label);
+        link.title = label;
+        if (download) link.download = '';
+        const image = document.createElement('img');
+        image.src = icon;
+        image.alt = '';
+        image.setAttribute('aria-hidden', 'true');
+        link.appendChild(image);
+        $('resourceLinks').appendChild(link);
+      }
+
+      $('paperTitle').textContent = metadata.title;
+      $('paperAuthors').textContent = (metadata.authors || []).join(' · ');
+      document.title = `${$('paperTitle').textContent} — Paper Viewer`;
+      addResourceLink(pdfUrl, 'Open local PDF', 'images/pdf-acrobat.svg');
+      if (paperData) addResourceLink(dataUrl, 'Open local theorem JSON', 'images/code.svg');
+      if (metadata.arxiv_id) addResourceLink(`https://arxiv.org/abs/${metadata.arxiv_id}`, 'Open on arXiv', 'images/globe.svg');
+      if (metadata.doi) addResourceLink(`https://doi.org/${metadata.doi}`, 'Open DOI', 'images/globe.svg');
+      addResourceLink(metadata.semantic_scholar_url, 'Open on Semantic Scholar', 'images/globe.svg');
+      $('pdfDownload').href = pdfUrl;
+      $('viewerStatus').hidden = true;
+
+      function visibleResults() {
+        return results;
+      }
+
+      function renderList() {
+        const visible = visibleResults();
+        list.innerHTML = '';
+        if (!visible.length) {
+          list.innerHTML = '<p class="empty">No matching results.</p>';
+          return;
+        }
+        for (const item of visible) {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = `nav-item${item.id === activeId ? ' active' : ''}`;
+          button.dataset.id = item.id;
+          const typeInitial = item.type.charAt(0).toUpperCase();
+          button.innerHTML = `<span class="nav-no">${typeInitial} ${item.number}</span><span><span class="nav-title">${item.title}</span><span class="nav-meta">${item.type} · pp. ${pageLabel(item.sourcePages)}</span></span>`;
+          button.addEventListener('click', () => select(item.id));
+          list.appendChild(button);
+        }
+      }
+
+      function pageLabel(pages) {
+        if (!pages.length) return '—';
+        const groups = [];
+        let start = pages[0], previous = pages[0];
+        for (let i = 1; i <= pages.length; i++) {
+          const current = pages[i];
+          if (current === previous + 1) { previous = current; continue; }
+          groups.push(start === previous ? `${start}` : `${start}–${previous}`);
+          start = previous = current;
+        }
+        return groups.join(', ');
+      }
+
+      function setPdfPanel(open) {
+        if (pdfPinned && !open) return;
+        $('pdfPanel').classList.toggle('open', open);
+        $('pdfPanel').setAttribute('aria-hidden', String(!open));
+        $('pdfEdgeToggle').setAttribute('aria-expanded', String(open));
+        $('pdfEdgeToggle').setAttribute('aria-label', open ? 'Close source PDF panel' : 'Open source PDF panel');
+      }
+
+      function setPdfPinned(pinned, persist = true) {
+        pdfPinned = Boolean(pinned);
+        document.body.classList.toggle('pdf-pinned', pdfPinned);
+        $('pdfPanel').classList.toggle('pinned', pdfPinned);
+        $('pdfPin').setAttribute('aria-pressed', String(pdfPinned));
+        $('pdfPin').setAttribute('aria-label', pdfPinned ? 'Unpin PDF panel' : 'Pin PDF panel');
+        $('pdfPin').title = pdfPinned ? 'Unpin PDF panel' : 'Pin PDF panel';
+        $('pdfPinIcon').src = pdfPinned ? 'images/unpin.svg' : 'images/pin.svg';
+        if (pdfPinned) setPdfPanel(true);
+        if (persist) {
+          try { localStorage.setItem(PDF_PIN_STORAGE_KEY, String(pdfPinned)); } catch (_) {}
+        }
+      }
+
+      function closePdfPanel() {
+        if (pdfPinned) setPdfPinned(false);
+        setPdfPanel(false);
+      }
+
+      function pdfTargets(item, kind) {
+        return item.images.filter(image => image.kind === kind);
+      }
+
+      function waitForPdfViewer(frame) {
+        return new Promise((resolve, reject) => {
+          const timeout = setTimeout(() => reject(new Error('PDF.js viewer timed out.')), 30000);
+          const onLoad = async () => {
+            if (!frame.contentWindow.location.pathname.endsWith('/pdfjs-6.1.200/web/viewer.html')) return;
+            frame.removeEventListener('load', onLoad);
+            try {
+              const app = frame.contentWindow.PDFViewerApplication;
+              if (!app) throw new Error('PDF.js viewer application is unavailable.');
+              await app.initializedPromise;
+              if (!app.pdfDocument) {
+                await new Promise((documentLoaded, documentFailed) => {
+                  const poll = frame.contentWindow.setInterval(() => {
+                    if (!app.pdfDocument) return;
+                    cleanup();
+                    documentLoaded();
+                  }, 50);
+                  const cleanup = () => {
+                    frame.contentWindow.clearInterval(poll);
+                    app.eventBus.off('documentloaded', onLoaded);
+                    app.eventBus.off('documenterror', onError);
+                  };
+                  const onLoaded = () => {
+                    cleanup();
+                    documentLoaded();
+                  };
+                  const onError = event => {
+                    cleanup();
+                    documentFailed(new Error(event.reason || event.message || 'The PDF document failed to load.'));
+                  };
+                  app.eventBus.on('documentloaded', onLoaded, { once: true });
+                  app.eventBus.on('documenterror', onError, { once: true });
+                });
+              }
+              await app.pdfViewer.pagesPromise;
+              clearTimeout(timeout);
+              resolve(app);
+            } catch (error) {
+              clearTimeout(timeout);
+              reject(error);
+            }
+          };
+          frame.addEventListener('load', onLoad);
+        });
+      }
+
+      function pdfViewerStylesheet(frame) {
+        const viewerDocument = frame.contentDocument;
+        return [...viewerDocument.styleSheets].find(sheet => sheet.href?.endsWith('/viewer.css'));
+      }
+
+      function installPdfHighlightStyle(frame) {
+        const viewerDocument = frame.contentDocument;
+        if (viewerDocument.documentElement.dataset.theoremHighlightStyle === 'installed') return;
+        const sheet = pdfViewerStylesheet(frame);
+        if (!sheet) throw new Error('PDF.js viewer stylesheet is unavailable.');
+        sheet.insertRule(`
+          .theorem-source-highlight {
+            position: absolute !important;
+            z-index: 100;
+            border: 3px solid rgba(211, 145, 25, .94);
+            border-radius: 3px;
+            background: rgba(255, 211, 82, .16);
+            box-shadow: 0 0 0 2px rgba(255,255,255,.76), 0 2px 12px rgba(107, 69, 4, .22);
+            pointer-events: none;
+          }
+        `, sheet.cssRules.length);
+        viewerDocument.documentElement.dataset.theoremHighlightStyle = 'installed';
+      }
+
+      function installPdfReaderMode(frame) {
+        const viewerDocument = frame.contentDocument;
+        if (viewerDocument.documentElement.dataset.theoremReaderMode === 'installed') return;
+        const sheet = pdfViewerStylesheet(frame);
+        if (!sheet) throw new Error('PDF.js viewer stylesheet is unavailable.');
+        sheet.insertRule(`
+          html body #toolbarViewer #editorModeButtons,
+          html body #toolbarViewer #editorModeSeparator,
+          html body #toolbarViewer #printButton,
+          html body #toolbarViewer #downloadButton,
+          html body #toolbarViewer #secondaryToolbarToggle {
+            display: none !important;
+          }
+        `, sheet.cssRules.length);
+        const disabledIds = ['editorModeButtons', 'printButton', 'downloadButton', 'secondaryToolbarToggle'];
+        const disableReaderControls = () => {
+          for (const id of disabledIds) {
+            const control = viewerDocument.getElementById(id);
+            if (!control) continue;
+            if (!control.hidden) control.hidden = true;
+            control.setAttribute('aria-hidden', 'true');
+            if ('disabled' in control && !control.disabled) control.disabled = true;
+            control.querySelectorAll('button').forEach(button => {
+              if (!button.disabled) button.disabled = true;
+              button.tabIndex = -1;
+            });
+          }
+        };
+        disableReaderControls();
+        const observer = new frame.contentWindow.MutationObserver(disableReaderControls);
+        observer.observe(viewerDocument.getElementById('toolbarViewer'), {
+          subtree: true,
+          attributes: true,
+          attributeFilter: ['disabled', 'hidden', 'class']
+        });
+        frame.contentWindow.theoremReaderControlsObserver = observer;
+        viewerDocument.documentElement.dataset.theoremReaderMode = 'installed';
+      }
+
+      function closePdfJsSidebar(app, frame) {
+        const viewerDocument = frame.contentDocument;
+        app.viewsManager?.close();
+        const viewsManagerToggle = viewerDocument.getElementById('viewsManagerToggleButton');
+        viewsManagerToggle?.classList.remove('toggled');
+        viewsManagerToggle?.setAttribute('aria-expanded', 'false');
+        const viewsManager = viewerDocument.getElementById('viewsManager');
+        if (viewsManager) viewsManager.hidden = true;
+        viewerDocument.getElementById('outerContainer')?.classList.remove('viewsManagerOpen');
+      }
+
+      async function closePdfJsSidebarAfterInitialView(app, frame) {
+        if (!app.isInitialViewSet) {
+          await new Promise(resolve => {
+            const finish = () => {
+              frame.contentWindow.clearTimeout(timeout);
+              app.eventBus.off('documentinit', finish);
+              resolve();
+            };
+            const timeout = frame.contentWindow.setTimeout(finish, 5000);
+            app.eventBus.on('documentinit', finish, { once: true });
+          });
+        }
+        closePdfJsSidebar(app, frame);
+      }
+
+      async function getPdfViewer() {
+        if (location.protocol === 'file:') {
+          $('pdfStatus').hidden = false;
+          $('pdfStatus').innerHTML = 'This reader must be opened through its Node server. Run <code>node serve-theorem-reader.js</code> in this directory, then open <a href="http://127.0.0.1:8765/">http://127.0.0.1:8765/</a>.';
+          throw new Error('The PDF.js viewer requires HTTP.');
+        }
+        if (!pdfViewerPromise) {
+          const frame = $('pdfViewerFrame');
+          $('pdfStatus').hidden = false;
+          $('pdfStatus').textContent = 'Loading Mozilla PDF.js and the original paper…';
+          pdfViewerPromise = waitForPdfViewer(frame).then(async app => {
+            installPdfHighlightStyle(frame);
+            installPdfReaderMode(frame);
+            await closePdfJsSidebarAfterInitialView(app, frame);
+            $('pdfStatus').hidden = true;
+            return app;
+          }).catch(error => {
+            console.error('PDF.js viewer:', error);
+            $('pdfStatus').hidden = false;
+            $('pdfStatus').innerHTML = `The original PDF could not load. <a href="${pdfUrl}" target="_blank" rel="noopener">Open it in the browser viewer</a>.`;
+            pdfViewerPromise = null;
+            throw error;
+          });
+          const sourcePath = encodeURIComponent(`../../${pdfUrl}`);
+          frame.src = `${PDFJS_VIEWER}?file=${sourcePath}`;
+        }
+        return pdfViewerPromise;
+      }
+
+      function clearPdfHighlights(frame) {
+        frame.contentDocument.querySelectorAll('.theorem-source-highlight').forEach(node => node.remove());
+        const sheet = pdfViewerStylesheet(frame);
+        if (!sheet) return;
+        for (let index = sheet.cssRules.length - 1; index >= 0; index--) {
+          const selector = sheet.cssRules[index].selectorText || '';
+          if (selector.startsWith('.theorem-source-highlight[data-theorem-highlight=')) sheet.deleteRule(index);
+        }
+      }
+
+      async function addPdfHighlight(app, target, highlightId) {
+        const page = await app.pdfDocument.getPage(target.page);
+        const viewport = page.getViewport({ scale: 1 });
+        const pageView = app.pdfViewer.getPageView(target.page - 1);
+        const highlight = app.pdfViewer.container.ownerDocument.createElement('div');
+        highlight.className = 'theorem-source-highlight';
+        highlight.dataset.sourcePage = String(target.page);
+        highlight.dataset.theoremHighlight = highlightId;
+        const sheet = pdfViewerStylesheet($('pdfViewerFrame'));
+        sheet.insertRule(`
+          .theorem-source-highlight[data-theorem-highlight="${highlightId}"] {
+            left: ${(62 / viewport.width) * 100}%;
+            top: ${(target.yStart / viewport.height) * 100}%;
+            width: ${((550 - 62) / viewport.width) * 100}%;
+            height: ${(Math.max(18, target.yEnd - target.yStart) / viewport.height) * 100}%;
+          }
+        `, sheet.cssRules.length);
+        pageView.div.appendChild(highlight);
+        return { page, viewport };
+      }
+
+      async function showPdfTargets(targets) {
+        const request = ++pdfHighlightRequest;
+        setPdfPanel(true);
+        try {
+          const app = await getPdfViewer();
+          if (request !== pdfHighlightRequest) return;
+          const frame = $('pdfViewerFrame');
+          closePdfJsSidebar(app, frame);
+          clearPdfHighlights(frame);
+          const targetGeometry = await Promise.all(targets.map((target, index) => addPdfHighlight(app, target, `${request}-${index}`)));
+          if (request !== pdfHighlightRequest) return;
+          const first = targets[0];
+          const firstViewport = targetGeometry[0].viewport;
+          app.pdfViewer.scrollPageIntoView({
+            pageNumber: first.page,
+            destArray: [null, { name: 'XYZ' }, 0, firstViewport.height - first.yStart, null],
+            allowNegativeOffset: true,
+            ignoreDestinationZoom: true
+          });
+        } catch (_) {
+          // getPdfViewer presents an actionable error inside the panel.
+        }
+      }
+
+      function openPdfFor(kind) {
+        const item = byId.get(activeId);
+        const targets = pdfTargets(item, kind);
+        if (!targets.length) return;
+        showPdfTargets(targets);
+      }
+
+      if (!paperData) {
+        document.body.classList.add('pdf-only');
+        const note = document.createElement('section');
+        note.className = 'pdf-only-note';
+        note.innerHTML = '<h2>Original paper</h2><p>The theorem and proof transcription has not yet been prepared. The PDF is pinned alongside.</p>';
+        document.querySelector('.workspace').appendChild(note);
+        setPdfPinned(true, false);
+        try { await getPdfViewer(); } catch (_) {}
+        return;
+      }
+
+      function select(id, updateHistory = true) {
+        const item = byId.get(id);
+        if (!item) return;
+        const mathContainers = [$('statementText'), $('proofText')];
+        // MathJax must forget old MathItems before their DOM nodes are replaced.
+        window.MathJax?.typesetClear?.(mathContainers);
+        activeId = id;
+        if (updateHistory) history.replaceState(null, '', `#${id}`);
+        document.title = `${item.type} ${item.number} — Theorems & Proofs`;
+        $('resultLabel').textContent = `${item.type} ${item.number}`;
+        $('statementText').innerHTML = item.statementHtml;
+        $('proofText').innerHTML = item.proofHtml;
+        $('proofLabel').textContent = item.proofOrganization === 'direct' ? 'Direct proof environment' : item.proofOrganization === 'deferred' ? 'Proof deferred elsewhere in the paper' : 'Proof assembled as organized by the paper';
+        $('sourceNote').hidden = !item.proofNote;
+        $('sourceNote').textContent = item.proofNote || '';
+        renderList();
+        bindInternalLinks();
+        if ($('pdfPanel').classList.contains('open')) openPdfFor('statement');
+        if (window.MathJax?.typesetPromise) {
+          MathJax.typesetPromise(mathContainers).catch(error => console.error('MathJax:', error));
+        }
+      }
+
+      function bindInternalLinks() {
+        document.querySelectorAll('[data-result-link]').forEach(link => {
+          link.addEventListener('click', event => {
+            event.preventDefault();
+            select(link.dataset.resultLink);
+            window.scrollTo({ top: document.querySelector('.workspace').offsetTop - 8, behavior: 'smooth' });
+          });
+        });
+      }
+
+      function move(offset) {
+        const visible = visibleResults();
+        if (!visible.length) return;
+        const current = Math.max(0, visible.findIndex(item => item.id === activeId));
+        const next = visible[(current + offset + visible.length) % visible.length];
+        select(next.id);
+        window.scrollTo({ top: document.querySelector('.workspace').offsetTop - 8, behavior: 'smooth' });
+      }
+
+      $('statementPdfButton').addEventListener('click', () => openPdfFor('statement'));
+      $('proofPdfButton').addEventListener('click', () => openPdfFor('proof'));
+      $('pdfEdgeToggle').addEventListener('click', () => {
+        if ($('pdfPanel').classList.contains('open')) setPdfPanel(false);
+        else openPdfFor('statement');
+      });
+      $('pdfClose').addEventListener('click', closePdfPanel);
+      $('pdfPin').addEventListener('click', () => setPdfPinned(!pdfPinned));
+      window.addEventListener('hashchange', () => { const id = location.hash.slice(1); if (byId.has(id)) select(id, false); });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && $('pdfPanel').classList.contains('open')) closePdfPanel();
+        if (event.target.matches('input, textarea, select')) return;
+        if (event.key === 'ArrowLeft') move(-1);
+        if (event.key === 'ArrowRight') move(1);
+      });
+
+      try { setPdfPinned(localStorage.getItem(PDF_PIN_STORAGE_KEY) === 'true', false); } catch (_) {}
+      renderList();
+      select(activeId, false);
+    })().catch(error => {
+      console.error('Paper viewer:', error);
+      const status = document.getElementById('viewerStatus');
+      status.hidden = false;
+      status.innerHTML = '';
+      const message = document.createElement('div');
+      message.textContent = error.message;
+      const link = document.createElement('a');
+      link.href = './';
+      link.textContent = 'Return to accepted papers';
+      link.style.display = 'block';
+      link.style.marginTop = '12px';
+      status.append(message, link);
+    });
+  </script>
+</body>
+</html>

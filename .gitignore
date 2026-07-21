@@ -1,0 +1,13 @@
+pdfs
+texts
+
+verdicts
+candidates
+logs
+scripts
+.agents/skills/fulltext-literature-discovery
+.agents/skills/literature-discovery-crawler 
+
+tmp
+seaport
+.playwright-mcp/

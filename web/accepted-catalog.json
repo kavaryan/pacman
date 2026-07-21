@@ -1,0 +1,2391 @@
+[
+  {
+    "title": "The Sample Complexity of Replicable Realizable PAC Learning",
+    "authors": [
+      "Kasper Green Larsen",
+      "Markus Engelund Mathiasen",
+      "Chirag Pabbaraju",
+      "Clement Svendsen"
+    ],
+    "year": 2026,
+    "venue": "ACM Symposium on Theory of Computing (STOC)",
+    "venue_type": "conference",
+    "arxiv_id": "2602.19552",
+    "doi": "10.1145/3798129.3800910",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/816dabfdac5e6d8f3b9646d78cab59c26ae92c98",
+    "sha256": "6794a91ae983ccc85ebfc210986bbcab5daec26e5ccabac1be4f92072404e5b7",
+    "pdf_path": "accepted/2026-the-sample-complexity-of-replicable-realizable-pac-learning.pdf",
+    "id": "2026-the-sample-complexity-of-replicable-realizable-pac-learning",
+    "processed": true
+  },
+  {
+    "title": "Diff2SP: Diffusion Models for Correlated Scenario Generation in Stochastic Programming",
+    "authors": [
+      "Haixiang Sun",
+      "Andrew Liu"
+    ],
+    "year": 2026,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2606.05649",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/691a5d8d35c2beb67746e164eadd438cdd3021c2",
+    "sha256": "d4a8a2ae8085859edf8253f58adbd5c6ec4884eef7551389125b778f9f90c1ff",
+    "pdf_path": "accepted/diff2sp-diffusion-models-for-correlated-scenario-generation-in-stochastic-programming.pdf",
+    "id": "diff2sp-diffusion-models-for-correlated-scenario-generation-in-stochastic-programming",
+    "processed": false
+  },
+  {
+    "title": "Generalization Bounds of Spiking Neural Networks via Rademacher Complexity",
+    "authors": [
+      "Shao-Qun Zhang",
+      "Zhike Zhou"
+    ],
+    "year": 2026,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2605.02927",
+    "doi": "10.48550/arXiv.2605.02927",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/78bdd60e88b237ec635a28533c616fcbbe736669",
+    "sha256": "12945eb46af7d98b12f0c5620941884f0238e2a323b975429f288225ccb791f9",
+    "pdf_path": "accepted/2026-generalization-bounds-of-spiking-neural-networks-via-rademacher-complexity.pdf",
+    "id": "2026-generalization-bounds-of-spiking-neural-networks-via-rademacher-complexity",
+    "processed": false
+  },
+  {
+    "title": "PAC Learning with Bandit Feedback: Sharp Sample Complexity in the Realizable Setting",
+    "authors": [
+      "Steve Hanneke",
+      "Qinglin Meng",
+      "Shay Moran",
+      "Amirreza Shaeiri"
+    ],
+    "year": 2026,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2605.25678",
+    "doi": "10.48550/arXiv.2605.25678",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/96abfe3c32d6d7b3438a0a81a2707bc124b95b35",
+    "sha256": "725ea83353d8f1a595dd6a63f7356f6bbd8ff4e530b21eaf4c6b68cd689a4eb7",
+    "pdf_path": "accepted/2026-pac-learning-with-bandit-feedback-sharp-sample-complexity-in-the-realizable-setting.pdf",
+    "id": "2026-pac-learning-with-bandit-feedback-sharp-sample-complexity-in-the-realizable-setting",
+    "processed": false
+  },
+  {
+    "title": "Tight Generalization Bounds for Noiseless Inverse Optimization",
+    "authors": [
+      "Pouria Fatemi",
+      "Hoomaan Maskan",
+      "S. Sra",
+      "Peyman Mohajerin Esfahani"
+    ],
+    "year": 2026,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2605.08866",
+    "doi": "10.48550/arXiv.2605.08866",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/5ace936ebf88aaced0ad0625e5cac9406741f198",
+    "sha256": "dc6af47a8f204cc8c2c82aff81ea97cb29f1625a9664b8b9b6929eb589071a3e",
+    "pdf_path": "accepted/tight-generalization-bounds-for-noiseless-inverse-optimization.pdf",
+    "id": "tight-generalization-bounds-for-noiseless-inverse-optimization",
+    "processed": false
+  },
+  {
+    "title": "A Distributional-Lifting Theorem for PAC Learning",
+    "authors": [
+      "Guy Blanc",
+      "Jane Lange",
+      "Carmen Strassle",
+      "Li-Yang Tan"
+    ],
+    "year": 2025,
+    "venue": "Conference on Learning Theory (COLT)",
+    "venue_type": "conference",
+    "arxiv_id": "2506.16651",
+    "doi": "10.48550/arXiv.2506.16651",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/abffec53aee19cdf6f3241cb81b54c6afa3703c7",
+    "sha256": "b2ef606dfef8b26d7f9b5f73e4dca1cfbf899d60f85b510c5be9dc26b3bd94c7",
+    "pdf_path": "accepted/2025-a-distributional-lifting-theorem-for-pac-learning.pdf",
+    "id": "2025-a-distributional-lifting-theorem-for-pac-learning",
+    "processed": false
+  },
+  {
+    "title": "Adversarial learning for nonparametric regression: Minimax rate and adaptive estimation",
+    "authors": [
+      "Jing Peng",
+      "Yuhong Yang"
+    ],
+    "year": 2025,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2506.01267",
+    "doi": "10.48550/arXiv.2506.01267",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/56ff1582857f8c0ff5392a07e7af5938a32a1c7d",
+    "sha256": "eaa2ca01e2f60b99035f9083c5aa309fbf11abf2e733e22f972af81463b19910",
+    "pdf_path": "accepted/2025-adversarial-learning-for-nonparametric-regression-minimax-rate-and-adaptive-estimation.pdf",
+    "id": "2025-adversarial-learning-for-nonparametric-regression-minimax-rate-and-adaptive-estimation",
+    "processed": false
+  },
+  {
+    "title": "Attribute-Efficient PAC Learning of Sparse Halfspaces with Constant Malicious Noise Rate",
+    "authors": [
+      "Shiwei Zeng",
+      "Jie Shen"
+    ],
+    "year": 2025,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2505.21430",
+    "doi": "10.48550/arXiv.2505.21430",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/81d49ffe4e62e907d3b8936ad1c4b80970df806f",
+    "sha256": "5bcfd5602773ab573a5a1fbff17ffde2385e8645faeaa918eec7df2e69d027c1",
+    "pdf_path": "accepted/2025-attribute-efficient-pac-learning-of-sparse-halfspaces-with-constant-malicious-noise-rate.pdf",
+    "id": "2025-attribute-efficient-pac-learning-of-sparse-halfspaces-with-constant-malicious-noise-rate",
+    "processed": false
+  },
+  {
+    "title": "Generalization Bounds in Hybrid Quantum-Classical Machine Learning Models",
+    "authors": [
+      "T. Wu",
+      "Amine Bentellis",
+      "Alona Sakhnenko",
+      "J. Lorenz"
+    ],
+    "year": 2025,
+    "venue": "Physical Review A",
+    "venue_type": null,
+    "arxiv_id": "2504.08456",
+    "doi": "10.1103/6ckt-hlh8",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/5b1ebd067ec7a45711feb7f72542056086629db9",
+    "sha256": "80f1e262f43f0fc4ec840d030d2379054cbfd88ee6403fc4eb3b8fbd9c103673",
+    "pdf_path": "accepted/2025-generalization-bounds-in-hybrid-quantum-classical-machine-learning-models.pdf",
+    "id": "2025-generalization-bounds-in-hybrid-quantum-classical-machine-learning-models",
+    "processed": false
+  },
+  {
+    "title": "Guiding Two-Layer Neural Network Lipschitzness via Gradient Descent Learning Rate Constraints",
+    "authors": [
+      "K. Sung",
+      "Anastasis Kratsios",
+      "Noah Forman"
+    ],
+    "year": 2025,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2502.03792",
+    "doi": "10.48550/arXiv.2502.03792",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/00f65662c9235362491233fc86025d337f6061e0",
+    "sha256": "b307da804f6e619f31ab10f5755ec496fd6b2e6a0757909fb4ee0cb2bbe55c1e",
+    "pdf_path": "accepted/step-by-step-adaptive-gradient-descent-for-training-l-lipschitz-neural-networks.pdf",
+    "id": "step-by-step-adaptive-gradient-descent-for-training-l-lipschitz-neural-networks",
+    "processed": false
+  },
+  {
+    "title": "Improved Sample Complexity For Diffusion Model Training Without Empirical Risk Minimizer Access",
+    "authors": [
+      "Mudit Gaur",
+      "Prashant Trivedi",
+      "Sasidhar Kunapuli",
+      "A. S. Bedi",
+      "Vaneet Aggarwal"
+    ],
+    "year": 2025,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2505.18344",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/fc7a99e0aa9b67f802a7f76c9de654ed2e48bee8",
+    "sha256": "7a3017ec4beccab32580b7745179f8aa28aac45febca2ff9f8e6e0b39d2ea800",
+    "pdf_path": "accepted/2025-improved-sample-complexity-for-diffusion-model-training-without-empirical-risk-minimizer-access.pdf",
+    "id": "2025-improved-sample-complexity-for-diffusion-model-training-without-empirical-risk-minimizer-access",
+    "processed": false
+  },
+  {
+    "title": "Lean Formalization of Generalization Error Bound by Rademacher Complexity and Dudley's Entropy Integral",
+    "authors": [
+      "Sho Sonoda",
+      "Kazumi Kasaura",
+      "Yuma Mizuno",
+      "Kei Tsukamoto",
+      "N. Onda"
+    ],
+    "year": 2025,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2503.19605",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/5d81a436021c98d64297d9d7d85710786c252209",
+    "sha256": "27ffe2b17f0195c87acc91860afe6bad46316bbd6871bfffd1aa0407f7f7cfe3",
+    "pdf_path": "accepted/2025-lean-formalization-of-generalization-error-bound-by-rademacher-complexity-and-dudley-s-entropy-integral.pdf",
+    "id": "2025-lean-formalization-of-generalization-error-bound-by-rademacher-complexity-and-dudley-s-entropy-integral",
+    "processed": false
+  },
+  {
+    "title": "Learning Operators by Regularized Stochastic Gradient Descent with Operator-valued Kernels",
+    "authors": [
+      "Jia-Qi Yang",
+      "Lei Shi"
+    ],
+    "year": 2025,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2504.18184",
+    "doi": "10.48550/arXiv.2504.18184",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/654532bd74860fbf62be022466a7398fa54f5b13",
+    "sha256": "a003d0fd04a6965bfccd591490215ba4654da712281c2fcaf4779c21c8993eb6",
+    "pdf_path": "accepted/learning-operators-by-regularized-stochastic-gradient-descent-with-operator-valued-kernels.pdf",
+    "id": "learning-operators-by-regularized-stochastic-gradient-descent-with-operator-valued-kernels",
+    "processed": false
+  },
+  {
+    "title": "On the Benefits of Accelerated Optimization in Robust and Private Estimation",
+    "authors": [
+      "Laurentiu Marchis",
+      "Po-Ling Loh"
+    ],
+    "year": 2025,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2506.03044",
+    "doi": "10.48550/arXiv.2506.03044",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/2ac1e756fe98fbffad99808353e3fcd229448747",
+    "sha256": "42c33ea8ade1b819c68738ba3a8ff2b727a8e2e5d2faee79ccc3a8414baa4d4d",
+    "pdf_path": "accepted/on-the-benefits-of-accelerated-optimization-in-robust-and-private-estimation.pdf",
+    "id": "on-the-benefits-of-accelerated-optimization-in-robust-and-private-estimation",
+    "processed": false
+  },
+  {
+    "title": "On the Interplay between Graph Structure and Learning Algorithms in Graph Neural Networks",
+    "authors": [
+      "Junwei Su",
+      "Chuan Wu"
+    ],
+    "year": 2025,
+    "venue": "International Conference on Machine Learning",
+    "venue_type": "conference",
+    "arxiv_id": "2508.14338",
+    "doi": "10.48550/arXiv.2508.14338",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/83405b88795a5a71730dc2aeecd1b44c4648851f",
+    "sha256": "56c698c6cc24becb2d37bfe02e53b89736efd953f39a862ed8f6cd3bac5711e5",
+    "pdf_path": "accepted/on-the-interplay-between-graph-structure-and-learning-algorithms-in-graph-neural-networks.pdf",
+    "id": "on-the-interplay-between-graph-structure-and-learning-algorithms-in-graph-neural-networks",
+    "processed": false
+  },
+  {
+    "title": "Probably Approximately Correct Causal Discovery",
+    "authors": [
+      "Mian Wei",
+      "Somesh Jha",
+      "David Page"
+    ],
+    "year": 2025,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2507.18903",
+    "doi": "10.48550/arXiv.2507.18903",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/36f8c5205f276521185b32fd37da80b79b4df3ce",
+    "sha256": "c821f6a68b5a9e519ad34434ec5bdc031ce2d25583db89dd455cfcd73050aea4",
+    "pdf_path": "accepted/2025-probably-approximately-correct-causal-discovery.pdf",
+    "id": "2025-probably-approximately-correct-causal-discovery",
+    "processed": false
+  },
+  {
+    "title": "Provably Efficient Sample Complexity for Robust CMDP",
+    "authors": [
+      "Sourav Ganguly",
+      "Arnob Ghosh"
+    ],
+    "year": 2025,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2511.07486",
+    "doi": "10.48550/arXiv.2511.07486",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/2f817bde2a3d622eae6ffbab064afa5d5b2a4409",
+    "sha256": "361bc0c79c822222aeec56842acb80bfe79ec9f6fb1706121be847c6b42f29f3",
+    "pdf_path": "accepted/provably-efficient-sample-complexity-for-robust-cmdp.pdf",
+    "id": "provably-efficient-sample-complexity-for-robust-cmdp",
+    "processed": false
+  },
+  {
+    "title": "Scaling Law for Stochastic Gradient Descent in Quadratically Parameterized Linear Regression",
+    "authors": [
+      "Shihong Ding",
+      "Haihan Zhang",
+      "Hanzhen Zhao",
+      "Cong Fang"
+    ],
+    "year": 2025,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2502.09106",
+    "doi": "10.48550/arXiv.2502.09106",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/60c5e411247e046e4b2e8f95caf643303ecf8cb1",
+    "sha256": "ea393d4f135cdf5f71f543e051ff23cd8e898617558066f1049f0953c091d042",
+    "pdf_path": "accepted/scaling-law-for-stochastic-gradient-descent-in-quadratically-parameterized-linear-regression.pdf",
+    "id": "scaling-law-for-stochastic-gradient-descent-in-quadratically-parameterized-linear-regression",
+    "processed": false
+  },
+  {
+    "title": "The Probably Approximately Correct Learning Model in Computational Learning Theory",
+    "authors": [
+      "Rocco A. Servedio"
+    ],
+    "year": 2025,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2511.08791",
+    "doi": "10.48550/arXiv.2511.08791",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/e32f22f0cc08a0a3c52a5c64e3f9eb48fc7adc07",
+    "sha256": "7163bd285d073564406beec9374998cb2a85fd422b23cdb3bf1433f448cb0f5f",
+    "pdf_path": "accepted/2025-the-probably-approximately-correct-learning-model-in-computational-learning-theory.pdf",
+    "id": "2025-the-probably-approximately-correct-learning-model-in-computational-learning-theory",
+    "processed": false
+  },
+  {
+    "title": "Towards Efficient Contrastive PAC Learning",
+    "authors": [
+      "Jie Shen"
+    ],
+    "year": 2025,
+    "venue": "Transactions on Machine Learning Research",
+    "venue_type": null,
+    "arxiv_id": "2502.15962",
+    "doi": "10.48550/arXiv.2502.15962",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/2f5f9c8364d2001196f64b250cef90dbe116457a",
+    "sha256": "8dc9fedbc1de532643a79a9474ff75c8c1b4f9464a1d6d7cc5682f4b3b039044",
+    "pdf_path": "accepted/2025-towards-efficient-contrastive-pac-learning.pdf",
+    "id": "2025-towards-efficient-contrastive-pac-learning",
+    "processed": false
+  },
+  {
+    "title": "A Unified Analysis for Finite Weight Averaging",
+    "authors": [
+      "Peng Wang",
+      "Li Shen",
+      "Zerui Tao",
+      "Yan Sun",
+      "Guodong Zheng",
+      "Dacheng Tao"
+    ],
+    "year": 2024,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2411.13169",
+    "doi": "10.48550/arXiv.2411.13169",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/fba4f280115d43bd96c15af07904237212351b79",
+    "sha256": "9a33ae1443e1d9762c3462b928f33d7a7f432bca7ff8a71325cbceb57794ba13",
+    "pdf_path": "accepted/a-unified-analysis-for-finite-weight-averaging.pdf",
+    "id": "a-unified-analysis-for-finite-weight-averaging",
+    "processed": false
+  },
+  {
+    "title": "Distributional PAC-Learning from Nisan's Natural Proofs",
+    "authors": [
+      "Ari Karchmer"
+    ],
+    "year": 2024,
+    "venue": "Innovations in Theoretical Computer Science (ITCS)",
+    "venue_type": "conference",
+    "arxiv_id": "2310.03641",
+    "doi": "10.48550/arXiv.2310.03641",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/d1011f4813d0796bb689582f5feebc28100b6f39",
+    "sha256": "8440a3ab2891885cb19c9cb18f08e91ee5f8cacdd2d7980d02c3bfb901d34f18",
+    "pdf_path": "accepted/2023-distributional-pac-learning-from-nisan-s-natural-proofs.pdf",
+    "id": "2023-distributional-pac-learning-from-nisan-s-natural-proofs",
+    "processed": false
+  },
+  {
+    "title": "Fast Rates for Bandit PAC Multiclass Classification",
+    "authors": [
+      "Liad Erez",
+      "Alon Cohen",
+      "Tomer Koren",
+      "Yishay Mansour",
+      "Shay Moran"
+    ],
+    "year": 2024,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": "2406.12406",
+    "doi": "10.48550/arXiv.2406.12406",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/65c529874418543f3496987b1c3f5f068261d4aa",
+    "sha256": "1788c348eeda8acee1077a41443e705902043a22239712fe46f5cbec43b02a3a",
+    "pdf_path": "accepted/fast-rates-for-bandit-pac-multiclass-classification.pdf",
+    "id": "fast-rates-for-bandit-pac-multiclass-classification",
+    "processed": false
+  },
+  {
+    "title": "Generalization Bounds via Meta-Learned Model Representations: PAC-Bayes and Sample Compression Hypernetworks",
+    "authors": [
+      "Benjamin Leblanc",
+      "Mathieu Bazinet",
+      "Nathaniel D'Amours",
+      "Alexandre Drouin",
+      "Pascal Germain"
+    ],
+    "year": 2024,
+    "venue": "International Conference on Machine Learning",
+    "venue_type": "conference",
+    "arxiv_id": "2410.13577",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/bf8a1782676644e2c180f68ee8e1b43d77762838",
+    "sha256": "7c4b5afb92b71b2eb4f7ed28756bcce19294f39c9b095b4da8101665aacb632f",
+    "pdf_path": "accepted/2024-generalization-bounds-via-meta-learned-model-representations-pac-bayes-and-sample-compression-hypernetworks.pdf",
+    "id": "2024-generalization-bounds-via-meta-learned-model-representations-pac-bayes-and-sample-compression-hypernetworks",
+    "processed": false
+  },
+  {
+    "title": "In-Context Learning of Linear Systems: Generalization Theory and Applications to Operator Learning",
+    "authors": [
+      "Frank Cole",
+      "Yulong Lu",
+      "Wuzhe Xu",
+      "Tianhao Zhang"
+    ],
+    "year": 2024,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2409.12293",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/9967a194304614acbaf0002fa9f7f83eb4b32c96",
+    "sha256": "d4dc2b6bc3d0c2a4670ba6ad60fee8b88a67d04375af72b8b274a2ed576e471b",
+    "pdf_path": "accepted/2024-in-context-learning-of-linear-systems-generalization-theory-and-applications-to-operator-learning.pdf",
+    "id": "2024-in-context-learning-of-linear-systems-generalization-theory-and-applications-to-operator-learning",
+    "processed": false
+  },
+  {
+    "title": "List Sample Compression and Uniform Convergence",
+    "authors": [
+      "Steve Hanneke",
+      "Shay Moran",
+      "Tom Waknine"
+    ],
+    "year": 2024,
+    "venue": "Conference on Learning Theory (COLT)",
+    "venue_type": "conference",
+    "arxiv_id": "2403.10889",
+    "doi": "10.48550/arXiv.2403.10889",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/7f2c28a4548f14460ad09d843c42614af9519bd8",
+    "sha256": "d6619fef93c02bdda9c097a9b8b0e50e825975ca9b460c784cbb1d1987e2ff7d",
+    "pdf_path": "accepted/2024-list-sample-compression-and-uniform-convergence.pdf",
+    "id": "2024-list-sample-compression-and-uniform-convergence",
+    "processed": false
+  },
+  {
+    "title": "New Bounds on Quantum Sample Complexity of Measurement Classes",
+    "authors": [
+      "Mohsen Heidari",
+      "Wojtek Szpankowski"
+    ],
+    "year": 2024,
+    "venue": "IEEE International Symposium on Information Theory (ISIT)",
+    "venue_type": "conference",
+    "arxiv_id": "2408.12683",
+    "doi": "10.1109/ISIT57864.2024.10619538",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/3eadc706b3a2c62bd1cc21d92051cb1c6cc62145",
+    "sha256": "e6486636db45d96f98723e93943ce3f84855057086c024ad62f8a74185cb64fa",
+    "pdf_path": "accepted/2024-new-bounds-on-quantum-sample-complexity-of-measurement-classes.pdf",
+    "id": "2024-new-bounds-on-quantum-sample-complexity-of-measurement-classes",
+    "processed": false
+  },
+  {
+    "title": "On the Computability of Robust PAC Learning",
+    "authors": [
+      "Pascale Gourdeau",
+      "Tosca Lechner",
+      "R. Urner"
+    ],
+    "year": 2024,
+    "venue": "Conference on Learning Theory (COLT)",
+    "venue_type": "conference",
+    "arxiv_id": "2406.10161",
+    "doi": "10.48550/arXiv.2406.10161",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/70f46c742914a94d88362a4cf5550169b13bde01",
+    "sha256": "6552fb986a1ec8f0f19afbf81ceea59b1f60f4eaaed5a320db13ee16eb66de86",
+    "pdf_path": "accepted/2024-on-the-computability-of-robust-pac-learning.pdf",
+    "id": "2024-on-the-computability-of-robust-pac-learning",
+    "processed": false
+  },
+  {
+    "title": "Performative Reinforcement Learning with Linear Markov Decision Process",
+    "authors": [
+      "Debmalya Mandal",
+      "Goran Radanovic"
+    ],
+    "year": 2024,
+    "venue": "International Conference on Artificial Intelligence and Statistics",
+    "venue_type": "conference",
+    "arxiv_id": "2411.05234",
+    "doi": "10.48550/arXiv.2411.05234",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/558fd755c3fdfcb96bf5e595beac0aabe9e80ff3",
+    "sha256": "ef8d537ba554078757801bc4f8334edda3461558e1b075b7c62e09993202904e",
+    "pdf_path": "accepted/performative-reinforcement-learning-with-linear-markov-decision-process.pdf",
+    "id": "performative-reinforcement-learning-with-linear-markov-decision-process",
+    "processed": false
+  },
+  {
+    "title": "Representation and Regression Problems in Neural Networks: Relaxation, Generalization, and Numerics",
+    "authors": [
+      "Kang Liu",
+      "E. Zuazua"
+    ],
+    "year": 2024,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2412.01619",
+    "doi": "10.48550/arXiv.2412.01619",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/4a5092af500b72444fcc0e3151760ad4a152edab",
+    "sha256": "1e7398179eea362354a708ef69f3c9d4828dc548e5a239673763e7f0230018f6",
+    "pdf_path": "accepted/representation-and-regression-problems-in-neural-networks-relaxation-generalization-and-numerics.pdf",
+    "id": "representation-and-regression-problems-in-neural-networks-relaxation-generalization-and-numerics",
+    "processed": false
+  },
+  {
+    "title": "Sharpness-Aware Black-Box Optimization",
+    "authors": [
+      "Feiyang Ye",
+      "Yueming Lyu",
+      "Xuehao Wang",
+      "Masashi Sugiyama",
+      "Yu Zhang",
+      "Ivor W. Tsang"
+    ],
+    "year": 2024,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2410.12457",
+    "doi": "10.48550/arXiv.2410.12457",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/1ad56245d9a8e302152766ab45258ab896dbbc8b",
+    "sha256": "21f6f956dd0193d3a732de4ce1b5f44b2dc796c68ccb0136c8a3235a896e27a3",
+    "pdf_path": "accepted/sharpness-aware-black-box-optimization.pdf",
+    "id": "sharpness-aware-black-box-optimization",
+    "processed": false
+  },
+  {
+    "title": "Stochastic Gradient Descent for Two-layer Neural Networks",
+    "authors": [
+      "Di Cao",
+      "Zheng-Chu Guo",
+      "Lei Shi"
+    ],
+    "year": 2024,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2407.07670",
+    "doi": "10.48550/arXiv.2407.07670",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/133fa8e4d0d13055c54bd651002f41494ce8ee4f",
+    "sha256": "be967d533f69b5acece1248c5b7914ac368728980f12d495c988cba19bc6693d",
+    "pdf_path": "accepted/stochastic-gradient-descent-for-two-layer-neural-networks.pdf",
+    "id": "stochastic-gradient-descent-for-two-layer-neural-networks",
+    "processed": false
+  },
+  {
+    "title": "Truncated Kernel Stochastic Gradient Descent on Spheres",
+    "authors": [
+      "Jinhui Bai",
+      "Lei Shi"
+    ],
+    "year": 2024,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2410.01570",
+    "doi": "10.48550/arXiv.2410.01570",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/fcca380f161b6a309f9878290a05003987b112f3",
+    "sha256": "c01d284ebb2e9a77ab564ed6415c76ef1de3e8ac8b2160e24041bc04124f082b",
+    "pdf_path": "accepted/truncated-kernel-stochastic-gradient-descent-on-spheres.pdf",
+    "id": "truncated-kernel-stochastic-gradient-descent-on-spheres",
+    "processed": false
+  },
+  {
+    "title": "Analysis of the expected $L_2$ error of an over-parametrized deep neural network estimate learned by gradient descent without regularization",
+    "authors": [
+      "Selina Drews",
+      "Michael Kohler"
+    ],
+    "year": 2023,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2311.14609",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/57cf1f878f8813ca309506b620bfd4b7f8364a7a",
+    "sha256": "a6509a73310ae9ca59183ea11bfc83683704796193096dd74bd023c7b412086a",
+    "pdf_path": "accepted/analysis-of-the-expected-l-2-error-of-an-over-parametrized-deep-neural-network-estimate-learned-by-gradient-descent-without-regularization.pdf",
+    "id": "analysis-of-the-expected-l-2-error-of-an-over-parametrized-deep-neural-network-estimate-learned-by-gradient-descent-without-regularization",
+    "processed": false
+  },
+  {
+    "title": "Beyond NTK with Vanilla Gradient Descent: A Mean-Field Analysis of Neural Networks with Polynomial Width, Samples, and Time",
+    "authors": [
+      "Arvind V. Mahankali",
+      "Jeff Z. HaoChen",
+      "Kefan Dong",
+      "Margalit Glasgow",
+      "Tengyu Ma"
+    ],
+    "year": 2023,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": "2306.16361",
+    "doi": "10.48550/arXiv.2306.16361",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/1064a5be52ab4f0ec36790aa2037eb5cc783d513",
+    "sha256": "2b203123634964a0333076be146ab6ae6a5504c2ce427f92c14edcec50b8a9b8",
+    "pdf_path": "accepted/2023-beyond-ntk-with-vanilla-gradient-descent-a-mean-field-analysis-of-neural-networks-with-polynomial-width-samples-and-time.pdf",
+    "id": "2023-beyond-ntk-with-vanilla-gradient-descent-a-mean-field-analysis-of-neural-networks-with-polynomial-width-samples-and-time",
+    "processed": false
+  },
+  {
+    "title": "Improved Generalization Bounds for Transductive Learning by Transductive Local Complexity and Its Applications",
+    "authors": [
+      "Yingzhen Yang"
+    ],
+    "year": 2023,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2309.16858",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/b8c87df97971e6e036e252905a53a0a8eb5dae3a",
+    "sha256": "fb6a9e77a302462ee41f0c6cba3864a2d4091eaed64ca0aa0a042268b125a108",
+    "pdf_path": "accepted/2023-improved-generalization-bounds-for-transductive-learning-by-transductive-local-complexity-and-its-applications.pdf",
+    "id": "2023-improved-generalization-bounds-for-transductive-learning-by-transductive-local-complexity-and-its-applications",
+    "processed": false
+  },
+  {
+    "title": "Improved Sample Complexity Analysis of Natural Policy Gradient Algorithm with General Parameterization for Infinite Horizon Discounted Reward Markov Decision Processes",
+    "authors": [
+      "Washim Uddin Mondal",
+      "Vaneet Aggarwal"
+    ],
+    "year": 2023,
+    "venue": "International Conference on Artificial Intelligence and Statistics",
+    "venue_type": "conference",
+    "arxiv_id": "2310.11677",
+    "doi": "10.48550/arXiv.2310.11677",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/e327642328810ea0871feb2448ded9c9e3082a7d",
+    "sha256": "ee98d153f2dfd3443b034d6e1e0973b97ae201bb5b91f607d973c6eb4993a2a1",
+    "pdf_path": "accepted/improved-sample-complexity-analysis-of-natural-policy-gradient-algorithm-with-general-parameterization-for-infinite-horizon-discounted-rewar.pdf",
+    "id": "improved-sample-complexity-analysis-of-natural-policy-gradient-algorithm-with-general-parameterization-for-infinite-horizon-discounted-rewar",
+    "processed": false
+  },
+  {
+    "title": "On Excess Risk Convergence Rates of Neural Network Classifiers",
+    "authors": [
+      "H. Ko",
+      "Namjoon Suh",
+      "X. Huo"
+    ],
+    "year": 2023,
+    "venue": "IEEE Transactions on Information Theory",
+    "venue_type": "journal",
+    "arxiv_id": "2309.15075",
+    "doi": "10.1109/TIT.2026.3654090",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/8d7c792d4cf9ad1368c35b1dc9055123d40def37",
+    "sha256": "26dd2c51e870a30885321309a248ab35b4bf15c2fa6fdba1a3884b2dc746b860",
+    "pdf_path": "accepted/on-excess-risk-convergence-rates-of-neural-network-classifiers.pdf",
+    "id": "on-excess-risk-convergence-rates-of-neural-network-classifiers",
+    "processed": false
+  },
+  {
+    "title": "Optimal PAC Bounds without Uniform Convergence",
+    "authors": [
+      "Ishaq Aden-Ali",
+      "Yeshwanth Cherapanamjeri",
+      "Abhishek Shetty",
+      "Nikita Zhivotovskiy"
+    ],
+    "year": 2023,
+    "venue": "IEEE Symposium on Foundations of Computer Science (FOCS)",
+    "venue_type": "conference",
+    "arxiv_id": "2304.09167",
+    "doi": "10.1109/FOCS57990.2023.00071",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/779d5dc2b443cd563c275bd23b25d9053ebdda04",
+    "sha256": "3fe75191c4c3c6c1b376fabd5925fc28da60cfb9e2e038b5cc9fc500c8399806",
+    "pdf_path": "accepted/2023-optimal-pac-bounds-without-uniform-convergence.pdf",
+    "id": "2023-optimal-pac-bounds-without-uniform-convergence",
+    "processed": false
+  },
+  {
+    "title": "Semi-Infinitely Constrained Markov Decision Processes and Efficient Reinforcement Learning",
+    "authors": [
+      "Liangyu Zhang",
+      "Yang Peng",
+      "Wenhao Yang",
+      "Zhihua Zhang"
+    ],
+    "year": 2023,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": "2305.00254",
+    "doi": "10.48550/arXiv.2305.00254",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/a3a0d6af173ecea2fbcf469833681a0afc7f26cb",
+    "sha256": "87f07383b23df56d8879e397441162b35b9a8efcdd5259f75fa0f3e3d4ef3e2c",
+    "pdf_path": "accepted/semi-infinitely-constrained-markov-decision-processes-and-efficient-reinforcement-learning.pdf",
+    "id": "semi-infinitely-constrained-markov-decision-processes-and-efficient-reinforcement-learning",
+    "processed": false
+  },
+  {
+    "title": "Sharper Analysis for Minibatch Stochastic Proximal Point Methods: Stability, Smoothness, and Deviation",
+    "authors": [
+      "Xiao-Tong Yuan",
+      "P. Li"
+    ],
+    "year": 2023,
+    "venue": "Journal of Machine Learning Research",
+    "venue_type": "journal",
+    "arxiv_id": "2301.03125",
+    "doi": "10.48550/arXiv.2301.03125",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/2693494b37d4b9edff5eb7b64d37977a49ca7680",
+    "sha256": "9766d7274a7f8c1274cfc006594c43e4526d121845043b0b5433c38d6c078a0a",
+    "pdf_path": "accepted/sharper-analysis-for-minibatch-stochastic-proximal-point-methods-stability-smoothness-and-deviation.pdf",
+    "id": "sharper-analysis-for-minibatch-stochastic-proximal-point-methods-stability-smoothness-and-deviation",
+    "processed": false
+  },
+  {
+    "title": "Stability and Generalization of the Decentralized Stochastic Gradient Descent Ascent Algorithm",
+    "authors": [
+      "Miaoxi Zhu",
+      "Li Shen",
+      "Bo Du",
+      "D. Tao"
+    ],
+    "year": 2023,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": "2310.20369",
+    "doi": "10.48550/arXiv.2310.20369",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/bc7e1c25cacedd20d965e86cfb071eda16da0310",
+    "sha256": "be6d70dd9f23080167ba1292a8f07c1393bc2ec6b6a16becc66413c64af3ae57",
+    "pdf_path": "accepted/stability-and-generalization-of-the-decentralized-stochastic-gradient-descent-ascent-algorithm.pdf",
+    "id": "stability-and-generalization-of-the-decentralized-stochastic-gradient-descent-ascent-algorithm",
+    "processed": false
+  },
+  {
+    "title": "Stochastic Approximation Approaches to Group Distributionally Robust Optimization and Beyond",
+    "authors": [
+      "Lijun Zhang",
+      "Haomin Bai",
+      "Peng Zhao",
+      "Tianbao Yang",
+      "Zhi-Hua Zhou"
+    ],
+    "year": 2023,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2302.09267",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/192631e5c341a72337a29e60133dff7e1b2d841d",
+    "sha256": "e2b1494d76d103e8c01b32d7a7e3a723db54478842548b7fc5df7a39445030c9",
+    "pdf_path": "accepted/stochastic-approximation-approaches-to-group-distributionally-robust-optimization-and-beyond.pdf",
+    "id": "stochastic-approximation-approaches-to-group-distributionally-robust-optimization-and-beyond",
+    "processed": false
+  },
+  {
+    "title": "The No Free Lunch Theorem, Kolmogorov Complexity, and the Role of Inductive Biases in Machine Learning",
+    "authors": [
+      "Micah Goldblum",
+      "Marc Finzi",
+      "K. Rowan",
+      "A. Wilson"
+    ],
+    "year": 2023,
+    "venue": "International Conference on Machine Learning",
+    "venue_type": "conference",
+    "arxiv_id": "2304.05366",
+    "doi": "10.48550/arXiv.2304.05366",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/0bde1c92e1786f95a1de5ddf77a34e68ec9b9414",
+    "sha256": "f9fe05a8338a49a906921c0ec01c5fa035fd45d68cd5f58190c6c6132399a398",
+    "pdf_path": "accepted/2023-the-no-free-lunch-theorem-kolmogorov-complexity-and-the-role-of-inductive-biases-in-machine-learning.pdf",
+    "id": "2023-the-no-free-lunch-theorem-kolmogorov-complexity-and-the-role-of-inductive-biases-in-machine-learning",
+    "processed": false
+  },
+  {
+    "title": "A framework for overparameterized learning",
+    "authors": [
+      "Dávid Terjék",
+      "Diego Gonz'alez-S'anchez"
+    ],
+    "year": 2022,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2205.13507",
+    "doi": "10.48550/arXiv.2205.13507",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/d60b5d515188f3d68c09016181c2eb7394a33eb2",
+    "sha256": "91a524f0ab9fac271b8fb59617e0a4e45ec4e294c7c2f72ca6b8d19517658ddc",
+    "pdf_path": "accepted/a-framework-for-overparameterized-learning.pdf",
+    "id": "a-framework-for-overparameterized-learning",
+    "processed": false
+  },
+  {
+    "title": "Capacity dependent analysis for functional online learning algorithms",
+    "authors": [
+      "Xin Guo",
+      "Zheng-Chu Guo",
+      "Lei Shi"
+    ],
+    "year": 2022,
+    "venue": "SSRN (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2209.12198",
+    "doi": "10.2139/ssrn.4229355",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/49bc9382b43e6ac40f09d036733738df81714ee5",
+    "sha256": "966a609ab7b465cbdf3218e145fb47908fb674ad9e781bd0a2b82e29ebcc43ae",
+    "pdf_path": "accepted/capacity-dependent-analysis-for-functional-online-learning-algorithms.pdf",
+    "id": "capacity-dependent-analysis-for-functional-online-learning-algorithms",
+    "processed": false
+  },
+  {
+    "title": "Finite-Time Analysis of Entropy-Regularized Neural Natural Actor-Critic Algorithm",
+    "authors": [
+      "Semih Cayci",
+      "Niao He",
+      "R. Srikant"
+    ],
+    "year": 2022,
+    "venue": "Transactions on Machine Learning Research",
+    "venue_type": null,
+    "arxiv_id": "2206.00833",
+    "doi": "10.48550/arXiv.2206.00833",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/d5c8a3b613a52b1c7d480bbafbac3f050196d083",
+    "sha256": "ed8c5e59c319c9bb82b4101225b2ea6ea498fae8e2cc1baba8bfbabab9ebd0e5",
+    "pdf_path": "accepted/finite-time-analysis-of-entropy-regularized-neural-natural-actor-critic-algorithm.pdf",
+    "id": "finite-time-analysis-of-entropy-regularized-neural-natural-actor-critic-algorithm",
+    "processed": false
+  },
+  {
+    "title": "First-order Policy Optimization for Robust Markov Decision Process",
+    "authors": [
+      "Yan Li",
+      "Tuo Zhao",
+      "Guanghui Lan"
+    ],
+    "year": 2022,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2209.10579",
+    "doi": "10.48550/arXiv.2209.10579",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/436e34f3fd0f0a99c0d449a896c004f0643f8e85",
+    "sha256": "0c8c7ecdebb8d2879c38fcc2dd306cda2cdf4cee4dcdea8e8ece4e61f6a5633c",
+    "pdf_path": "accepted/first-order-policy-optimization-for-robust-markov-decision-process.pdf",
+    "id": "first-order-policy-optimization-for-robust-markov-decision-process",
+    "processed": false
+  },
+  {
+    "title": "Frank Wolfe Meets Metric Entropy",
+    "authors": [
+      "S. Vijaykumar"
+    ],
+    "year": 2022,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2205.08634",
+    "doi": "10.48550/arXiv.2205.08634",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/e89175ad1c3b55d9cfab60055ebe6077922546e9",
+    "sha256": "4db1db98431409c7c7d4e48ad048f9339b6784995f0bea2cc6953d190fa9d338",
+    "pdf_path": "accepted/frank-wolfe-meets-metric-entropy.pdf",
+    "id": "frank-wolfe-meets-metric-entropy",
+    "processed": false
+  },
+  {
+    "title": "From Optimization Dynamics to Generalization Bounds via Łojasiewicz Gradient Inequality",
+    "authors": [
+      "Fusheng Liu",
+      "Haizhao Yang",
+      "Soufiane Hayou",
+      "Qianxiao Li"
+    ],
+    "year": 2022,
+    "venue": "Transactions on Machine Learning Research",
+    "venue_type": null,
+    "arxiv_id": "2202.10670",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/54353089a925504a0082e813a19baede4d9be606",
+    "sha256": "45056c15327df3ee1db323a1a2930c532cea71e514daabcc6d8283291bc693cd",
+    "pdf_path": "accepted/liu-2022-from-optimization-dynamics-to-generalization-bounds-via-ojasiewicz-gradient-inequ.pdf",
+    "id": "liu-2022-from-optimization-dynamics-to-generalization-bounds-via-ojasiewicz-gradient-inequ",
+    "processed": false
+  },
+  {
+    "title": "Noisy Truncated SGD: Optimization and Generalization",
+    "authors": [
+      "Yingxue Zhou",
+      "Xinyan Li",
+      "A. Banerjee"
+    ],
+    "year": 2022,
+    "venue": "SIAM International Conference on Data Mining (SDM)",
+    "venue_type": "conference",
+    "arxiv_id": "2103.00075",
+    "doi": "10.1137/1.9781611977172.53",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/b3dfb1c31e234f00f9562261a234976d20457fae",
+    "sha256": "8b84b6de94e29af697ae48f30290cfbdb36b3df7b574a2d2c68759062b238cd4",
+    "pdf_path": "accepted/noisy-truncated-sgd-optimization-and-generalization.pdf",
+    "id": "noisy-truncated-sgd-optimization-and-generalization",
+    "processed": false
+  },
+  {
+    "title": "On Rademacher Complexity-based Generalization Bounds for Deep Learning",
+    "authors": [
+      "Lan V. Truong"
+    ],
+    "year": 2022,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2208.04284",
+    "doi": "10.48550/arXiv.2208.04284",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/fc505d995240294df603d5cab339f582dbb1af64",
+    "sha256": "60e24b186b08a1e0c29e3a898ca5f67132058ccefa8c88f02999d7a1cb1bcb26",
+    "pdf_path": "accepted/2022-on-rademacher-complexity-based-generalization-bounds-for-deep-learning.pdf",
+    "id": "2022-on-rademacher-complexity-based-generalization-bounds-for-deep-learning",
+    "processed": false
+  },
+  {
+    "title": "Pessimistic Q-Learning for Offline Reinforcement Learning: Towards Optimal Sample Complexity",
+    "authors": [
+      "Laixi Shi",
+      "Gen Li",
+      "Yuting Wei",
+      "Yuxin Chen",
+      "Yuejie Chi"
+    ],
+    "year": 2022,
+    "venue": "International Conference on Machine Learning",
+    "venue_type": "conference",
+    "arxiv_id": "2202.13890",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/e1ac9023f2991ebc840b99d6f0203201a3adfaf4",
+    "sha256": "7826c35d23c51f8c96bf8433ee2d064c04f77e046345dfe12e1a6a77bed4a08f",
+    "pdf_path": "accepted/2022-pessimistic-q-learning-for-offline-reinforcement-learning-towards-optimal-sample-complexity.pdf",
+    "id": "2022-pessimistic-q-learning-for-offline-reinforcement-learning-towards-optimal-sample-complexity",
+    "processed": false
+  },
+  {
+    "title": "Stability and Generalization for Markov Chain Stochastic Gradient Methods",
+    "authors": [
+      "Puyu Wang",
+      "Yunwen Lei",
+      "Yiming Ying",
+      "Ding-Xuan Zhou"
+    ],
+    "year": 2022,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": "2209.08005",
+    "doi": "10.48550/arXiv.2209.08005",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/4ff968e4b05e738df6a7fdc4b1213df3f212bae6",
+    "sha256": "ea05d2a85a62548c5c36fb52fb35494dac18f6e0c115ce214f32ff43eacfb59a",
+    "pdf_path": "accepted/stability-and-generalization-for-markov-chain-stochastic-gradient-methods.pdf",
+    "id": "stability-and-generalization-for-markov-chain-stochastic-gradient-methods",
+    "processed": false
+  },
+  {
+    "title": "Thinking Outside the Ball: Optimal Learning with Gradient Descent for Generalized Linear Stochastic Convex Optimization",
+    "authors": [
+      "I Zaghloul Amir",
+      "Roi Livni",
+      "N. Srebro"
+    ],
+    "year": 2022,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": "2202.13328",
+    "doi": "10.52202/068431-1710",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/f3c164fdf96cc73be11ae7fd5ee88cf8a73d7de1",
+    "sha256": "ceb9adce7ad67325822e54663e3ba7fe01cd2e053765a24852ba6cfd79f04681",
+    "pdf_path": "accepted/thinking-outside-the-ball-optimal-learning-with-gradient-descent-for-generalized-linear-stochastic-convex-optimization.pdf",
+    "id": "thinking-outside-the-ball-optimal-learning-with-gradient-descent-for-generalized-linear-stochastic-convex-optimization",
+    "processed": false
+  },
+  {
+    "title": "A Lower Bound for the Sample Complexity of Inverse Reinforcement Learning",
+    "authors": [
+      "A. Komanduru",
+      "Jean Honorio"
+    ],
+    "year": 2021,
+    "venue": "International Conference on Machine Learning",
+    "venue_type": "conference",
+    "arxiv_id": "2103.04446",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/15d5b1ccb2835d703d98c227ada042212b852af7",
+    "sha256": "cc656ef7bd3f787fc74122348546a6c0054e65b1af3286ae9b4f71c177f0bafb",
+    "pdf_path": "accepted/2021-a-lower-bound-for-the-sample-complexity-of-inverse-reinforcement-learning.pdf",
+    "id": "2021-a-lower-bound-for-the-sample-complexity-of-inverse-reinforcement-learning",
+    "processed": false
+  },
+  {
+    "title": "Cautiously Optimistic Policy Optimization and Exploration with Linear Function Approximation",
+    "authors": [
+      "A. Zanette",
+      "Ching-An Cheng",
+      "Alekh Agarwal"
+    ],
+    "year": 2021,
+    "venue": "Conference on Learning Theory (COLT)",
+    "venue_type": "conference",
+    "arxiv_id": "2103.12923",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/188e4e97c8ac1e25b61904078fb9bed1e6eb6f2a",
+    "sha256": "dd3133593744ae2aa185fc09f39732aafda51ab438d54e791dc093735bdded0c",
+    "pdf_path": "accepted/cautiously-optimistic-policy-optimization-and-exploration-with-linear-function-approximation.pdf",
+    "id": "cautiously-optimistic-policy-optimization-and-exploration-with-linear-function-approximation",
+    "processed": false
+  },
+  {
+    "title": "Convergence rates for shallow neural networks learned by gradient descent",
+    "authors": [
+      "Alina Braun",
+      "M. Kohler",
+      "S. Langer",
+      "Harro Walk"
+    ],
+    "year": 2021,
+    "venue": "Bernoulli",
+    "venue_type": "journal",
+    "arxiv_id": "2107.09550",
+    "doi": "10.3150/23-bej1605",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/898621dc611373c8818cb5cca201438dc0ab5728",
+    "sha256": "f47960969ee20cb15e77816adebbd9d0a0cc4aeacfb606d6fda5faf461b0bf33",
+    "pdf_path": "accepted/convergence-rates-for-shallow-neural-networks-learned-by-gradient-descent.pdf",
+    "id": "convergence-rates-for-shallow-neural-networks-learned-by-gradient-descent",
+    "processed": false
+  },
+  {
+    "title": "Exponential Weights Algorithms for Selective Learning",
+    "authors": [
+      "Mingda Qiao",
+      "G. Valiant"
+    ],
+    "year": 2021,
+    "venue": "Conference on Learning Theory (COLT)",
+    "venue_type": "conference",
+    "arxiv_id": "2106.15662",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/b2899ded3d202af98076dc4b90d5b87e7cb00c4a",
+    "sha256": "023491abdfd87f0e43ee871e7c612bb9dc4f3c1702b031f450c6dd1035b9601b",
+    "pdf_path": "accepted/2021-exponential-weights-algorithms-for-selective-learning.pdf",
+    "id": "2021-exponential-weights-algorithms-for-selective-learning",
+    "processed": false
+  },
+  {
+    "title": "Generalization bounds for graph convolutional neural networks via Rademacher complexity",
+    "authors": [
+      "Shaogao Lv"
+    ],
+    "year": 2021,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2102.10234",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/91f434d5a79d0019a2308f039bd193a405b78f70",
+    "sha256": "630297351a220b637fe8a833f7d537973e95978955b773f3f235541dac40a1b6",
+    "pdf_path": "accepted/2021-generalization-bounds-for-graph-convolutional-neural-networks-via-rademacher-complexity.pdf",
+    "id": "2021-generalization-bounds-for-graph-convolutional-neural-networks-via-rademacher-complexity",
+    "processed": false
+  },
+  {
+    "title": "One-pass Stochastic Gradient Descent in overparametrized two-layer neural networks",
+    "authors": [
+      "Hanjing Zhu",
+      "Jiaming Xu"
+    ],
+    "year": 2021,
+    "venue": "International Conference on Artificial Intelligence and Statistics",
+    "venue_type": "conference",
+    "arxiv_id": "2105.00262",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/81dfb75aaf86a3887faa00a657316333fa07d880",
+    "sha256": "822b8be3207a9ac542f3da94c9d96474a6099a675916b67fc45106a5bb8fd6e7",
+    "pdf_path": "accepted/one-pass-stochastic-gradient-descent-in-overparametrized-two-layer-neural-networks.pdf",
+    "id": "one-pass-stochastic-gradient-descent-in-overparametrized-two-layer-neural-networks",
+    "processed": false
+  },
+  {
+    "title": "The Modern Mathematics of Deep Learning",
+    "authors": [
+      "Julius Berner",
+      "P. Grohs",
+      "Gitta Kutyniok",
+      "P. Petersen"
+    ],
+    "year": 2021,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2105.04026",
+    "doi": "10.1017/9781009025096.002",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/79464be4efb538055ebb3d20c4720c8f77218644",
+    "sha256": "bc2f041e6bb4cc488e3c638ae5231ca6ce7c11b92ca9b88f834fd2c50cdce21f",
+    "pdf_path": "accepted/2021-the-modern-mathematics-of-deep-learning.pdf",
+    "id": "2021-the-modern-mathematics-of-deep-learning",
+    "processed": false
+  },
+  {
+    "title": "Why Does Multi-Epoch Training Help?",
+    "authors": [
+      "Yi Xu",
+      "Qi Qian",
+      "Hao Li",
+      "Rong Jin"
+    ],
+    "year": 2021,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2105.06015",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/3c3533ec8c4a7bcee6224aff9ad7a30ea8dfef3a",
+    "sha256": "b2d33595e77fbeed315d23b930b0c7556435bab4d112b544af42eea463ff9d3d",
+    "pdf_path": "accepted/why-does-multi-epoch-training-help.pdf",
+    "id": "why-does-multi-epoch-training-help",
+    "processed": false
+  },
+  {
+    "title": "Why Lottery Ticket Wins? A Theoretical Perspective of Sample Complexity on Pruned Neural Networks",
+    "authors": [
+      "Shuai Zhang",
+      "Meng Wang",
+      "Sijia Liu",
+      "Pin-Yu Chen",
+      "Jinjun Xiong"
+    ],
+    "year": 2021,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2110.05667",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/24fb91f134b9291f7535e7f6305a925a4f63440e",
+    "sha256": "f10e5db9c1b025e89e54e3fae64e8554dbe711e986258cc87b973e1fdf642ed9",
+    "pdf_path": "accepted/why-lottery-ticket-wins-a-theoretical-perspective-of-sample-complexity-on-pruned-neural-networks.pdf",
+    "id": "why-lottery-ticket-wins-a-theoretical-perspective-of-sample-complexity-on-pruned-neural-networks",
+    "processed": false
+  },
+  {
+    "title": "Decidability of Sample Complexity of PAC Learning in finite setting",
+    "authors": [
+      "A. Gandolfi"
+    ],
+    "year": 2020,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2002.11519",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/ebfa2da3491e2a3c6f2161ccc5b52ba2f063ca40",
+    "sha256": "75de588580c30e422aa2e891a900ccdfbb7b86cafa276b4e71bd3c5509e2e9ee",
+    "pdf_path": "accepted/2020-decidability-of-sample-complexity-of-pac-learning-in-finite-setting.pdf",
+    "id": "2020-decidability-of-sample-complexity-of-pac-learning-in-finite-setting",
+    "processed": false
+  },
+  {
+    "title": "Empirical or Invariant Risk Minimization? A Sample Complexity Perspective",
+    "authors": [
+      "Kartik Ahuja",
+      "Jun Wang",
+      "Amit Dhurandhar",
+      "Karthikeyan Shanmugam",
+      "Kush R. Varshney"
+    ],
+    "year": 2020,
+    "venue": "International Conference on Learning Representations",
+    "venue_type": "conference",
+    "arxiv_id": "2010.16412",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/fbf50ed8e09b3268770029af30b01d31973f77d0",
+    "sha256": "4dbf95d1c773d3b2950b5b72ebb4bdf1c2fde0d01cc1b5e421289a0ae71f31e2",
+    "pdf_path": "accepted/2020-empirical-or-invariant-risk-minimization-a-sample-complexity-perspective.pdf",
+    "id": "2020-empirical-or-invariant-risk-minimization-a-sample-complexity-perspective",
+    "processed": false
+  },
+  {
+    "title": "Fast Learning of Graph Neural Networks with Guaranteed Generalizability: One-hidden-layer Case",
+    "authors": [
+      "Shuai Zhang",
+      "Meng Wang",
+      "Sijia Liu",
+      "Pin-Yu Chen",
+      "Jinjun Xiong"
+    ],
+    "year": 2020,
+    "venue": "International Conference on Machine Learning",
+    "venue_type": "conference",
+    "arxiv_id": "2006.14117",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/e3b2f31bbd33e1f59fa2eb83101d288e1159ad2e",
+    "sha256": "a0aece0b31fc37e049e3ab3026dd9c9c244d8bb08304332cc7693b385e0e4cca",
+    "pdf_path": "accepted/fast-learning-of-graph-neural-networks-with-guaranteed-generalizability-one-hidden-layer-case.pdf",
+    "id": "fast-learning-of-graph-neural-networks-with-guaranteed-generalizability-one-hidden-layer-case",
+    "processed": false
+  },
+  {
+    "title": "Finding the Near Optimal Policy via Adaptive Reduced Regularization in MDPs",
+    "authors": [
+      "Wenhao Yang",
+      "Xiang Li",
+      "Guangzeng Xie",
+      "Zhihua Zhang"
+    ],
+    "year": 2020,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2011.00213",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/14c3190e3324aeb40464482a2c6e42ff02b55f5c",
+    "sha256": "f586b6b355cb6dd642d049c0b90669f9b6146286ab420ceb2eda8b2d1911a66a",
+    "pdf_path": "accepted/finding-the-near-optimal-policy-via-adaptive-reduced-regularization-in-mdps.pdf",
+    "id": "finding-the-near-optimal-policy-via-adaptive-reduced-regularization-in-mdps",
+    "processed": false
+  },
+  {
+    "title": "Learning Graph Neural Networks with Approximate Gradient Descent",
+    "authors": [
+      "Qunwei Li",
+      "Shaofeng Zou",
+      "Leon Wenliang Zhong"
+    ],
+    "year": 2020,
+    "venue": "AAAI Conference on Artificial Intelligence",
+    "venue_type": "conference",
+    "arxiv_id": "2012.03429",
+    "doi": "10.1609/aaai.v35i10.17025",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/be62a12d7c1dd77157164a0cbc448dc5c0e2db96",
+    "sha256": "a2afd38e534470751f5ab2630e81cc2240f2696ff0a9f1cbb54ebf49600d9f93",
+    "pdf_path": "accepted/learning-graph-neural-networks-with-approximate-gradient-descent.pdf",
+    "id": "learning-graph-neural-networks-with-approximate-gradient-descent",
+    "processed": false
+  },
+  {
+    "title": "On the Sample Complexity of Adversarial Multi-Source PAC Learning",
+    "authors": [
+      "Nikola Konstantinov",
+      "Elias Frantar",
+      "Dan Alistarh",
+      "Christoph H. Lampert"
+    ],
+    "year": 2020,
+    "venue": "International Conference on Machine Learning",
+    "venue_type": "conference",
+    "arxiv_id": "2002.10384",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/97b3d9aff4d6d7bc318241c4ee53b051a0d8566f",
+    "sha256": "40ee160c67cd3baf24d2fe4a3cffd1bd41d02c2020d3cf0cf2e3ebecfd956179",
+    "pdf_path": "accepted/2020-on-the-sample-complexity-of-adversarial-multi-source-pac-learning.pdf",
+    "id": "2020-on-the-sample-complexity-of-adversarial-multi-source-pac-learning",
+    "processed": false
+  },
+  {
+    "title": "Optimal Rates for Averaged Stochastic Gradient Descent under Neural Tangent Kernel Regime",
+    "authors": [
+      "Atsushi Nitanda",
+      "Taiji Suzuki"
+    ],
+    "year": 2020,
+    "venue": "International Conference on Learning Representations",
+    "venue_type": "conference",
+    "arxiv_id": "2006.12297",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/54e35cfa780f6444cfb3750ec9bb0c4d3e83ee16",
+    "sha256": "e9b193c383149ff7840ff0b0cf11fd89f0ce1d54b7e0285174b62a5eac40037f",
+    "pdf_path": "accepted/optimal-rates-for-averaged-stochastic-gradient-descent-under-neural-tangent-kernel-regime.pdf",
+    "id": "optimal-rates-for-averaged-stochastic-gradient-descent-under-neural-tangent-kernel-regime",
+    "processed": false
+  },
+  {
+    "title": "Optimization and Generalization of Shallow Neural Networks with Quadratic Activation Functions",
+    "authors": [
+      "Stefano Sarao Mannelli",
+      "E. Vanden-Eijnden",
+      "Lenka Zdeborov'a"
+    ],
+    "year": 2020,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": "2006.15459",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/2109ceec09d5e523378b5f2963c9bb5519a1fc7e",
+    "sha256": "0d6c8de97ed331d670f109fdfb2de593837aaa0cb03ced0006c548bb8d494373",
+    "pdf_path": "accepted/optimization-and-generalization-of-shallow-neural-networks-with-quadratic-activation-functions.pdf",
+    "id": "optimization-and-generalization-of-shallow-neural-networks-with-quadratic-activation-functions",
+    "processed": false
+  },
+  {
+    "title": "Probably Approximately Correct Constrained Learning",
+    "authors": [
+      "Luiz F. O. Chamon",
+      "Alejandro Ribeiro"
+    ],
+    "year": 2020,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": "2006.05487",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/04cafedd3acf13efafcab8521f696bf514f26fab",
+    "sha256": "78f98f63e912a42ed58cbc441a2066ae9350347ca0210a477a63c4b4210ffb2c",
+    "pdf_path": "accepted/2020-probably-approximately-correct-constrained-learning.pdf",
+    "id": "2020-probably-approximately-correct-constrained-learning",
+    "processed": false
+  },
+  {
+    "title": "Sample Complexity of Uniform Convergence for Multicalibration",
+    "authors": [
+      "Eliran Shabat",
+      "Lee Cohen",
+      "Y. Mansour"
+    ],
+    "year": 2020,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": "2005.01757",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/2564832cf9087d629c96b3cee7ad56fffa2b6987",
+    "sha256": "3dc9c7d3584d2d82a699d96ec48ac5b8a7681ec77ed9b4c605c744ba5aca51e6",
+    "pdf_path": "accepted/2020-sample-complexity-of-uniform-convergence-for-multicalibration.pdf",
+    "id": "2020-sample-complexity-of-uniform-convergence-for-multicalibration",
+    "processed": false
+  },
+  {
+    "title": "Tight Nonparametric Convergence Rates for Stochastic Gradient Descent under the Noiseless Linear Model",
+    "authors": [
+      "Raphael Berthier",
+      "F. Bach",
+      "P. Gaillard"
+    ],
+    "year": 2020,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": "2006.08212",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/742499b463bb3a05a5d1602f2087f0c6b26180ce",
+    "sha256": "b9e2829c7f72eca08555d23484fe6a65795f09b82828b4ddca2dffa74b5d8ef6",
+    "pdf_path": "accepted/tight-nonparametric-convergence-rates-for-stochastic-gradient-descent-under-the-noiseless-linear-model.pdf",
+    "id": "tight-nonparametric-convergence-rates-for-stochastic-gradient-descent-under-the-noiseless-linear-model",
+    "processed": false
+  },
+  {
+    "title": "Understanding the Role of Adversarial Regularization in Supervised Learning",
+    "authors": [
+      "Litu Rout"
+    ],
+    "year": 2020,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2010.00522",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/dbae16e04405b2b62ba33e06ee51c12b9527d663",
+    "sha256": "2dec03a9904f1021dd3fbb035182e3028e09f703a7731571ddc98152a8dff7a5",
+    "pdf_path": "accepted/understanding-the-role-of-adversarial-regularization-in-supervised-learning.pdf",
+    "id": "understanding-the-role-of-adversarial-regularization-in-supervised-learning",
+    "processed": false
+  },
+  {
+    "title": "Weighted Empirical Risk Minimization: Sample Selection Bias Correction based on Importance Sampling",
+    "authors": [
+      "Robin Vogel",
+      "Mastane Achab",
+      "S. Clémençon",
+      "C. Tillier"
+    ],
+    "year": 2020,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "2002.05145",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/0ec03a7d5cd5d9c3d8e723dfb088f6afa970a299",
+    "sha256": "ecf956590af46c6fd89f3396c19af3cdd2c4127b6c0390aba3a3f331a975e68b",
+    "pdf_path": "accepted/2020-weighted-empirical-risk-minimization-sample-selection-bias-correction-based-on-importance-sampling.pdf",
+    "id": "2020-weighted-empirical-risk-minimization-sample-selection-bias-correction-based-on-importance-sampling",
+    "processed": false
+  },
+  {
+    "title": "Beating SGD Saturation with Tail-Averaging and Minibatching",
+    "authors": [
+      "Nicole Mücke",
+      "Gergely Neu",
+      "L. Rosasco"
+    ],
+    "year": 2019,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": "1902.08668",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/14b2fb4b31f83bce814068e4f760bd6584b5cdbf",
+    "sha256": "df347ad90f8bae5e18ba988071e9a55a2fb7e1f838a97b497ee5be06d0884a4a",
+    "pdf_path": "accepted/beating-sgd-saturation-with-tail-averaging-and-minibatching.pdf",
+    "id": "beating-sgd-saturation-with-tail-averaging-and-minibatching",
+    "processed": false
+  },
+  {
+    "title": "Blockwise Adaptivity: Faster Training and Better Generalization in Deep Learning",
+    "authors": [
+      "Shuai Zheng",
+      "J. Kwok"
+    ],
+    "year": 2019,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "1905.09899",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/55403aa348bde7e445e3710a64833b2ce9a0a71b",
+    "sha256": "690b62d9961ab5ea69c9865d3bfd69ebbeb62cb5854745f6ef9a596a8399e9dc",
+    "pdf_path": "accepted/blockwise-adaptivity-faster-training-and-better-generalization-in-deep-learning.pdf",
+    "id": "blockwise-adaptivity-faster-training-and-better-generalization-in-deep-learning",
+    "processed": false
+  },
+  {
+    "title": "Excess risk bounds in robust empirical risk minimization",
+    "authors": [
+      "Stanislav Minsker",
+      "Timothée Mathieu"
+    ],
+    "year": 2019,
+    "venue": "Information and Inference: A Journal of the IMA",
+    "venue_type": "journal",
+    "arxiv_id": "1910.07485",
+    "doi": "10.1093/imaiai/iaab004",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/89bcd2708e33bd2b02236f92f199fe9c02a3cc31",
+    "sha256": "fc6bfeefe3222ccb25a6101be33b2b7aa347e7dafa5ab634655ef99bfb427ee6",
+    "pdf_path": "accepted/2019-excess-risk-bounds-in-robust-empirical-risk-minimization.pdf",
+    "id": "2019-excess-risk-bounds-in-robust-empirical-risk-minimization",
+    "processed": false
+  },
+  {
+    "title": "Exponential Convergence Rates of Classification Errors on Learning with SGD and Random Features",
+    "authors": [
+      "Shingo Yashima",
+      "Atsushi Nitanda",
+      "Taiji Suzuki"
+    ],
+    "year": 2019,
+    "venue": "International Conference on Artificial Intelligence and Statistics",
+    "venue_type": "conference",
+    "arxiv_id": "1911.05350",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/852155a1c6eca8d8335e610027d8c56ea8cbc3e6",
+    "sha256": "85e0d9a0390c0ddffdb0715e81f0b33c6e5aa84368e56696af3444bce64e98c6",
+    "pdf_path": "accepted/exponential-convergence-rates-of-classification-errors-on-learning-with-sgd-and-random-features.pdf",
+    "id": "exponential-convergence-rates-of-classification-errors-on-learning-with-sgd-and-random-features",
+    "processed": false
+  },
+  {
+    "title": "Rademacher complexity and spin glasses: A link between the replica and statistical theories of learning",
+    "authors": [
+      "Alia Abbara",
+      "Benjamin Aubin",
+      "Florent Krzakala",
+      "Lenka Zdeborov'a"
+    ],
+    "year": 2019,
+    "venue": "Mathematical and Scientific Machine Learning",
+    "venue_type": "conference",
+    "arxiv_id": "1912.02729",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/513e56f778b86e3ffeacbe2f7cf2e9e63fc1ccbd",
+    "sha256": "a37c3c64196f924fd5299190a8b42990839248d14b3ee0c76ff485f88e20e258",
+    "pdf_path": "accepted/2019-rademacher-complexity-and-spin-glasses-a-link-between-the-replica-and-statistical-theories-of-learning.pdf",
+    "id": "2019-rademacher-complexity-and-spin-glasses-a-link-between-the-replica-and-statistical-theories-of-learning",
+    "processed": false
+  },
+  {
+    "title": "Variance-reduced Q-learning is minimax optimal",
+    "authors": [
+      "M. Wainwright"
+    ],
+    "year": 2019,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "1906.04697",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/9172c8e49be3bf204d3cecfad6ba1a7b4ddd2207",
+    "sha256": "243af0b16180dee4a478b7a88f4e17048f995bf7acfce4c08b9f416a171fa08d",
+    "pdf_path": "accepted/2019-variance-reduced-q-learning-is-minimax-optimal.pdf",
+    "id": "2019-variance-reduced-q-learning-is-minimax-optimal",
+    "processed": false
+  },
+  {
+    "title": "Optimal Convergence for Distributed Learning with Stochastic Gradient Methods and Spectral Algorithms",
+    "authors": [
+      "Junhong Lin",
+      "V. Cevher"
+    ],
+    "year": 2018,
+    "venue": "Journal of Machine Learning Research",
+    "venue_type": "journal",
+    "arxiv_id": "1801.07226",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/091a0796b1fd2d896295e7bedb7f8c05c2dba9df",
+    "sha256": "df3fe63b8e11e07ce52bef3428185650fd115ca89b3bb9f62f3e26fcccb00325",
+    "pdf_path": "accepted/optimal-convergence-for-distributed-learning-with-stochastic-gradient-methods-and-spectral-algorithms.pdf",
+    "id": "optimal-convergence-for-distributed-learning-with-stochastic-gradient-methods-and-spectral-algorithms",
+    "processed": false
+  },
+  {
+    "title": "Probably approximately correct learning of Horn envelopes from queries",
+    "authors": [
+      "D. Borchmann",
+      "Tom Hanika",
+      "S. Obiedkov"
+    ],
+    "year": 2018,
+    "venue": "Discrete Applied Mathematics",
+    "venue_type": "journal",
+    "arxiv_id": "1807.06149",
+    "doi": "10.1016/j.dam.2019.02.036",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/cdf0eb7df09f2779eda9bbc000e3eb61cc26dc2e",
+    "sha256": "16a204cbced12b5592d7d2a18f13e9e2f2365cf483ae12e723ba8d9c8fe65ec6",
+    "pdf_path": "accepted/2018-probably-approximately-correct-learning-of-horn-envelopes-from-queries.pdf",
+    "id": "2018-probably-approximately-correct-learning-of-horn-envelopes-from-queries",
+    "processed": false
+  },
+  {
+    "title": "Probably Approximately Metric-Fair Learning",
+    "authors": [
+      "G. Rothblum",
+      "G. Yona"
+    ],
+    "year": 2018,
+    "venue": "International Conference on Machine Learning",
+    "venue_type": "conference",
+    "arxiv_id": "1803.03242",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/9f00d66392d1a7ed388ee55d53eebe5b3381e36e",
+    "sha256": "e8948c4a9be7fc327a3068b078d3d253af6eee564837b982967aa35a2ba8308a",
+    "pdf_path": "accepted/2018-probably-approximately-metric-fair-learning.pdf",
+    "id": "2018-probably-approximately-metric-fair-learning",
+    "processed": false
+  },
+  {
+    "title": "Proximal Gradient Temporal Difference Learning: Stable Reinforcement Learning with Polynomial Sample Complexity",
+    "authors": [
+      "Bo Liu",
+      "Ian Gemp",
+      "M. Ghavamzadeh",
+      "Ji Liu",
+      "S. Mahadevan",
+      "Marek Petrik"
+    ],
+    "year": 2018,
+    "venue": "Journal of Artificial Intelligence Research",
+    "venue_type": "journal",
+    "arxiv_id": "2006.03976",
+    "doi": "10.1613/jair.1.11251",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/50ca5fd40809b1cd4fdd343c9c85f01cc949cac6",
+    "sha256": "20cd10540da226a631e8615b7b5fbfbb9ef779c94cfa281bc188c0bb60bd4d14",
+    "pdf_path": "accepted/proximal-gradient-temporal-difference-learning-stable-reinforcement-learning-with-polynomial-sample-complexity.pdf",
+    "id": "proximal-gradient-temporal-difference-learning-stable-reinforcement-learning-with-polynomial-sample-complexity",
+    "processed": false
+  },
+  {
+    "title": "Rademacher Complexity for Adversarially Robust Generalization",
+    "authors": [
+      "Dong Yin",
+      "K. Ramchandran",
+      "P. Bartlett"
+    ],
+    "year": 2018,
+    "venue": "International Conference on Machine Learning",
+    "venue_type": "conference",
+    "arxiv_id": "1810.11914",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/1438fab07a94351eaabcbe92983fbefaa208b2f3",
+    "sha256": "7c3aa1d64113e177bc0d5e685279ffe8d2eae700ef9157190ed27afaaa4bbce0",
+    "pdf_path": "accepted/2018-rademacher-complexity-for-adversarially-robust-generalization.pdf",
+    "id": "2018-rademacher-complexity-for-adversarially-robust-generalization",
+    "processed": false
+  },
+  {
+    "title": "Stochastic Gradient Descent with Exponential Convergence Rates of Expected Classification Errors",
+    "authors": [
+      "Atsushi Nitanda",
+      "Taiji Suzuki"
+    ],
+    "year": 2018,
+    "venue": "International Conference on Artificial Intelligence and Statistics",
+    "venue_type": "conference",
+    "arxiv_id": "1806.05438",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/6b7bb64710420dc700885673e6ca1650933dd820",
+    "sha256": "dec149fd33df6841266a674a35d1c2f32876713c564b07a01803ed8a7acc3589",
+    "pdf_path": "accepted/stochastic-gradient-descent-with-exponential-convergence-rates-of-expected-classification-errors.pdf",
+    "id": "stochastic-gradient-descent-with-exponential-convergence-rates-of-expected-classification-errors",
+    "processed": false
+  },
+  {
+    "title": "Data-Dependent Stability of Stochastic Gradient Descent",
+    "authors": [
+      "Ilja Kuzborskij",
+      "Christoph H. Lampert"
+    ],
+    "year": 2017,
+    "venue": "International Conference on Machine Learning",
+    "venue_type": "conference",
+    "arxiv_id": "1703.01678",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/93ea563fcc26069442ad3b71e1bc216fe5789d68",
+    "sha256": "b96b581fab857939fa895e2a43e8a6a9d2a9f377d782b382c54b3f03228f5e66",
+    "pdf_path": "accepted/data-dependent-stability-of-stochastic-gradient-descent.pdf",
+    "id": "data-dependent-stability-of-stochastic-gradient-descent",
+    "processed": false
+  },
+  {
+    "title": "Exponential convergence of testing error for stochastic gradient methods",
+    "authors": [
+      "Loucas Pillaud-Vivien",
+      "Alessandro Rudi",
+      "F. Bach"
+    ],
+    "year": 2017,
+    "venue": "Conference on Learning Theory (COLT)",
+    "venue_type": "conference",
+    "arxiv_id": "1712.04755",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/ff9fd90db9bafcd0aa24ab49547ade4425faf65b",
+    "sha256": "1318dff0b1b68366658f7f5a64e7dae8320fb3c95d722bd858b6706c5c276125",
+    "pdf_path": "accepted/exponential-convergence-of-testing-error-for-stochastic-gradient-methods.pdf",
+    "id": "exponential-convergence-of-testing-error-for-stochastic-gradient-methods",
+    "processed": false
+  },
+  {
+    "title": "Minimax rates for cost-sensitive learning on manifolds with approximate nearest neighbours",
+    "authors": [
+      "Henry W. J. Reeve",
+      "Gavin Brown"
+    ],
+    "year": 2017,
+    "venue": "International Conference on Algorithmic Learning Theory",
+    "venue_type": "conference",
+    "arxiv_id": "1803.00310",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/46413c4f90c817dc5f6bae1ca484daf6e2b947fc",
+    "sha256": "3062b8bcf3acdb1d90247cd0875e5dbb28b6207e005a41372a8defc258d7ad2b",
+    "pdf_path": "accepted/2018-minimax-rates-for-cost-sensitive-learning-on-manifolds-with-approximate-nearest-neighbours.pdf",
+    "id": "2018-minimax-rates-for-cost-sensitive-learning-on-manifolds-with-approximate-nearest-neighbours",
+    "processed": false
+  },
+  {
+    "title": "On the Usability of Probably Approximately Correct Implication Bases",
+    "authors": [
+      "D. Borchmann",
+      "Tom Hanika",
+      "S. Obiedkov"
+    ],
+    "year": 2017,
+    "venue": "International Conference on Formal Concept Analysis",
+    "venue_type": "conference",
+    "arxiv_id": "1701.00877",
+    "doi": "10.1007/978-3-319-59271-8_5",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/ad02f4198bda6470efdc1063fe8d3888363cb2d2",
+    "sha256": "d2e50ed60ec7aa3061e3ab2d912612a1fe2170fcb94f7c6312de194133130919",
+    "pdf_path": "accepted/2017-on-the-usability-of-probably-approximately-correct-implication-bases.pdf",
+    "id": "2017-on-the-usability-of-probably-approximately-correct-implication-bases",
+    "processed": false
+  },
+  {
+    "title": "Stochastic Canonical Correlation Analysis",
+    "authors": [
+      "Chao Gao",
+      "D. Garber",
+      "N. Srebro",
+      "Jialei Wang",
+      "Weiran Wang"
+    ],
+    "year": 2017,
+    "venue": "Journal of Machine Learning Research",
+    "venue_type": "journal",
+    "arxiv_id": "1702.06533",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/04fbb39a7c30b7c595cd768308bb5cff4558e29d",
+    "sha256": "01da9f1ad93c2a033542cf55be091e9ab4b84eb93a0709afbb5cf8904b8814d7",
+    "pdf_path": "accepted/stochastic-canonical-correlation-analysis.pdf",
+    "id": "stochastic-canonical-correlation-analysis",
+    "processed": false
+  },
+  {
+    "title": "Stochastic Particle Gradient Descent for Infinite Ensembles",
+    "authors": [
+      "Atsushi Nitanda",
+      "Taiji Suzuki"
+    ],
+    "year": 2017,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "1712.05438",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/0073a1284260305b59fd4eae899b6fc00dd7eb18",
+    "sha256": "a2544f8f7ea0995ca89f021d7d20fe76fb30904d5946c03963eea026b4fa133c",
+    "pdf_path": "accepted/stochastic-particle-gradient-descent-for-infinite-ensembles.pdf",
+    "id": "stochastic-particle-gradient-descent-for-infinite-ensembles",
+    "processed": false
+  },
+  {
+    "title": "Generalization Error Bounds for Optimization Algorithms via Stability",
+    "authors": [
+      "Qi Meng",
+      "Yue Wang",
+      "Wei Chen",
+      "Taifeng Wang",
+      "Zhiming Ma",
+      "Tie-Yan Liu"
+    ],
+    "year": 2016,
+    "venue": "AAAI Conference on Artificial Intelligence",
+    "venue_type": "conference",
+    "arxiv_id": "1609.08397",
+    "doi": "10.1609/aaai.v31i1.10919",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/6bc6b89aaf369dc9807af9632896c33aa9e59970",
+    "sha256": "504b6b010586e0a16a8831c037b05e8bf8379b7412eaeba9eb3bb11423296096",
+    "pdf_path": "accepted/generalization-error-bounds-for-optimization-algorithms-via-stability.pdf",
+    "id": "generalization-error-bounds-for-optimization-algorithms-via-stability",
+    "processed": false
+  },
+  {
+    "title": "Regret Bounds for Lifelong Learning",
+    "authors": [
+      "Pierre Alquier",
+      "The Tien Mai",
+      "M. Pontil"
+    ],
+    "year": 2016,
+    "venue": "International Conference on Artificial Intelligence and Statistics",
+    "venue_type": "conference",
+    "arxiv_id": "1610.08628",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/7d165972c805ebb16863480d44f4e02498ba193b",
+    "sha256": "9ac88ee5bfad5ef7b81e7838ef50b2e57da6523650056f2567a8890ed2915d95",
+    "pdf_path": "accepted/2016-regret-bounds-for-lifelong-learning.pdf",
+    "id": "2016-regret-bounds-for-lifelong-learning",
+    "processed": false
+  },
+  {
+    "title": "Fast rates in statistical and online learning",
+    "authors": [
+      "T. Erven",
+      "P. Grünwald",
+      "Nishant A. Mehta",
+      "Mark D. Reid",
+      "R. C. Williamson"
+    ],
+    "year": 2015,
+    "venue": "Journal of Machine Learning Research",
+    "venue_type": "journal",
+    "arxiv_id": "1507.02592",
+    "doi": "10.5555/2789272.2886807",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/8b78f69afe420bd9efc70c7cbb256d5ce78843fd",
+    "sha256": "659c67994645490c8208bd45a13f1dc1d9944c056b129f4ff081384e39c0e6ba",
+    "pdf_path": "accepted/2015-fast-rates-in-statistical-and-online-learning.pdf",
+    "id": "2015-fast-rates-in-statistical-and-online-learning",
+    "processed": false
+  },
+  {
+    "title": "Generalization Bounds for Neural Networks through Tensor Factorization",
+    "authors": [
+      "Majid Janzamin",
+      "Hanie Sedghi",
+      "Anima Anandkumar"
+    ],
+    "year": 2015,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "1506.08473",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/ac862d5a6a4352f801ba62a1f3837552b7a372b1",
+    "sha256": "727066d081c220035fd04d48023879c6564e19086765c37d93abae88feab83f6",
+    "pdf_path": "accepted/2015-beating-the-perils-of-non-convexity-guaranteed-training-of-neural-networks-using-tensor-methods.pdf",
+    "id": "2015-beating-the-perils-of-non-convexity-guaranteed-training-of-neural-networks-using-tensor-methods",
+    "processed": false
+  },
+  {
+    "title": "Local Rademacher complexity bounds based on covering numbers",
+    "authors": [
+      "Yunwen Lei",
+      "L. Ding",
+      "Yingzhou Bi"
+    ],
+    "year": 2015,
+    "venue": "Neurocomputing",
+    "venue_type": "journal",
+    "arxiv_id": "1510.01463",
+    "doi": "10.1016/j.neucom.2016.08.074",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/1963c71b017106a16a734290d65d282cdb8be3c4",
+    "sha256": "8f59051ce0223c744196291299f2002488322386a64815b77348c8ec1c1b76d0",
+    "pdf_path": "accepted/2015-local-rademacher-complexity-bounds-based-on-covering-numbers.pdf",
+    "id": "2015-local-rademacher-complexity-bounds-based-on-covering-numbers",
+    "processed": false
+  },
+  {
+    "title": "The Optimal Sample Complexity of PAC Learning",
+    "authors": [
+      "Steve Hanneke"
+    ],
+    "year": 2015,
+    "venue": "Journal of Machine Learning Research",
+    "venue_type": "journal",
+    "arxiv_id": "1507.00473",
+    "doi": "10.5555/2946645.2946683",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/7860192bb790b487384e3f4e8984f4305b13ad20",
+    "sha256": "d38eee0540492b280c82f0454f04d69b96a33f2f94f46559cf25fa1b541c6a43",
+    "pdf_path": "accepted/2015-the-optimal-sample-complexity-of-pac-learning.pdf",
+    "id": "2015-the-optimal-sample-complexity-of-pac-learning",
+    "processed": false
+  },
+  {
+    "title": "Localized Complexities for Transductive Learning",
+    "authors": [
+      "I. Tolstikhin",
+      "G. Blanchard",
+      "M. Kloft"
+    ],
+    "year": 2014,
+    "venue": "Conference on Learning Theory (COLT)",
+    "venue_type": "conference",
+    "arxiv_id": "1411.7200",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/4971c3c2d8e3eeae93a6174e222d3c34a5933dcd",
+    "sha256": "fb5da484fd912b09d0c82205e1a30dee7fbd71625d3159f26ba3bcc4f560da9e",
+    "pdf_path": "accepted/2014-localized-complexities-for-transductive-learning.pdf",
+    "id": "2014-localized-complexities-for-transductive-learning",
+    "processed": false
+  },
+  {
+    "title": "Online and Stochastic Gradient Methods for Non-decomposable Loss Functions",
+    "authors": [
+      "Purushottam Kar",
+      "H. Narasimhan",
+      "Prateek Jain"
+    ],
+    "year": 2014,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": "1410.6776",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/f45a55b688d2cb7587132b4ce71bf220e8a43896",
+    "sha256": "682f323bfee4b4e1657f57c7b176dbde78685ac2788cd9459efbd71b3b0aa769",
+    "pdf_path": "accepted/online-and-stochastic-gradient-methods-for-non-decomposable-loss-functions.pdf",
+    "id": "online-and-stochastic-gradient-methods-for-non-decomposable-loss-functions",
+    "processed": false
+  },
+  {
+    "title": "Sample Complexity Bounds on Differentially Private Learning via Communication Complexity",
+    "authors": [
+      "V. Feldman",
+      "David Xiao"
+    ],
+    "year": 2014,
+    "venue": "SIAM Journal on Computing",
+    "venue_type": "journal",
+    "arxiv_id": "1402.6278",
+    "doi": "10.1137/140991844",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/231ec01b6a2659c269416ee4bb9e1736795f552c",
+    "sha256": "0ae29f7dbd712a7374a04ae4590c90d48ab146d07e183a960754612b12fc11d7",
+    "pdf_path": "accepted/2014-sample-complexity-bounds-on-differentially-private-learning-via-communication-complexity.pdf",
+    "id": "2014-sample-complexity-bounds-on-differentially-private-learning-via-communication-complexity",
+    "processed": false
+  },
+  {
+    "title": "Learning subgaussian classes : Upper and minimax bounds",
+    "authors": [
+      "G. Lecu'e",
+      "S. Mendelson"
+    ],
+    "year": 2013,
+    "venue": "arXiv (preprint)",
+    "venue_type": "repository",
+    "arxiv_id": "1305.4825",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/b7dbbd1912687b7d6cc6eaf3a85446e2088c6f7c",
+    "sha256": "d9c0f7bdde8818f8e47e54693ddf587dc9761de739378995042e660bbb006413",
+    "pdf_path": "accepted/2013-learning-subgaussian-classes-upper-and-minimax-bounds.pdf",
+    "id": "2013-learning-subgaussian-classes-upper-and-minimax-bounds",
+    "processed": false
+  },
+  {
+    "title": "On the Generalization Ability of Online Learning Algorithms for Pairwise Loss Functions",
+    "authors": [
+      "Purushottam Kar",
+      "Bharath K. Sriperumbudur",
+      "Prateek Jain",
+      "H. Karnick"
+    ],
+    "year": 2013,
+    "venue": "International Conference on Machine Learning",
+    "venue_type": "conference",
+    "arxiv_id": "1305.2505",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/f4fd333664420e05fa6f572d222f4417f5552e46",
+    "sha256": "132494d7effdf5126d3fc8dcfa5c761a555d6ced8e26ae491a175e40dd35f3e1",
+    "pdf_path": "accepted/2013-on-the-generalization-ability-of-online-learning-algorithms-for-pairwise-loss-functions.pdf",
+    "id": "2013-on-the-generalization-ability-of-online-learning-algorithms-for-pairwise-loss-functions",
+    "processed": false
+  },
+  {
+    "title": "OPTIMAL COMPUTATIONAL AND STATISTICAL RATES OF CONVERGENCE FOR SPARSE NONCONVEX LEARNING PROBLEMS",
+    "authors": [
+      "Zhaoran Wang",
+      "Han Liu",
+      "Tong Zhang"
+    ],
+    "year": 2013,
+    "venue": "Annals of Statistics",
+    "venue_type": "journal",
+    "arxiv_id": "1306.4960",
+    "doi": "10.1214/14-AOS1238",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/3bb70da45458ed616537967d0b7731b5f475c04d",
+    "sha256": "9dd1d22d00d1012def31c8defeb658d5f30a73dd7da8393e63630cffe1adfa6f",
+    "pdf_path": "accepted/optimal-computational-and-statistical-rates-of-convergence-for-sparse-nonconvex-learning-problems.pdf",
+    "id": "optimal-computational-and-statistical-rates-of-convergence-for-sparse-nonconvex-learning-problems",
+    "processed": false
+  },
+  {
+    "title": "Distribution-dependent sample complexity of large margin learning",
+    "authors": [
+      "Sivan Sabato",
+      "N. Srebro",
+      "Naftali Tishby"
+    ],
+    "year": 2012,
+    "venue": "Journal of Machine Learning Research",
+    "venue_type": "journal",
+    "arxiv_id": "1204.1276",
+    "doi": "10.5555/2567709.2567729",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/9135ede3ce4d39c029d43f5080fd47f05d238b6a",
+    "sha256": "b92aa805b694ca7a78e8e6aa7ad8968d2c7dbcbe7af3ee7eb6ffc91db099b48b",
+    "pdf_path": "accepted/2012-distribution-dependent-sample-complexity-of-large-margin-learning.pdf",
+    "id": "2012-distribution-dependent-sample-complexity-of-large-margin-learning",
+    "processed": false
+  },
+  {
+    "title": "Efficient active learning of halfspaces: an aggressive approach",
+    "authors": [
+      "Alon Gonen",
+      "Sivan Sabato",
+      "S. Shalev-Shwartz"
+    ],
+    "year": 2012,
+    "venue": "Journal of Machine Learning Research",
+    "venue_type": "journal",
+    "arxiv_id": "1208.3561",
+    "doi": "10.5555/2567709.2567744",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/1a145805f655ce5bbb84dd6748716f94e7f69401",
+    "sha256": "06637ba29d6cdc4d57ae0f240c42409ab23b8d9760e3694c6b7e29341265b964",
+    "pdf_path": "accepted/2012-efficient-active-learning-of-halfspaces-an-aggressive-approach.pdf",
+    "id": "2012-efficient-active-learning-of-halfspaces-an-aggressive-approach",
+    "processed": false
+  },
+  {
+    "title": "On the Sample Complexity of Reinforcement Learning with a Generative Model",
+    "authors": [
+      "M. G. Azar",
+      "R. Munos",
+      "H. Kappen"
+    ],
+    "year": 2012,
+    "venue": "International Conference on Machine Learning",
+    "venue_type": "conference",
+    "arxiv_id": "1206.6461",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/af61e43831d35ec4f4db5e60f227629d2f39a437",
+    "sha256": "4ae883759c25775c75adf076f16f3b990bbd664bacb91eb03e0252081f759012",
+    "pdf_path": "accepted/2012-on-the-sample-complexity-of-reinforcement-learning-with-a-generative-model.pdf",
+    "id": "2012-on-the-sample-complexity-of-reinforcement-learning-with-a-generative-model",
+    "processed": false
+  },
+  {
+    "title": "Sparsity Regret Bounds for Individual Sequences in Online Linear Regression",
+    "authors": [
+      "Sébastien Gerchinovitz"
+    ],
+    "year": 2011,
+    "venue": "Conference on Learning Theory (COLT)",
+    "venue_type": "conference",
+    "arxiv_id": "1101.1057",
+    "doi": "10.5555/2567709.2502604",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/65404e4c82af98a34d8581524e69ea12da5e2e50",
+    "sha256": "d64c3001da4008437da69df24706d15111a12b239a98fa6623d4a52ec9c776df",
+    "pdf_path": "accepted/2011-sparsity-regret-bounds-for-individual-sequences-in-online-linear-regression.pdf",
+    "id": "2011-sparsity-regret-bounds-for-individual-sequences-in-online-linear-regression",
+    "processed": false
+  },
+  {
+    "title": "Evolution with Drifting Targets",
+    "authors": [
+      "Varun Kanade",
+      "L. Valiant",
+      "Jennifer Wortman Vaughan"
+    ],
+    "year": 2010,
+    "venue": "Conference on Learning Theory (COLT)",
+    "venue_type": "conference",
+    "arxiv_id": "1005.3566",
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/bbcfd303945a4615e70fd56770bca4ef76384c65",
+    "sha256": "344635732ea43173c6e4ab7996d433566496a36b5b7083a4332a149910fb6e37",
+    "pdf_path": "accepted/2010-evolution-with-drifting-targets.pdf",
+    "id": "2010-evolution-with-drifting-targets",
+    "processed": false
+  },
+  {
+    "title": "Rademacher and Gaussian Complexities: Risk Bounds and Structural Results",
+    "authors": [
+      "Peter L. Bartlett",
+      "Shahar Mendelson"
+    ],
+    "year": 2002,
+    "venue": "Journal of Machine Learning Research",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/009f35c0e453f2435efd8d8ef8086b76b294967a",
+    "sha256": "157a952bc8499febd05ea3115dfea40634891c93ca55e1838d5ae0c9fbb9b4bc",
+    "pdf_path": "accepted/2002-rademacher-and-gaussian-complexities-risk-bounds-and-structural-results.pdf",
+    "id": "2002-rademacher-and-gaussian-complexities-risk-bounds-and-structural-results",
+    "processed": false
+  },
+  {
+    "title": "PAC-Bayesian Model Averaging",
+    "authors": [
+      "David A. McAllester"
+    ],
+    "year": 1999,
+    "venue": "Conference on Learning Theory (COLT)",
+    "venue_type": "conference",
+    "arxiv_id": null,
+    "doi": "10.1145/307400.307435",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/609be06b5a91ffb8c35abd1636cd2431ff32435d",
+    "sha256": "809deac243aa03a4c317d9cc334d9fd784788c3b233ec8235d169e4a63ae70a7",
+    "pdf_path": "accepted/1999-pac-bayesian-model-averaging.pdf",
+    "id": "1999-pac-bayesian-model-averaging",
+    "processed": false
+  },
+  {
+    "title": "Some PAC-Bayesian Theorems",
+    "authors": [
+      "David A. McAllester"
+    ],
+    "year": 1999,
+    "venue": "Machine Learning",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1023/A:1007618624809",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/0e2f6482e7230e1d12af88d6b8afcef3d5d733e3",
+    "sha256": "dcf407307fc21b6728bed3f6120607789e35aa3e033acd957868a5a689078eaa",
+    "pdf_path": "accepted/1999-some-pac-bayesian-theorems.pdf",
+    "id": "1999-some-pac-bayesian-theorems",
+    "processed": false
+  },
+  {
+    "title": "Efficient Noise-Tolerant Learning from Statistical Queries",
+    "authors": [
+      "Michael Kearns"
+    ],
+    "year": 1998,
+    "venue": "Journal of the ACM",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1145/293347.293351",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/88caa4a21da7d31a63d7cc7e7de1897ba2c211b8",
+    "sha256": "e4ad0a33ce20e263ad1b61d840b314fe95fe612a775486bcc52d9fdecc0de599",
+    "pdf_path": "accepted/1998-efficient-noise-tolerant-learning-from-statistical-queries.pdf",
+    "id": "1998-efficient-noise-tolerant-learning-from-statistical-queries",
+    "processed": false
+  },
+  {
+    "title": "A Decision-Theoretic Generalization of On-Line Learning and an Application to Boosting",
+    "authors": [
+      "Yoav Freund",
+      "Robert E. Schapire"
+    ],
+    "year": 1997,
+    "venue": "Journal of Computer and System Sciences",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1006/jcss.1997.1504",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/4ba566223e426677d12a9a18418c023a4deec77e",
+    "sha256": "9eb02e6ef024d56684fd01b70296c929c411184766b969ef77ee00f6b9d5a68e",
+    "pdf_path": "accepted/1997-a-decision-theoretic-generalization-of-on-line-learning-and-an-application-to-boosting.pdf",
+    "id": "1997-a-decision-theoretic-generalization-of-on-line-learning-and-an-application-to-boosting",
+    "processed": false
+  },
+  {
+    "title": "Boosting a Weak Learning Algorithm by Majority",
+    "authors": [
+      "Yoav Freund"
+    ],
+    "year": 1995,
+    "venue": "Information and Computation",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1006/inco.1995.1136",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/b824cb051ffbdd81b529c4b82379a3af270fb6f7",
+    "sha256": "50c851371b320e416b0461b9809fdfe4c4317a2074b72e0fbfb757406421f526",
+    "pdf_path": "accepted/1995-boosting-a-weak-learning-algorithm-by-majority.pdf",
+    "id": "1995-boosting-a-weak-learning-algorithm-by-majority",
+    "processed": false
+  },
+  {
+    "title": "Cryptographic Limitations on Learning Boolean Formulae and Finite Automata",
+    "authors": [
+      "Michael Kearns",
+      "Leslie G. Valiant"
+    ],
+    "year": 1994,
+    "venue": "Journal of the ACM",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1145/174644.174647",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/3ae43d62122bffc2d921a363291ca184645d2376",
+    "sha256": "8fb61ed12e405f046995fa92ce33d6c2815b24ec2f359ef41fc20573566dd74b",
+    "pdf_path": "accepted/1994-cryptographic-limitations-on-learning-boolean-formulae-and-finite-automata.pdf",
+    "id": "1994-cryptographic-limitations-on-learning-boolean-formulae-and-finite-automata",
+    "processed": false
+  },
+  {
+    "title": "Toward Efficient Agnostic Learning",
+    "authors": [
+      "Michael Kearns",
+      "Robert E. Schapire",
+      "Linda M. Sellie"
+    ],
+    "year": 1994,
+    "venue": "Machine Learning",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1007/BF00993468",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/78cb4ca2c9c78348ade4c17621491d14d72f2a19",
+    "sha256": "5440f193d09ea8b8ebc1b1ff0cd154ac30989e6cfa06f4519d8dbfa13f40065f",
+    "pdf_path": "accepted/1994-toward-efficient-agnostic-learning.pdf",
+    "id": "1994-toward-efficient-agnostic-learning",
+    "processed": false
+  },
+  {
+    "title": "Learning in the Presence of Malicious Errors",
+    "authors": [
+      "Michael Kearns",
+      "Ming Li"
+    ],
+    "year": 1993,
+    "venue": "SIAM Journal on Computing",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1137/0222052",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/25875a29eded2acdad72cf897df11c2df2d92ec1",
+    "sha256": "11cd3afdb97628757d39468d22643594f32fa46ad332b1ac88813d537f0ef399",
+    "pdf_path": "accepted/1993-learning-in-the-presence-of-malicious-errors.pdf",
+    "id": "1993-learning-in-the-presence-of-malicious-errors",
+    "processed": false
+  },
+  {
+    "title": "Decision Theoretic Generalizations of the PAC Model for Neural Net and Other Learning Applications",
+    "authors": [
+      "David Haussler"
+    ],
+    "year": 1992,
+    "venue": "Information and Computation",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1016/0890-5401(92)90010-D",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/fedfc9fbcfe46d50b81078560bce724678f90176",
+    "sha256": "f83cde5c10065ab291ab2bcfca7818d62996c4be9954bc48a886bdebb43c1f34",
+    "pdf_path": "accepted/1992-decision-theoretic-generalizations-of-the-pac-model-for-neural-net-and-other-learning-applications.pdf",
+    "id": "1992-decision-theoretic-generalizations-of-the-pac-model-for-neural-net-and-other-learning-applications",
+    "processed": false
+  },
+  {
+    "title": "The Strength of Weak Learnability",
+    "authors": [
+      "Robert E. Schapire"
+    ],
+    "year": 1990,
+    "venue": "Machine Learning",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1007/BF00116037",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/35702d642c5f1b7950d088497837486b4ca682a3",
+    "sha256": "b432dfc986cfeb3b157ce35102a9c8ac9bbd15bc7b0666e0e103e76d3146babd",
+    "pdf_path": "accepted/1990-the-strength-of-weak-learnability.pdf",
+    "id": "1990-the-strength-of-weak-learnability",
+    "processed": false
+  },
+  {
+    "title": "A General Lower Bound on the Number of Examples Needed for Learning",
+    "authors": [
+      "Andrzej Ehrenfeucht",
+      "David Haussler",
+      "Michael Kearns",
+      "Leslie G. Valiant"
+    ],
+    "year": 1989,
+    "venue": "Information and Computation",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1016/0890-5401(89)90002-3",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/b83396caf4762c906530c9219a9e4dd0658232b0",
+    "sha256": "da345a86373faafd574252c54b94108ec93dc5934785019bd0013fe9fa5a1e3d",
+    "pdf_path": "accepted/1989-a-general-lower-bound-on-the-number-of-examples-needed-for-learning.pdf",
+    "id": "1989-a-general-lower-bound-on-the-number-of-examples-needed-for-learning",
+    "processed": false
+  },
+  {
+    "title": "Learnability and the Vapnik-Chervonenkis Dimension",
+    "authors": [
+      "Anselm Blumer",
+      "Andrzej Ehrenfeucht",
+      "David Haussler",
+      "Manfred K. Warmuth"
+    ],
+    "year": 1989,
+    "venue": "Journal of the ACM",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1145/76359.76371",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/e0b8fa3496283d4d808fba9ff62d5f024bcf23be",
+    "sha256": "2ad0c2c1b3db03d999f3e1d0ab28faa606bf1539da03419d67aa1f34249df9ed",
+    "pdf_path": "accepted/1989-learnability-and-the-vapnik-chervonenkis-dimension.pdf",
+    "id": "1989-learnability-and-the-vapnik-chervonenkis-dimension",
+    "processed": false
+  },
+  {
+    "title": "Computational Limitations on Learning from Examples",
+    "authors": [
+      "Leonard Pitt",
+      "Leslie G. Valiant"
+    ],
+    "year": 1988,
+    "venue": "Journal of the ACM",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1145/48014.63140",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/93849122caf1b10c9611eddb707e0720441c73f6",
+    "sha256": "9309ead150e616d32cb685772454e22aa0bb533165c34ab779aca0d91ad5c764",
+    "pdf_path": "accepted/1988-computational-limitations-on-learning-from-examples.pdf",
+    "id": "1988-computational-limitations-on-learning-from-examples",
+    "processed": false
+  },
+  {
+    "title": "Learning from Noisy Examples",
+    "authors": [
+      "Dana Angluin",
+      "Philip Laird"
+    ],
+    "year": 1988,
+    "venue": "Machine Learning",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1007/BF00116829",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/d15289b07f8f13ac22439845a45a41744511cd17",
+    "sha256": "b790858a92494b8557d6b1c95e30f3d96ae5abe6ff956e47201a214ad7bd2fe3",
+    "pdf_path": "accepted/1988-learning-from-noisy-examples.pdf",
+    "id": "1988-learning-from-noisy-examples",
+    "processed": false
+  },
+  {
+    "title": "Learning Quickly When Irrelevant Attributes Abound: A New Linear-Threshold Algorithm",
+    "authors": [
+      "Nick Littlestone"
+    ],
+    "year": 1988,
+    "venue": "Machine Learning",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1007/BF00116827",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/3cf9932e54bb71efa7549923aa72594ab771f0c7",
+    "sha256": "23770fc4939ec52bcb1055bdaeb36899782ab41a023c5d5f08dc78c8cdda3438",
+    "pdf_path": "accepted/1988-learning-quickly-when-irrelevant-attributes-abound-a-new-linear-threshold-algorithm.pdf",
+    "id": "1988-learning-quickly-when-irrelevant-attributes-abound-a-new-linear-threshold-algorithm",
+    "processed": false
+  },
+  {
+    "title": "Quantifying Inductive Bias: AI Learning Algorithms and Valiant's Learning Framework",
+    "authors": [
+      "David Haussler"
+    ],
+    "year": 1988,
+    "venue": "Artificial Intelligence",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1016/0004-3702(88)90002-1",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/3b814ad3055d6bfd7828effdbfbf1372646b7c22",
+    "sha256": "24f8b46392ba703d18c68a5150e54836f177423a29efe8fd8c49761e0f72d7f2",
+    "pdf_path": "accepted/1988-quantifying-inductive-bias-ai-learning-algorithms-and-valiants-learning-framework.pdf",
+    "id": "1988-quantifying-inductive-bias-ai-learning-algorithms-and-valiants-learning-framework",
+    "processed": false
+  },
+  {
+    "title": "What Size Net Gives Valid Generalization?",
+    "authors": [
+      "Eric B. Baum",
+      "David Haussler"
+    ],
+    "year": 1988,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": null,
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/25406e6733a698bfc4ac836f8e74f458e75dad4f",
+    "sha256": "f48ce72965e653c694fd0c5be4b76a5a2f30b5ddc35e8dd04055841739ca6d8b",
+    "pdf_path": "accepted/1988-what-size-net-gives-valid-generalization.pdf",
+    "id": "1988-what-size-net-gives-valid-generalization",
+    "processed": false
+  },
+  {
+    "title": "Learning Decision Lists",
+    "authors": [
+      "Ronald L. Rivest"
+    ],
+    "year": 1987,
+    "venue": "Machine Learning",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1007/BF00058680",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/2c386026b24f993aca44a7a684152778d46c51b0",
+    "sha256": "3a3ee9119826e194416196d551ac739066382e77f86434657c4e3c4d04c393b6",
+    "pdf_path": "accepted/1987-learning-decision-lists.pdf",
+    "id": "1987-learning-decision-lists",
+    "processed": false
+  },
+  {
+    "title": "Occam's Razor",
+    "authors": [
+      "Anselm Blumer",
+      "Andrzej Ehrenfeucht",
+      "David Haussler",
+      "Manfred K. Warmuth"
+    ],
+    "year": 1987,
+    "venue": "Information Processing Letters",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1016/0020-0190(87)90114-1",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/71448a9b8d35d5f3123405d3d7a66288618daab2",
+    "sha256": "556b9e7aadbd614cc3692edbda442cf1fc7c7320c631d403cb45cf754181b988",
+    "pdf_path": "accepted/1987-occams-razor.pdf",
+    "id": "1987-occams-razor",
+    "processed": false
+  },
+  {
+    "title": "A Theory of the Learnable",
+    "authors": [
+      "Leslie G. Valiant"
+    ],
+    "year": 1984,
+    "venue": "Communications of the ACM",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1145/1968.1972",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/d37b3a66d55d5361aeb5ef0793af66049535c24d",
+    "sha256": "381ee2e774542ccec25db2e8ed59e29c67e6dd106430e90bdd2debd50df558db",
+    "pdf_path": "accepted/1984-a-theory-of-the-learnable.pdf",
+    "id": "1984-a-theory-of-the-learnable",
+    "processed": false
+  },
+  {
+    "title": "On the Uniform Convergence of Relative Frequencies of Events to Their Probabilities",
+    "authors": [
+      "Vladimir N. Vapnik",
+      "Alexey Ya. Chervonenkis"
+    ],
+    "year": 1971,
+    "venue": "Theory of Probability and Its Applications",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1137/1116025",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/a36b028d024bf358c4af1a5e1dc3ca0aed23b553",
+    "sha256": "c86ae06d178f410b7bedd292814ae354f90b15ce561f7e0408065db49893e439",
+    "pdf_path": "accepted/1971-on-the-uniform-convergence-of-relative-frequencies-of-events-to-their-probabilities.pdf",
+    "id": "1971-on-the-uniform-convergence-of-relative-frequencies-of-events-to-their-probabilities",
+    "processed": false
+  }
+]
