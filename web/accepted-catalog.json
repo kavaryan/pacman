@@ -1,24 +1,5 @@
 [
   {
-    "title": "The Sample Complexity of Replicable Realizable PAC Learning",
-    "authors": [
-      "Kasper Green Larsen",
-      "Markus Engelund Mathiasen",
-      "Chirag Pabbaraju",
-      "Clement Svendsen"
-    ],
-    "year": 2026,
-    "venue": "ACM Symposium on Theory of Computing (STOC)",
-    "venue_type": "conference",
-    "arxiv_id": "2602.19552",
-    "doi": "10.1145/3798129.3800910",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/816dabfdac5e6d8f3b9646d78cab59c26ae92c98",
-    "sha256": "6794a91ae983ccc85ebfc210986bbcab5daec26e5ccabac1be4f92072404e5b7",
-    "pdf_path": "accepted/2026-the-sample-complexity-of-replicable-realizable-pac-learning.pdf",
-    "id": "2026-the-sample-complexity-of-replicable-realizable-pac-learning",
-    "processed": true
-  },
-  {
     "title": "Diff2SP: Diffusion Models for Correlated Scenario Generation in Stochastic Programming",
     "authors": [
       "Haixiang Sun",
@@ -69,6 +50,25 @@
     "sha256": "725ea83353d8f1a595dd6a63f7356f6bbd8ff4e530b21eaf4c6b68cd689a4eb7",
     "pdf_path": "accepted/2026-pac-learning-with-bandit-feedback-sharp-sample-complexity-in-the-realizable-setting.pdf",
     "id": "2026-pac-learning-with-bandit-feedback-sharp-sample-complexity-in-the-realizable-setting",
+    "processed": false
+  },
+  {
+    "title": "The Sample Complexity of Replicable Realizable PAC Learning",
+    "authors": [
+      "Kasper Green Larsen",
+      "Markus Engelund Mathiasen",
+      "Chirag Pabbaraju",
+      "Clement Svendsen"
+    ],
+    "year": 2026,
+    "venue": "ACM Symposium on Theory of Computing (STOC)",
+    "venue_type": "conference",
+    "arxiv_id": "2602.19552",
+    "doi": "10.1145/3798129.3800910",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/816dabfdac5e6d8f3b9646d78cab59c26ae92c98",
+    "sha256": "6794a91ae983ccc85ebfc210986bbcab5daec26e5ccabac1be4f92072404e5b7",
+    "pdf_path": "accepted/2026-the-sample-complexity-of-replicable-realizable-pac-learning.pdf",
+    "id": "2026-the-sample-complexity-of-replicable-realizable-pac-learning",
     "processed": false
   },
   {

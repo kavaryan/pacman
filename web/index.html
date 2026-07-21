@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <link rel="icon" type="image/svg+xml" sizes="64x64" href="images/favicon.svg">
-  <title>Accepted Papers</title>
+  <title>PACMan: PAC Papers</title>
   <style>
     :root {
       --ink: #17213b;
@@ -15,6 +15,7 @@
       --blue: #2367a8;
       --blue-soft: #e8f2fb;
     }
+    html { overflow-y: scroll; scrollbar-gutter: stable; }
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -25,9 +26,9 @@
     .shell { width: min(1040px, calc(100% - 32px)); margin: 44px auto 72px; }
     .page-title-row { margin-bottom: 22px; display: flex; align-items: center; gap: 13px; }
     .home-logo { width: 116px; height: 76px; flex: 0 0 auto; display: block; }
-    .home-logo img { width: 100%; height: 100%; display: block; object-fit: contain; }
+    .home-logo img { width: 130%; height: 130%; display: block; object-fit: contain; }
     .home-logo:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 3px; }
-    h1 { margin: 0; font: 600 clamp(28px, 4vw, 42px)/1.1 Georgia, "Times New Roman", serif; }
+    h1 { margin: 0; font: 500 clamp(28px, 4vw, 42px)/1.1 Georgia, "Times New Roman", serif; }
     .controls {
       padding-bottom: 18px;
       border-bottom: 1px solid var(--line);
@@ -102,7 +103,8 @@
       <a class="home-logo" href="./" aria-label="PAC Papers home">
         <img src="images/logo.svg" alt="">
       </a>
-      <h1>PACMan: PAC Papers</h1>
+      <!-- <h1>PACMan: <a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning">Probably Approximately Correct</a> (PAC) Papers</h1> -->
+       <h1>PACMan: <a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning" title="Probably Approximately Correct">PAC</a> Papers</h1>
     </div>
     <section class="controls" aria-label="Paper filters">
       <input id="paperSearch" type="search" placeholder="Search papers or authors" autocomplete="off">
