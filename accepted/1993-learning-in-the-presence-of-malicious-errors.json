@@ -1,0 +1,344 @@
+[
+  {
+    "id": "1993-learning-in-the-presence-of-malicious-errors",
+    "theorems": [
+      {
+        "id": "fact-cb1",
+        "type": "Fact",
+        "number": "CB1",
+        "title": "Lower-tail Chernoff bound",
+        "section": "2.4 Other definitions and notation",
+        "proofOrganization": "stated-without-separate-proof",
+        "proofNote": "The paper attributes Facts CB1 and CB2 to Angluin and Valiant [2], following Chernoff [6], and supplies no proof.",
+        "dependencies": [],
+        "statementHtml": "<p>For \\(0\\leq\\alpha\\leq1\\),</p><p>\\[\\operatorname{LE}(p,m,(1-\\alpha)mp)\\leq e^{-\\alpha^2mp/2}.\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 9, "y": 423.019952 }
+        }
+      },
+      {
+        "id": "fact-cb2",
+        "type": "Fact",
+        "number": "CB2",
+        "title": "Upper-tail Chernoff bound",
+        "section": "2.4 Other definitions and notation",
+        "proofOrganization": "stated-without-separate-proof",
+        "proofNote": "The paper attributes Facts CB1 and CB2 to Angluin and Valiant [2], following Chernoff [6], and supplies no proof.",
+        "dependencies": [],
+        "statementHtml": "<p>For \\(0\\leq\\alpha\\leq1\\),</p><p>\\[\\operatorname{GE}(p,m,(1+\\alpha)mp)\\leq e^{-\\alpha^2mp/3}.\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 9, "y": 458.779952 }
+        }
+      },
+      {
+        "id": "theorem-1",
+        "type": "Theorem",
+        "number": "1",
+        "title": "Absolute malicious-error upper bound",
+        "section": "3 Absolute limits on learning with errors",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>Let \\(C\\) be a distinct representation class. Then</p><p>\\[E_{MAL}(C)&lt;\\frac{\\epsilon}{1+\\epsilon}.\\]</p>",
+        "proofHtml": "<p>We use a technique that we will call the <em>method of induced distributions</em>: we choose \\(l\\geq2\\) representations \\(\\{c_i\\}_{i\\in\\{1,\\ldots,l\\}}\\subseteq C\\), along with \\(l\\) pairs of target distributions \\(\\{D^+_{c_i}\\}_{i\\in\\{1,\\ldots,l\\}}\\) and \\(\\{D^-_{c_i}\\}_{i\\in\\{1,\\ldots,l\\}}\\). These representations and target distributions are such that for any \\(i\\neq j\\), \\(1\\leq i,j\\leq l\\), \\(c_j\\) is \\(\\epsilon\\)-bad with respect to the distributions \\(D^+_{c_i},D^-_{c_i}\\). Then adversaries \\(\\{ADV_{c_i}\\}_{i\\in\\{1,\\ldots,l\\}}\\) are constructed for generating any errors when \\(c_i\\) is the target representation such that the behavior of the oracle \\(POS^{\\beta}_{MAL}\\) is identical regardless of which \\(c_i\\) is the target representation; the same is true for the oracle \\(NEG^{\\beta}_{MAL}\\), thus making it impossible for any learning algorithm to distinguish the true target representation, and essentially forcing the algorithm to “guess” one of the \\(c_i\\).</p><p>In the case of Theorem 1, this technique is easily applied, with \\(l=2\\), as follows: let \\(c_1,c_2\\in C\\) and \\(u,v,w,x\\in X\\) be as in the definition of distinct. Define the following target distributions for \\(c_1\\):</p><p>\\[D^+_{c_1}(u)=\\epsilon,\\qquad D^+_{c_1}(v)=1-\\epsilon\\]</p><p>and</p><p>\\[D^-_{c_1}(w)=\\epsilon,\\qquad D^-_{c_1}(x)=1-\\epsilon.\\]</p><p>For \\(c_2\\), the target distributions are:</p><p>\\[D^+_{c_2}(v)=1-\\epsilon,\\qquad D^+_{c_2}(w)=\\epsilon\\]</p><p>and</p><p>\\[D^-_{c_2}(u)=\\epsilon,\\qquad D^-_{c_2}(x)=1-\\epsilon.\\]</p><p>Note that these distributions are such that any representation that disagrees with the target representation on one of the points \\(u,v,w,x\\) is \\(\\epsilon\\)-bad with respect to the target distributions. Now if \\(c_1\\) is the target representation, then the adversary \\(ADV_{c_1}\\) behaves as follows: on calls to \\(POS^{\\beta}_{MAL}\\), \\(ADV_{c_1}\\) always returns the point \\(w\\) whenever an error occurs; on calls to \\(NEG^{\\beta}_{MAL}\\), \\(ADV_{c_1}\\) always returns the point \\(u\\) whenever an error occurs. Under these definitions, the oracle \\(POS^{\\beta}_{MAL}\\) draws a point from an <em>induced distribution</em> \\(I^+_{c_1}\\) that is determined by the joint behavior of the distribution \\(D^+_{c_1}\\) and the adversary \\(ADV_{c_1}\\), and is given by</p><p>\\[I^+_{c_1}(u)=(1-\\beta)\\epsilon,\\qquad I^+_{c_1}(v)=(1-\\beta)(1-\\epsilon),\\qquad I^+_{c_1}(w)=\\beta\\]</p><p>where \\(\\beta\\) is the malicious error rate. Similarly, the oracle \\(NEG^{\\beta}_{MAL}\\) draws from an induced distribution \\(I^-_{c_1}\\):</p><p>\\[I^-_{c_1}(u)=\\beta,\\qquad I^-_{c_1}(w)=(1-\\beta)\\epsilon,\\qquad I^-_{c_1}(x)=(1-\\beta)(1-\\epsilon).\\]</p><p>For target representation \\(c_2\\), the adversary \\(ADV_{c_2}\\) always returns the point \\(u\\) whenever a call to \\(POS^{\\beta}_{MAL}\\) results in an error, and always returns the point \\(w\\) whenever a call to \\(NEG^{\\beta}_{MAL}\\) results in an error. Then the oracle \\(POS^{\\beta}_{MAL}\\) draws from the induced distribution</p><p>\\[I^+_{c_2}(u)=\\beta,\\qquad I^+_{c_2}(v)=(1-\\beta)(1-\\epsilon),\\qquad I^+_{c_2}(w)=(1-\\beta)\\epsilon\\]</p><p>and the oracle \\(NEG^{\\beta}_{MAL}\\) from the induced distribution</p><p>\\[I^-_{c_2}(u)=(1-\\beta)\\epsilon,\\qquad I^-_{c_2}(w)=\\beta,\\qquad I^-_{c_2}(x)=(1-\\beta)(1-\\epsilon).\\]</p><p>It is easily verified that if \\(\\beta=\\epsilon/(1+\\epsilon)\\), then the distributions \\(I^+_{c_1}\\) and \\(I^+_{c_2}\\) are identical, and that \\(I^-_{c_1}\\) and \\(I^-_{c_2}\\) are identical; if \\(\\beta&gt;\\epsilon/(1+\\epsilon)\\), the adversary may always choose to flip a biased coin, and be “honest” (i.e., draw from the correct target distribution) when the outcome is heads, thus reducing the effective error rate to exactly \\(\\epsilon/(1+\\epsilon)\\). Thus, under these distributions and adversaries, the behavior of the oracles \\(POS^{\\beta}_{MAL}\\) and \\(NEG^{\\beta}_{MAL}\\) is identical regardless of the target representation. This implies that any algorithm that produces an \\(\\epsilon\\)-good hypothesis for target representation \\(c_1\\) with probability at least \\(1-\\delta\\) under the distributions \\(D^+_{c_1}\\) and \\(D^-_{c_1}\\) must fail to output an \\(\\epsilon\\)-good hypothesis for target representation \\(c_2\\) with probability at least \\(1-\\delta\\) under the distributions \\(D^+_{c_2}\\) and \\(D^-_{c_2}\\), thus proving the theorem.</p>",
+        "pdfStart": {
+          "statement": { "page": 11, "y": 246.86 },
+          "proof": { "page": 11, "y": 301.819976 }
+        }
+      },
+      {
+        "id": "theorem-2",
+        "type": "Theorem",
+        "number": "2",
+        "title": "One-sided malicious-error upper bounds",
+        "section": "3 Absolute limits on learning with errors",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>Let \\(C\\) be positive \\(t\\)-splittable (respectively, negative \\(t\\)-splittable). Then for \\(\\delta&lt;1/t\\),</p><p>\\[E_{MAL,+}(C)&lt;\\frac{\\epsilon}{t-1}\\]</p><p>(respectively, \\(E_{MAL,-}(C)&lt;\\epsilon/(t-1)\\)).</p>",
+        "proofHtml": "<p>The proof is by the method of induced distributions. We prove only the case that \\(C\\) is positive \\(t\\)-splittable; the proof for \\(C\\) negative \\(t\\)-splittable is similar. Let \\(c_1,\\ldots,c_t\\in C\\) and \\(u_1,\\ldots,u_t,v\\in X\\) be as in the definition of positive \\(t\\)-splittable. For target representation \\(c_j\\), define the target distributions \\(D^+_{c_j}\\) over \\(pos(c_j)\\) and \\(D^-_{c_j}\\) over \\(neg(c_j)\\) as follows:</p><p>\\[D^+_{c_j}(u_i)=\\frac{\\epsilon}{t-1},\\quad 1\\leq i\\leq t,\\ i\\neq j,\\qquad D^+_{c_j}(v)=1-\\epsilon\\]</p><p>and</p><p>\\[D^-_{c_j}(u_j)=1.\\]</p><p>For target representation \\(c_j\\), the errors on calls to \\(POS^{\\beta}_{MAL}\\) are generated by an adversary \\(ADV_{c_j}\\) who always returns the point \\(u_j\\) whenever an error occurs. Then under these definitions, \\(POS^{\\beta}_{MAL}\\) draws a point from a distribution \\(I^+_{c_j}\\) induced by the distribution \\(D^+_{c_j}\\) and the adversary \\(ADV_{c_j}\\). This distribution is</p><p>\\[I^+_{c_j}(u_i)=(1-\\beta)\\frac{\\epsilon}{t-1},\\quad 1\\leq i\\leq t,\\ i\\neq j,\\qquad I^+_{c_j}(v)=(1-\\beta)(1-\\epsilon),\\qquad I^+_{c_j}(u_j)=\\beta.\\]</p><p>If \\(\\beta=(1-\\beta)(\\epsilon/(t-1))\\), then the induced distributions \\(I^+_{c_j}\\) are all identical for \\(1\\leq j\\leq t\\). Solving, we obtain \\(\\beta=(\\epsilon/(t-1))/(1+\\epsilon/(t-1))&lt;\\epsilon/(t-1)\\). Now let \\(\\beta\\geq\\epsilon/(t-1)\\), and assume \\(A\\) is a \\(\\beta\\)-tolerant positive-only learning algorithm for \\(C\\). If \\(c_j\\) is the target representation, then with probability at least \\(1-\\delta\\), \\(u_i\\in pos(h_A)\\) for some \\(i\\neq j\\), otherwise \\(e^+(h_A)\\geq\\epsilon\\) under the induced distribution \\(I^+_{c_j}\\). Let \\(k\\) be such that</p><p>\\[\\Pr[u_k\\in pos(h_A)]=\\max_{1\\leq i\\leq t}\\{\\Pr[u_i\\in pos(h_A)]\\}\\]</p><p>where the probability is taken over all sequences of examples given to \\(A\\) by the oracle \\(POS^{\\beta}_{MAL}\\) and the coin tosses of \\(A\\). Then we must have</p><p>\\[\\Pr[u_k\\in pos(h_A)]\\geq\\frac{1-\\delta}{t-1}.\\]</p><p>Choose \\(\\delta&lt;1/t\\). Then with probability at least \\(\\delta\\), \\(e^-(h_A)=1\\) when \\(c_k\\) is the target representation, with distributions \\(D^+_{c_k}\\) and \\(D^-_{c_k}\\) and adversary \\(ADV_{c_k}\\). This contradicts the assumption that \\(A\\) is a \\(\\beta\\)-tolerant learning algorithm, and the theorem follows.</p>",
+        "pdfStart": {
+          "statement": { "page": 13, "y": 461.899952 },
+          "proof": { "page": 13, "y": 538.940024 }
+        }
+      },
+      {
+        "id": "corollary-3",
+        "type": "Corollary",
+        "number": "3",
+        "title": "One-sided bounds for monomials",
+        "section": "3 Absolute limits on learning with errors",
+        "proofOrganization": "shared-following",
+        "proofNote": "The paper gives one shared proof sentence for Corollaries 3–5.",
+        "dependencies": ["theorem-2"],
+        "statementHtml": "<p>Let \\(M_n\\) be the class of monomials over \\(x_1,\\ldots,x_n\\). Then</p><p>\\[E_{MAL,+}(M_n)&lt;\\frac{\\epsilon}{n-1}\\]</p><p>and</p><p>\\[E_{MAL,-}(M_n)&lt;\\frac{\\epsilon}{n-1}.\\]</p>",
+        "proofHtml": "<p>Proofs of these corollaries follow from the Vapnik-Chervonenkis dimension of the representation classes and Theorem 2. Note that the proof of Theorem 2 shows that these corollaries actually hold for any fixed \\(\\epsilon\\) and \\(n\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 14, "y": 607.819976 },
+          "proof": { "page": 15, "y": 275.539952 }
+        }
+      },
+      {
+        "id": "corollary-4",
+        "type": "Corollary",
+        "number": "4",
+        "title": "One-sided bounds for kDNF",
+        "section": "3 Absolute limits on learning with errors",
+        "proofOrganization": "shared-following",
+        "proofNote": "The paper gives one shared proof sentence for Corollaries 3–5.",
+        "dependencies": ["theorem-2"],
+        "statementHtml": "<p>For fixed \\(k\\), let \\(k\\mathrm{DNF}_n\\) be the class of \\(k\\mathrm{DNF}\\) formulae over \\(x_1,\\ldots,x_n\\). Then</p><p>\\[E_{MAL,+}(k\\mathrm{DNF}_n)=O\\!\\left(\\frac{\\epsilon}{n^k}\\right)\\]</p><p>and</p><p>\\[E_{MAL,-}(k\\mathrm{DNF}_n)=O\\!\\left(\\frac{\\epsilon}{n^k}\\right).\\]</p>",
+        "proofHtml": "<p>Proofs of these corollaries follow from the Vapnik-Chervonenkis dimension of the representation classes and Theorem 2. Note that the proof of Theorem 2 shows that these corollaries actually hold for any fixed \\(\\epsilon\\) and \\(n\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 15, "y": 75.02 },
+          "proof": { "page": 15, "y": 275.539952 }
+        }
+      },
+      {
+        "id": "corollary-5",
+        "type": "Corollary",
+        "number": "5",
+        "title": "One-sided bounds for symmetric functions",
+        "section": "3 Absolute limits on learning with errors",
+        "proofOrganization": "shared-following",
+        "proofNote": "The paper gives one shared proof sentence for Corollaries 3–5.",
+        "dependencies": ["theorem-2"],
+        "statementHtml": "<p>Let \\(SF_n\\) be the class of symmetric functions over \\(x_1,\\ldots,x_n\\). Then</p><p>\\[E_{MAL,+}(SF_n)&lt;\\frac{\\epsilon}{n-1}\\]</p><p>and</p><p>\\[E_{MAL,-}(SF_n)&lt;\\frac{\\epsilon}{n-1}.\\]</p>",
+        "proofHtml": "<p>Proofs of these corollaries follow from the Vapnik-Chervonenkis dimension of the representation classes and Theorem 2. Note that the proof of Theorem 2 shows that these corollaries actually hold for any fixed \\(\\epsilon\\) and \\(n\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 15, "y": 177.5 },
+          "proof": { "page": 15, "y": 275.539952 }
+        }
+      },
+      {
+        "id": "theorem-6",
+        "type": "Theorem",
+        "number": "6",
+        "title": "One-sided classification-noise upper bounds",
+        "section": "3 Absolute limits on learning with errors",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>Let \\(C\\) be positive (respectively, negative) incomparable. Then</p><p>\\[E_{CN,+}(C)&lt;\\frac{\\epsilon}{1+\\epsilon}\\]</p><p>(respectively, \\(E_{CN,-}(C)&lt;\\epsilon/(1+\\epsilon)\\)).</p>",
+        "proofHtml": "<p>By the method of induced distributions. We do the proof for the case that \\(C\\) is positive incomparable; the proof when \\(C\\) is negative incomparable is similar. Let \\(c_1,c_2\\in C\\) and \\(u,v,w\\in X\\) be as in the definition of positive incomparable. For target representation \\(c_1\\), we define distributions</p><p>\\[D^+_{c_1}(u)=\\epsilon,\\qquad D^+_{c_1}(v)=1-\\epsilon\\]</p><p>and</p><p>\\[D^-_{c_1}(w)=1.\\]</p><p>Then in the classification noise model, the oracle \\(POS^{\\beta}_{CN}\\) draws from the induced distribution</p><p>\\[I^+_{c_1}(u)=(1-\\beta)\\epsilon,\\qquad I^+_{c_1}(v)=(1-\\beta)(1-\\epsilon),\\qquad I^+_{c_1}(w)=\\beta.\\]</p><p>For target representation \\(c_2\\), define distributions</p><p>\\[D^+_{c_2}(v)=1-\\epsilon,\\qquad D^+_{c_2}(w)=\\epsilon\\]</p><p>and</p><p>\\[D^-_{c_2}(u)=1.\\]</p><p>Then for target representation \\(c_2\\), oracle \\(POS^{\\beta}_{CN}\\) draws from the induced distribution</p><p>\\[I^+_{c_2}(u)=\\beta,\\qquad I^+_{c_2}(v)=(1-\\beta)(1-\\epsilon),\\qquad I^+_{c_2}(w)=(1-\\beta)\\epsilon.\\]</p><p>For \\(\\beta=\\epsilon/(1+\\epsilon)\\), distributions \\(I^+_{c_1}\\) and \\(I^+_{c_2}\\) are identical. Any positive-only algorithm learning \\(c_1\\) under \\(D^+_{c_1}\\) and \\(D^-_{c_1}\\) with probability at least \\(1-\\delta\\) must fail with probability at least \\(1-\\delta\\) when learning \\(c_2\\) under \\(D^+_{c_2}\\) and \\(D^-_{c_2}\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 15, "y": 528.859976 },
+          "proof": { "page": 15, "y": 609.259976 }
+        }
+      },
+      {
+        "id": "theorem-7",
+        "type": "Theorem",
+        "number": "7",
+        "title": "Malicious-error Occam theorem",
+        "section": "4 Efficient error-tolerant learning",
+        "proofOrganization": "direct",
+        "dependencies": ["fact-cb1", "fact-cb2"],
+        "statementHtml": "<p>Let \\(\\beta&lt;\\epsilon/4\\), and let \\(A\\) be a \\(\\beta\\)-tolerant Occam algorithm for \\(C\\) by \\(H\\). Then \\(A\\) is a \\(\\beta\\)-tolerant learning algorithm for \\(C\\) by \\(H\\); the sample size required is \\(m=O((1/\\epsilon)\\ln(1/\\delta)+(1/\\epsilon)\\ln|H|)\\). If \\(A\\) is such that only Condition 1 (respectively, Condition 2) above holds, then \\(e^+(h_A)&lt;\\epsilon\\) (respectively, \\(e^-(h_A)&lt;\\epsilon\\)) with probability at least \\(1-\\delta\\).</p>",
+        "proofHtml": "<p>We prove the statement where \\(A\\) meets Condition 1; the case for Condition 2 is similar. Let \\(h\\in H\\) be such that \\(e^+(h)\\geq\\epsilon\\). Then the probability that \\(h\\) agrees with a point received from the oracle \\(POS^{\\beta}_{MAL}\\) is bounded above by</p><p>\\[(1-\\beta)(1-\\epsilon)+\\beta\\leq1-\\frac{3\\epsilon}{4}\\]</p><p>for \\(\\beta&lt;\\epsilon/4\\). Thus the probability that \\(h\\) agrees with at least a fraction \\(1-\\epsilon/2\\) of \\(m\\) examples received from \\(POS^{\\beta}_{MAL}\\) is</p><p>\\[\\operatorname{LE}\\!\\left(\\frac{3\\epsilon}{4},m,\\frac{\\epsilon}{2}m\\right)\\leq e^{-m\\epsilon/24}\\]</p><p>by Fact CB1. From this it follows that the probability that some \\(h\\in H\\) with \\(e^+(h)\\geq\\epsilon\\) agrees with a fraction \\(1-\\epsilon/2\\) of the \\(m\\) examples is at most \\(|H|e^{-m\\epsilon/24}\\). Solving \\(|H|e^{-m\\epsilon/24}\\leq\\delta/2\\), we obtain \\(m\\geq(24/\\epsilon)(\\ln|H|+\\ln(2/\\delta))\\). This proves that any \\(h\\) meeting Condition 1 is with high probability \\(\\epsilon\\)-good with respect to \\(D^+\\), completing the proof.</p><p>To demonstrate that the suggested approach of finding a nearly consistent hypothesis is in fact a feasible one, we note that if \\(c\\) is the target representation, then the probability that \\(c\\) fails to agree with at least a fraction \\(1-\\epsilon/2\\) of \\(m\\) examples received from \\(POS^{\\beta}_{MAL}\\) is</p><p>\\[\\operatorname{GE}\\!\\left(\\frac{\\epsilon}{4},m,\\frac{\\epsilon}{2}m\\right)\\leq\\frac{\\delta}{2}\\]</p><p>for \\(\\beta\\leq\\epsilon/4\\) and \\(m\\) as in the statement of Theorem 7 by Fact CB2.</p>",
+        "pdfStart": {
+          "statement": { "page": 17, "y": 264.140048 },
+          "proof": { "page": 17, "y": 330.380024 }
+        }
+      },
+      {
+        "id": "theorem-8",
+        "type": "Theorem",
+        "number": "8",
+        "title": "Positive-only malicious-error tolerance for monomials",
+        "section": "4 Efficient error-tolerant learning",
+        "proofOrganization": "cited-without-proof",
+        "proofNote": "The paper attributes this theorem to Valiant [24] and supplies no proof.",
+        "dependencies": [],
+        "statementHtml": "<p><span class=\"citation\">(Valiant [24])</span> Let \\(M_n\\) be the class of monomials over \\(x_1,\\ldots,x_n\\). Then</p><p>\\[E^{poly}_{MAL,+}(M_n)=\\Omega\\!\\left(\\frac{\\epsilon}{n}\\right).\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 18, "y": 75.02 }
+        }
+      },
+      {
+        "id": "theorem-9",
+        "type": "Theorem",
+        "number": "9",
+        "title": "Negative-only malicious-error tolerance for kDNF",
+        "section": "4 Efficient error-tolerant learning",
+        "proofOrganization": "cited-without-proof",
+        "proofNote": "The paper attributes this theorem to Valiant [24] and supplies no proof.",
+        "dependencies": [],
+        "statementHtml": "<p><span class=\"citation\">(Valiant [24])</span> For fixed \\(k\\), let \\(k\\mathrm{DNF}_n\\) be the class of \\(k\\mathrm{DNF}\\) formulae over \\(x_1,\\ldots,x_n\\). Then</p><p>\\[E^{poly}_{MAL,-}(k\\mathrm{DNF}_n)=\\Omega\\!\\left(\\frac{\\epsilon}{n^k}\\right).\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 18, "y": 134.06 }
+        }
+      },
+      {
+        "id": "theorem-10",
+        "type": "Theorem",
+        "number": "10",
+        "title": "Positive-only learning of symmetric functions",
+        "section": "4 Efficient error-tolerant learning",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-7", "fact-cb2"],
+        "statementHtml": "<p>Let \\(SF_n\\) be the class of symmetric functions over \\(x_1,\\ldots,x_n\\). Then</p><p>\\[E^{poly}_{MAL,+}(SF_n)=\\Omega\\!\\left(\\frac{\\epsilon}{n}\\right).\\]</p>",
+        "proofHtml": "<p>Let \\(\\beta\\leq\\epsilon/8n\\). The positive-only algorithm \\(A\\) maintains an integer array \\(P\\) indexed \\(0,\\ldots,n\\) and initialized to contain 0 at each location. \\(A\\) takes \\(m\\) (calculated below) examples from \\(POS^{\\beta}_{MAL}\\), and for each vector \\(\\vec v\\) received, increments \\(P[index(\\vec v)]\\), where \\(index(\\vec v)\\) is the number of bits set to 1 in \\(\\vec v\\). The hypothesis \\(h_A\\) is defined as follows: all vectors of index \\(i\\) are contained in \\(pos(h_A)\\) if and only if \\(P[i]\\geq(\\epsilon/4n)m\\); otherwise all vectors of index \\(i\\) are negative examples of \\(h_A\\).</p><p>Note that \\(h_A\\) can disagree with at most a fraction \\((\\epsilon/4n)(n+1)&lt;\\epsilon/2\\) of the \\(m\\) vectors received from \\(POS^{\\beta}_{MAL}\\), so \\(e^+(h_A)&lt;\\epsilon\\) with high probability by Theorem 7. To prove that \\(e^-(h_A)\\) with high probability, suppose that all vectors of index \\(i\\) are negative examples of the target representation (call such an \\(i\\) a <em>negative index</em>). Then the probability that a vector of index \\(i\\) is received on a call to \\(POS^{\\beta}_{MAL}\\) is at most \\(\\beta\\leq\\epsilon/8n\\), since this occurs only when there is an error on a call to \\(POS^{\\beta}_{MAL}\\). Thus the probability of receiving \\((\\epsilon/4n)m\\) vectors of index \\(i\\) in \\(m\\) calls to \\(POS^{\\beta}_{MAL}\\) is</p><p>\\[\\operatorname{GE}\\!\\left(\\frac{\\epsilon}{8n},m,\\frac{\\epsilon}{4n}m\\right)\\leq e^{-m\\epsilon/24n}\\]</p><p>by Fact CB2. The probability that some negative index is classified as a positive index by \\(h_A\\) is thus at most</p><p>\\[(n+1)e^{-m\\epsilon/24n}\\leq\\frac{\\delta}{2}\\]</p><p>for \\(m=O((n/\\epsilon)(\\ln n+\\ln(1/\\delta)))\\). Thus with high probability, \\(e^-(h_A)=0\\), completing the proof.</p>",
+        "pdfStart": {
+          "statement": { "page": 18, "y": 335.179952 },
+          "proof": { "page": 18, "y": 393.74 }
+        }
+      },
+      {
+        "id": "theorem-11",
+        "type": "Theorem",
+        "number": "11",
+        "title": "Two-sided learning of symmetric functions",
+        "section": "4 Efficient error-tolerant learning",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-7", "fact-cb2"],
+        "statementHtml": "<p>Let \\(SF_n\\) be the class of symmetric functions over \\(x_1,\\ldots,x_n\\). Then</p><p>\\[E^{poly}_{MAL}(SF_n)=\\Omega(\\epsilon).\\]</p>",
+        "proofHtml": "<p>Algorithm \\(A\\) maintains two integer arrays \\(P\\) and \\(N\\), each indexed \\(0,\\ldots,n\\) and initialized to contain 0 at each location. \\(A\\) first takes \\(m\\) (calculated below) examples from \\(POS^{\\beta}_{MAL}\\), and for each vector \\(\\vec v\\) received, increments \\(P[index(\\vec v)]\\), where \\(index(\\vec v)\\) is the number of bits set to 1 in \\(\\vec v\\). \\(A\\) then takes \\(m\\) examples from \\(NEG^{\\beta}_{MAL}\\) and increments \\(N[index(\\vec v)]\\) for each vector \\(\\vec v\\) received. The hypothesis \\(h_A\\) is computed as follows: all vectors of index \\(i\\) are contained in \\(pos(h_A)\\) if and only if \\(P[i]\\geq N[i]\\); otherwise, all vectors of index \\(i\\) are contained in \\(neg(h_A)\\).</p><p>We now show that for sufficiently large \\(m\\), \\(A\\) is an \\(\\epsilon/8\\)-tolerant Occam algorithm. For \\(0\\leq i\\leq n\\), let \\(d_i=\\min(P[i],N[i])\\). Then \\(d=\\sum_{i=0}^n d_i\\) is the number of vectors in the sample of size \\(2m\\) with which \\(h_A\\) disagrees. Now for each \\(i\\), either \\(P[i]\\) or \\(N[i]\\) is a lower bound on the number \\(e_i\\) of malicious errors received that have index \\(i\\); let \\(e=\\sum_{i=0}^n e_i\\). Note that \\(e\\geq d\\). Now the probability that \\(e\\) exceeds \\((\\epsilon/4)(2m)\\) in \\(m\\) calls to \\(POS^{\\beta}_{MAL}\\) and \\(m\\) calls to \\(NEG^{\\beta}_{MAL}\\) for \\(\\beta\\leq\\epsilon/8\\) is</p><p>\\[\\operatorname{GE}\\!\\left(\\frac{\\epsilon}{8},2m,\\frac{\\epsilon}{4}2m\\right)\\leq\\delta\\]</p><p>for \\(m=O((1/\\epsilon)\\ln(1/\\delta))\\) by Fact CB2. Thus, with high probability the number of disagreements \\(d\\) of \\(h_A\\) on the examples received is less than \\((\\epsilon/2)m\\). This shows that \\(A\\) is an \\(\\epsilon/8\\)-tolerant Occam algorithm for \\(SF\\), and thus is a learning algorithm for \\(SF\\) by Theorem 7 for \\(m=O((1/\\epsilon)\\ln(1/\\delta)+n/\\epsilon)\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 19, "y": 153.02 },
+          "proof": { "page": 19, "y": 199.819952 }
+        }
+      },
+      {
+        "id": "theorem-12",
+        "type": "Theorem",
+        "number": "12",
+        "title": "Generic transformation to error-tolerant learning",
+        "section": "4 Efficient error-tolerant learning",
+        "proofOrganization": "direct",
+        "dependencies": ["fact-cb1", "fact-cb2"],
+        "statementHtml": "<p>Let \\(A\\) be a polynomial-time learning algorithm for \\(C\\) with sample complexity \\(S_A(\\epsilon,\\delta)\\), and let \\(s=S_A(\\epsilon/8,1/2)\\). Then for \\(\\epsilon\\leq1/2\\),</p><p>\\[E^{poly}_{MAL}(C)=\\Omega\\!\\left(\\frac{\\ln s}{s}\\right).\\]</p>",
+        "proofHtml": "<p>We describe a polynomial-time algorithm \\(A'\\) that tolerates the desired error rate and uses \\(A\\) as a subroutine. Note that \\(S_A\\) (and hence, \\(s\\)) may also depend upon \\(n\\) in the case of parameterized \\(C\\).</p><p>Algorithm \\(A'\\) will run algorithm \\(A\\) many times with accuracy parameter \\(\\epsilon/8\\) and confidence parameter \\(1/2\\). The probability that no errors occur during a single such run is \\((1-\\beta)^s\\). For \\(\\beta\\leq\\ln s/s\\) we have</p><p>\\[(1-\\beta)^s\\geq\\left(1-\\frac{\\ln s}{s}\\right)^s\\geq\\frac1{s^2}.\\]</p><p>(This lower bound can be improved to \\(1/s^\\alpha\\) for any constant \\(\\alpha&gt;1\\) provided there is a sufficiently small constant upper bound on \\(\\epsilon\\).) Thus, on a single run of \\(A\\) there is probability at least \\((1-\\delta)1/s^2=1/2s^2\\) that no errors occur and \\(A\\) outputs an \\(\\epsilon/8\\)-good hypothesis \\(h_A\\) (call a run of \\(A\\) when this occurs a <em>successful run</em>). \\(A'\\) will run \\(A\\) \\(r\\) times. In \\(r\\) runs of \\(A\\), the probability that no successful run of \\(A\\) occurs is at most</p><p>\\[\\left(1-\\frac1{2s^2}\\right)^r&lt;\\frac\\delta3\\]</p><p>for \\(r&gt;2s^2\\ln(3/\\delta)\\). Let \\(h_A^1,\\ldots,h_A^r\\) be the hypotheses output by \\(A\\) on these \\(r\\) runs. Suppose \\(h_A^i\\) is an \\(\\epsilon\\)-bad hypothesis with respect to the target distributions; without loss of generality, suppose \\(e^+(h_A^i)\\geq\\epsilon\\). Then the probability that \\(h_A^i\\) agrees with an example returned by the oracle \\(POS^{\\beta}_{MAL}\\) is then at most \\((1-\\beta)(1-\\epsilon)+\\beta\\leq1-3\\epsilon/4\\) for \\(\\beta\\leq\\epsilon/8\\). Thus, the probability that \\(h_A^i\\) agrees with at least a fraction \\(1-\\epsilon/2\\) of \\(m\\) examples returned by \\(POS^{\\beta}_{MAL}\\) is</p><p>\\[\\operatorname{LE}\\!\\left(\\frac{3\\epsilon}{4},m,\\frac{\\epsilon}{2}m\\right)\\leq e^{-m\\epsilon/24}\\]</p><p>by Fact CB1. Then it follows that the probability that some \\(h_A^i\\) with \\(e^+(h_A^i)\\geq\\epsilon\\) agrees with a fraction \\(1-\\epsilon/2\\) of the \\(m\\) examples returned by \\(POS^{\\beta}_{MAL}\\) is at most</p><p>\\[re^{-m\\epsilon/24}&lt;\\frac\\delta3\\]</p><p>for \\(m=O((1/\\epsilon)\\ln(r/\\delta))\\). Using Fact CB2, it can be shown that for \\(\\beta\\leq\\epsilon/8\\) the probability of an \\(\\epsilon/8\\)-good \\(h_A^i\\) failing to agree with at least a fraction \\(1-\\epsilon/2\\) of the \\(m\\) examples is smaller than \\(\\delta/3\\).</p><p>Thus, if \\(A\\) is run \\(r\\) times and the resulting hypotheses are tested against \\(m\\) examples from both \\(POS^{\\beta}_{MAL}\\) and \\(NEG^{\\beta}_{MAL}\\), then with probability at least \\(1-\\delta\\) the hypothesis with the fewest disagreements is in fact an \\(\\epsilon\\)-good hypothesis. Note that if \\(A\\) runs in polynomial time, \\(A'\\) also runs in polynomial time.</p>",
+        "pdfStart": {
+          "statement": { "page": 20, "y": 75.02 },
+          "proof": { "page": 20, "y": 147.98 }
+        }
+      },
+      {
+        "id": "corollary-13",
+        "type": "Corollary",
+        "number": "13",
+        "title": "Improved malicious-error rate for monomials",
+        "section": "4 Efficient error-tolerant learning",
+        "proofOrganization": "immediate-preceding",
+        "proofNote": "The derivation appears immediately before the corollary rather than as a following proof.",
+        "dependencies": ["theorem-12"],
+        "statementHtml": "<p>Let \\(M_n\\) be the class of monomials over \\(x_1,\\ldots,x_n\\). Then</p><p>\\[E^{poly}_{MAL}(M_n)=\\Omega\\!\\left(\\frac{\\epsilon}{n}\\ln\\frac{n}{\\epsilon}\\right).\\]</p>",
+        "proofHtml": "<p>This rate is also the best that can be obtained by applying Theorem 12. By applying this technique to the algorithm of Valiant [23] for the class of monomials in the error-free model, we obtain the following corollary:</p>",
+        "pdfStart": {
+          "statement": { "page": 21, "y": 271.580048 },
+          "proof": { "page": 21, "y": 221.3 }
+        }
+      },
+      {
+        "id": "corollary-14",
+        "type": "Corollary",
+        "number": "14",
+        "title": "Malicious-error rate for k-decision lists",
+        "section": "4 Efficient error-tolerant learning",
+        "proofOrganization": "immediate-preceding",
+        "proofNote": "The derivation appears immediately before the corollary rather than as a following proof.",
+        "dependencies": ["theorem-12"],
+        "statementHtml": "<p>Let \\(kDL_n\\) be the class of \\(k\\)-decision lists over \\(x_1,\\ldots,x_n\\). Then</p><p>\\[E^{poly}_{MAL}(kDL_n)=\\Omega\\!\\left(\\frac{\\epsilon}{n^k}\\right).\\]</p>",
+        "proofHtml": "<p>For decision lists, we can apply the algorithm of Rivest [19] and the sample size bounds given by Ehrenfeucht et al. [8] to obtain the following:</p>",
+        "pdfStart": {
+          "statement": { "page": 21, "y": 424.939976 },
+          "proof": { "page": 21, "y": 388.339976 }
+        }
+      },
+      {
+        "id": "theorem-15",
+        "type": "Theorem",
+        "number": "15",
+        "title": "Greedy approximation for partial cover",
+        "section": "4 Efficient error-tolerant learning",
+        "proofOrganization": "composite",
+        "proofNote": "The proof contains Lemmas 16 and 17; their exact statements and proofs are separate linked entries, while this entry preserves the surrounding proof text.",
+        "dependencies": ["lemma-16", "lemma-17"],
+        "statementHtml": "<p>Let \\(I\\) be an instance of partial cover and let \\(opt_{PC}(I)\\) denote the cost of an optimal \\(p\\)-cover for \\(I\\). Then the cost of the \\(p\\)-cover \\(J^*\\) produced by algorithm \\(G\\) satisfies</p><p>\\[cost_{PC}(J^*)\\leq(2H(m)+3)opt_{PC}(I).\\]</p>",
+        "proofHtml": "<p>Let \\(J_{opt}\\) be an optimal \\(p\\)-cover (i.e., \\(cost_{PC}(J_{opt})=opt_{PC}(I)\\)). Let</p><p>\\[T_{opt}=\\bigcup_{j\\in J_{opt}}S_j\\]</p><p>(these are the elements covered by \\(J_{opt}\\)) and</p><p>\\[T^*=\\bigcup_{j\\in J^*}S_j\\]</p><p>(these are the elements covered by \\(J^*\\)) where \\(J^*\\) is the \\(p\\)-cover output by algorithm \\(G\\). Notice that \\(|T_{opt}|\\geq pm\\) since \\(J_{opt}\\) is a \\(p\\)-cover.</p><p>Let \\(S_j^r\\) be set of elements remaining in the set \\(S_j\\) immediately before Step 3 in algorithm \\(G\\) is executed for the \\(r\\)th time (i.e., at the start of the \\(r\\)th iteration of Steps 2–4). By appropriate renaming of the \\(S_j\\), we may assume without loss of generality that \\(J^*=\\{1,\\ldots,r\\}\\) (recall that \\(J^*\\) is the set of indices of sets chosen by algorithm \\(G\\)) immediately after Step 4 is executed for the \\(r\\)th time (i.e., at the end of the \\(r\\)th iteration of Steps 2–4). Let \\(J^*=\\{1,\\ldots,t\\}\\) when \\(G\\) halts, so there are a total of \\(t\\) iterations.</p><p>Define \\(T^{**}=T^*-S_t'\\), where \\(S_t'\\) is the union of all elements deleted from the set \\(S_t\\) on all executions of Step 3. Intuitively, \\(T^{**}\\) consists of those elements that algorithm \\(G\\) “credits” itself with having covered during its execution (as opposed to those elements regarded as “excess” that were covered because \\(G\\) may cover more than the required minimum fraction \\(p\\)). We say that a set \\(S_j\\) is <em>at capacity</em> when in Step 3, \\(|S_j|\\geq q\\). Note that once \\(S_j\\) reaches capacity, it remains at capacity until it is chosen in Step 4 or until \\(G\\) halts. This is because if \\(l\\) elements are removed from \\(S_j\\) on an execution of Step 4, the value of \\(q\\) in Step 3 will decrease by at least \\(l\\) on the next iteration. Furthermore, since \\(G\\) halts the first time a set at capacity \\(S_t\\) is chosen, and by the above definitions \\(S_t\\) is the last set chosen by \\(G\\), we have that \\(T^{**}=\\bigcup_{r=1}^t S_r^r\\). Thus we have \\(|S_t'|=|T^*|-pm\\) and \\(|T^{**}|=pm\\).</p><p>The set \\(S_r^r\\) can be regarded as the set of previously uncovered elements that are added to \\(T^{**}\\) on the \\(r\\)th iteration. We wish to amortize the cost \\(c_r\\) over the elements covered. For each \\(i\\in T^*\\), we define a number \\(y_i\\), which is intuitively the cost we paid to put \\(i\\) in \\(T^*\\):</p><p>\\[y_i=\\begin{cases}c_r/|S_r^r|&amp;\\text{if for some }r,\\ i\\in S_r^r,\\\\0&amp;\\text{if }i\\text{ is not in }T^{**}.\\end{cases}\\]</p><p>Since for \\(i\\in T^*-T^{**}\\), \\(y_i=0\\), we have</p><p>\\[\\sum_{i\\in T^{**}}y_i=\\sum_{i\\in T^*}y_i=\\sum_{r=1}^t\\sum_{i\\in S_r^r}y_i=\\sum_{r=1}^t c_r=\\sum_{j\\in J^*}c_j=cost_{PC}(J^*).\\]</p><p>Thus to bound \\(cost_{PC}(J^*)\\), we now bound \\(\\sum_{i\\in T^{**}}y_i\\) in two parts, first bounding \\(\\sum_{i\\in T^{**}-T_{opt}}y_i\\) and then bounding \\(\\sum_{i\\in T^{**}\\cap T_{opt}}y_i\\).</p><p><a href=\"#lemma-16\" data-result-link=\"lemma-16\">Lemma 16</a> gives \\(\\sum_{i\\in T^{**}-T_{opt}}y_i\\leq(H(m)+2)opt_{PC}(I)\\), and <a href=\"#lemma-17\" data-result-link=\"lemma-17\">Lemma 17</a> gives \\(\\sum_{i\\in T^{**}\\cap T_{opt}}y_i\\leq(H(m)+1)opt_{PC}(I)\\).</p><p>Combining Lemmas 16 and 17, we have</p><p>\\[\\begin{aligned}\\sum_{j\\in J^*}c_j&amp;=\\sum_{i\\in T^*}y_i=\\sum_{i\\in T^{**}}y_i\\\\&amp;=\\sum_{i\\in T^{**}-T_{opt}}y_i+\\sum_{i\\in T^{**}\\cap T_{opt}}y_i\\\\&amp;\\leq(H(m)+2)opt_{PC}(I)+(H(m)+1)opt_{PC}(I)\\\\&amp;=(2H(m)+3)opt_{PC}(I).\\end{aligned}\\]</p><p>This completes the proof of Theorem 15.</p>",
+        "pdfStart": {
+          "statement": { "page": 22, "y": 555.019928 },
+          "proof": { "page": 22, "y": 618.619928 }
+        }
+      },
+      {
+        "id": "lemma-16",
+        "type": "Lemma",
+        "number": "16",
+        "title": "Cost outside the optimal cover",
+        "section": "4 Efficient error-tolerant learning",
+        "proofOrganization": "direct-within-theorem-15",
+        "dependencies": [],
+        "statementHtml": "<p>\\[\\sum_{i\\in T^{**}-T_{opt}}y_i\\leq(H(m)+2)opt_{PC}(I).\\]</p>",
+        "proofHtml": "<p>If \\(T^{**}\\subseteq T_{opt}\\) then the lemma follows trivially. We therefore assume \\(T^{**}\\nsubseteq T_{opt}\\). Since \\(|T_{opt}|\\geq pm\\) and \\(|T^{**}|=pm\\), this implies \\(T_{opt}-T^{**}\\neq\\varnothing\\). Pick \\(j\\in J_{opt}\\) such that</p><p>\\[\\frac{c_j}{|S_j-T^{**}|}\\]</p><p>is minimized. Now</p><p>\\[\\begin{aligned}\\frac{opt_{PC}(I)}{|T_{opt}-T^{**}|}&amp;=\\frac{\\sum_{i\\in J_{opt}}c_i}{|\\bigcup_{i\\in J_{opt}}(S_i-T^{**})|}\\\\&amp;\\geq\\frac{\\sum_{i\\in J_{opt}}c_i}{\\sum_{i\\in J_{opt}}|S_i-T^{**}|}\\\\&amp;\\geq\\frac{c_j}{|S_j-T^{**}|}.\\end{aligned}\\]</p><p>Thus</p><p>\\[opt_{PC}(I)\\geq|T_{opt}-T^{**}|\\frac{c_j}{|S_j-T^{**}|}.\\]</p><p>Let \\(r_0\\) be the first execution of Step 3 in which \\(|S_j|&gt;q\\) (i.e., \\(S_j\\) reaches capacity on the \\(r_0\\)th iteration). We will analyze the behavior of \\(G\\) before and after the \\(r_0\\)th iteration separately. Let \\(T_0^{**}\\) denote the set of elements that were added to \\(T^{**}\\) prior to the \\(r_0\\) iteration. For each \\(i\\in T_0^{**}-T_{opt}\\), the cost \\(y_i\\) must satisfy</p><p>\\[y_i\\leq\\frac{c_j}{|S_j-T^{**}|}\\]</p><p>because otherwise \\(G\\) would have already added \\(S_j\\) to \\(J^*\\). Since \\(|T_{opt}-T^{**}|\\geq|T^{**}-T_{opt}|\\) we have</p><p>\\[\\begin{aligned}\\sum_{i\\in T_0^{**}-T_{opt}}y_i&amp;\\leq\\sum_{i\\in T_0^{**}-T_{opt}}\\frac{c_j}{|S_j-T^{**}|}\\\\&amp;\\leq|T_{opt}-T^{**}|\\frac{c_j}{|S_j-T^{**}|}\\\\&amp;\\leq opt_{PC}(I).\\end{aligned}\\]</p><p>For iterations \\(r\\geq r_0\\), whenever an element \\(i\\) is added to \\(T_1^{**}=T^{**}-T_0^{**}\\), an element is deleted from \\(S_j\\) in Step 3, since \\(S_j\\) is at capacity. We charge \\(y_i\\) to this element as follows:</p><p>\\[\\begin{aligned}\\sum_{i\\in T_1^{**}-T_{opt}}y_i&amp;\\leq\\sum_{i\\in T_1^{**}}y_i=\\sum_{r=r_0}^t\\sum_{i\\in S_r^r}y_i\\\\&amp;\\leq\\sum_{r=r_0}^{t-1}\\sum_{i\\in S_r^r}y_i+c_j\\\\&amp;\\leq\\sum_{r=r_0}^{t-1}\\frac{c_r}{|S_r^r|}|S_j^r-S_j^{r+1}|+c_j\\\\&amp;\\leq\\sum_{r=r_0}^{t-1}\\frac{c_j}{|S_j^r|}|S_j^r-S_j^{r+1}|+c_j\\\\&amp;=c_j\\sum_{r=r_0}^{t-1}\\frac1{|S_j^r|}|S_j^r-S_j^{r+1}|+c_j\\\\&amp;\\leq c_jH(|S_j|)+c_j=c_j(H(|S_j|)+1).\\end{aligned}\\]</p><p>Here, on iteration \\(t\\), both \\(S_j\\) and \\(S_t\\) are at capacity, so \\(c_t\\leq c_j\\); since \\(S_j\\) is at capacity, \\(|S_j^r-S_j^{r+1}|=|S_r^r|\\); and otherwise \\(G\\) would have chosen \\(S_j\\) at time \\(r\\).</p><p>Combining the two parts, we have</p><p>\\[\\begin{aligned}\\sum_{i\\in T^{**}-T_{opt}}y_i&amp;=\\sum_{i\\in T_0^{**}-T_{opt}}y_i+\\sum_{i\\in T_1^{**}-T_{opt}}y_i\\\\&amp;\\leq opt_{PC}(I)+c_j(H(m)+1)\\\\&amp;\\leq(H(m)+2)opt_{PC}(I).\\end{aligned}\\]</p>",
+        "pdfStart": {
+          "statement": { "page": 24, "y": 75.02 },
+          "proof": { "page": 24, "y": 124.459952 }
+        }
+      },
+      {
+        "id": "lemma-17",
+        "type": "Lemma",
+        "number": "17",
+        "title": "Cost inside the optimal cover",
+        "section": "4 Efficient error-tolerant learning",
+        "proofOrganization": "direct-within-theorem-15",
+        "dependencies": [],
+        "statementHtml": "<p>\\[\\sum_{i\\in T^{**}\\cap T_{opt}}y_i\\leq(H(m)+1)opt_{PC}(I).\\]</p>",
+        "proofHtml": "<p>We generalize the idea used by Chvatal [7]. For \\(j\\in J_{opt}\\) and \\(S_j\\cap T^{**}\\neq\\varnothing\\),</p><p>\\[\\begin{aligned}\\sum_{i\\in S_j\\cap T^{**}}y_i&amp;=\\sum_{r=1}^t\\sum_{i\\in S_j\\cap S_r^r}y_i\\\\&amp;\\leq\\sum_{r=1}^{t-1}\\frac{c_r}{|S_r^r|}|S_j^r-S_j^{r+1}|+c_j\\\\&amp;\\leq\\sum_{r=1}^{s}\\frac{c_j}{|S_j^r|}|S_j^r-S_j^{r+1}|+c_j\\\\&amp;=c_j\\sum_{r=1}^{s}\\frac1{|S_j^r|}|S_j^r-S_j^{r+1}|+c_j\\\\&amp;\\leq c_jH(|S_j|)+c_j=c_j(H(|S_j|)+1),\\end{aligned}\\]</p><p>where \\(s=\\min\\{\\max\\{k:S_j^k\\neq\\varnothing\\},t\\}\\). The first inequality holds because the average cost of elements in \\(S_r\\) is lower than in \\(S_j\\), and we are summing over at most \\(|S_j|\\) elements.</p><p>Now by the above,</p><p>\\[\\begin{aligned}\\sum_{i\\in T^{**}\\cap T_{opt}}y_i&amp;\\leq\\sum_{j\\in J_{opt}}\\sum_{i\\in S_j\\cap T^{**}}y_i\\\\&amp;\\leq\\sum_{j\\in J_{opt}}(H(m)+1)c_j\\\\&amp;\\leq(H(m)+1)opt_{PC}(I).\\end{aligned}\\]</p>",
+        "pdfStart": {
+          "statement": { "page": 25, "y": 446.54 },
+          "proof": { "page": 25, "y": 492.324 }
+        }
+      },
+      {
+        "id": "theorem-18",
+        "type": "Theorem",
+        "number": "18",
+        "title": "Learning sparse monomials with malicious errors",
+        "section": "4 Efficient error-tolerant learning",
+        "proofOrganization": "direct",
+        "proofNote": "The printed proof says “By Theorem 18” when invoking the partial-cover approximation guarantee; in context this is the guarantee proved as Theorem 15. The transcription preserves the printed wording.",
+        "dependencies": ["fact-cb1", "fact-cb2", "theorem-7", "theorem-12", "theorem-15", "theorem-20"],
+        "statementHtml": "<p>Let \\(M_n^s\\) be the class of monomials over \\(x_1,\\ldots,x_n\\) containing at most \\(s\\) literals. Then</p><p>\\[E^{poly}_{MAL}(M_n^s)=\\Omega\\!\\left(\\frac{\\epsilon}{s\\log((s\\log n)/\\epsilon)}\\right).\\]</p>",
+        "proofHtml": "<p>We construct an Occam algorithm \\(A\\) for \\(M_n^s\\) that tolerates the desired malicious error rate, and uses the algorithm \\(G\\) for the partial cover problem as a subroutine.</p><p>Let \\(0\\leq\\beta&lt;\\epsilon/8\\), and let \\(c\\in M_n^s\\) be the target monomial. \\(A\\) first takes \\(m_N\\) points from the oracle \\(NEG^{\\beta}_{MAL}\\), where \\(m_N=O((1/\\epsilon)\\ln(1/\\delta)+(1/\\epsilon)\\ln|M_n^s|)\\) as in the statement of Theorem 7. Let \\(S\\) denote the multiset of points received by \\(A\\) from \\(NEG^{\\beta}_{MAL}\\). For \\(1\\leq i\\leq n\\), define the multisets</p><p>\\[S_i^0=\\{\\vec v\\in S:v_i=0\\}\\]</p><p>and</p><p>\\[S_i^1=\\{\\vec v\\in S:v_i=1\\}.\\]</p><p>We now define a pairing between monomials and partial covers of the set \\(S\\) as follows: the literal \\(x_i\\) is paired with the partial cover consisting of the single set \\(S_i^0\\) and the literal \\(\\overline{x_i}\\) is paired with the partial cover consisting of the single set \\(S_i^1\\). Then any monomial \\(c\\) is paired with the partial cover obtained by including exactly those \\(S_i^0\\) and \\(S_i^1\\) that are paired with the literals appearing in \\(c\\). Note that the multiset \\(neg(c)\\cap S\\) contains exactly those vectors that are covered by the corresponding partial cover.</p><p>Now with high probability, there must be some collection of the \\(S_i^0\\) and \\(S_i^1\\) that together form a \\(1-\\epsilon/2\\) cover of \\(S\\): namely, if (without loss of generality) the target monomial \\(c\\in M_n^s\\) is</p><p>\\[c=x_1\\cdots x_r\\overline{x}_{r+1}\\cdots\\overline{x}_s\\]</p><p>then with high probability the sets</p><p>\\[S_1^0,\\ldots,S_r^0,S_{r+1}^1,\\ldots,S_s^1\\]</p><p>form a \\(1-\\epsilon/2\\) cover of \\(S\\), since for \\(\\beta\\leq\\epsilon/8\\), the probability that the target monomial \\(c\\) disagrees with a fraction larger than \\(\\epsilon/2\\) of a sample of size \\(m_N\\) from \\(NEG^{\\beta}_{MAL}\\) can be shown to be smaller than \\(\\delta/2\\) by Fact CB2.</p><p>Thus, \\(A\\) will input the sets \\(S_1^0,\\ldots,S_n^0,S_1^1,\\ldots,S_n^1\\) and the value \\(p=1-\\epsilon/2\\) to algorithm \\(G\\). The costs for these sets input to \\(G\\) are defined below. However, note that regardless of these costs, if \\(h_G\\) is the monomial paired with the \\(p\\)-cover output by \\(G\\), then since \\(|neg(h_G)\\cap S|\\geq(1-\\epsilon/2)m_N\\) (where \\(neg(h_G)\\cap S\\) is interpreted as a multiset), \\(e^-(h_G)&lt;\\epsilon\\) with high probability by Theorem 7. We now show that for \\(\\beta\\) as in the statement of the theorem, we can choose the costs input to \\(G\\) so as to force \\(e^+(h_G)&lt;\\epsilon\\) as well.</p><p>For any monomial \\(c\\), let \\(p(c)\\) denote the probability that \\(c\\) disagrees with a vector returned by \\(POS^{\\beta}_{MAL}\\), and let \\(cost_{PC}(c)\\) denote the cost of the partial cover that is paired with \\(c\\).</p><p><sup>1</sup> Note that technically this probability may not be well-defined since the behavior of the oracle \\(POS^{\\beta}_{MAL}\\) may depend on the entire history of the computation so far. If this is the case, however, we may use the following trick: rather than running the algorithm using \\(POS^{\\beta}_{MAL}\\), we instead take a sufficiently large number of examples \\(l\\) from \\(POS^{\\beta}_{MAL}\\), and then run the algorithm using a uniform distribution over these \\(l\\) examples (treated as a multiset, not a set). The algorithm may need to be run more than once in order to find an appropriate setting of the error parameter used; this technique is detailed and shown correct in Theorem 20. For the rest of the proof, therefore, we assume without loss of generality that \\(p(c)\\) is well-defined.</p><p>To determine the costs of the sets input to \\(G\\), \\(A\\) next samples \\(POS^{\\beta}_{MAL}\\) enough times (determined by application of Facts CB1 and CB2) to obtain an estimate for \\(p(x_i)\\) and \\(p(\\overline{x_i})\\) for \\(1\\leq i\\leq n\\) that is accurate within a multiplicative factor of 2—that is, if \\(\\widehat p(x_i)\\) is the estimate computed by \\(A\\), then \\(p(x_i)/2\\leq\\widehat p(x_i)\\leq2p(x_i)\\) with high probability for each \\(i\\). The same bounds hold for the estimate \\(\\widehat p(\\overline{x_i})\\). Then the cost for set \\(S_i^0\\) input to \\(G\\) by \\(A\\) is \\(\\widehat p(x_i)\\) and the cost for set \\(S_i^1\\) is \\(\\widehat p(\\overline{x_i})\\).</p><p>Note that for any monomial \\(c=x_1\\cdots x_r\\overline{x}_{r+1}\\cdots\\overline{x}_s\\), we have with high probability</p><p>\\[\\begin{aligned}p(c)&amp;\\leq p(x_1)+\\cdots+p(x_r)+p(\\overline{x}_{r+1})+\\cdots+p(\\overline{x}_s)\\\\&amp;\\leq2\\widehat p(x_1)+\\cdots+2\\widehat p(x_r)+2\\widehat p(\\overline{x}_{r+1})+\\cdots+2\\widehat p(\\overline{x}_s)\\\\&amp;=2cost_{PC}(c).\\end{aligned}\\]</p><p>By Theorem 18, the output \\(h_G\\) of \\(G\\) must satisfy</p><p>\\[cost_{PC}(h_G)\\leq(H(m_N)+2)cost_{PC}(c_{opt})\\tag{3}\\]</p><p>where \\(c_{opt}\\) is the monomial paired with a \\(p\\)-cover of minimum cost. But for the target monomial \\(c\\) we have</p><p>\\[p(c)\\leq\\beta\\tag{4}\\]</p><p>\\[2sp(c)\\geq cost_{PC}(c)\\tag{5}\\]</p><p>where Equation 4 holds absolutely and Equation 5 holds with high probability, since \\(c\\) contains at most \\(s\\) literals.</p><p>From Equations 3, 4 and 5 we obtain with high probability</p><p>\\[\\begin{aligned}p(h_G)&amp;\\leq2cost_{PC}(h_G)\\\\&amp;\\leq2(H(m_N)+2)cost_{PC}(c_{opt})\\\\&amp;\\leq2(H(m_N)+2)cost_{PC}(c)\\\\&amp;\\leq4sp(c)(H(m_N)+2)\\\\&amp;\\leq4s\\beta(H(m_N)+2).\\end{aligned}\\]</p><p>Thus, if we set</p><p>\\[\\beta=\\frac{\\epsilon}{4s(H(m_N)+2)}=\\Omega\\!\\left(\\frac{\\epsilon}{s\\log m_N}\\right)\\]</p><p>then \\(e^+(h_G)&lt;\\epsilon\\) with high probability by Theorem 7. We can remove the dependence of \\(\\beta\\) on \\(\\delta\\) by method used in the proof of Theorem 12, thus obtaining an error rate of</p><p>\\[\\Omega\\!\\left(\\frac{\\epsilon}{s\\log((s\\log n)/\\epsilon)}\\right),\\]</p><p>completing the proof.</p>",
+        "pdfStart": {
+          "statement": { "page": 26, "y": 495.5 },
+          "proof": { "page": 26, "y": 559.339952 }
+        }
+      },
+      {
+        "id": "theorem-19",
+        "type": "Theorem",
+        "number": "19",
+        "title": "Learning monomials reduces to weighted set cover",
+        "section": "5 Limits on efficient learning with errors",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-18"],
+        "statementHtml": "<p>Let \\(M_n\\) be the class of monomials over \\(x_1,\\ldots,x_n\\). Suppose there is a polynomial-time learning algorithm \\(A\\) for \\(M_n\\) using hypothesis space \\(M_n\\) such that</p><p>\\[E^{poly}_{MAL}(M_n;A)=\\frac{\\epsilon}{r(n)}.\\]</p><p>Then there is a polynomial-time algorithm for the weighted set cover problem that outputs (with high probability) a cover whose cost is at most \\(2r(n)\\) times the optimal cost, where \\(n\\) is the number of sets.</p>",
+        "proofHtml": "<p>We describe an approximation algorithm \\(A'\\) for set cover that uses the learning algorithm \\(A\\) as a subroutine. Given an instance \\(I\\) of set cover with sets \\(S_1,\\ldots,S_n\\) and costs \\(c_1,\\ldots,c_n\\), let \\(J_{opt}\\subseteq\\{1,\\ldots,n\\}\\) be an optimal cover of \\(T=\\bigcup_{j=1}^nS_j=\\{1,\\ldots,m\\}\\), where we identify a cover \\(\\{S_{j_1},\\ldots,S_{j_s}\\}\\) with its index set \\(\\{j_1,\\ldots,j_s\\}\\). Let \\(cost_{SC}(J)\\) denote the set cover cost of any cover \\(J\\) of \\(T\\), and let \\(opt_{SC}(I)=cost_{SC}(J_{opt})\\). As in the proof of Theorem 18, we pair a cover \\(\\{j_1,\\ldots,j_s\\}\\) of \\(T\\) with the monomial \\(x_{j_1}\\cdots x_{j_s}\\) over the variables \\(x_1,\\ldots,x_n\\). Let \\(c_{opt}\\) be the monomial paired with the optimal cover \\(J_{opt}\\).</p><p>The goal of \\(A'\\) is to simulate algorithm \\(A\\) with the intention that \\(c_{opt}\\) is the target monomial, and use the monomial \\(h_A\\) output by \\(A\\) to obtain the desired cover of \\(T\\). The examples given to \\(A\\) on calls to \\(NEG^{\\beta}_{MAL}\\) during this simulation will be constructed so as to guarantee that the collection of sets paired with \\(h_A\\) is actually a cover of \\(T\\), while the examples given to \\(A\\) on calls to \\(POS^{\\beta}_{MAL}\\) guarantee that this cover has a cost within a multiplicative factor of \\(2r(n)\\) of the optimal cost.</p><p>We first describe the examples \\(A'\\) generates for \\(A\\) on calls to \\(NEG^{\\beta}_{MAL}\\). For each \\(i\\in T\\), let \\(\\vec u_i\\in\\{0,1\\}^n\\) be the vector whose \\(j\\)th bit is 0 if and only if \\(i\\in S_j\\), and let the multiset \\(U\\) be \\(U=\\bigcup_{i\\in T}\\{\\vec u_i\\}\\). Then \\(\\{j_1,\\ldots,j_s\\}\\) is a cover of \\(T\\) if and only if \\(U\\subseteq neg(x_{j_1}\\cdots x_{j_s})\\). In particular, we must have \\(U\\subseteq neg(c_{opt})\\). Thus, define the target distribution \\(D^-\\) for \\(c_{opt}\\) to be uniform over \\(U\\). Note that this distribution can be generated in polynomial time by \\(A'\\). On calls of \\(A\\) to \\(NEG^{\\beta}_{MAL}\\), \\(A'\\) will simply draw from \\(D^-\\); thus if we regard \\(c_{opt}\\) as the target monomial, there are no errors in the negative examples. \\(A'\\) will simulate \\(A\\) with accuracy parameter \\(\\epsilon\\leq1/|U|\\), thus forcing \\(A\\) to output an hypothesis monomial \\(h_A\\) such that \\(U\\subseteq neg(h_A)\\); by the above argument, this implies that the collection of sets paired with the monomial \\(h_A\\) is a cover of \\(T\\). Note that \\(|U|\\) (and therefore \\(1/\\epsilon\\)) may be super-polynomial in \\(n\\), but it is polynomial in the size of the instance \\(I\\).</p><p>We now describe the examples \\(A'\\) generates for \\(A\\) on calls to \\(POS^{\\beta}_{MAL}\\). Instead of defining the target distribution \\(D^+\\) for \\(c_{opt}\\), we define an <em>induced distribution</em> \\(I^+\\) from which the oracle \\(POS^{\\beta}_{MAL}\\) will draw. Thus, \\(I^+\\) will describe the joint behavior of the underlying distribution \\(D^+\\) on \\(c_{opt}\\) and an adversary generating the malicious errors. For each \\(1\\leq j\\leq n\\), let \\(\\vec v_j\\in\\{0,1\\}^n\\) be the vector whose \\(j\\)th bit is 0, and all other bits are 1. Let \\(I^+(\\vec v_j)=c_j\\) for each \\(j\\), where \\(c_j\\) is the cost of the set \\(S_j\\), and we assume without loss of generality that \\(\\sum_{j=1}^n c_j\\leq\\epsilon/r(n)\\) (if not, we can normalize the weights without changing the relative costs of covers). We complete the definition of \\(I^+\\) by letting \\(I^+((1,\\ldots,1))=1-\\sum_{j=1}^n c_j\\). Then the probability that a monomial \\(x_{i_1}\\cdots x_{i_s}\\) disagrees with a point drawn from \\(POS^{\\beta}_{MAL}\\) is exactly \\(c_{i_1}+\\cdots+c_{i_s}\\), the cost of the corresponding cover. Thus since \\(opt_{SC}(I)\\leq\\sum_{j=1}^n c_j\\leq\\epsilon/r(n)=\\beta\\), \\(I^+\\) is an induced distribution for \\(c_{opt}\\) with malicious error rate \\(\\beta\\). Note that \\(I^+\\) can be generated by \\(A'\\) in polynomial time. When \\(A\\) requests an example from \\(POS^{\\beta}_{MAL}\\), \\(A'\\) will simply draw from \\(I^+\\).</p><p>\\(A'\\) will run algorithm \\(A\\) many times with the oracles \\(POS^{\\beta}_{MAL}\\) and \\(NEG^{\\beta}_{MAL}\\) for \\(c_{opt}\\) described above, each time with a progressively smaller value for the accuracy parameter, starting with \\(\\epsilon=1/|U|\\).</p><p>Now if \\(opt_{SC}(I)\\ll\\epsilon/r(n)\\), then algorithm \\(A\\) may output a monomial \\(h_A\\) whose corresponding cover has a cost much larger than \\(4r(n)\\cdot opt_{SC}(I)\\), since \\(h_A\\) is only guaranteed to satisfy \\(e^+(h_A)&lt;\\epsilon\\). We solve this problem by repeated scaling: \\(A'\\) first runs algorithm \\(A\\) with the oracles \\(POS^{\\beta}_{MAL}\\) and \\(NEG^{\\beta}_{MAL}\\) as they have been described. After each run, \\(A'\\) divides the accuracy parameter \\(\\epsilon\\) by 2, so that on some run \\(\\epsilon/2r(n)\\leq opt_{SC}(I)\\leq\\epsilon/r(n)\\). On this run, we may regard \\(I^+\\) as an induced distribution on the positive examples of \\(c_{opt}\\), with malicious error rate at most \\(\\beta=\\epsilon/r(n)\\leq2opt_{SC}(I)\\). Then the error \\(e^+(h_A)\\) on the underlying distribution \\(D^+\\) over \\(pos(c_{opt})\\) is at most \\(\\epsilon\\leq2r(n)opt_{SC}(I)\\). The desired cover is thus the one paired with the monomial \\(h_A\\). Note that without knowing \\(c_{opt}\\), we have no way of knowing what the underlying target distribution \\(D^+\\) is, but it is enough to know that \\(I^+\\) is a “close” distribution. The only problem with the simulation described occurs when \\(opt_{SC}(I)\\ll\\sum_{j=1}^n c_j\\), in which case it may take a super-polynomial number of runs of \\(A\\) to guarantee \\(\\epsilon/2r(n)\\leq opt_{SC}(I)\\leq\\epsilon/r(n)\\). We solve this by preprocessing: before running the described simulation, \\(A'\\) runs the greedy approximation algorithm analyzed by Chvatal [7] on the set cover instance \\(I\\), and removes any set whose cost is larger than the entire cost of the greedy cover. Then for the new (smaller) instance \\(I'\\), every cost is within a multiplicative factor of \\(\\log m\\) of every other cost.</p>",
+        "pdfStart": {
+          "statement": { "page": 29, "y": 407.899952 },
+          "proof": { "page": 29, "y": 526.46 }
+        }
+      },
+      {
+        "id": "theorem-20",
+        "type": "Theorem",
+        "number": "20",
+        "title": "Equivalence with minimizing disagreements",
+        "section": "5 Limits on efficient learning with errors",
+        "proofOrganization": "direct-two-directions",
+        "dependencies": ["fact-cb2", "theorem-7"],
+        "statementHtml": "<p>Let \\(C\\) be a representation class over \\(X\\). If there exists a polynomial-time algorithm \\(A'\\) for \\(MD(C)\\) that outputs \\(h_{A'}\\in C\\) such that \\(cost_{MD}(h_{A'},S)\\) is at most \\(r\\) times the optimal cost, then \\(C\\) is learnable by \\(C\\) by an algorithm \\(A\\) that runs in time polynomial in \\(1/\\epsilon,1/\\delta\\) and \\(\\ln|C|\\), and satisfies</p><p>\\[E^{poly}_{MAL}(C;A)\\geq\\frac{\\epsilon}{8r}.\\]</p><p>Conversely, if algorithm \\(A\\) learns \\(C\\) by \\(C\\) in polynomial time with error rate \\(E^{poly}_{MAL}(C;A)\\geq\\epsilon/r\\), then there exists a polynomial-time algorithm \\(A'\\) for \\(MD(C)\\) that outputs (with high probability) \\(h_{A'}\\in C\\) such that \\(cost_{MD}(h_{A'},S)\\) is at most \\(2r\\) times the optimal cost.</p>",
+        "proofHtml": "<p>Let \\(S\\) be a balanced sample of \\(X\\), and let \\(A'\\) be an approximation algorithm for \\(MD(C)\\) such that the output \\(h_{A'}\\) satisfies \\(cost_{MD}(h_{A'},S)\\leq r\\cdot opt_{MD}(S)\\), where</p><p>\\[opt_{MD}=\\min_{h\\in C}(cost_{MD}(h,S)).\\]</p><p>Let \\(\\beta=\\epsilon/8r\\). To learn \\(C\\) by \\(C\\) in polynomial time with error rate \\(\\beta\\), we take \\(m\\) random examples \\(x_1,\\ldots,x_m\\) from the oracle \\(POS^{\\beta}_{MAL}\\) and \\(m\\) random examples \\(y_1,\\ldots,y_m\\) from the oracle \\(NEG^{\\beta}_{MAL}\\), where \\(m\\) is as in the statement of Theorem 7. Let \\(S\\) be the balanced sample consisting of the \\(x_i\\) and \\(y_j\\). Now with probability at least \\(1-\\delta\\), the target representation \\(c\\in C\\) disagrees with fewer than \\(4\\beta m\\) elements of \\(S\\) by Fact CB2, so \\(opt_{MD}(S)\\leq4\\beta m\\) with high probability. Thus, algorithm \\(A'\\), when given \\(S\\) as input, will satisfy \\(cost_{MD}(h_{A'},S)\\leq r(4\\beta m)=(\\epsilon/2)m\\). This implies that \\(h_{A'}\\) can disagree with at most a fraction \\(\\epsilon/2\\) of the \\(x_i\\) and at most a fraction \\(\\epsilon/2\\) of the \\(y_i\\). By Theorem 7, \\(h_{A'}\\) is an \\(\\epsilon\\)-good hypothesis with high probability.</p><p>For the other direction, we use an algorithm \\(A\\) for learning \\(C\\) by \\(C\\) with \\(\\beta=\\epsilon/r\\) to obtain an approximation algorithm for \\(MD(C)\\) as follows: given the balanced sample \\(S\\), let \\(h_{opt}\\in C\\) be such that \\(cost_{MD}(h_{opt},S)=opt_{MD}(S)\\) and assume without loss of generality that \\(m/r\\geq opt_{MD}(S)\\) (otherwise any hypothesis has cost at most \\(2r\\) times the optimal). Define</p><p>\\[c_0=\\max\\{ |\\{x_i\\in S:x_i\\in neg(h_{opt})\\}|,|\\{y_i\\in S:y_i\\in pos(h_{opt})\\}|\\}.\\]</p><p>Note that \\(opt_{MD}(S)\\geq c_0\\geq opt_{MD}(S)/2\\). Now let \\(I^+\\) be the uniform distribution over the \\(x_i\\), and let \\(I^-\\) be the uniform distribution over the \\(y_i\\). Then \\(I^+\\) and \\(I^-\\) can be regarded as induced distributions for \\(h_{opt}\\) with error rate \\(\\beta'=c_0/m\\). \\(I^+\\) is induced by the joint behavior of the uniform distribution \\(D^+\\) over \\(\\{x_i\\in S:x_i\\in pos(h_{opt})\\}\\), and an adversary that draws a point uniformly from \\(\\{x_i\\in S:x_i\\in neg(h_{opt})\\}\\); \\(I^-\\) can be decomposed over the \\(y_i\\) in a similar fashion.</p><p>Algorithm \\(A'\\) runs algorithm \\(A\\) many times, starting with accuracy parameter \\(\\epsilon=1\\), and drawing from \\(I^+\\) on each call to \\(POS^{\\beta}_{MAL}\\) and from \\(I^-\\) on each call to \\(NEG^{\\beta}_{MAL}\\). Note that if \\(h_A\\) is an \\(\\epsilon\\)-good hypothesis with respect to \\(D^+\\) and \\(D^-\\), then we have \\(cost_{MD}(h_A,S)\\leq2\\epsilon m+opt_{MD}(S)\\). After each run, \\(A'\\) divides \\(\\epsilon\\) by 2. On some run of \\(A\\), \\(\\epsilon/r\\leq c_0/2m\\), and for this run we have \\(cost_{MD}(h_A,S)\\leq(r+1)opt_{MD}(S)\\leq2r\\,opt_{MD}(S)\\), as desired.</p>",
+        "pdfStart": {
+          "statement": { "page": 31, "y": 435.019952 },
+          "proof": { "page": 31, "y": 568.939976 }
+        }
+      }
+    ]
+  }
+]

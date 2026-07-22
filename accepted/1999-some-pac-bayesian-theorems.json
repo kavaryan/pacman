@@ -1,0 +1,83 @@
+[
+  {
+    "id": "1999-some-pac-bayesian-theorems",
+    "theorems": [
+      {
+        "id": "preliminary-theorem-1",
+        "type": "Preliminary Theorem",
+        "number": "1",
+        "title": "Consistent-concept bound for a countable class",
+        "section": "3. Two PAC-Bayesian theorems",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>For any probability distribution \\(P\\) assigning nonzero probability to every concept in a countable concept class containing a target concept \\(t\\), and any probability distribution on instances, we have, for any \\(\\delta&gt;0\\), that with probability at least \\(1-\\delta\\) over the selection of a sample of \\(m\\) instances, the following holds for all concepts \\(c\\) agreeing with \\(t\\) on that sample.</p><p>\\[\\epsilon(c) \\leq \\frac{\\ln \\frac{1}{P(c)}+\\ln \\frac{1}{\\delta}}{m}\\]</p>",
+        "proofHtml": "<p>The proof is a straightforward union bound argument. One observes that the probability that a concept \\(c\\) with error rate \\(\\epsilon\\) is consistent with a sample of \\(m\\) instances is at most \\(e^{-\\epsilon m}\\). If \\(\\epsilon\\) is larger than that allowed by the above bound, the probability that \\(c\\) is consistent with the sample is no larger than \\(P(c)\\delta\\). The probability that some \\(c\\) violating the bound is consistent with the sample is then bounded by \\(\\sum_c P(c)\\delta=\\delta\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 3, "y": 339.5 },
+          "proof": { "page": 3, "y": 444.97 }
+        }
+      },
+      {
+        "id": "theorem-1",
+        "type": "Theorem",
+        "number": "1",
+        "title": "Realizable PAC-Bayesian mixture bound",
+        "section": "3. Two PAC-Bayesian theorems",
+        "proofOrganization": "direct",
+        "dependencies": ["quantifier-reversal-lemma-1"],
+        "statementHtml": "<p>For any measure on any concept space and any measure on a space of instances we have, for \\(\\delta&gt;0\\), that with probability at least \\(1-\\delta\\) over the choice of a sample of \\(m\\) instances all measurable subsets \\(U\\) of the concepts such that every element of \\(U\\) is consistent with the sample and with \\(P(U)&gt;0\\) satisfies the following.</p><p>\\[\\epsilon(U) \\leq \\frac{\\ln \\frac{1}{P(U)}+\\ln \\frac{1}{\\delta}+2\\ln m+1}{m}\\]</p>",
+        "proofHtml": "<p>The Quantifier Reversal Lemma immediately yields a proof of Theorem 1. Let \\(C(S)\\) be the set of concepts that agree with the target concept on the sample \\(S\\). By a standard argument, if \\(\\epsilon(c)&gt;\\frac{\\ln(1/\\delta)}{m}\\) then \\(P_S\\,c\\in C(S)\\leq\\delta\\). This can be rewritten as follows.</p><p>\\[P_S\\!\\left(c\\in C(S)\\wedge\\epsilon(c)&gt;\\frac{\\ln\\frac{1}{\\delta}}{m}\\right)\\leq\\delta\\]</p><p>\\[\\forall_c\\,\\forall\\delta&gt;0\\,\\forall_S^\\delta\\!\\left[c\\in C(S)\\text{ implies }\\epsilon(c)\\leq\\frac{\\ln\\frac{1}{\\delta}}{m}\\right]\\]</p><p>Now by the quantifier reversal lemma we get the following.</p><p>\\[\\forall_S^\\delta\\,\\forall\\alpha&gt;0\\,\\forall_c^\\alpha\\!\\left[c\\in C(S)\\text{ implies }\\epsilon(c)\\leq\\frac{\\ln\\frac{1}{\\alpha\\beta\\delta}}{(1-\\beta)m}\\right]\\]</p><p>Now consider any sample \\(S\\) satisfying this condition and any set \\(U\\) of concepts such that each concept in \\(U\\) is consistent with \\(S\\). We can now instantiate \\(\\alpha\\) with \\(\\frac{P(U)}{m}\\) yielding the following.</p><p>\\[\\forall_c^{P(U)/m}\\!\\left[c\\in C(S)\\text{ implies }\\epsilon(c)\\leq\\frac{\\ln\\frac{1}{P(U)}+\\ln\\frac{1}{\\delta\\beta}+\\ln m}{(1-\\beta)m}\\right]\\]</p><p>Let \\(\\gamma\\) be the fraction of \\(U\\) violating the above formula. Since the the number of concepts violating this formula is no larger than \\(\\frac{P(U)}{m}\\), we have \\(\\gamma\\leq\\frac{1}{m}\\). Furthermore, since the error rate of all concepts is bounded by 1 we have the following.</p><p>\\[\\epsilon(U)\\leq(1-\\gamma)\\frac{\\ln\\frac{1}{P(U)}+\\ln\\frac{1}{\\delta\\beta}+\\ln m}{(1-\\beta)m}+\\gamma\\]</p><p>In the case where this bound is less than one it is maximized when \\(\\gamma\\) is as large as possible, i.e., when \\(\\gamma=\\frac{1}{m}\\). So we have the following.</p><p>\\[\\epsilon(U)\\leq\\left(1-\\frac{1}{m}\\right)\\frac{\\ln\\frac{1}{P(U)}+\\ln\\frac{1}{\\delta\\beta}+\\ln m}{(1-\\beta)m}+\\frac{1}{m}\\]</p><p>The final result is obtained by taking \\(\\beta=\\frac{1}{m}\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 4, "y": 339.03 },
+          "proof": { "page": 5, "y": 196.84 }
+        }
+      },
+      {
+        "id": "quantifier-reversal-lemma-1",
+        "type": "Quantifier Reversal Lemma",
+        "number": "1",
+        "title": "Quantifier reversal for nested probability statements",
+        "section": "3. Two PAC-Bayesian theorems; 4. The quantifier reversal lemma",
+        "proofOrganization": "deferred",
+        "proofNote": "The statement says that its proof is in the next section. Section 4 first proves an unnumbered preliminary lemma, then uses it in the proof of Quantifier Reversal Lemma 1; both parts are included here.",
+        "dependencies": [],
+        "statementHtml": "<p>Let \\(x\\) and \\(y\\) be random variables and let \\(\\delta\\) range over real numbers. Let \\(\\Phi(x,y,\\delta)\\) be any measurable formula such that for any \\(x\\) and \\(y\\) we have \\(\\{\\delta\\in(0,1]:\\Phi(x,y,\\delta)\\}=(0,\\delta_{\\max}]\\) for some \\(\\delta_{\\max}\\). If</p><p>\\[\\forall_x\\,\\forall\\delta&gt;0\\,\\forall_y^\\delta\\,\\Phi(x,y,\\delta)\\]</p><p>then for any \\(\\delta&gt;0\\) and \\(0&lt;\\beta&lt;1\\) we have</p><p>\\[\\forall_y^\\delta\\,\\forall\\alpha&gt;0\\,\\forall_x^\\alpha\\,\\Phi\\!\\left(x,y,(\\alpha\\beta\\delta)^{1/(1-\\beta)}\\right)\\]</p>",
+        "proofHtml": "<p>First we prove a preliminary lemma. Let \\(f\\) be any measurable function from the space of values of \\(y\\) to the reals and let \\(g\\) be any measurable anti-monotone function from the open interval \\((0,1)\\) to the reals, i.e., \\(g\\) is such that \\(x\\geq z\\) implies \\(g(x)\\leq g(z)\\). We show that if \\(\\forall\\delta&gt;0\\,\\forall_y^\\delta\\,f(y)\\geq\\delta\\) then \\(E_y g(f(y))\\leq\\int_0^1g(z)\\,dz\\). To see this first note that without loss of generality we can assume that singleton sets have zero measure—we can always replace the space of values of \\(y\\) by a cross product of that space with the unit interval. If singleton sets have zero measure then for any natural number \\(n&gt;0\\) it is possible to divide the values of \\(y\\) into \\(n\\) disjoint sets \\(U_0,\\ldots,U_{n-1}\\) such that each \\(U_i\\) has measure \\(1/n\\) and for all \\(i&gt;0\\) we have that \\(y\\in U_i\\) implies \\(f(y)\\geq i/n\\). So we have the following.</p><p>\\[E_y g(f(y))\\leq\\lim_{n\\to\\infty}\\frac{1}{n}\\sum_{i=1}^{n-1}g\\!\\left(\\frac{i}{n}\\right)=\\int_0^1g(z)\\,dz\\]</p><p>We now prove the quantifier reversal lemma. Let \\(x\\) and \\(y\\) be any two random variables and let \\(\\Phi(x,y,\\delta)\\) be any measurable formula where \\(\\delta\\) ranges over real numbers where \\(\\Phi\\) satisfies the condition that for any \\(x\\) and \\(y\\) we have \\(\\{\\delta\\in(0,1]:\\Phi(x,y,\\delta)\\}=(0,\\delta_{\\max}]\\) for some \\(\\delta_{\\max}\\). Define \\(f(x,y)\\) to be 0 if this set is empty and the unique value of \\(\\delta_{\\max}\\) otherwise. For \\(0&lt;\\delta\\leq1\\) we have that \\(\\Phi(x,y,\\delta)\\) can be written as \\(f(x,y)\\geq\\delta\\). Now assume that for any \\(x\\) and \\(\\delta&gt;0\\) we have \\(\\forall_y^\\delta f(x,y)\\geq\\delta\\). For \\(0&lt;\\beta&lt;1\\) the preceding lemma implies the following.</p><p>\\[E_y[f(x,y)]^{\\beta-1}\\leq\\int_0^1z^{\\beta-1}\\,dz=\\frac{1}{\\beta}\\]</p><p>Taking the expectation over \\(x\\), reversing the, quantifiers and applying Markov’s inequality gives the following.</p><p>\\[E_yE_x[f(x,y)]^{\\beta-1}\\leq\\frac{1}{\\beta}\\]</p><p>\\[\\forall_y^\\delta\\,E_x[f(x,y)]^{\\beta-1}\\leq\\frac{1}{\\beta\\delta}\\]</p><p>\\[\\forall_y^\\delta\\,\\forall\\alpha&gt;0\\,\\forall_x^\\alpha\\,[f(x,y)]^{\\beta-1}\\leq\\frac{1}{\\alpha\\beta\\delta}\\]</p><p>\\[\\forall_y^\\delta\\,\\forall\\alpha&gt;0\\,\\forall_x^\\alpha\\,f(x,y)\\geq(\\alpha\\beta\\delta)^{1/(1-\\beta)}\\]</p><p>\\[\\forall_y^\\delta\\,\\forall\\alpha&gt;0\\,\\forall_x^\\alpha\\,\\Phi\\!\\left(x,y,(\\alpha\\beta\\delta)^{1/(1-\\beta)}\\right)\\]</p>",
+        "pdfStart": {
+          "statement": { "page": 4, "y": 621.97 },
+          "proof": { "page": 7, "y": 500.03 }
+        }
+      },
+      {
+        "id": "preliminary-theorem-2",
+        "type": "Preliminary Theorem",
+        "number": "2",
+        "title": "Bounded-loss bound for a countable class",
+        "section": "3. Two PAC-Bayesian theorems",
+        "proofOrganization": "sketch",
+        "dependencies": [],
+        "statementHtml": "<p>For any probability distribution \\(P\\) assigning nonzero probability to each concept in a countable concept class, any probability measure on instances, and any loss function \\(l\\) mapping a concept and an instance to \\([0,1]\\), we have, for \\(\\delta&gt;0\\), that with probability at least \\(1-\\delta\\) over the selection of an IID sample \\(S\\) of \\(m\\) instances all concepts \\(c\\) satisfy the following.</p><p>\\[\\bar l(c)\\leq\\hat l(c,S)+\\sqrt{\\frac{\\ln\\frac{1}{P(c)}+\\ln\\frac{1}{\\delta}}{2m}}\\]</p>",
+        "proofHtml": "<p>Essentially the same result can be found in a variety of places, e.g., [1, 2, 3]. As with Preliminary Theorem 1, the proof is a simple application of the union bound over the set of concepts but using the Chernoff bound for the probability that a given concept violates the theorem.</p>",
+        "pdfStart": {
+          "statement": { "page": 6, "y": 333.29 },
+          "proof": { "page": 6, "y": 452.28 }
+        }
+      },
+      {
+        "id": "theorem-2",
+        "type": "Theorem",
+        "number": "2",
+        "title": "Bounded-loss PAC-Bayesian mixture bound",
+        "section": "3. Two PAC-Bayesian theorems",
+        "proofOrganization": "direct",
+        "dependencies": ["quantifier-reversal-lemma-1"],
+        "statementHtml": "<p>For any probability measure on a space of concepts, any probability measure on a space of instances, and any measurable loss function \\(l\\) mapping a concept and an instance to \\([0,1]\\), we have, for \\(\\delta&gt;0\\), that with probability at least \\(1-\\delta\\) over the selection of an IID sample \\(S\\) of \\(m\\) instances all measurable subsets \\(U\\) of the concept space with \\(P(U)&gt;0\\) satisfy the following.</p><p>\\[\\bar l(U)\\leq\\hat l(U,S)+\\sqrt{\\frac{\\ln\\frac{1}{P(U)}+\\ln\\frac{1}{\\delta}+2\\ln m}{2m}}+\\frac{1}{m}\\]</p>",
+        "proofHtml": "<p>Theorem 2 is proved from the Quantifier Reversal Lemma in a manner similar to that of Theorem 1. Using the Chernoff bound for an individual concept \\(c\\) we get the following.</p><p>\\[\\forall_c\\,\\forall\\delta&gt;0\\,\\forall_S^\\delta\\,\\bar l(c)\\leq\\hat l(c,S)+\\sqrt{\\frac{\\ln\\frac{1}{\\delta}}{2m}}\\]</p><p>The quantifier reversal lemma then implies the following.</p><p>\\[\\forall_S^\\delta\\,\\forall\\alpha&gt;0\\,\\forall_c^\\alpha\\,\\bar l(c)\\leq\\hat l(c,S)+\\sqrt{\\frac{\\ln\\frac{1}{\\beta\\delta\\alpha}}{(1-\\beta)2m}}\\]</p><p>Again the result follows by setting \\(\\beta=\\frac{1}{m}\\) and \\(\\alpha=\\frac{P(U)}{m}\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 6, "y": 636.26 },
+          "proof": { "page": 7, "y": 307.21 }
+        }
+      }
+    ]
+  }
+]

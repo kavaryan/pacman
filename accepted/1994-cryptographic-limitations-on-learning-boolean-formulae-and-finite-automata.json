@@ -1,0 +1,315 @@
+[
+  {
+    "id": "1994-cryptographic-limitations-on-learning-boolean-formulae-and-finite-automata",
+    "theorems": [
+      {
+        "id": "fact-cb1",
+        "type": "Fact",
+        "number": "CB1",
+        "title": "Lower-tail Chernoff bound",
+        "section": "2.4.1. Chernoff Bounds",
+        "proofOrganization": "stated-without-separate-proof",
+        "proofNote": "The paper attributes Facts CB1 and CB2 to Angluin and Valiant [1979], following Chernoff [1952], and supplies no proof.",
+        "dependencies": [],
+        "statementHtml": "<p>For \\(0\\leq\\alpha\\leq1\\),</p><p>\\[\\operatorname{LE}(p,m,(1-\\alpha)mp) \\leq \\exp(-\\alpha^2mp/2).\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 8, "y": 596.874322 }
+        }
+      },
+      {
+        "id": "fact-cb2",
+        "type": "Fact",
+        "number": "CB2",
+        "title": "Upper-tail Chernoff bound",
+        "section": "2.4.1. Chernoff Bounds",
+        "proofOrganization": "stated-without-separate-proof",
+        "proofNote": "The paper attributes Facts CB1 and CB2 to Angluin and Valiant [1979], following Chernoff [1952], and supplies no proof.",
+        "dependencies": [],
+        "statementHtml": "<p>For \\(0\\leq\\alpha\\leq1\\),</p><p>\\[\\operatorname{GE}(p,m,(1+\\alpha)mp) \\leq \\exp(-\\alpha^2mp/3).\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 8, "y": 614.154772 }
+        }
+      },
+      {
+        "id": "fact-nt1",
+        "type": "Fact",
+        "number": "NT1",
+        "title": "Polynomial-time greatest common divisor",
+        "section": "4.1. Some Basic Number Theory",
+        "proofOrganization": "stated-without-separate-proof",
+        "proofNote": "The paper states this as a standard number-theoretic fact and supplies no proof.",
+        "dependencies": [],
+        "statementHtml": "<p>On inputs \\(x\\) and \\(N\\), \\(\\gcd(x,N)\\) can be computed in polynomial time.</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 11, "y": 628.876215 }
+        }
+      },
+      {
+        "id": "fact-nt2",
+        "type": "Fact",
+        "number": "NT2",
+        "title": "Euler criterion for the Legendre symbol",
+        "section": "4.1. Some Basic Number Theory",
+        "proofOrganization": "stated-without-separate-proof",
+        "proofNote": "The paper states this as a standard number-theoretic fact and supplies no proof.",
+        "dependencies": [],
+        "statementHtml": "<p>For \\(p\\) a prime and \\(x\\in\\mathbb{Z}_p^*\\), \\(L(x,p)=x^{(p-1)/2}\\bmod p\\).</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 12, "y": 58.11344 }
+        }
+      },
+      {
+        "id": "fact-nt3",
+        "type": "Fact",
+        "number": "NT3",
+        "title": "Polynomial-time Jacobi symbol",
+        "section": "4.1. Some Basic Number Theory",
+        "proofOrganization": "stated-without-separate-proof",
+        "proofNote": "The paper states this as a standard number-theoretic fact and supplies no proof.",
+        "dependencies": [],
+        "statementHtml": "<p>On inputs \\(x\\) and \\(N\\), \\(J(x,N)\\) can be computed in polynomial time.</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 12, "y": 69.873848 }
+        }
+      },
+      {
+        "id": "fact-nt4",
+        "type": "Fact",
+        "number": "NT4",
+        "title": "Cardinalities of Jacobi-one elements and quadratic residues",
+        "section": "4.1. Some Basic Number Theory",
+        "proofOrganization": "stated-without-separate-proof",
+        "proofNote": "The paper states this as a standard number-theoretic fact and supplies no proof.",
+        "dependencies": [],
+        "statementHtml": "<p>For \\(N=p\\cdot q\\), where \\(p\\) and \\(q\\) are prime, \\(\\lvert\\mathbb{Z}_N^*(+1)\\rvert=\\lvert\\mathbb{Z}_N^*\\rvert/2\\) and \\(\\lvert QR_N\\rvert=\\lvert\\mathbb{Z}_N^*\\rvert/4\\).</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 12, "y": 81.874232 }
+        }
+      },
+      {
+        "id": "fact-nt5",
+        "type": "Fact",
+        "number": "NT5",
+        "title": "Euler's theorem modulo N",
+        "section": "4.1. Some Basic Number Theory",
+        "proofOrganization": "stated-without-separate-proof",
+        "proofNote": "The paper states this as a standard number-theoretic fact and supplies no proof.",
+        "dependencies": [],
+        "statementHtml": "<p>For any \\(x\\in\\mathbb{Z}_N^*\\), \\(x^{\\varphi(N)}=1\\bmod N\\).</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 12, "y": 105.633824 }
+        }
+      },
+      {
+        "id": "theorem-1",
+        "type": "Theorem",
+        "number": "1",
+        "title": "Least-significant-bit security of RSA",
+        "section": "4.2. The RSA Encryption Function",
+        "proofOrganization": "cited-without-proof",
+        "proofNote": "The paper cites this result to Alexi et al. [1988] and does not reproduce its proof.",
+        "dependencies": [],
+        "statementHtml": "<p><span class=\"citation\">[Alexi et al. 1988]</span> Let \\(x\\), \\(N\\), and \\(e\\) be as above. Then with respect to probabilistic polynomial-time reducibility, the following problems are equivalent:</p><ol><li>On input \\(\\operatorname{RSA}(x,N,e)\\), \\(N\\), and \\(e\\), output \\(x\\).</li><li>On input \\(\\operatorname{RSA}(x,N,e)\\), \\(N\\), and \\(e\\), output \\(\\operatorname{LSB}(x)\\) with probability exceeding \\(1/2+1/p(l)\\), where \\(p\\) is any fixed polynomial, \\(l=\\log N\\) is the length of \\(N\\), and \\(\\operatorname{LSB}(x)\\) denotes the least significant bit of \\(x\\). The probability is taken over \\(x\\) chosen uniformly from \\(\\mathbb{Z}_N^*\\) and any coin tosses of \\(A\\).</li></ol>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 12, "y": 378.244659 }
+        }
+      },
+      {
+        "id": "theorem-2",
+        "type": "Theorem",
+        "number": "2",
+        "title": "Rabin inversion is equivalent to factoring",
+        "section": "4.3. The Rabin and Modified Rabin Encryption Functions",
+        "proofOrganization": "cited-without-proof",
+        "proofNote": "The paper cites this result to Rabin [1979] and does not reproduce its proof.",
+        "dependencies": [],
+        "statementHtml": "<p><span class=\"citation\">[Rabin 1979]</span> Let \\(x\\) and \\(N\\) be as above. Then with respect to probabilistic polynomial-time reducibility, the following problems are equivalent:</p><ol><li>On input \\(N\\), output a nontrivial factor of \\(N\\).</li><li>On input \\(N\\) and \\(R(x,N)\\), output a \\(y\\) such that \\(R(y,N)=R(x,N)\\).</li></ol><p>Furthermore, this reduction still holds when \\(N\\) is restricted to be a Blum integer in both problems.</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 12, "y": 595.480259 }
+        }
+      },
+      {
+        "id": "theorem-3",
+        "type": "Theorem",
+        "number": "3",
+        "title": "Least-significant-bit security of modified Rabin",
+        "section": "4.3. The Rabin and Modified Rabin Encryption Functions",
+        "proofOrganization": "cited-without-proof",
+        "proofNote": "The paper cites this result to Alexi et al. [1988] and does not reproduce its proof.",
+        "dependencies": [],
+        "statementHtml": "<p><span class=\"citation\">[Alexi et al. 1988]</span> Let \\(x\\) and \\(N\\) be as above. Then with respect to probabilistic polynomial-time reducibility, the following problems are equivalent:</p><ol><li>On input \\(MR(x,N)\\) and \\(N\\), output \\(x\\).</li><li>On input \\(MR(x,N)\\) and \\(N\\), output \\(\\operatorname{LSB}(x)\\) with probability exceeding \\(1/2+1/p(l)\\), where \\(p\\) is any fixed polynomial and \\(l=\\log N\\) is the length of \\(N\\). The probability is taken over \\(x\\) chosen uniformly from \\(M_N\\) and any coin tosses of \\(A\\).</li></ol>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 13, "y": 233.236422 }
+        }
+      },
+      {
+        "id": "theorem-4",
+        "type": "Theorem",
+        "number": "4",
+        "title": "Cryptographic hardness of weakly learning Boolean formulae",
+        "section": "6. Learning Small Boolean Formulae, Finite Automata, and Threshold Circuits is Hard",
+        "proofOrganization": "composite-immediate-preceding",
+        "proofNote": "The cryptographic reductions and NC1 evaluations are developed throughout Section 5; the paper gives the final Boolean-formula conversion immediately before the theorem.",
+        "dependencies": ["fact-cb1", "fact-cb2", "fact-nt1", "fact-nt2", "fact-nt3", "fact-nt4", "fact-nt5", "theorem-1", "theorem-2", "theorem-3"],
+        "statementHtml": "<p>Let \\(BF_n^{p(n)}\\) denote the class of Boolean formulae over \\(n\\) variables of size at most \\(p(n)\\), and let \\(BF^{p(n)}=\\bigcup_{n\\geq1}BF_n^{p(n)}\\). Then for some polynomial \\(p(n)\\), the problems of inverting the RSA encryption function, recognizing quadratic residues and factoring Blum integers are probabilistic polynomial-time reducible to weakly learning \\(BF^{p(n)}\\).</p>",
+        "proofHtml": "<p>The results of Section 5 show that for some fixed polynomial \\(q(n)\\), learning \\(NC^1\\) circuits of size at most \\(q(n)\\) is computationally as difficult as the problems of inverting RSA, recognizing quadratic residues, and factoring Blum integers. However, there is a polynomial \\(p(n)\\) such that any \\(NC^1\\) circuit of size at most \\(q(n)\\) can be represented by a Boolean formulae of size at most \\(p(n)\\). Thus we have proved the following.</p>",
+        "pdfStart": {
+          "statement": { "page": 19, "y": 249.799788 },
+          "proof": { "page": 19, "y": 172.997469 }
+        }
+      },
+      {
+        "id": "theorem-5",
+        "type": "Theorem",
+        "number": "5",
+        "title": "Cryptographic hardness of weakly learning acyclic DFAs",
+        "section": "6. Learning Small Boolean Formulae, Finite Automata, and Threshold Circuits is Hard",
+        "proofOrganization": "immediate-preceding",
+        "proofNote": "The paper gives the reduction immediately before the statement rather than as a following proof.",
+        "dependencies": ["theorem-4"],
+        "statementHtml": "<p>Let \\(ADFA_n^{p(n)}\\) denote the class of deterministic finite automata of size at most \\(p(n)\\) that only accept strings of length \\(n\\), and let \\(ADFA^{p(n)}=\\bigcup_{n\\geq1}ADFA_n^{p(n)}\\). Then for some polynomial \\(p(n)\\), the problems of inverting the RSA encryption function, recognizing quadratic residues and factoring Blum integers are probabilistic polynomial-time reducible to weakly learning \\(ADFA^{p(n)}\\).</p>",
+        "proofHtml": "<p>Pitt and Warmuth [1988] show that if the class \\(ADFA\\) is polynomially weakly learnable, then the class \\(BF\\) is polynomially weakly learnable. Combining this with Theorem 4, we have:</p>",
+        "pdfStart": {
+          "statement": { "page": 19, "y": 390.684213 },
+          "proof": { "page": 19, "y": 350.122923 }
+        }
+      },
+      {
+        "id": "theorem-6",
+        "type": "Theorem",
+        "number": "6",
+        "title": "Cryptographic hardness of weakly learning constant-depth threshold circuits",
+        "section": "6. Learning Small Boolean Formulae, Finite Automata, and Threshold Circuits is Hard",
+        "proofOrganization": "immediate-preceding",
+        "proofNote": "The paper gives the circuit-simulation argument immediately before the statement rather than as a following proof.",
+        "dependencies": ["theorem-4"],
+        "statementHtml": "<p>For some fixed constant natural number \\(d\\), let \\(dTC_n^{p(n)}\\) denote the class of threshold circuits over \\(n\\) variables with depth at most \\(d\\) and size at most \\(p(n)\\), and let \\(dTC^{p(n)}=\\bigcup_{n\\geq1}dTC_n^{p(n)}\\). Then for some polynomial \\(p(n)\\), the problems of inverting the RSA encryption function, recognizing quadratic residues and factoring Blum integers are probabilistic polynomial-time reducible to weakly learning \\(dTC^{p(n)}\\).</p>",
+        "proofHtml": "<p>Using results of Chandra et al. [1984], Beame et al. [1986], and Reif [1987], it can be shown that the representations described in Section 5 can each be computed by a polynomial-size, constant-depth threshold circuit. Thus, we have:</p>",
+        "pdfStart": {
+          "statement": { "page": 19, "y": 555.569505 },
+          "proof": { "page": 19, "y": 503.247807 }
+        }
+      },
+      {
+        "id": "theorem-7",
+        "type": "Theorem",
+        "number": "7",
+        "title": "Trapdoor schemes yield hard learning problems",
+        "section": "7. A Generalized Construction Based on Any Trapdoor Function",
+        "proofOrganization": "direct",
+        "proofNote": "The printed proof labels training examples using the ith bit of f(k,x') and then gives x' to the learner; this transcription preserves that wording exactly.",
+        "dependencies": ["fact-cb1", "fact-cb2"],
+        "statementHtml": "<p>Let \\(p\\) be any polynomial, and let \\(\\alpha(n)\\geq1/p(n)\\). Let \\((P,Q,f)\\) be an \\(\\alpha(n)\\)-strong trapdoor scheme, and let \\(C\\) be a parametrized Boolean representation class. Then if \\((P,Q,f)\\) is invertible in \\(C\\) given the trapdoor, \\(C\\) is not polynomially learnable.</p>",
+        "proofHtml": "<p>Let \\(A\\) be any polynomial-time learning algorithm for \\(C\\). We use algorithm \\(A\\) as a subroutine in a polynomial-time algorithm \\(A'\\) that with high probability outputs \\(x\\) on input \\(k\\) and \\(f(k,x)\\), thus contradicting condition (iv) in the definition of a trapdoor scheme.</p><p>Let \\((k,k')\\) be \\(n\\)-bit public and private keys generated by the distribution \\(P_n\\). Let \\(x\\) be an \\(n\\)-bit message generated according to the distribution \\(Q_k\\). Then on input \\(k\\) and \\(f(k,x)\\), algorithm \\(A'\\) behaves as follows: for \\(1\\leq i\\leq n\\), algorithm \\(A'\\) simulates algorithm \\(A\\), choosing accuracy parameter \\(\\epsilon=\\alpha(n)/n\\). For the \\(i\\)th run of \\(A\\), each time \\(A\\) requests a positive example, \\(A'\\) generates random values \\(x'\\) from the distribution \\(Q_k\\) (this can be done in polynomial time by condition (ii) in the definition of trapdoor scheme) and computes \\(f(k,x')\\) (this can be done in polynomial time by condition (iii) in the definition of trapdoor scheme). If the \\(i\\)th bit of \\(f(k,x')\\) is 1, then \\(A'\\) gives \\(x'\\) as a positive example to \\(A\\); similarly, \\(A'\\) generates negative examples for the \\(i\\)th run of \\(A\\) by drawing \\(x'\\) such that the \\(i\\)th bit of \\(f(k,x')\\) is 0. If after \\(O((1/\\epsilon)\\ln(n/\\delta))\\) draws from \\(Q_k\\), \\(A'\\) is unable to obtain a positive (respectively, negative) example for \\(A\\), then \\(A'\\) assumes that with high probability a random \\(x'\\) results in the \\(i\\)th bit of \\(f(k,x')\\) being 0 (respectively, 1), and terminates this run by setting \\(h_k^i\\) to the hypothesis that is always 0 (respectively, 1). The probability that \\(A'\\) terminates the run incorrectly can be shown to be smaller than \\(\\delta/n\\) by application of Fact CB1 and Fact CB2.</p><p>Note that all of the examples given to the \\(i\\)th run of \\(A\\) are consistent with a representation in \\(C_n\\), since the \\(i\\)th bit of \\(f(k,\\cdot)\\) is computed by the representation \\(c^i_{(k,k')}\\). Thus, with high probability \\(A\\) outputs an \\(\\epsilon\\)-good hypothesis \\(h_k^i\\). To invert the original input \\(f(k,x)\\), \\(A'\\) simply outputs the bit sequence \\(h_k^1(f(k,x))\\cdots h_k^n(f(k,x))\\). The probability that any bit of this string differs from the corresponding bit of \\(x\\) is at most \\(n\\epsilon&lt;\\alpha(n)\\), contradicting the assumption that \\((P,Q,f)\\) is an \\(\\alpha(n)\\)-strong trapdoor scheme. \\(\\square\\)</p>",
+        "pdfStart": {
+          "statement": { "page": 22, "y": 107.434862 },
+          "proof": { "page": 22, "y": 163.836647 }
+        }
+      },
+      {
+        "id": "theorem-8",
+        "type": "Theorem",
+        "number": "8",
+        "title": "Occam's Razor sample bound",
+        "section": "8. Application: Hardness Results for Approximation Algorithms",
+        "proofOrganization": "cited-without-proof",
+        "proofNote": "The paper cites this theorem to Blumer et al. [1987] and does not reproduce its proof. The printed statement permits beta <= 1 although the displayed bound contains the exponent 1/(1-beta); the transcription preserves the printed inequality.",
+        "dependencies": [],
+        "statementHtml": "<p><span class=\"citation\">[Blumer et al. 1987]</span> Let \\(C\\) and \\(H\\) be polynomially evaluatable parametrized Boolean representation classes. Fix \\(\\alpha\\geq1\\) and \\(0\\leq\\beta\\leq1\\), and let \\(A\\) be an algorithm that on input a labeled sample \\(S\\) of some \\(c\\in C_n\\), consisting of \\(m\\) positive examples of \\(c\\) drawn from \\(D^+\\) and \\(m\\) negative examples of \\(c\\) drawn from \\(D^-\\), outputs an hypothesis \\(h_A\\in H_n\\) that is consistent with \\(S\\) and satisfies \\(\\lvert h_A\\rvert\\leq n^\\alpha m^\\beta\\), where \\(\\lvert h_A\\rvert\\) is the length of the representation \\(h_A\\) in bits. Then \\(A\\) is a learning algorithm for \\(C\\) by \\(H\\); the sample size required is</p><p>\\[m=O\\!\\left(\\frac{1}{\\epsilon}\\log\\frac{1}{\\delta}+\\left\\{\\frac{n^\\alpha}{\\epsilon}\\log\\frac{n^\\alpha}{\\epsilon}\\right\\}^{1/(1-\\beta)}\\right).\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 23, "y": 115.878419 }
+        }
+      },
+      {
+        "id": "theorem-9",
+        "type": "Theorem",
+        "number": "9",
+        "title": "Hardness of approximating Boolean-formula consistency",
+        "section": "8. Application: Hardness Results for Approximation Algorithms",
+        "proofOrganization": "immediate-preceding",
+        "proofNote": "The paper presents Theorems 9–11 as immediate consequences of Section 6 and Theorem 8, with one shared introductory sentence.",
+        "dependencies": ["theorem-4", "theorem-8"],
+        "statementHtml": "<p>Let \\(BF_n\\) denote the class of Boolean formulae over \\(n\\) variables, and let \\(BF=\\bigcup_{n\\geq1}BF_n\\). Let \\(H\\) be any polynomially evaluatable parametrized Boolean representation class. Then the problems of inverting the RSA encryption function, recognizing quadratic residues and factoring Blum integers are probabilistic polynomial-time reducible to the problem of approximating the optimal solution of an instance \\(S\\) of \\(\\operatorname{Con}(BF,H)\\) by an hypothesis \\(h\\) satisfying</p><p>\\[\\lvert h\\rvert\\leq(\\operatorname{opt}_{\\mathrm{Con}}(S))^\\alpha\\lvert S\\rvert^\\beta\\]</p><p>for any \\(\\alpha\\geq1\\) and \\(0\\leq\\beta&lt;1\\).</p>",
+        "proofHtml": "<p>Using the results of Section 6 and Theorem 8, we immediately obtain proofs of the following theorems.</p>",
+        "pdfStart": {
+          "statement": { "page": 23, "y": 488.159377 },
+          "proof": { "page": 23, "y": 452.878252 }
+        }
+      },
+      {
+        "id": "theorem-10",
+        "type": "Theorem",
+        "number": "10",
+        "title": "Hardness of approximating acyclic-DFA consistency",
+        "section": "8. Application: Hardness Results for Approximation Algorithms",
+        "proofOrganization": "immediate-preceding",
+        "proofNote": "The paper presents Theorems 9–11 as immediate consequences of Section 6 and Theorem 8, with one shared introductory sentence.",
+        "dependencies": ["theorem-5", "theorem-8"],
+        "statementHtml": "<p>Let \\(ADFA_n\\) denote the class of deterministic finite automata accepting only strings of length \\(n\\), and let \\(ADFA=\\bigcup_{n\\geq1}ADFA_n\\). Let \\(H\\) be any polynomially evaluatable parametrized Boolean representation class. Then inverting the RSA encryption function, recognizing quadratic residues and factoring Blum integers are probabilistic polynomial-time reducible to approximating the optimal solution of an instance \\(S\\) of \\(\\operatorname{Con}(ADFA,H)\\) by an hypothesis \\(h\\) satisfying</p><p>\\[\\lvert h\\rvert\\leq(\\operatorname{opt}_{\\mathrm{Con}}(S))^\\alpha\\lvert S\\rvert^\\beta\\]</p><p>for any \\(\\alpha\\geq1\\) and \\(0\\leq\\beta&lt;1\\).</p>",
+        "proofHtml": "<p>Using the results of Section 6 and Theorem 8, we immediately obtain proofs of the following theorems.</p>",
+        "pdfStart": {
+          "statement": { "page": 23, "y": 616.314103 },
+          "proof": { "page": 23, "y": 452.878252 }
+        }
+      },
+      {
+        "id": "theorem-11",
+        "type": "Theorem",
+        "number": "11",
+        "title": "Hardness of approximating threshold-circuit consistency",
+        "section": "8. Application: Hardness Results for Approximation Algorithms",
+        "proofOrganization": "immediate-preceding",
+        "proofNote": "The paper presents Theorems 9–11 as immediate consequences of Section 6 and Theorem 8, with one shared introductory sentence.",
+        "dependencies": ["theorem-6", "theorem-8"],
+        "statementHtml": "<p>Let \\(dTC_n\\) denote the class of threshold circuits over \\(n\\) variables with depth at most \\(d\\), and let \\(dTC=\\bigcup_{n\\geq1}dTC_n\\). Let \\(H\\) be any polynomially evaluatable parametrized Boolean representation class. Then for some constant \\(d\\geq1\\), the problems of inverting the RSA encryption function, recognizing quadratic residues and factoring Blum integers are probabilistic polynomial-time reducible to the problem of approximating the optimal solution of an instance \\(S\\) of \\(\\operatorname{Con}(dTC,H)\\) by an hypothesis \\(h\\) satisfying</p><p>\\[\\lvert h\\rvert\\leq(\\operatorname{opt}_{\\mathrm{Con}}(S))^\\alpha\\lvert S\\rvert^\\beta\\]</p><p>for any \\(\\alpha\\geq1\\) and \\(0\\leq\\beta&lt;1\\).</p>",
+        "proofHtml": "<p>Using the results of Section 6 and Theorem 8, we immediately obtain proofs of the following theorems.</p>",
+        "pdfStart": {
+          "statement": { "page": 24, "y": 149.913464 },
+          "proof": { "page": 23, "y": 452.878252 }
+        }
+      },
+      {
+        "id": "theorem-12",
+        "type": "Theorem",
+        "number": "12",
+        "title": "Reduction from DFA consistency to formula coloring",
+        "section": "8. Application: Hardness Results for Approximation Algorithms",
+        "proofOrganization": "direct",
+        "proofNote": "The printed proof gives the initial variable ranges as 1 <= i <= n and 0 <= j <= m, although later uses indicate an apparent n/m index swap; this transcription preserves the printed ranges.",
+        "dependencies": [],
+        "statementHtml": "<p>There is a polynomial-time algorithm \\(A\\) that on input an instance \\(S\\) of the problem \\(\\operatorname{Con}(DFA,DFA)\\) outputs an instance \\(F(S)\\) of the formula coloring problem such that \\(S\\) has a \\(k\\)-state consistent hypothesis \\(M\\in DFA\\) if and only if \\(F(S)\\) has a model of \\(k\\) colors.</p>",
+        "proofHtml": "<p>Let \\(S\\) contain the labeled examples</p><p>\\[\\langle w_1,b_1\\rangle,\\langle w_2,b_2\\rangle,\\ldots,\\langle w_m,b_m\\rangle\\]</p><p>where each \\(w_i\\in\\{0,1\\}^n\\) and \\(b_i\\in\\{0,1\\}\\). Let \\(w_i^j\\) denote the \\(j\\)th bit of \\(w_i\\). We create a variable \\(z_i^j\\) for each \\(1\\leq i\\leq n\\) and \\(0\\leq j\\leq m\\). Let \\(M\\) be a smallest DFA consistent with \\(S\\). Then we interpret \\(z_i^j\\) as representing the state that \\(M\\) is in immediately after reading the bit \\(w_i^j\\) on input \\(w_i\\). The formula \\(F(S)\\) will be over the \\(z_i^j\\) and is constructed as follows: For each \\(i_1,i_2\\) and \\(j_1,j_2\\) such that \\(0\\leq j_1,j_2&lt;n\\) and \\(w_{i_1}^{j_1+1}=w_{i_2}^{j_2+1}\\), we conjunct the predicate</p><p>\\[\\bigl((z_{i_1}^{j_1}=z_{i_2}^{j_2})\\rightarrow(z_{i_1}^{j_1+1}=z_{i_2}^{j_2+1})\\bigr)\\]</p><p>to \\(F(S)\\). Note that this predicate is equivalent to</p><p>\\[\\bigl((z_{i_1}^{j_1}\\neq z_{i_2}^{j_2})\\vee(z_{i_1}^{j_1+1}=z_{i_2}^{j_2+1})\\bigr)\\]</p><p>and thus has the required form. These formulae are designed to encode the constraint that if \\(M\\) is in the same state in two different computations on input strings from \\(S\\), and the next input symbol is the same in both strings, then the next state in each computation must be the same.</p><p>For each \\(i_1,i_2\\) (\\(1\\leq i_1,i_2\\leq m\\)) such that \\(b_{i_1}\\neq b_{i_2}\\), we conjunct the predicate \\((z_{i_1}^n\\neq z_{i_2}^n)\\). These predicates are designed to encode the constraint that the input strings in \\(S\\) that are accepted by \\(M\\) must result in different final states than those strings in \\(S\\) that are rejected by \\(M\\).</p><p>We first prove that if \\(M\\) has \\(k\\) states, then \\(\\operatorname{opt}_{FC}(F(S))\\leq k\\). In particular, let \\(P\\) be the \\(k\\)-color partition that assigns \\(z_{i_1}^{j_1}\\) and \\(z_{i_2}^{j_2}\\) the same color if and only if \\(M\\) is in the same state after reading \\(w_{i_1}^{j_1}\\) on input \\(w_{i_1}\\) and after reading \\(w_{i_2}^{j_2}\\) on input \\(w_{i_2}\\). We show that \\(P\\) is a model of \\(F(S)\\). A conjunct</p><p>\\[\\bigl((z_{i_1}^{j_1}=z_{i_2}^{j_2})\\rightarrow(z_{i_1}^{j_1+1}=z_{i_2}^{j_2+1})\\bigr)\\]</p><p>of \\(F(S)\\) cannot be violated by \\(P\\) since this conjunct appears only if \\(w_{i_1}^{j_1+1}=w_{i_2}^{j_2+1}\\); thus, if state \\(z_{i_1}^{j_1}\\) is equivalent to state \\(z_{i_2}^{j_2}\\), then state \\(z_{i_1}^{j_1+1}\\) must be equivalent to state \\(z_{i_2}^{j_2+1}\\) since \\(M\\) is deterministic. A conjunct</p><p>\\[(z_{i_1}^n\\neq z_{i_2}^n)\\]</p><p>of \\(F(S)\\) cannot be violated by \\(P\\) since this conjunct appears only if \\(b_{i_1}\\neq b_{i_2}\\), and if state \\(z_{i_1}^n\\) is equivalent to state \\(z_{i_2}^n\\), then \\(w_{i_1}\\) and \\(w_{i_2}\\) are either both accepted or both rejected by \\(M\\), which contradicts \\(M\\) being consistent with \\(S\\).</p><p>For the other direction, we show that, if \\(\\operatorname{opt}_{FC}(F(S))\\leq k\\), then there is a \\(k\\)-state DFA \\(M'\\) that is consistent with \\(S\\). \\(M'\\) is constructed as follows: The \\(k\\) states of \\(M'\\) are labeled with the \\(k\\) equivalence classes (colors) \\(X_1,\\ldots,X_k\\) of the variables \\(z_i^j\\) in a minimum model \\(P'\\) for \\(F(S)\\). There is a transition from state \\(X_p\\) to state \\(X_q\\) if and only if there are \\(i,j\\) such that \\(z_i^j\\in X_p\\) and \\(z_i^{j+1}\\in X_q\\); this transition is labeled with the symbol \\(w_i^{j+1}\\). We label \\(X_p\\) an accepting (respectively, rejecting) state, if for some variable \\(z_i^n\\in X_p\\) we have \\(b_i=1\\) (respectively, \\(b_i=0\\)).</p><p>We first argue that no state \\(X_p\\) of \\(M'\\) can be labeled both an accepting and rejecting state. For if \\(b_{i_1}=1\\) and \\(b_{i_2}=0\\), then the conjunct \\((z_{i_1}^n\\neq z_{i_2}^n)\\) appears in \\(F(S)\\); hence, \\(z_{i_1}^n\\) and \\(z_{i_2}^n\\) must have different colors in \\(P'\\).</p><p>Next we show that \\(M'\\) is in fact deterministic. For suppose that some state \\(X_p\\) has transitions to \\(X_q\\) and \\(X_r\\), and that both transitions are labeled with the same symbol. Then there exist \\(i_1,i_2\\) and \\(j_1,j_2\\) such that \\(z_{i_1}^{j_1}\\in X_p\\) and \\(z_{i_1}^{j_1+1}\\in X_q\\), and \\(z_{i_2}^{j_2}\\in X_p\\) and \\(z_{i_2}^{j_2+1}\\in X_r\\). Furthermore, we must have \\(w_{i_1}^{j_1+1}=w_{i_2}^{j_2+1}\\) since both transitions have the same label. But then the conjunct</p><p>\\[\\bigl((z_{i_1}^{j_1}=z_{i_2}^{j_2})\\rightarrow(z_{i_1}^{j_1+1}=z_{i_2}^{j_2+1})\\bigr)\\]</p><p>must appear in \\(F(S)\\), and this conjunct is violated by \\(P'\\), a contradiction. Thus, \\(M'\\) is deterministic.</p><p>These arguments prove that \\(M'\\) is a well-defined DFA. To see that \\(M'\\) is consistent with \\(S\\), consider the computation of \\(M'\\) on any \\(w_i\\) in \\(S\\). The sequence of states visited on this computation is just \\(EC_{P'}(z_i^1),\\ldots,EC_{P'}(z_i^n)\\), where \\(EC_{P'}(z_i^j)\\) denotes the equivalence class of the variable \\(z_i^j\\) in the coloring \\(P'\\). The final state \\(EC_{P'}(z_i^n)\\) is by definition of \\(M'\\) either an accept state or a reject state according to whether \\(b_i=1\\) or \\(b_i=0\\). \\(\\square\\)</p>",
+        "pdfStart": {
+          "statement": { "page": 26, "y": 214.004659 },
+          "proof": { "page": 26, "y": 269.9553 }
+        }
+      },
+      {
+        "id": "theorem-13",
+        "type": "Theorem",
+        "number": "13",
+        "title": "Cryptographic hardness of approximating formula coloring",
+        "section": "8. Application: Hardness Results for Approximation Algorithms",
+        "proofOrganization": "immediate-preceding",
+        "dependencies": ["theorem-10", "theorem-12"],
+        "statementHtml": "<p>The problems of inverting the RSA encryption function, recognizing quadratic residues and factoring Blum integers are polynomial-time reducible to approximating the optimal solution to an instance \\(F\\) of the formula coloring problem by a model \\(P\\) of \\(F\\) satisfying</p><p>\\[\\lvert P\\rvert\\leq\\operatorname{opt}_{FC}(F)^\\alpha\\lvert F\\rvert^\\beta\\]</p><p>for any \\(\\alpha\\geq1\\) and \\(0\\leq\\beta&lt;1/2\\).</p>",
+        "proofHtml": "<p>Note that if \\(\\lvert S\\rvert\\) is the number of bits in the sample \\(S\\) and \\(\\lvert F(S)\\rvert\\) denotes the number of bits in the formula \\(F(S)\\), then in Theorem 12 we have \\(\\lvert F(S)\\rvert=\\Theta(\\lvert S\\rvert^2\\log\\lvert S\\rvert)=O(\\lvert S\\rvert^{2+\\gamma})\\) for any \\(\\gamma&gt;0\\) for \\(\\lvert S\\rvert\\) sufficiently large. This means that if an algorithm colors \\(F(S)\\) using at most \\(\\operatorname{opt}_{FC}(F(S))^\\alpha\\lvert F(S)\\rvert^\\beta\\) for some \\(\\alpha\\geq1\\) and \\(\\beta&lt;1/2\\), then for \\(\\lvert S\\rvert\\) sufficiently large we can use the reduction of Theorem 12 to find a DFA consistent with \\(S\\) that has at most \\(k^\\alpha\\lvert S\\rvert^{\\beta'}\\) for some \\(\\beta'&lt;1\\), contradicting Theorem 10. Thus we have:</p>",
+        "pdfStart": {
+          "statement": { "page": 27, "y": 540.475831 },
+          "proof": { "page": 27, "y": 452.39344 }
+        }
+      }
+    ]
+  }
+]

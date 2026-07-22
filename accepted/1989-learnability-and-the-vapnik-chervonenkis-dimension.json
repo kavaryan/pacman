@@ -1,0 +1,491 @@
+[
+  {
+    "id": "1989-learnability-and-the-vapnik-chervonenkis-dimension",
+    "theorems": [
+      {
+        "id": "theorem-2-1",
+        "type": "Theorem",
+        "number": "2.1",
+        "title": "Finite VC dimension characterizes uniform learnability",
+        "section": "2. Learnability",
+        "proofOrganization": "composite-deferred",
+        "dependencies": [
+          "theorem-a2-2"
+        ],
+        "statementHtml": "<p>Let \\(C\\) be a nontrivial, well-behaved concept class.</p><ol type=\"i\"><li>\\(C\\) is uniformly learnable if and only if the VC dimension of \\(C\\) is finite.</li><li>If the VC dimension of \\(C\\) is \\(d\\), where \\(d&lt;\\infty\\), then<ol type=\"a\"><li>for \\(0&lt;\\epsilon&lt;1\\) and sample size at least \\[\\max\\!\\left(\\frac{4}{\\epsilon}\\log\\frac{2}{\\delta},\\frac{8d}{\\epsilon}\\log\\frac{13}{\\epsilon}\\right),\\] any consistent function \\(A:S_C\\to C\\) is a learning function for \\(C\\) and</li><li>for \\(0&lt;\\epsilon&lt;\\frac12\\) and sample size less than \\[\\max\\!\\left(\\frac{1-\\epsilon}{\\epsilon}\\ln\\frac1\\delta,d\\bigl(1-2(\\epsilon(1-\\delta)+\\delta)\\bigr)\\right),\\] no function \\(A:S_C\\to H\\), for any hypothesis space \\(H\\), is a learning function for \\(C\\).</li></ol></li></ol>",
+        "proofHtml": "<p>The proof will be given in a series of lemmas and theorems, most of which are given in the Appendix. We first observe that if (ii)(a) holds then the “if” part of (i) follows. This is because we can always produce a consistent function that maps from \\(S_C\\) into \\(C\\) by simply well-ordering the concepts in \\(C\\) and choosing for each sample in \\(S_C\\) the first concept that is consistent with this sample. In this section we are not concerned with the computability of \\(A\\). Similarly, if (ii)(b) holds, then the “only if” part of (i) follows. This is because the second lower bound of (ii)(b) grows arbitrarily large with \\(d\\) for appropriate choice of \\(\\epsilon\\) and \\(\\delta\\). Hence, we need only establish (ii). The proof of (ii)(a) is given in Section 2 of the Appendix. Here we give only the following proof:</p><p><strong>Proof of (ii)(b).</strong> Let \\(C\\) be a nontrivial concept class of finite VC dimension \\(d\\), \\(0&lt;\\epsilon&lt;\\frac12\\), and \\(m=\\max((1-\\epsilon)/\\epsilon\\ln(1/\\delta),d(1-2(\\epsilon(1-\\delta)+\\delta)))\\). We must show that any learning function for \\(C\\) must use sample size at least \\(m\\). We begin with the first term of the lower bound, considering two cases for \\(C\\).</p><p><em>Case 1.</em> \\(C\\) contains two distinct concepts \\(c_1\\) and \\(c_2\\) that have a nonempty intersection.</p><p>Let \\(A\\) be a learning function for \\(C\\) and let \\(a\\in c_1\\cap c_2\\) and \\(b\\in c_2-c_1\\). Let \\(P\\) be the probability distribution such that \\(P(b)=\\epsilon\\), \\(P(a)=1-\\epsilon\\), and \\(P(x)=0\\) for any other point \\(x\\in X\\). With respect to this distribution, we can effectively replace \\(X\\) with the set \\(\\{a,b\\}\\), \\(C\\) with \\(\\{\\{a\\},\\{a,b\\}\\}\\), and \\(H\\) with the four subsets of \\(\\{a,b\\}\\), modifying \\(A\\) accordingly. (\\(C\\) may contain other subsets of \\(X\\) as well, but this would only make the learning problem harder.)</p><p>It is easily verified that if the sample size \\(m\\) is less than \\(1/(-\\ln(1-\\epsilon))\\ln(1/\\delta)\\), then the probability of drawing the point \\(a\\) each time is greater than \\(\\delta\\). Since \\(1/(-\\ln(1-\\epsilon))&gt;(1-\\epsilon)/\\epsilon\\) for all \\(0&lt;\\epsilon&lt;1\\), this holds for \\(m\\leq(1-\\epsilon)/\\epsilon\\ln(1/\\delta)\\). We can divide the possible learning functions for \\(C\\) into four types, depending on how they respond to an \\(m\\)-sample in which each point is \\(a\\). Since both concepts in \\(C\\) contain \\(a\\), all examples of the sample will be positive. If the learning function responds by producing the hypothesis \\(\\{a\\}\\), then for this sample it has error \\(\\epsilon\\) if the target concept is \\(\\{a,b\\}\\). If it responds \\(\\{a,b\\}\\), \\(\\{b\\}\\), or \\(\\varnothing\\), then, because \\(\\epsilon&lt;\\frac12\\), it has error at least \\(\\epsilon\\) if the target concept is \\(\\{a\\}\\). In any case, there is a concept in \\(C\\) such that the probability that \\(A\\) produces a hypothesis of error at least \\(\\epsilon\\) with sample size \\(m\\) is greater than \\(\\delta\\). By decreasing the probability of \\(a\\) slightly and increasing the probability of \\(b\\) by the same amount it follows that the previous statement also holds for error strictly larger than \\(\\epsilon\\) instead of error at least \\(\\epsilon\\). We conclude \\(A\\) cannot be a learning function for \\(C\\) with sample size \\(m&lt;(1-\\epsilon)/\\epsilon\\ln(1/\\delta)\\).</p><p><em>Case 2.</em> \\(C\\) contains at least two disjoint concepts \\(c_1\\) and \\(c_2\\) such that \\(c_1\\cup c_2\\neq X\\).</p><p>Let \\(a\\in X-(c_1\\cup c_2)\\) and \\(b\\in c_1\\). Given any learning function \\(A\\) for \\(C\\), we let the distribution \\(P\\) be defined as above in Case 1 and replace \\(X\\) by \\(\\{a,b\\}\\), \\(C\\) by \\(\\{\\{b\\},\\varnothing\\}\\), \\(H\\) by \\(2^{\\{a,b\\}}\\), and modify \\(A\\) accordingly. The remainder of the analysis is the same, except that we consider the case when \\(A\\) receives a sequence of negative examples, all of the point \\(a\\).</p><p>This completes the verification of the first term of the lower bound.</p><p>For the second term of the lower bound, note that since \\(C\\) is nontrivial, the VC dimension \\(d\\) of \\(C\\) is at least 1. There must exist a set \\(X_d\\) of \\(d\\) points in \\(X\\) that are shattered by \\(C\\). Let the probability distribution \\(P\\) on \\(X\\) be uniform on these points and 0 everywhere else. With respect to this distribution, we may replace \\(X\\) with \\(X_d\\) and \\(C\\) with \\(2^{X_d}\\).</p><p>Suppose we draw a sequence \\(\\bar{x}\\in X^m\\) and \\(l\\) different points are observed in this sample. For each of the \\(2^l\\) possible labelings of \\(\\bar{x}\\), there are \\(2^{d-l}\\) concepts consistent with this labeling. Whatever the hypothesis of the learning function, for every point of \\(X\\) not observed in \\(\\bar{x}\\), it will be correct for exactly half these concepts. Thus, the average error of the learning function on \\(\\bar{x}\\) over all concepts in \\(C\\) is at least \\((d-l)/(2d)\\geq(d-m)/(2d)\\). This implies that the average error of the learning function over all \\(\\bar{x}\\in X^m\\) and all concepts in \\(C\\) is at least \\((d-m)/(2d)\\). Hence, there must be a concept with average error at least \\((d-m)/(2d)\\). To make the frequency of \\(m\\)-sequences in which the error on this concept is greater than \\(\\epsilon\\) at most \\(\\delta\\), the error can be greater than \\(\\epsilon\\) (i.e., 1) on at most \\(\\delta 2^m\\) of the \\(m\\)-sequences, and must be at most \\(\\epsilon\\) on the remainder. Hence, the average error can be at most \\(\\epsilon(1-\\delta)+\\delta\\), which gives the second part of the lower bound.</p><p>Combined with the proof of (ii)(a) given in the Appendix, this completes the proof of Theorem 2.1.</p>",
+        "proofNote": "Composite proof: part (ii)(b) is proved on PDF pages 8–9; part (ii)(a) is deferred to Appendix A2 and follows from Theorem A2.2. The appendix result is included separately and linked as a dependency.",
+        "pdfStart": {
+          "statement": {
+            "page": 7,
+            "y": 432.26416
+          },
+          "proof": {
+            "page": 8,
+            "y": 182.0056
+          }
+        }
+      },
+      {
+        "id": "theorem-2-2",
+        "type": "Theorem",
+        "number": "2.2",
+        "title": "Finite-class sample bound",
+        "section": "2. Learnability",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>[10, 61]. Let \\(C\\subseteq2^X\\) be any finite concept class. Then for sample size greater than \\(\\frac1\\epsilon\\ln(|C|/\\delta)\\), any consistent function \\(A:S_C\\to C\\) is a learning function for \\(C\\).</p>",
+        "proofHtml": "<p>Let \\(P\\) by any probability distribution on \\(X\\) and \\(c\\) be any target concept in \\(C\\). Any hypothesis \\(h\\in C\\) with error greater than \\(\\epsilon\\) will be inconsistent with an \\(m\\)-sample of \\(c\\) unless all examples in it land in the region outside the symmetric difference of \\(h\\) and \\(c\\), a region of probability less than \\(1-\\epsilon\\). The probability of this occurring for a particular \\(h\\in C\\) is at most \\((1-\\epsilon)^m\\leq e^{-\\epsilon m}\\). So the probability of it occurring for any \\(h\\in C\\) is at most \\(|C|e^{-\\epsilon m}\\). If \\(m\\geq\\frac1\\epsilon\\ln(|C|/\\delta)\\), then this probability is at most \\(\\delta\\). Hence, since \\(A\\) produces consistent hypotheses in \\(C\\), for this sample size the probability that \\(A\\)’s hypothesis has error greater than \\(\\epsilon\\) is less than \\(\\delta\\).</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 10,
+            "y": 134.7656
+          },
+          "proof": {
+            "page": 10,
+            "y": 176.5256
+          }
+        }
+      },
+      {
+        "id": "theorem-3-1-1",
+        "type": "Theorem",
+        "number": "3.1.1",
+        "title": "Characterization of proper polynomial learnability",
+        "section": "3.1 Polynomial Learnability with Respect to Domain Dimension",
+        "proofOrganization": "direct",
+        "dependencies": [
+          "theorem-2-1",
+          "theorem-a2-2"
+        ],
+        "statementHtml": "<p>For any concept class \\(C=\\{(X_n,C_n)\\}_{n\\geq1}\\), \\(C\\) is properly poly-learnable if and only if there is an r-poly hy-fi for \\(C\\) and the VC dimension of \\(C_n\\) grows only polynomially in \\(n\\).</p>",
+        "proofHtml": "<p>For the “if” part, assume that the VC dimension of \\(C_n\\) is bounded by \\(p(n)\\) for some polynomial \\(p\\) and that we are given an r-poly hy-fi for \\(C\\) with success rate \\(\\gamma\\). Let \\(A\\) be a randomized oracle algorithm defined as follows:</p><p>On input \\((\\epsilon,\\delta,n)\\), \\(A\\) calls the oracle \\(\\operatorname{EX}()\\) for</p><p>\\[\\max\\!\\left(\\frac4\\epsilon\\log\\frac4\\delta,\\frac{8p(n)}\\epsilon\\log\\frac{13}\\epsilon\\right)\\]</p><p>random examples of the target concept \\(c\\in C_n\\) drawn according to some distribution \\(P\\) on \\(X_n\\). Let \\(Q\\) be the resulting sample of \\(c\\). Then \\(A\\) repeats the following:</p><ol><li>simulate the r-poly hy-fi on \\(Q\\)</li><li>check if the output of the r-poly hy-fi is consistent with \\(Q\\) until either a consistent hypothesis is found or the number of repetitions exceeds \\(1/\\gamma\\ln(2/\\delta)\\).</li></ol><p>In the first case, \\(A\\) returns the hypothesis found. In the second case \\(A\\) returns some default hypothesis in \\(C_n\\).</p><p>It is easily verified that the running time of \\(A\\) is polynomial in \\(1/\\epsilon\\), \\(1/\\delta\\), and \\(n\\) (and, if we are using the logarithmic cost model, in the maximum size of any example returned by the oracle). Furthermore, \\(A\\) fails to produce a hypothesis of error at most \\(\\epsilon\\) only if it is forced to return the default hypothesis, or it returns a hypothesis that is consistent with \\(Q\\) but has error greater than \\(\\epsilon\\). Since the success rate of the r-poly hy-fi is \\(\\gamma\\), \\(A\\) is forced to return the default hypothesis with probability at most</p><p>\\[(1-\\gamma)^{(1/\\gamma)\\ln(2/\\delta)}\\leq\\exp\\!\\left(-\\ln\\frac2\\delta\\right)=\\frac\\delta2.\\]</p><p>By Theorem A2.2, the probability that any hypothesis in \\(C_n\\) that is consistent with \\(Q\\) has error greater than \\(\\epsilon\\) is at most \\(\\delta/2\\). Thus \\(A\\) returns a hypothesis that is consistent with \\(Q\\) but has error greater than \\(\\epsilon\\) with probability at most \\(\\delta/2\\). Hence, \\(A\\) produces, with probability at least \\(1-\\delta\\), a hypothesis that has error at most \\(\\epsilon\\) and therefore \\(C\\) is properly poly-learnable.</p><p>For the “only if” part, note first that by Theorem 2.1(ii)(b), any learning algorithm for \\(C\\) must use a sample size that grows linearly in the VC dimension of \\(C_n\\), and hence if the VC dimension of \\(C_n\\) is not polynomial in \\(n\\), then \\(C\\) is not poly-learnable by any hypothesis space \\(H\\). To show that \\(C\\) being poly-learnable implies that there is an r-poly hy-fi for \\(C\\), we use a construction from [52].</p><p>Let \\(A\\) be a learning algorithm for \\(C\\) in the functional model and let \\(m(\\epsilon,\\delta,n)\\) be a polynomial in \\(1/\\epsilon\\), \\(1/\\delta\\), and \\(n\\) such that given \\(m(\\epsilon,\\delta,n)\\) random examples, \\(A\\) produces a hypothesis that has error at most \\(\\epsilon\\) with probability at least \\(1-\\delta\\) for any \\(c\\in C_n\\) and any \\(P\\) on \\(X_n\\). Using \\(A\\), we define an r-poly hy-fi \\(B\\) for \\(C\\) with success rate \\(\\frac12\\) as follows:</p><blockquote><p>Suppose that \\(B\\) is given a nonempty sample \\(Q\\) of some concept \\(c\\in C_n\\), for some \\(n\\geq1\\). Let \\(P\\) be the distribution on \\(X_n\\) that is uniform on all the points of \\(X_n\\) that appear in examples in \\(Q\\), and 0 elsewhere. Let \\(m\\) be the number of examples in \\(Q\\), \\(\\epsilon=1/(m+1)\\), and \\(\\delta=\\frac12\\). \\(B\\) determines \\(n\\) and then produces a sample \\(Q'\\) of size \\(m(\\epsilon,\\delta,n)\\) by drawing points from \\(X_n\\) independently according to \\(P\\) and labeling them with the same labels they had in \\(Q\\). \\(B\\) then simulates the learning algorithm \\(A\\) on \\(Q'\\) and returns the output of \\(A\\).</p></blockquote><p>It is easily verified that \\(B\\) is a polynomial-time algorithm. Since \\(\\delta=\\frac12\\) and \\(B\\) produces a sample of the target concept \\(c\\) of size \\(m(\\epsilon,\\delta,n)\\) independently drawn according to the distribution \\(P\\), by our assumptions on the learning algorithm \\(A\\), \\(B\\)’s simulation of \\(A\\) produces a hypothesis that has error at most \\(\\epsilon\\) with respect to \\(c\\) and \\(P\\) with probability at least \\(\\frac12\\). Since every point of \\(X_n\\) that appears in \\(Q\\) has probability at least \\(1/m\\) according to \\(P\\), any hypothesis that is not consistent with \\(Q\\) has error greater than \\(\\epsilon\\). Hence, \\(B\\) produces a hypothesis that is consistent with \\(Q\\) with probability at least \\(\\frac12\\). Therefore \\(B\\) is an r-poly hy-fi for \\(C\\) with success rate at least \\(\\frac12\\).</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 14,
+            "y": 615.4856
+          },
+          "proof": {
+            "page": 15,
+            "y": 59.4456
+          }
+        }
+      },
+      {
+        "id": "lemma-3-1-2",
+        "type": "Lemma",
+        "number": "3.1.2",
+        "title": "Boolean cardinality and VC dimension",
+        "section": "3.1 Polynomial Learnability with Respect to Domain Dimension",
+        "proofOrganization": "direct",
+        "dependencies": [
+          "proposition-a2-1"
+        ],
+        "statementHtml": "<p>[48]. Assume that \\(X_n=\\{0,1\\}^n\\) and \\(C_n\\subseteq2^{X_n}\\) for each \\(n\\geq1\\). Then the VC dimension of \\(C_n\\) grows polynomially in \\(n\\) if and only if \\(\\log|C_n|\\) grows polynomially in \\(n\\).</p>",
+        "proofHtml": "<p>For all \\(n\\geq1\\), let \\(q(n)\\) be the VC dimension of \\(C_n\\). Since \\(C_n=\\Pi_{C_n}(X_n)\\), Proposition A2.1 shows that \\(|C_n|\\leq(2^n)^{q(n)}+1=2^{nq(n)}+1\\). Thus when \\(q(n)\\) grows polynomially, \\(\\log|C_n|\\) grows polynomially. On the other hand, if \\(|C_n|\\leq2^{p(n)}\\), then no subset of \\(X_n\\) of cardinality larger than \\(p(n)\\) can be shattered by \\(C_n\\), and hence \\(q(n)\\leq p(n)\\). Thus when \\(\\log|C_n|\\) grows polynomially, \\(q(n)\\) grows polynomially.</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 16,
+            "y": 204.2456
+          },
+          "proof": {
+            "page": 16,
+            "y": 245.7656
+          }
+        }
+      },
+      {
+        "id": "corollary-3-1-3",
+        "type": "Corollary",
+        "number": "3.1.3",
+        "title": "Boolean characterization of proper polynomial learnability",
+        "section": "3.1 Polynomial Learnability with Respect to Domain Dimension",
+        "proofOrganization": "direct",
+        "dependencies": [
+          "theorem-3-1-1",
+          "lemma-3-1-2"
+        ],
+        "statementHtml": "<p>For any concept class \\(C=\\{(\\{0,1\\}^n,C_n)\\}_{n\\geq1}\\), \\(C\\) is properly poly-learnable if and only if there is an r-poly hy-fi for \\(C\\) and \\(\\log|C_n|\\) grows polynomially in \\(n\\).</p>",
+        "proofHtml": "<p>Follows directly from Theorem 3.1.1 and Lemma 3.1.2.</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 16,
+            "y": 323.2856
+          },
+          "proof": {
+            "page": 16,
+            "y": 366.18416
+          }
+        }
+      },
+      {
+        "id": "theorem-3-2-1",
+        "type": "Theorem",
+        "number": "3.2.1",
+        "title": "Occam algorithms imply polynomial learnability",
+        "section": "3.2 Polynomial Learnability with Respect to Concept Complexity and Occam’s Razor",
+        "proofOrganization": "composite-deferred",
+        "dependencies": [
+          "theorem-a2-1",
+          "proposition-a2-1",
+          "lemma-a2-5"
+        ],
+        "statementHtml": "<p>Let \\(C\\) be a concept class with a given concept complexity measure.</p><ol type=\"i\"><li>If there is an Occam algorithm for \\(C\\), then \\(C\\) is poly-learnable.</li><li>Let \\(A\\) be an Occam algorithm for \\(C\\) with effective hypothesis space \\(C^A_{s,m}\\) for target complexity \\(s\\) and sample size \\(m\\). Then<ol type=\"a\"><li>if the VC dimension of \\(C^A_{s,m}\\) is at most \\(p(s)m^\\alpha\\) for some polynomial \\(p(s)\\geq1\\) and \\(0\\leq\\alpha&lt;1\\), then \\(A\\) is a polynomial-time learning algorithm for \\(C\\) using sample size \\[m=\\max\\!\\left(\\frac4\\epsilon\\log\\frac2\\delta,\\left(\\frac{8p(s)}\\epsilon\\log\\frac{13}\\epsilon\\right)^{1/(1-\\alpha)}\\right);\\]</li><li>if the VC dimension of \\(C^A_{s,m}\\) is at most \\(p(s)(\\log m)^l\\) for some polynomial \\(p(s)\\geq2\\) and \\(l\\geq1\\), then the same result holds with the second term of the bound replaced by \\[\\frac{2^{l+4}p(s)}\\epsilon\\left(\\log\\frac{8(2l+2)^{l+1}p(s)}\\epsilon\\right)^{l+1}.\\]</li></ol></li></ol>",
+        "proofHtml": "<p>Since part (i) follows from part (ii)(a), it suffices to prove part (ii). The result follows if we can show that</p><p>\\[2\\Pi_{C^A_{s,m}}(2m)2^{-\\epsilon m/2}\\leq\\delta,\\tag{*}\\]</p><p>since by Theorem A2.1, for any target concept and distribution, the left side of this inequality is a bound on the probability that there is any hypothesis in \\(C^A_{s,m}\\) of error greater than \\(\\epsilon\\) that is consistent with a random \\(m\\)-sample of this target. For part (a), using Proposition A2.1(iii) and the fact that \\(p(s)\\geq1\\), to prove (*) it suffices to show that \\(2(2em/(p(s)m^\\alpha))^{p(s)m^\\alpha}2^{-\\epsilon m/2}\\leq\\delta\\). For part (b), using \\(p(s)\\geq2\\) and Proposition A2.1(ii), to prove (*) it suffices to show that \\(2(2m)^{p(s)(\\log m)^l}2^{-\\epsilon m/2}\\leq\\delta\\). These calculations are given in Lemma A2.5 in Appendix A2.</p>",
+        "proofNote": "The displayed probability reduction is given here; the two calculations completing parts (a) and (b) are deferred to Lemma A2.5, which is included separately and linked as a dependency.",
+        "pdfStart": {
+          "statement": {
+            "page": 20,
+            "y": 239.10416
+          },
+          "proof": {
+            "page": 20,
+            "y": 454.9256
+          }
+        }
+      },
+      {
+        "id": "lemma-3-2-2",
+        "type": "Lemma",
+        "number": "3.2.2",
+        "title": "Listing traces from a consistency oracle",
+        "section": "3.2 Polynomial Learnability with Respect to Concept Complexity and Occam’s Razor",
+        "proofOrganization": "direct",
+        "dependencies": [
+          "proposition-a2-1"
+        ],
+        "statementHtml": "<p>If \\(C\\) has finite VC dimension and the consistency problem for \\(C\\) is in \\(\\mathbf P\\), then for any finite set \\(S\\subseteq X\\), the sets of \\(\\Pi_C(S)\\) can be listed in time polynomial in the cardinality of \\(S\\).</p>",
+        "proofHtml": "<p>Assume \\(S=\\{x_1,x_2,\\ldots,x_m\\}\\). The size of \\(\\Pi_C(S)\\) is polynomial in \\(m\\) by Proposition A2.1. To produce a list \\(L\\) of \\(\\Pi_C(S)\\) we proceed as follows. Initialize \\(L\\) to the one element list consisting of just the empty set. This corresponds to the case \\(m=0\\). Now by induction, assume that the list \\(L=\\Pi_C(\\{x_1,x_2,\\ldots,x_i\\})\\) has been produced for some \\(i\\), \\(0\\leq i&lt;m\\). \\(L\\) is updated to the list \\(\\Pi_C(\\{x_1,x_2,\\ldots,x_{i+1}\\})\\) as follows. For each element \\(T\\) of \\(L\\), test the sets \\(T\\) and \\(T\\cup\\{x_{i+1}\\}\\) for membership in \\(\\Pi_C(\\{x_1,x_2,\\ldots,x_{i+1}\\})\\). Since the consistency problem for \\(C\\) is in \\(\\mathbf P\\), this can be done in polynomial time by creating the appropriate samples and checking if there is a concept in \\(C\\) that is consistent with them. Now replace the element \\(T\\) in \\(L\\) with either one or both of these sets, according to the outcome of this test. (Note that it is possible that \\(T\\in\\Pi_C(\\{x_1,x_2,\\ldots,x_i\\})\\) but \\(T\\notin\\Pi_C(\\{x_1,x_2,\\ldots,x_{i+1}\\})\\).) The time for each complete update of the list \\(L\\) is polynomial since by Proposition A2.1 the size of \\(L\\) remains polynomial in \\(m\\). Hence, the entire procedure is polynomial time.</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 21,
+            "y": 450.3256
+          },
+          "proof": {
+            "page": 21,
+            "y": 491.6056
+          }
+        }
+      },
+      {
+        "id": "lemma-3-2-3",
+        "type": "Lemma",
+        "number": "3.2.3",
+        "title": "VC dimension of finite unions and intersections",
+        "section": "3.2 Polynomial Learnability with Respect to Concept Complexity and Occam’s Razor",
+        "proofOrganization": "direct",
+        "dependencies": [
+          "proposition-a2-1"
+        ],
+        "statementHtml": "<p>Let \\(C\\subseteq2^X\\) be a concept class of finite VC dimension \\(d\\geq1\\). For all \\(s\\geq1\\) let \\[C_s=\\left\\{\\bigcup_{i=1}^s c_i:c_i\\in C,\\ 1\\leq i\\leq s\\right\\}\\] (resp., \\(C_s=\\{\\bigcap_{i=1}^s c_i:c_i\\in C,\\ 1\\leq i\\leq s\\}\\)). Then for all \\(s\\geq1\\), the VC dimension of \\(C_s\\) is less than \\(2ds\\log(3s)\\).</p>",
+        "proofHtml": "<p>The proof is analogous to that of Lemma 4.5 of [29], which gives a slightly weaker bound. We consider only the case for unions. The case of intersections is treated similarly.</p><p>Clearly we may assume \\(s\\geq2\\). Consider a finite set \\(S\\subseteq X\\) with \\(|S|=m\\geq1\\). By Proposition A2.1(i), \\(|\\Pi_C(S)|\\leq\\Phi_d(m)\\). Every set in \\(\\Pi_{C_s}(S)\\) is of the form \\(\\bigcup_{i=1}^s S_i\\), with \\(S_i\\in\\Pi_C(S)\\), \\(1\\leq i\\leq s\\). This shows that</p><p>\\[|\\Pi_{C_s}(S)|\\leq(|\\Pi_C(S)|)^s\\leq(\\Phi_d(m))^s.\\]</p><p>If \\((\\Phi_d(m))^s&lt;2^m\\), then \\(S\\) cannot be shattered by \\(C_s\\) and the VC dimension of \\(C_s\\) is less than \\(m\\). Thus by Proposition A2.1(iii) it suffices to prove that \\((em/d)^{ds}&lt;2^m\\) for \\(m=2ds\\log(3s)\\), which is equivalent to \\(\\log(3s)&lt;9s/(2e)\\). If the last inequality holds for some value of \\(s\\), then it holds for all larger values as well. It is easy to verify it for \\(s=2\\).</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 22,
+            "y": 58.23632
+          },
+          "proof": {
+            "page": 22,
+            "y": 100.9256
+          }
+        }
+      },
+      {
+        "id": "theorem-3-2-4",
+        "type": "Theorem",
+        "number": "3.2.4",
+        "title": "Learnability of finite unions and intersections",
+        "section": "3.2 Polynomial Learnability with Respect to Concept Complexity and Occam’s Razor",
+        "proofOrganization": "direct",
+        "dependencies": [
+          "lemma-3-2-2",
+          "lemma-3-2-3",
+          "theorem-3-2-1"
+        ],
+        "statementHtml": "<p>Let \\(C=(X,C)\\) be a concept class and associated representation such that there exists a polynomial hypothesis finder for \\(C\\) and \\(C\\) has finite VC dimension. Then \\(C'=(X,U(C))\\) (resp., \\(C''=(X,I(C))\\)) is polynomially learnable.</p>",
+        "proofHtml": "<p>We consider only the case \\(C'=(X,U(C))\\), the other case being similar. Let \\(S\\) be the set of points in an \\(m\\)-sample of a target concept \\(c\\) in \\(C'\\). Our strategy will be to find a hypothesis consistent with \\(S\\) that is formed from the union of relatively few concepts in \\(C\\), that is, not many more than \\(\\operatorname{size}(c)\\). This problem can be formulated as a set cover problem. The set to be covered is the set of positive points of \\(S\\) and the sets allowed in the cover are the elements of \\(\\Pi_C(S)\\) that contain only positive points. To find the smallest set cover is NP-hard [21] and remains NP-hard for simple geometric versions such as covering with rectangles [43]. Fortunately, there is a simple greedy algorithm [32, 49] that produces a cover using at most \\(s\\ln(p)+1\\) sets, where \\(s\\) is the minimum number of sets needed for any cover and \\(p\\) is the size of the set to be covered: pick the set that covers the largest number of points; after this, pick the set that covers the largest number of points that have not been covered previously, and so forth.</p><p>Since the sets of \\(\\Pi_C(S)\\) can be listed in polynomial time (Lemma 3.2.2), the largest set that contains only positive points can be found in polynomial time. Given this set, by labeling the other points negative we can use the polynomial hypothesis finder for \\(C\\) to produce a hypothesis in \\(C\\) that includes only these points of the sample. By deleting these points and then iterating this procedure, we obtain a greedy cover for the positive examples in \\(S\\) expressed as the union of concepts in \\(C\\), which we use as a hypothesis. Call this algorithm \\(A\\).</p><p>We have shown that \\(A\\) is polynomial time and that given any \\(m\\)-sample of a concept \\(c\\) in \\(C'\\) with \\(\\operatorname{size}(c)\\leq s\\), \\(A\\) produces a consistent hypothesis \\(h\\) for this sample with \\(\\operatorname{size}(h)\\leq s\\ln(m)+1\\). Hence, the effective hypothesis space \\(C'^{A}_{s,m}\\) of \\(A\\) for target complexity \\(s\\) and sample size \\(m\\) contains only hypotheses such that \\(\\operatorname{size}(h)\\leq s\\ln(m)+1\\). By Lemma 3.2.3, the VC dimension of \\(C'^{A}_{s,m}\\) is \\(O(s\\log(m)(\\log s+\\log\\log m))\\). Hence, \\(A\\) is an Occam algorithm for \\(C'\\) and thus by Theorem 3.2.1, \\(C'\\) is polynomially learnable.</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 22,
+            "y": 261.51632
+          },
+          "proof": {
+            "page": 22,
+            "y": 303.9656
+          }
+        }
+      },
+      {
+        "id": "lemma-a1-1",
+        "type": "Lemma",
+        "number": "A1.1",
+        "title": "Universal separability implies well-behavedness",
+        "section": "A1. Definition of Well-Behaved Classes and ε-Transversals",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>(Shai Ben-David). If \\(H\\) is universally separable, then \\(H\\) is well behaved.</p>",
+        "proofHtml": "<p>Fix a Borel set \\(c\\) and let \\(R=\\{h\\mathbin{\\triangle}c:h\\in H\\}\\). It suffices to show that the sets \\(Q^m_\\epsilon\\) and \\(J^{2m}_\\epsilon\\) are Borel sets. We show this for \\(Q^m_\\epsilon\\), the argument for \\(J^{2m}_\\epsilon\\) being similar.</p><p>Since \\(H\\) is universally separable, \\(R\\) is universally separable. Let \\(T\\) be a countable subset of \\(R\\) such that every set in \\(R\\) is the pointwise limit of a sequence of sets in \\(T\\). Let \\(\\gamma_1,\\gamma_2,\\ldots\\) be a decreasing sequence of strictly positive real numbers converging to 0 and let \\(\\epsilon_1,\\epsilon_2,\\ldots\\) be a decreasing sequence of strictly positive real numbers converging to \\(\\epsilon\\). For every \\(i,j\\geq1\\), let</p><p>\\[T_{i,j}=\\{t\\in T:\\text{there exists }r\\in R\\text{ with }P(r)\\geq\\epsilon_i\\text{ and }P(t\\mathbin{\\triangle}r)\\leq\\gamma_j\\}.\\]</p><p>We claim that</p><p>\\[Q^m_\\epsilon=\\bigcup_{i=1}^{\\infty}\\bigcap_{j=1}^{\\infty}\\bigcup_{t\\in T_{i,j}}\\{\\bar{x}\\in X^m:\\bar{x}\\cap t=\\varnothing\\},\\]</p><p>and hence, \\(Q^m_\\epsilon\\) is a Borel set.</p><p>To see this, note that if \\(\\bar{x}\\) is in the right hand set above then \\(\\bar{x}\\cap t=\\varnothing\\) for some \\(t\\in T_{i,j}\\) where \\(\\epsilon_i-\\gamma_j&gt;\\epsilon\\). For any such \\(t\\) we have \\(t\\in R\\) and \\(P(t)&gt;\\epsilon\\). Thus \\(\\bar{x}\\in Q^m_\\epsilon\\). On the other hand, if \\(\\bar{x}\\in Q^m_\\epsilon\\), then there exists \\(i\\geq1\\) such that \\(\\bar{x}\\cap r=\\varnothing\\) for some \\(r\\in R\\) with \\(P(r)\\geq\\epsilon_i\\). Since there is a sequence of sets in \\(T\\) that converge pointwise to \\(r\\), for every \\(j\\geq1\\) there is a set \\(t\\) in \\(T\\) with \\(P(t\\mathbin{\\triangle}r)\\leq\\gamma_j\\) and \\(\\bar{x}\\cap t=\\bar{x}\\cap r=\\varnothing\\). Thus, \\(\\bar{x}\\) is in the right hand set above.</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 26,
+            "y": 120.1656
+          },
+          "proof": {
+            "page": 26,
+            "y": 148.7256
+          }
+        }
+      },
+      {
+        "id": "lemma-a2-1",
+        "type": "Lemma",
+        "number": "A2.1",
+        "title": "Symmetrization for ε-transversals",
+        "section": "A2. Proof of Theorem 2.1(ii)(a)",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>For any \\(\\epsilon&gt;0\\) and \\(m\\geq2/\\epsilon\\), \\(P^m(Q^m_\\epsilon)&lt;2P^{2m}(J^{2m}_\\epsilon)\\).</p>",
+        "proofHtml": "<p>We show that \\(P^{2m}(J^{2m}_\\epsilon)&gt;\\frac12P^m(Q^m_\\epsilon)\\). By Fubini’s theorem (see, e.g., [57])</p><p>\\[P^{2m}(J^{2m}_\\epsilon)=\\int_{X^{2m}}I_{J^{2m}_\\epsilon}(x_1\\cdots x_{2m})\\,dP^{2m}=\\int_{\\bar{x}\\in X^m}\\left(\\int_{\\bar{y}\\in X^m}I_{J^{2m}_\\epsilon}(\\bar{x},\\bar{y})\\,dP^m\\right)dP^m\\]</p><p>and this is</p><p>\\[\\geq\\int_{\\bar{x}\\in Q^m_\\epsilon}\\left(\\int_{\\bar{y}\\in X^m}I_{J^{2m}_\\epsilon}(\\bar{x},\\bar{y})\\,dP^m\\right)dP^m,\\]</p><p>since \\(Q^m_\\epsilon\\subseteq X^m\\). For each \\(\\bar{x}\\in Q^m_\\epsilon\\) let \\(r_{\\bar{x}}\\) be a region in \\(R_{P,\\epsilon}\\) such that \\(\\bar{x}\\cap r=\\varnothing\\). Let \\(K^{2m}_\\epsilon\\) be the set of all \\(\\bar{x}\\bar{y}\\in X^{2m}\\), where \\(\\bar{x},\\bar{y}\\in X^m\\) and \\(|\\{i:y_i\\in r_{\\bar{x}}\\}|\\geq\\epsilon m/2\\). Obviously, \\(J^{2m}_\\epsilon\\supseteq K^{2m}_\\epsilon\\) and thus</p><p>\\[P^{2m}(J^{2m}_\\epsilon)\\geq\\int_{\\bar{x}\\in Q^m_\\epsilon}\\left(\\int_{\\bar{y}\\in X^m}I_{K^{2m}_\\epsilon}(\\bar{x},\\bar{y})\\,dP^m\\right)dP^m.\\]</p><p>For each \\(\\bar{x}\\in Q^m_\\epsilon\\), the inner integral is just the probability that an event with probability at least \\(\\epsilon\\) occurs with frequency at least \\(\\epsilon m/2\\) in \\(m\\) independent Bernoulli trials. This probability is greater than \\(\\frac12\\) for any \\(m\\geq2/\\epsilon\\): For \\(2/\\epsilon\\leq m&lt;8/\\epsilon\\) this can be shown by a case analysis using the exact formula for the binomial distribution; for \\(m\\geq8/\\epsilon\\), this is easy to prove by applying Chebyshev’s inequality. Hence</p><p>\\[P^{2m}(J^{2m}_\\epsilon)&gt;\\int_{\\bar{x}\\in Q^m_\\epsilon}\\frac12\\,dP^m=\\frac12P^m(Q^m_\\epsilon).\\]</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 26,
+            "y": 537.73488
+          },
+          "proof": {
+            "page": 26,
+            "y": 554.8056
+          }
+        }
+      },
+      {
+        "id": "lemma-a2-2",
+        "type": "Lemma",
+        "number": "A2.2",
+        "title": "Permutation bound for ε-transversals",
+        "section": "A2. Proof of Theorem 2.1(ii)(a)",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>\\(P^{2m}(J^{2m}_\\epsilon)\\leq\\Pi_R(2m)2^{-\\epsilon m/2}\\) for all \\(m\\geq1\\) and \\(\\epsilon&gt;0\\).</p>",
+        "proofHtml": "<p>For each \\(j\\), \\(1\\leq j\\leq(2m)!\\), let \\(\\sigma_j\\) be a distinct permutation of the indices \\(1,\\ldots,2m\\). It is clear that</p><p>\\[P^{2m}(J^{2m}_\\epsilon)=\\int_{X^{2m}}I_{J^{2m}_\\epsilon}(\\bar{x})\\,dP^{2m}=\\int_{X^{2m}}I_{J^{2m}_\\epsilon}(\\sigma_j(\\bar{x}))\\,dP^{2m}\\]</p><p>for all permutations \\(\\sigma_j\\). Hence</p><p>\\[P^{2m}(J^{2m}_\\epsilon)=\\int_{X^{2m}}\\frac1{(2m)!}\\sum_{j=1}^{(2m)!}I_{J^{2m}_\\epsilon}(\\sigma_j(\\bar{x}))\\,dP^{2m}.\\]</p><p>Thus, it suffices to show that</p><p>\\[\\frac1{(2m)!}\\sum_{j=1}^{(2m)!}I_{J^{2m}_\\epsilon}(\\sigma_j(\\bar{x}))\\leq\\Pi_R(2m)2^{-\\epsilon m/2},\\]</p><p>for all \\(\\bar{x}\\in X^{2m}\\).</p><p>Consider a fixed \\(\\bar{x}\\in X^{2m}\\). Let \\(S\\) be the set of distinct elements of \\(X\\) that appear in \\(\\bar{x}\\). For each permutation \\(\\sigma_j(\\bar{x})\\) in \\(J^{2m}_\\epsilon\\) there is a subset \\(T\\) of \\(S\\) that is a witness to the fact that \\(\\sigma_j(\\bar{x})\\in J^{2m}_\\epsilon\\) in the sense that there exists \\(r\\in R_{P,\\epsilon}\\) such that \\(T=r\\cap S\\), all occurrences of members of \\(T\\) appear in the second half of \\(\\sigma_j(\\bar{x})\\) and there are at least \\(\\epsilon m/2\\) such occurrences. However, for a given \\(T\\), this can occur in only a small fraction of all permutations of \\(\\bar{x}\\). In particular, if there are \\(l\\) occurrences of members of \\(T\\) in \\(\\bar{x}\\), then \\(T\\) is a witness for at most a fraction</p><p>\\[\\frac{\\binom ml}{\\binom{2m}l}=\\frac{m(m-1)\\cdots(m-l+1)}{2m(2m-1)\\cdots(2m-l+1)}\\leq2^{-l}\\leq2^{-\\epsilon m/2}\\]</p><p>of all permutations of \\(\\bar{x}\\). Since \\(|S|\\leq2m\\), there are at most \\(\\Pi_R(2m)\\) distinct subsets \\(T\\) of \\(S\\) induced by intersections with regions \\(r\\in R\\), and, hence, at most \\(\\Pi_R(2m)\\) distinct subsets induced by intersections with \\(r\\in R_{P,\\epsilon}\\). Thus, there are at most \\(\\Pi_R(2m)\\) distinct witnesses. It follows that</p><p>\\[\\frac1{(2m)!}\\sum_{j=1}^{(2m)!}I_{J^{2m}_\\epsilon}(\\sigma_j(\\bar{x}))\\leq\\Pi_R(2m)2^{-\\epsilon m/2}.\\]</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 27,
+            "y": 231.9256
+          },
+          "proof": {
+            "page": 27,
+            "y": 251.8456
+          }
+        }
+      },
+      {
+        "id": "lemma-a2-3",
+        "type": "Lemma",
+        "number": "A2.3",
+        "title": "Symmetric differences preserve the growth function",
+        "section": "A2. Proof of Theorem 2.1(ii)(a)",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>For any \\(m\\geq1\\), \\(c\\subseteq X\\), and \\(H\\subseteq2^X\\), \\(\\Pi_H(m)=\\Pi_R(m)\\), where \\(R=\\{h\\mathbin{\\triangle}c:h\\in H\\}\\).</p>",
+        "proofHtml": "<p>For any subset \\(t\\in X\\), let \\(t'\\) denote the complementary subset \\(X-t\\). The following holds for any \\(h_1,h_2\\in H\\) and for any \\(S,c\\subseteq X\\):</p><p>\\[\\begin{aligned}h_1\\cap S=h_2\\cap S\\quad&\\Longleftrightarrow\\quad h_1\\cap c'\\cap S=h_2\\cap c'\\cap S\\text{ and }h'_1\\cap c\\cap S=h'_2\\cap c\\cap S\\\\&\\Longleftrightarrow\\quad((h'_1\\cap c)\\cup(h_1\\cap c'))\\cap S=((h'_2\\cap c)\\cup(h_2\\cap c'))\\cap S\\\\&\\Longleftrightarrow\\quad(h_1\\mathbin{\\triangle}c)\\cap S=(h_2\\mathbin{\\triangle}c)\\cap S.\\end{aligned}\\]</p><p>This implies that \\(|\\Pi_H(S)|=|\\Pi_R(S)|\\) and the lemma follows.</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 28,
+            "y": 102.1256
+          },
+          "proof": {
+            "page": 28,
+            "y": 134.0456
+          }
+        }
+      },
+      {
+        "id": "theorem-a2-1",
+        "type": "Theorem",
+        "number": "A2.1",
+        "title": "Uniform bound for consistent high-error hypotheses",
+        "section": "A2. Proof of Theorem 2.1(ii)(a)",
+        "proofOrganization": "direct",
+        "dependencies": [
+          "lemma-a2-1",
+          "lemma-a2-2",
+          "lemma-a2-3"
+        ],
+        "statementHtml": "<p>Let \\(H\\) be any nonempty well-behaved hypothesis space contained in \\(2^X\\), \\(P\\) be any probability distribution on \\(X\\) and the target concept \\(c\\) be any Borel set contained in \\(X\\). Then for any \\(\\epsilon&gt;0\\) and \\(m\\geq1\\), given \\(m\\) independent random examples of \\(c\\) drawn according to \\(P\\), the probability that there exists a hypothesis in \\(H\\) that is consistent with all of these examples and has error greater than \\(\\epsilon\\) is at most</p><p>\\[2\\Pi_H(2m)2^{-\\epsilon m/2}.\\]</p>",
+        "proofHtml": "<p>Let \\(R=\\{h\\mathbin{\\triangle}c:h\\in H\\}\\). Each region in \\(R\\) represents the symmetric difference between the target concept \\(c\\) and a hypothesis \\(h\\in H\\). A hypothesis \\(h\\) has error greater than \\(\\epsilon\\) only if its symmetric difference with \\(c\\) has probability greater than \\(\\epsilon\\). Hence, if the points from the examples that are drawn form an \\(\\epsilon\\)-transversal for \\(R\\), every hypothesis in \\(H\\) that has error greater than \\(\\epsilon\\) will have an example drawn from its symmetric difference with \\(c\\). Since this implies that the hypothesis is inconsistent with the example, no such hypothesis will be consistent with the entire sample. Hence, there exists a hypothesis in \\(H\\) that has error greater than \\(\\epsilon\\) and is consistent with all the examples only if the points of the examples do not form an \\(\\epsilon\\)-transversal of \\(R\\).</p><p>Since \\(H\\) is well behaved and \\(c\\) is a Borel set, the sets \\(Q^m_\\epsilon\\) and \\(J^{2m}_\\epsilon\\) defined from \\(R\\) are measurable. If \\(m\\geq2/\\epsilon\\), then, by Lemmas A2.1 and A2.2, the probability that the points drawn in the \\(m\\) random examples do not form an \\(\\epsilon\\)-transversal for \\(R\\) with respect to \\(P\\) (i.e., the probability of \\(Q^m_\\epsilon\\)) is less than</p><p>\\[2\\Pi_R(2m)2^{-\\epsilon m/2}.\\]</p><p>By Lemma A2.3, \\(\\Pi_R(2m)=\\Pi_H(2m)\\), hence, the probability of not getting an \\(\\epsilon\\)-transversal for \\(R\\) is less than</p><p>\\[2\\Pi_H(2m)2^{-\\epsilon m/2}.\\]</p><p>If \\(1\\leq m&lt;2/\\epsilon\\), then \\(2\\Pi_H(2m)2^{-\\epsilon m/2}&gt;1\\), and the bound holds trivially.</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 28,
+            "y": 245.1656
+          },
+          "proof": {
+            "page": 28,
+            "y": 342.6056
+          }
+        }
+      },
+      {
+        "id": "proposition-a2-1",
+        "type": "Proposition",
+        "number": "A2.1",
+        "title": "Bounds on the growth function",
+        "section": "A2. Proof of Theorem 2.1(ii)(a)",
+        "proofOrganization": "composite",
+        "dependencies": [],
+        "statementHtml": "<ol type=\"i\"><li>If the VC dimension of \\(H\\) is \\(d\\), where \\(d\\geq0\\), then \\(\\Pi_H(m)\\leq\\Phi_d(m)\\) for all \\(m\\geq0\\).</li><li>\\(\\Phi_d(m)\\leq m^d+1\\) for all \\(d\\geq0\\) and \\(m\\geq0\\). \\(\\Phi_d(m)\\leq m^d\\) for all \\(d\\geq2\\) and \\(m\\geq2\\).</li><li>\\(\\Phi_d(m)\\leq2(m^d/d!)\\leq(em/d)^d\\) for all \\(m\\geq d\\geq1\\).</li></ol>",
+        "proofHtml": "<p><strong>Proof of part (i).</strong> A short inductive proof of part (i) above can be found in [6], along with its history of independent discoveries. We sketch the proof for completeness, using the notation from [29].</p><p>We show that for any set \\(S\\) with \\(|S|=m\\) and any family \\(F\\) of subsets of \\(S\\) that has VC dimension \\(d\\), \\(|F|\\leq\\Phi_d(m)\\). Letting \\(F=\\Pi_H(S)\\) for arbitrary \\(S\\subseteq X\\), we obtain the result.</p><p>The assertion is trivially true for \\(d=0\\) and any \\(m\\geq0\\), since \\(|F|=1\\) in this case. It is also trivially true for \\(m=0\\) and any \\(d\\geq0\\). Assume the assertion is true for all \\(m\\geq0\\) when \\(F\\) has VC dimension at most \\(d-1\\), and for \\(m-1\\) when \\(F\\) has VC dimension \\(d\\), where \\(d\\geq1\\) and \\(m\\geq1\\).</p><p>Consider a particular set \\(S\\) with \\(|S|=m\\) and a family \\(F\\) of subsets of \\(S\\) of VC dimension \\(d\\). Choose any point \\(x\\in S\\). Let</p><p>\\[F-x=\\{f-\\{x\\}:f\\in F\\}\\]</p><p>and</p><p>\\[F^{(x)}=\\{f\\in F:x\\notin f,\\ f\\cup\\{x\\}\\in F\\}.\\]</p><p>Note that both \\(F-x\\) and \\(F^{(x)}\\) are families of subsets of \\(S-\\{x\\}\\) and that \\(|F|=|F-x|+|F^{(x)}|\\). (In mapping \\(f\\) to \\(f-\\{x\\}\\) for each \\(f\\in F\\), pairs of the form \\(\\{f,f\\cup\\{x\\}\\}\\) map to the same set. These are correctly accounted for by adding \\(|F^{(x)}|\\).) Obviously \\(F-x\\) has VC dimension at most \\(d\\); hence, by assumption, \\(|F-x|\\leq\\Phi_d(m-1)\\). We show that \\(F^{(x)}\\) has VC dimension at most \\(d-1\\) and hence, \\(|F^{(x)}|\\leq\\Phi_{d-1}(m-1)\\).</p><p>Let \\(A\\) be a subset of \\(S-\\{x\\}\\) that can be shattered by \\(F^{(x)}\\). Then it is easy to see that \\(A\\cup\\{x\\}\\) can be shattered by \\(F\\): For \\(A'\\subseteq A\\) there is an \\(f\\in F^{(x)}\\) with \\(A'=A\\cap f\\). Since \\(x\\notin f\\), \\(A'=(A\\cup\\{x\\})\\cap f\\) and \\(A'\\cup\\{x\\}=(A\\cup\\{x\\})\\cap(f\\cup\\{x\\})\\), where both \\(f\\) and \\(f\\cup\\{x\\}\\) are in \\(F\\). It follows that \\(A\\cup\\{x\\}\\) can be shattered by \\(F\\). Since the VC dimension of \\(F\\) is \\(d\\), we must have \\(|A\\cup\\{x\\}|\\leq d\\), so \\(|A|\\leq d-1\\). Thus \\(F^{(x)}\\) has VC dimension at most \\(d-1\\).</p><p>It follows that \\(|F|\\leq\\Phi_d(m-1)+\\Phi_{d-1}(m-1)\\). It is easily verified that \\(\\Phi_{d-1}(m-1)+\\Phi_d(m-1)=\\Phi_d(m)\\) for \\(d,m\\geq1\\), so this completes the induction.</p><p><strong>Proof of part (ii).</strong> This part is easily verified.</p><p><strong>Proof of part (iii).</strong> The second inequality clearly holds for \\(d=1\\). To show that it holds for \\(d\\geq2\\) we use Stirling’s Approximation [38, p. 111]:</p><p>\\[2\\frac{m^d}{d!}&lt;\\frac{2m^d}{\\sqrt{2\\pi d}\\,d^de^{-d}}=\\sqrt{\\frac2{\\pi d}}\\left(\\frac{em}{d}\\right)^d&lt;\\left(\\frac{em}{d}\\right)^d.\\]</p><p>The proof of the first inequality of Part (iii) is analogous to the proof of a similar bound given in [61, p. 166] (see also [17]). It is by induction on \\(m\\) and \\(d\\):</p><p>If \\(d=1\\), \\(\\Phi_d(m)=m+1\\leq2m\\), so the result follows. If \\(m=d&gt;1\\), \\(\\Phi_d(m)=2^d\\). Observe that for \\(d&gt;1\\), \\(2\\leq(1+1/(d-1))^{d-1}\\) by the binomial theorem. Thus, using induction on \\(d\\) we obtain</p><p>\\[\\begin{aligned}2^d&\\leq\\left(\\frac d{d-1}\\right)^{d-1}2^{d-1}&&\\text{(by the above observation)}\\\\&\\leq2\\left(\\frac d{d-1}\\right)^{d-1}\\frac{(d-1)^{d-1}}{(d-1)!}&&\\text{(by ind. hyp.)}\\\\&=2\\frac{d^d}{d!},\\end{aligned}\\]</p><p>which verifies the result for the case \\(m=d&gt;1\\).</p><p>Now assume \\(m&gt;d&gt;1\\). Since \\(\\Phi_d(m)=\\Phi_{d-1}(m-1)+\\Phi_d(m-1)\\), it suffices to show that</p><p>\\[\\begin{aligned}2\\frac{(m-1)^{d-1}}{(d-1)!}+2\\frac{(m-1)^d}{d!}&\\leq2\\frac{m^d}{d!}\\\\\\Longleftrightarrow\\quad d(m-1)^{d-1}+(m-1)^d&\\leq m^d\\\\\\Longleftrightarrow\\quad(d+m-1)(m-1)^{d-1}&\\leq m^d\\\\\\Longleftrightarrow\\quad\\frac{d+m-1}{m-1}&\\leq\\frac{m^d}{(m-1)^d}\\\\\\Longleftrightarrow\\quad1+\\frac d{m-1}&\\leq\\left(1+\\frac1{m-1}\\right)^d.\\end{aligned}\\]</p><p>The last inequality follows from the binomial theorem.</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 29,
+            "y": 61.2856
+          },
+          "proof": {
+            "page": 29,
+            "y": 142.4056
+          }
+        }
+      },
+      {
+        "id": "lemma-a2-4",
+        "type": "Lemma",
+        "number": "A2.4",
+        "title": "Sample size controls the growth-function bound",
+        "section": "A2. Proof of Theorem 2.1(ii)(a)",
+        "proofOrganization": "direct",
+        "dependencies": [
+          "proposition-a2-1"
+        ],
+        "statementHtml": "<p>If</p><p>\\[m\\geq\\max\\!\\left(\\frac4\\epsilon\\log\\frac2\\delta,\\frac{8d}\\epsilon\\log\\frac{13}\\epsilon\\right),\\]</p><p>then \\(2\\Phi_d(2m)2^{-\\epsilon m/2}\\leq\\delta\\).</p>",
+        "proofHtml": "<p>By Proposition A2.1(iii), \\(\\Phi_d(2m)\\leq(2em/d)^d\\), thus it suffices to show that \\(2(2em/d)^d\\leq\\delta2^{\\epsilon m/2}\\), which is equivalent to \\(\\epsilon m/2\\geq d\\log(2em/d)+\\log(2/\\delta)\\). The first of the two bounds on \\(m\\) implies \\(\\epsilon m/4\\geq\\log(2/\\delta)\\). Thus, it suffices to show that \\(\\epsilon m/4\\geq d\\log(2em/d)\\). With \\(q=4d/\\epsilon\\) and \\(t=2e/d\\), this inequality is expressed as \\(m\\geq q\\log(tm)\\). If this inequality holds for some value of \\(m\\), it will also hold for larger values; so suppose \\(m\\) is equal to the second bound in the statement of the theorem. We need to show that \\(2q\\log(13/\\epsilon)\\geq q\\log(2qt\\log(13/\\epsilon))\\), which is equivalent to \\(13^2/(2qt\\epsilon^2)=13^2/(16e\\epsilon)\\geq\\log(13/\\epsilon)\\). Again, if the latter inequality holds for some value of \\(1/\\epsilon\\), it will also hold for larger values. The inequality is easily verified for \\(\\epsilon=1\\).</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 30,
+            "y": 423.62416
+          },
+          "proof": {
+            "page": 30,
+            "y": 471.6856
+          }
+        }
+      },
+      {
+        "id": "theorem-a2-2",
+        "type": "Theorem",
+        "number": "A2.2",
+        "title": "Finite-VC consistent hypotheses generalize",
+        "section": "A2. Proof of Theorem 2.1(ii)(a)",
+        "proofOrganization": "direct",
+        "dependencies": [
+          "theorem-a2-1",
+          "proposition-a2-1",
+          "lemma-a2-4"
+        ],
+        "statementHtml": "<p>Let \\(H\\) be any well-behaved hypothesis space of finite VC dimension \\(d\\) contained in \\(2^X\\), \\(P\\) be any probability distribution on \\(X\\) and the target concept \\(c\\) be any Borel set contained in \\(X\\). Then for any \\(0&lt;\\epsilon,\\delta&lt;1\\), given</p><p>\\[m\\geq\\max\\!\\left(\\frac4\\epsilon\\log\\frac2\\delta,\\frac{8d}\\epsilon\\log\\frac{13}\\epsilon\\right)\\]</p><p>independent random examples of \\(c\\) drawn according to \\(P\\), with probability at least \\(1-\\delta\\), every hypothesis in \\(H\\) that is consistent with all of these examples has error at most \\(\\epsilon\\).</p>",
+        "proofHtml": "<p>This follows directly from Theorem A2.1, Proposition A2.1, and Lemma A2.4.</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 30,
+            "y": 595.5256
+          },
+          "proof": {
+            "page": 31,
+            "y": 100.4456
+          }
+        }
+      },
+      {
+        "id": "lemma-a2-5",
+        "type": "Lemma",
+        "number": "A2.5",
+        "title": "Occam sample-size calculations",
+        "section": "A2. Proof of Theorem 2.1(ii)(a)",
+        "proofOrganization": "direct",
+        "dependencies": [
+          "lemma-a2-4"
+        ],
+        "statementHtml": "<ol type=\"a\"><li>If \\(0&lt;\\epsilon,\\delta&lt;1\\), \\(0\\leq\\alpha&lt;1\\), \\(k\\geq1\\) and \\[m=\\max\\!\\left(\\frac4\\epsilon\\log\\frac2\\delta,\\left(\\frac{8k}\\epsilon\\log\\frac{13}\\epsilon\\right)^{1/(1-\\alpha)}\\right),\\] then \\[2(2em/(km^\\alpha))^{km^\\alpha}2^{-\\epsilon m/2}\\leq\\delta.\\]</li><li>If \\(l\\geq1\\) and the second term of the bound on \\(m\\) above is replaced by \\[\\frac{2^{l+4}k}\\epsilon\\left(\\log\\frac{8(2l+2)^{l+1}k}\\epsilon\\right)^{l+1},\\] then \\[2(2m)^{k(\\log m)^l}2^{-\\epsilon m/2}\\leq\\delta.\\]</li></ol>",
+        "proofHtml": "<p>We first prove part (a). To simplify expressions in the proof, we let \\(q=4k/\\epsilon\\) and \\(t=2e/k\\). Using the first bound on \\(m\\) as in the proof of Lemma A2.4, it suffices to show that \\(\\epsilon m/4\\geq km^\\alpha\\log(2em/(km^\\alpha))\\), that is, \\(m^{1-\\alpha}\\geq q\\log(tm^{1-\\alpha})\\). Again, we suppose that \\(m\\) is equal to its second bound, since the inequality only improves as \\(m\\) increases. We must show</p><p>\\[2q\\log\\frac{13}\\epsilon\\geq q\\log\\!\\left(2qt\\log\\frac{13}\\epsilon\\right),\\]</p><p>which as in Lemma A2.4 is equivalent to \\(13^2/(16e\\epsilon)\\geq\\log(13/\\epsilon)\\) and this holds for all \\(\\epsilon\\leq1\\).</p><p>For part (b), we let \\(q=4k/\\epsilon\\) as above and \\(r^{l+1}=2q(2l+2)^{l+1}\\). Using the first bound on \\(m\\) as in the proof of Lemma A2.4, it suffices to show that \\(m\\geq2q(\\log m)^{l+1}\\). Again, we suppose that \\(m\\) is equal to its second bound, since the inequality only improves as \\(m\\) increases. We must show</p><p>\\[2^{l+2}q(\\log r^{l+1})^{l+1}\\geq2q[\\log(2^{l+2}q(\\log r^{l+1})^{l+1})]^{l+1}.\\]</p><p>Canceling \\(2q\\) and removing the \\(l+1\\) powers gives</p><p>\\[\\begin{aligned}2\\log r^{l+1}&\\geq\\log(2^{l+2}q(\\log r^{l+1})^{l+1})\\\\&=\\log\\!\\left(2q(2l+2)^{l+1}\\left(\\frac1{l+1}\\right)^{l+1}(\\log r^{l+1})^{l+1}\\right)\\\\&=\\log\\!\\left(r^{l+1}\\left(\\frac1{l+1}\\log r^{l+1}\\right)^{l+1}\\right)\\\\&=\\log r^{l+1}+\\log((\\log r)^{l+1}).\\end{aligned}\\]</p><p>This inequality reduces to \\(r\\geq\\log r\\), which certainly holds.</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 31,
+            "y": 178.2056
+          },
+          "proof": {
+            "page": 31,
+            "y": 322.4456
+          }
+        }
+      },
+      {
+        "id": "proposition-a3-1",
+        "type": "Proposition",
+        "number": "A3.1",
+        "title": "Vapnik relative-deviation inequality",
+        "section": "A3. Generalizations",
+        "proofOrganization": "quoted-without-proof",
+        "dependencies": [],
+        "statementHtml": "<p>[61]. Let \\(R\\subseteq2^X\\) be a class of regions of \\(X\\) with suitable measurability properties, \\(P\\) be any probability distribution on \\(X\\), \\(m\\geq1\\), \\(1&lt;q\\leq2\\), and \\(x&gt;0\\). If \\(\\bar{x}\\in X^m\\) is chosen randomly according to \\(P^m\\), then the probability that there exists \\(r\\in R\\), \\(P(r)\\neq0\\), such that</p><p>\\[\\frac{P(r)-\\widehat P_{\\bar{x}}(r)}{P(r)^{1/q}}&gt;x\\]</p><p>is less than</p><p>\\[8\\Pi_R(2m)\\exp\\!\\left(\\frac{-x^2m^{2-2/q}}4\\right).\\]</p>",
+        "proofHtml": "<p>Because the proof is lengthy, we do not sketch it here. The measurability properties required are similar to those given in our notion of well-behaved classes. We note only that it employs techniques similar to those used in [62], which form the basis of Lemmas A2.1 and A2.2 given above.</p>",
+        "proofNote": "The paper quotes this result from Vapnik [61] and explicitly says that it does not sketch the proof.",
+        "pdfStart": {
+          "statement": {
+            "page": 33,
+            "y": 58.6856
+          },
+          "proof": {
+            "page": 33,
+            "y": 194.2856
+          }
+        }
+      },
+      {
+        "id": "corollary-a3-1",
+        "type": "Corollary",
+        "number": "A3.1",
+        "title": "Lower-tail relative-deviation bound",
+        "section": "A3. Generalizations",
+        "proofOrganization": "direct",
+        "dependencies": [
+          "proposition-a3-1"
+        ],
+        "statementHtml": "<p>Let \\(R\\), \\(P\\) and \\(m\\) be as in Proposition A3.1, and \\(0&lt;\\epsilon,\\gamma\\leq1\\). If \\(\\bar{x}\\in X^m\\) is chosen randomly according to \\(P^m\\), then the probability that there exists a region \\(r\\in R\\) with \\(P(r)&gt;\\epsilon\\) such that</p><p>\\[\\widehat P_{\\bar{x}}(r)\\leq(1-\\gamma)P(r)\\]</p><p>is less than</p><p>\\[8\\Pi_R(2m)\\exp\\!\\left(\\frac{-\\gamma^2\\epsilon m}{4}\\right).\\]</p>",
+        "proofHtml": "<p>Let \\(q=2\\) and \\(x=\\gamma\\sqrt\\epsilon\\). Note that \\(x&gt;0\\). For any \\(r\\in R\\), if \\(\\widehat P_{\\bar{x}}(r)\\leq(1-\\gamma)P(r)\\), then \\(P(r)-\\widehat P_{\\bar{x}}(r)\\geq\\gamma P(r)\\), hence, \\((P(r)-\\widehat P_{\\bar{x}}(r))/\\sqrt{P(r)}\\geq\\gamma\\sqrt{P(r)}\\) when \\(P(r)&gt;0\\). If \\(P(r)&gt;\\epsilon\\), then \\(\\gamma\\sqrt{P(r)}&gt;\\gamma\\sqrt\\epsilon=x\\). Hence, by Proposition A3.1, the probability that there exists \\(r\\in R\\) such that \\(P(r)&gt;\\epsilon\\) and \\(\\widehat P_{\\bar{x}}(r)\\leq(1-\\gamma)P(r)\\) is at most</p><p>\\[8\\Pi_R(2m)\\exp\\!\\left(\\frac{-x^2m^{2-2/q}}4\\right),\\]</p><p>which is</p><p>\\[8\\Pi_R(2m)\\exp\\!\\left(\\frac{-\\gamma^2\\epsilon m}{4}\\right).\\]</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 33,
+            "y": 259.5656
+          },
+          "proof": {
+            "page": 33,
+            "y": 367.8056
+          }
+        }
+      },
+      {
+        "id": "theorem-a3-1",
+        "type": "Theorem",
+        "number": "A3.1",
+        "title": "Generalization bound for stochastic targets",
+        "section": "A3. Generalizations",
+        "proofOrganization": "direct",
+        "dependencies": [
+          "corollary-a3-1",
+          "lemma-a2-4",
+          "proposition-a2-1"
+        ],
+        "statementHtml": "<p>Let \\(H\\), \\(P\\), and \\(Y\\) be as above, where \\(H\\) has suitable measurability properties, \\(m\\geq1\\) and \\(0&lt;\\epsilon,\\gamma\\leq1\\).</p><ol type=\"i\"><li>If \\(\\bar{y}\\in Y^m\\) is chosen randomly according to \\(P^m\\), then the probability that there exists a hypothesis \\(h\\in H\\) with \\(\\operatorname{er}(h)&gt;\\epsilon\\) such that \\[\\widehat{\\operatorname{er}}_{\\bar{y}}(h)\\leq(1-\\gamma)\\operatorname{er}(h)\\] is less than \\[8\\Pi_H(2m)\\exp\\!\\left(\\frac{-\\gamma^2\\epsilon m}{4}\\right).\\tag{*}\\]</li><li>If the VC dimension of \\(H\\) is \\(d\\), then for any \\(0&lt;\\delta&lt;1\\), the quantity (*) is at most \\(\\delta\\) for any sample size \\(m\\) greater than \\[\\max\\!\\left(\\frac8{\\gamma^2\\epsilon}\\ln\\frac8\\delta,\\frac{16d}{\\gamma^2\\epsilon}\\ln\\frac{16}{\\gamma^2\\epsilon}\\right).\\]</li></ol>",
+        "proofHtml": "<p>For part (i), let \\(R=\\{\\operatorname{disagree}(h):h\\in H\\}\\). We claim that \\(\\Pi_R(m)=\\Pi_H(m)\\) for all \\(m\\geq1\\). The argument is similar to that used in the proof of Lemma A2.3. Choose any \\(S\\subseteq Y\\) with \\(|S|=m\\). Let \\(T=\\{x\\in X:(x,a)\\in S\\text{ for some }a\\in\\{0,1\\}\\}\\). Since \\(\\Pi_R(S)\\) is maximal when \\(|T|=m\\), we assume this is the case. It is clear that for any \\(h_1,h_2\\in H\\), \\(h_1\\cap T=h_2\\cap T\\) if and only if \\(\\operatorname{disagree}(h_1)\\cap S=\\operatorname{disagree}(h_2)\\cap S\\). From this it follows that \\(\\Pi_R(m)=\\Pi_H(m)\\). The result then follows directly from Corollary A3.1.</p><p>The calculation of the bound in part (ii) is similar to the calculation in Lemma A2.4, using Proposition A2.1(i) and (iii).</p>",
+        "pdfStart": {
+          "statement": {
+            "page": 34,
+            "y": 142.4856
+          },
+          "proof": {
+            "page": 34,
+            "y": 331.3656
+          }
+        }
+      }
+    ]
+  }
+]

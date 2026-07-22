@@ -1,0 +1,256 @@
+[
+  {
+    "id": "1990-the-strength-of-weak-learnability",
+    "theorems": [
+      {
+        "id": "theorem-1",
+        "type": "Theorem",
+        "number": "1",
+        "title": "Weak and strong learnability are equivalent",
+        "section": "3. The equivalence of strong and weak learnability",
+        "proofOrganization": "composite-section",
+        "dependencies": ["theorem-2", "lemma-1", "lemma-2", "lemma-3", "lemma-4", "lemma-5", "lemma-6", "theorem-3"],
+        "statementHtml": "<p>A concept class \\(C\\) is weakly learnable if and only if it is strongly learnable.</p>",
+        "proofHtml": "<p>That strong learnability implies weak learnability is trivial. The remainder of this section is devoted to a proof of the converse. We assume then that some concept class \\(C\\) is weakly learnable and show how to build a strong learning algorithm around a weak one.</p><p>We begin with a description of a technique by which the accuracy of any algorithm can be boosted by a small but significant amount. Later, we will show how this mechanism can be applied recursively to make the error arbitrarily small.</p>",
+        "proofNote": "Composite proof spanning Sections 3.1–3.4. Sections 3.1–3.2 construct Learn, Theorem 2 proves correctness, and Lemmas 1–6 and Theorem 3 establish polynomial execution and complete the converse. These component results are included separately and linked as dependencies.",
+        "pdfStart": {
+          "statement": {"page": 5, "y": 249.61},
+          "proof": {"page": 5, "y": 273.37}
+        }
+      },
+      {
+        "id": "theorem-2",
+        "type": "Theorem",
+        "number": "2",
+        "title": "Correctness of Learn",
+        "section": "3.3. Correctness",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>For \\(0&lt;\\epsilon&lt;1/2\\) and for \\(0&lt;\\delta\\leq 1\\), the hypothesis returned by calling \\(\\operatorname{Learn}(\\epsilon,\\delta,EX)\\) is \\(\\epsilon\\)-close to the target concept with probability at least \\(1-\\delta\\).</p>",
+        "proofHtml": "<p>In proving this theorem, we will find it useful to assume that nothing “goes wrong” throughout the execution of <em>Learn</em>. More specifically, we will say that <em>Learn</em> has a good run if every hypothesis returned by <em>WeakLearn</em> is indeed \\((1/2-1/p(n,s))\\)-close to the target concept, and if every statistical estimate (i.e., of the quantities \\(a_1\\) and \\(e\\)) is obtained with the required accuracy. We will then argue inductively on the depth of the recursion that if <em>Learn</em> has a good run then the output hypothesis is \\(\\epsilon\\)-close to the target concept, and furthermore, that the probability of a good run is at least \\(1-\\delta\\). Together, these facts clearly imply the theorem’s statement.</p><p>The base case that \\(\\epsilon\\geq1/2-1/p(n,s)\\) is trivially handled using our assumptions about <em>WeakLearn</em>.</p><p>In the general case, by inductive hypothesis, each of the three (or fewer) recursive calls to <em>Learn</em> are good runs with probability at least \\(1-\\delta/5\\). Moreover, each of the estimates \\(\\hat a_1\\) and \\(\\hat e\\) has the desired accuracy with probability at least \\(1-\\delta/5\\). Thus, the chance of a good run is at least the chance that all five of these events occur, which is at least \\(1-\\delta\\).</p><p>It remains then only to show that on a good run the output hypothesis has error at most \\(\\epsilon\\).</p><p>An easy special case is that \\(\\hat a_1\\) or \\(\\hat e\\) is found to be smaller than \\(\\epsilon-\\tau_1\\) or \\(\\epsilon-\\tau_2\\), respectively. In either case, it follows immediately, due to the accuracy with which \\(a_1\\) and \\(e\\) are assumed to have been estimated, that the returned hypothesis is \\(\\epsilon\\)-close to the target concept.</p><p>Otherwise, in the general case, all three sub-hypotheses must be found and combined. Let \\(a_i\\) be the error of \\(h_i\\) under \\(D_i\\). Here, \\(D\\) is the distribution of the provided oracle \\(EX\\), and \\(D_i\\) is the distribution induced by oracle \\(EX_i\\) on the \\(i\\)-th recursive call (\\(i=1,2,3\\)). By inductive hypothesis, each \\(a_i\\leq\\alpha\\).</p><p>In the special case that all hypotheses are deterministic, the distributions \\(D_1\\) and \\(D_2\\) can be depicted schematically as shown in Figure 3. The figure shows the portion of each distribution on which the hypotheses \\(h_1\\) and \\(h_2\\) agree with the target concept \\(c\\). For each distribution, the top crosshatched bar represents the relative fraction of the instance space on which \\(h_1\\) agrees with \\(c\\); the bottom striped bar represents those instances on which \\(h_2\\) agrees with \\(c\\). Although only valid for deterministic hypotheses, this figure may be helpful for motivating one’s intuition in what follows.</p><p>Let \\(p_i(v)=\\Pr[h_i(v)\\neq c(v)]\\) be the chance that some fixed instance \\(v\\) is misclassified by \\(h_i\\). (Recall that hypotheses may be randomized, and therefore it is necessary to consider the probability that a particular fixed instance is misclassified.) Similarly, let \\(q(v)=\\Pr[h_1(v)\\neq h_2(v)]\\) be the chance that \\(v\\) is classified differently by \\(h_1\\) and \\(h_2\\). Also define \\(w,x,y\\), and \\(z\\) as follows:</p><p>\\[w=\\Pr_{v\\in D}[h_2(v)\\neq h_1(v)=c(v)],\\quad x=\\Pr_{v\\in D}[h_1(v)=h_2(v)=c(v)],\\]</p><p>\\[y=\\Pr_{v\\in D}[h_1(v)\\neq h_2(v)=c(v)],\\quad z=\\Pr_{v\\in D}[h_1(v)=h_2(v)\\neq c(v)].\\]</p><p>Clearly,</p><p>\\[w+x=\\Pr_{v\\in D}[h_1(v)=c(v)]=1-a_1,\\tag{1}\\]</p><p>and since \\(c,h_1\\), and \\(h_2\\) are Boolean,</p><p>\\[y+z=\\Pr_{v\\in D}[h_1(v)\\neq c(v)]=a_1.\\tag{2}\\]</p><p>In terms of these variables, we can express explicitly the chance that \\(EX_i\\) returns instance \\(v\\):</p><p>\\[D_1(v)=D(v),\\tag{3}\\]</p><p>\\[D_2(v)=\\frac{D(v)}2\\left(\\frac{p_1(v)}{a_1}+\\frac{1-p_1(v)}{1-a_1}\\right),\\tag{4}\\]</p><p>\\[D_3(v)=\\frac{D(v)q(v)}{w+y}.\\tag{5}\\]</p><p>Equation (3) is trivial. To see that Equation (4) holds, note that the chance that the initial coin flip comes up tails is \\(1/2\\), and the chance that instance \\(v\\) is the first instance misclassified by \\(h_1\\) is \\(D(v)p_1(v)/a_1\\). The case that the coin comes up heads is handled in a similar fashion, as is the derivation of Equation (5).</p><p>From Equation (4), we have that</p><p>\\[\\begin{aligned}1-a_2&=\\sum_{v\\in X_n}D_2(v)(1-p_2(v))\\\\&=\\frac{1}{2a_1}\\sum_{v\\in X_n}D(v)p_1(v)(1-p_2(v))+\\frac{1}{2(1-a_1)}\\sum_{v\\in X_n}D(v)(1-p_1(v))(1-p_2(v))\\\\&=\\frac{y}{2a_1}+\\frac{x}{2(1-a_1)}.\\end{aligned}\\tag{6}\\]</p><p>(Note that Equation (6) could also have been derived from Figure 3 in the case of deterministic hypotheses: if \\(\\beta\\) is as shown in the figure, then it is not hard to see that \\(y=2a_1\\beta\\) and \\(x=2(1-a_1)(1-a_2-\\beta)\\). These imply Equation (6).)</p><p>Combining Equations (1), (2), and (6), we see that the values of \\(w\\) and \\(z\\) can be solved for and written explicitly in terms of \\(y,a_1\\), and \\(a_2\\):</p><p>\\[w=(2a_2-1)(1-a_1)+\\frac{y(1-a_1)}{a_1},\\qquad z=a_1-y.\\]</p><p>Using these values and Equation (5), we are finally ready to compute the error of the output hypothesis \\(h\\):</p><p>\\[\\begin{aligned}\\Pr_{v\\in D}[h(v)\\neq c(v)]&=\\Pr_{v\\in D}[(h_1(v)=h_2(v)\\neq c(v))\\lor(h_1(v)\\neq h_2(v)\\land h_3(v)\\neq c(v))]\\\\&=z+\\sum_{v\\in X_n}D(v)q(v)p_3(v)\\\\&=z+\\sum_{v\\in X_n}(w+y)D_3(v)p_3(v)\\\\&=z+a_3(w+y)\\\\&\\leq z+\\alpha(w+y)\\\\&=\\alpha(2a_2-1)(1-a_1)+a_1+\\frac{y(\\alpha-a_1)}{a_1}\\\\&\\leq\\alpha(2a_2-1)(1-a_1)+\\alpha\\\\&\\leq\\alpha(2\\alpha-1)(1-\\alpha)+\\alpha=3\\alpha^2-2\\alpha^3=g(\\alpha)=\\epsilon.\\end{aligned}\\]</p><p>as desired. The inequalities here follow from the facts that each \\(a_i\\leq\\alpha&lt;1/2\\), and that, by Equation (2), \\(y\\leq a_1\\).</p><p>This completes the proof.</p>",
+        "pdfStart": {
+          "statement": {"page": 8, "y": 474.41},
+          "proof": {"page": 8, "y": 508.88}
+        }
+      },
+      {
+        "id": "lemma-1",
+        "type": "Lemma",
+        "number": "1",
+        "title": "Recursion depth",
+        "section": "3.4. Analysis",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>The depth of the recursion induced by calling \\(\\operatorname{Learn}(\\epsilon,\\delta,EX)\\) is at most</p><p>\\[B(\\epsilon,p(n,s))=O(\\log p(n,s)+\\log\\log(1/\\epsilon)).\\]</p>",
+        "proofHtml": "<p>We can say \\(B(\\epsilon,p(n,s))\\leq b+c\\) if \\(g^b(1/2-1/p(n,s))\\leq1/4\\) and \\(g^c(1/4)\\leq\\epsilon\\). Clearly, \\(g(x)\\leq3x^2\\) and so \\(g^i(x)\\leq(3x)^{2^i}\\). Thus, \\(g^c(1/4)\\leq\\epsilon\\) if \\(c=\\lceil\\lg\\log_{4/3}(1/\\epsilon)\\rceil\\). Similarly, if \\(1/4\\leq x\\leq1/2\\), then \\(1/2-g(x)=(1/2-x)(1+2x-2x^2)\\geq(11/8)(1/2-x)\\). This implies that \\(1/2-g^i(x)\\geq(11/8)^i(1/2-x)\\), assuming that \\(x,g(x),\\ldots,g^{i-1}(x)\\) are all at least \\(1/4\\). Thus, \\(g^b(1/2-1/p(n,s))\\leq1/4\\) if \\(b=\\lceil\\log_{11/8}(p(n,s)/4)\\rceil\\).</p>",
+        "pdfStart": {"statement": {"page": 12, "y": 355.45}, "proof": {"page": 12, "y": 390.4}}
+      },
+      {
+        "id": "lemma-2",
+        "type": "Lemma",
+        "number": "2",
+        "title": "Hypothesis evaluation time",
+        "section": "3.4. Analysis",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-1"],
+        "statementHtml": "<p>The time to evaluate an hypothesis returned by \\(\\operatorname{Learn}(\\epsilon,\\delta,EX)\\) is</p><p>\\[U(\\epsilon,\\delta)=O(3^B\\cdot u(\\delta/5^B)).\\]</p>",
+        "proofHtml": "<p>If \\(\\epsilon\\geq1/2-1/p\\), then <em>Learn</em> returns an hypothesis computed by <em>WeakLearn</em>. In this case, \\(U(\\epsilon,\\delta)=u(\\delta)\\). Otherwise, the hypothesis returned by <em>Learn</em> involves the computation of at most three sub-hypotheses. Thus,</p><p>\\[U(\\epsilon,\\delta)\\leq3U(g^{-1}(\\epsilon),\\delta/5)+c\\]</p><p>for some positive constant \\(c\\). A straightforward induction argument shows that this recurrence implies</p><p>\\[U(\\epsilon,\\delta)\\leq3^B u(\\delta/5^B)+c(3^B-1).\\]</p>",
+        "pdfStart": {"statement": {"page": 12, "y": 521.29}, "proof": {"page": 12, "y": 556.0}}
+      },
+      {
+        "id": "lemma-3",
+        "type": "Lemma",
+        "number": "3",
+        "title": "Expected filtering overhead",
+        "section": "3.4. Analysis",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-2"],
+        "statementHtml": "<p>Let \\(r\\) be the expected number of examples drawn from \\(EX\\) by any oracle \\(EX_i\\) simulated by <em>Learn</em> on a good run when asked to provide a single example. Then \\(r\\leq4/\\epsilon\\).</p>",
+        "proofHtml": "<p>When <em>Learn</em> calls itself the first time (to find \\(h_1\\)), the examples oracle \\(EX\\) it was passed is left unchanged. In this case, \\(r=1\\).</p><p>The second time <em>Learn</em> calls itself, the constructed oracle \\(EX_2\\) loops each time it is called until it receives a desirable example. Depending on the result of the initial coin flip, we expect \\(EX_2\\) to loop \\(1/a_1\\) or \\(1/(1-a_1)\\) times. Note that if \\(a_1\\leq\\epsilon-2\\tau_1=\\epsilon/3\\), then, based on its estimate of \\(a_1\\), <em>Learn</em> would have simply returned \\(h_1\\) instead of making a second or third recursive call. Thus, we can assume \\(\\epsilon/3\\leq a_1\\leq1/2\\), and so \\(r\\leq3/\\epsilon\\) in this case.</p><p>Finally, when <em>Learn</em> calls itself the third time, we expect the constructed oracle \\(EX_3\\) to loop \\(1/(w+y)\\) times before finding a suitable example. (Here, the variables \\(w,x,y\\), and \\(z\\) are as defined in the proof of Theorem 2.) It remains then only to show that \\(w+y\\geq\\epsilon/4\\). Note that the error \\(e\\) of \\(h_2\\) on the original distribution \\(D\\) is \\(w+z\\). Thus, using this fact and Equations (1), (2), and (6), we can solve explicitly for \\(w\\) and \\(y\\) in terms of \\(e,a_1\\), and \\(a_2\\), and so find that</p><p>\\[w+y=a_1+\\frac{e-4a_1a_2(1-a_1)}{1-2a_1}\\geq a_1+\\frac{e-4a_1\\alpha(1-a_1)}{1-2a_1}.\\tag{7}\\]</p><p>Regarding \\(e\\) and \\(\\alpha&lt;1/2\\) as fixed, we will refer to this last function on the right hand side of the inequality as \\(f(a_1)\\). To lower bound \\(w+y\\), we will find the minimum of \\(f\\) on the interval \\([0,\\alpha]\\). The derivative of \\(f\\) is:</p><p>\\[f'(a_1)=\\frac{(4-8\\alpha)a_1^2-(4-8\\alpha)a_1+(1-4\\alpha+2e)}{(1-2a_1)^2}.\\]</p><p>The denominator of this derivative is clearly zero only when \\(a_1=1/2\\), and the numerator, being a parabola centered about the line \\(a_1=1/2\\), has at most one zero less than \\(1/2\\). Thus, the function \\(f\\) has at most one critical point on the interval \\(( -\\infty,1/2)\\). Furthermore, since \\(f\\) tends to \\(-\\infty\\) as \\(a_1\\to-\\infty\\), a single critical point in this range cannot possibly be minimal. This means that \\(f\\)’s minimum on any closed subinterval of \\(( -\\infty,1/2)\\) is achieved at one endpoint of the subinterval. In particular, for the subinterval of interest to us, the function achieves its minimum either when \\(a_1=0\\) or when \\(a_1=\\alpha\\). Thus, \\(w+y\\geq\\min(f(0),f(\\alpha))\\).</p><p>We can assume that \\(e\\geq\\epsilon-2\\tau_2=(3/4+\\alpha/2)\\epsilon\\); otherwise, if \\(e\\) were smaller than this quantity, then <em>Learn</em> would have returned \\(h_2\\) rather than going on to compute \\(h_3\\). Thus, \\(f(0)=e\\geq3\\epsilon/4\\), and, using our bound for \\(e\\) and the fact that \\(\\epsilon=3\\alpha^2-2\\alpha^3\\),</p><p>\\[\\begin{aligned}f(\\alpha)&=\\frac{\\alpha-6\\alpha^2+4\\alpha^3+e}{1-2\\alpha}\\\\&\\geq\\frac{\\alpha-6\\alpha^2+4\\alpha^3+(3/4+\\alpha/2)(3\\alpha^2-2\\alpha^3)}{1-2\\alpha}\\\\&=\\frac14\\alpha(4-7\\alpha+2\\alpha^2).\\end{aligned}\\]</p><p>Since \\(4-7\\alpha+2\\alpha^2\\geq1\\) for \\(\\alpha\\leq1/2\\), \\(f(\\alpha)\\geq\\alpha/4\\geq\\epsilon/4\\). We conclude \\(w+y\\geq\\epsilon/4\\), completing the proof.</p>",
+        "pdfStart": {"statement": {"page": 13, "y": 229.78}, "proof": {"page": 13, "y": 265.7}}
+      },
+      {
+        "id": "lemma-4",
+        "type": "Lemma",
+        "number": "4",
+        "title": "Chernoff bounds",
+        "section": "3.4. Analysis",
+        "proofOrganization": "stated-without-proof",
+        "dependencies": [],
+        "statementHtml": "<p><strong>(Chernoff Bounds)</strong> Consider a sequence of \\(m\\) independent Bernoulli trials, each succeeding with probability \\(p\\). Let \\(S\\) be the random variable describing the total number of successes. Then for \\(0&lt;\\gamma&lt;1\\), the following hold:</p><ul><li>\\(\\Pr[|S-mp|\\geq\\gamma m]\\leq2e^{-2m\\gamma^2}\\),</li><li>\\(\\Pr[S\\leq(1-\\gamma)mp]\\leq e^{-\\gamma^2mp/2}\\), and</li><li>\\(\\Pr[S\\geq(1+\\gamma)mp]\\leq e^{-\\gamma^2mp/3}\\).</li></ul>",
+        "proofHtml": "",
+        "proofNote": "The paper states these bounds without proof, citing Angluin and Valiant (1979) and Hoeffding (1963).",
+        "pdfStart": {"statement": {"page": 14, "y": 367.78}}
+      },
+      {
+        "id": "lemma-5",
+        "type": "Lemma",
+        "number": "5",
+        "title": "Expected sample complexity of Learn",
+        "section": "3.4. Analysis",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-1", "lemma-3", "lemma-4"],
+        "statementHtml": "<p>On a good run, the expected number of examples \\(M(\\epsilon,\\delta)\\) needed by \\(\\operatorname{Learn}(\\epsilon,\\delta,EX)\\) is</p><p>\\[O\\!\\left(\\frac{36^B}{\\epsilon^2}\\left(p^2\\log(5^B/\\delta)+m(\\delta/5^B)\\right)\\right).\\]</p>",
+        "proofHtml": "<p>In the base case that \\(\\epsilon\\geq1/2-1/p\\), <em>Learn</em> simply calls <em>WeakLearn</em>, so we have \\(M(\\epsilon,\\delta)=m(\\delta)\\). Otherwise, on each of the recursive calls, the simulated oracle is required to provide \\(M(g^{-1}(\\epsilon),\\delta/5)\\) examples. To provide one such example, the simulated oracle must itself draw at most an average of \\(4/\\epsilon\\) examples from \\(EX\\). Thus, each recursive call demands at most \\((4/\\epsilon)\\cdot M(g^{-1}(\\epsilon),\\delta/5)\\) examples on average.</p><p>In addition, <em>Learn</em> requires some examples for making its estimates \\(\\hat a_1\\) and \\(\\hat e\\). Using the first bound of Lemma 4, it follows that a sample of size \\(O(\\log(1/\\delta)/\\tau_i^2)\\) suffices for each estimate. Note that \\(1/p\\leq1/2-\\epsilon=1/2-g(\\alpha)=(1/2-\\alpha)(1+2\\alpha-2\\alpha^2)\\leq(3/2)(1/2-\\alpha)\\). Thus, by our choice of \\(\\tau_1\\) and \\(\\tau_2\\), both estimates can be made using \\(O(p^2\\log(1/\\delta)/\\epsilon^2)\\) examples.</p><p>We thus arrive at the recurrent inequality:</p><p>\\[M(\\epsilon,\\delta)\\leq\\frac{12}{\\epsilon}\\cdot M(g^{-1}(\\epsilon),\\delta/5)+\\frac{cp^2\\log(1/\\delta)}{\\epsilon^2}\\tag{8}\\]</p><p>for some positive constant \\(c\\). To complete the proof, we argue inductively that this implies the bound</p><p>\\[M(\\epsilon,\\delta)\\leq\\frac{36^B\\cdot m(\\delta/5^B)+c(36^B-1)p^2\\log(5^B/\\delta)}{\\epsilon^2}.\\tag{9}\\]</p><p>The base case clearly satisfies this bound. In the general case, Equation (8) implies by inductive hypothesis that</p><p>\\[\\begin{aligned}M(\\epsilon,\\delta)&\\leq\\frac{12}{\\epsilon}\\left[\\frac{36^{B-1}\\cdot m(\\delta/5^B)+c(36^{B-1}-1)p^2\\log(5^B/\\delta)}{(g^{-1}(\\epsilon))^2}\\right]+\\frac{cp^2\\log(1/\\delta)}{\\epsilon^2}\\\\&\\leq\\frac{12}{\\epsilon}\\left[\\frac{36^{B-1}\\cdot m(\\delta/5^B)+c(36^{B-1}-1)p^2\\log(5^B/\\delta)}{\\epsilon/3}\\right]+\\frac{cp^2\\log(1/\\delta)}{\\epsilon^2}\\\\&=\\frac{36^B\\cdot m(\\delta/5^B)+c(36^B-1)p^2\\log(5^B/\\delta)}{\\epsilon^2}-\\frac{cp^2}{\\epsilon^2}\\left(35\\log(1/\\delta)+36\\log 5\\right),\\end{aligned}\\]</p><p>which clearly implies Equation (9). The last inequality here follows from the fact that \\(\\epsilon\\leq3(g^{-1}(\\epsilon))^2\\) since \\(g(\\alpha)\\leq3\\alpha^2\\) for \\(\\alpha\\geq0\\).</p>",
+        "pdfStart": {"statement": {"page": 14, "y": 462.58}, "proof": {"page": 14, "y": 532.16}}
+      },
+      {
+        "id": "lemma-6",
+        "type": "Lemma",
+        "number": "6",
+        "title": "Expected execution time of Learn",
+        "section": "3.4. Analysis",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-2", "lemma-5"],
+        "statementHtml": "<p>On a good run, the expected execution time of \\(\\operatorname{Learn}(\\epsilon,\\delta,EX)\\) is given by</p><p>\\[T(\\epsilon,\\delta)=O\\!\\left(3^B t(\\delta/5^B)+\\frac{108^B u(\\delta/5^B)}{\\epsilon^2}\\left(p^2\\log(5^B/\\delta)+m(\\delta/5^B)\\right)\\right).\\]</p>",
+        "proofHtml": "<p>As in the previous lemmas, the base case that \\(\\epsilon\\geq1/2-1/p\\) is easily handled. In this case, \\(T(\\epsilon,\\delta)=t(\\delta)\\).</p><p>Otherwise, <em>Learn</em> takes time \\(3\\cdot T(g^{-1}(\\epsilon),\\delta/5)\\) on its three recursive calls. In addition, <em>Learn</em> spends time drawing examples to make the estimates \\(\\hat a_1\\) and \\(\\hat e\\), and overhead time is also spent by the simulated examples oracles passed on the three recursive calls. A typical example that is drawn from <em>Learn</em>’s oracle \\(EX\\) is evaluated on zero, one, or two of the previously computed sub-hypotheses. For instance, an example drawn for the purpose of estimating \\(\\hat a_1\\) is evaluated once by \\(h_1\\); an example drawn for the simulated oracle \\(EX_3\\) is evaluated by both \\(h_1\\) and \\(h_2\\). Thus, <em>Learn</em>’s overhead time is proportional to the product of the total number of examples needed by <em>Learn</em> and the time it takes to evaluate a sub-hypothesis on one of these examples. Therefore, the following recurrence holds:</p><p>\\[T(\\epsilon,\\delta)\\leq3\\cdot T(g^{-1}(\\epsilon),\\delta/5)+O\\bigl(U(g^{-1}(\\epsilon),\\delta/5)\\cdot M(\\epsilon,\\delta)\\bigr).\\tag{10}\\]</p><p>Applying Lemmas 2 and 5, this implies</p><p>\\[T(\\epsilon,\\delta)\\leq3\\cdot T(g^{-1}(\\epsilon),\\delta/5)+\\frac{c\\cdot108^B\\cdot u(\\delta/5^B)}{\\epsilon^2}\\cdot\\left(p^2\\log(5^B/\\delta)+m(\\delta/5^B)\\right)\\]</p><p>for some positive constant \\(c\\). A straightforward induction argument shows that this implies:</p><p>\\[T(\\epsilon,\\delta)\\leq3^B\\cdot t(\\delta/5^B)+\\frac{2c\\cdot108^B\\cdot u(\\delta/5^B)}{\\epsilon^2}\\cdot\\left(p^2\\log(5^B/\\delta)+m(\\delta/5^B)\\right).\\]</p>",
+        "pdfStart": {"statement": {"page": 15, "y": 439.05}, "proof": {"page": 15, "y": 497.27}}
+      },
+      {
+        "id": "theorem-3",
+        "type": "Theorem",
+        "number": "3",
+        "title": "Learn is probably fast and correct",
+        "section": "3.4. Analysis",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-2", "lemma-6"],
+        "statementHtml": "<p>Let \\(0&lt;\\epsilon&lt;1/2\\) and let \\(0&lt;\\delta\\leq1\\). With probability at least \\(1-\\delta\\), the execution of \\(\\operatorname{Learn}(\\epsilon,\\delta/2,EX)\\) halts in polynomial time and outputs an hypothesis \\(\\epsilon\\)-close to the target concept.</p>",
+        "proofHtml": "<p>By Theorem 2, the chance that <em>Learn</em> does not have a good run is at most \\(\\delta/2\\). By Markov’s inequality and Lemma 6, the chance that <em>Learn</em> on a good run fails to halt in time \\((2/\\delta)T(\\epsilon,\\delta/2)\\) is also at most \\(\\delta/2\\). Thus, the probability that <em>Learn</em> has a good run (and so outputs an \\(\\epsilon\\)-close hypothesis) and halts in polynomial time is at least \\(1-\\delta\\).</p>",
+        "pdfStart": {"statement": {"page": 16, "y": 273.37}, "proof": {"page": 16, "y": 320.16}}
+      },
+      {
+        "id": "lemma-7",
+        "type": "Lemma",
+        "number": "7",
+        "title": "Space complexity of Learn",
+        "section": "3.5. Space complexity",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-1"],
+        "statementHtml": "<p>The space \\(Q(\\epsilon,\\delta)\\) required to store an hypothesis output by \\(\\operatorname{Learn}(\\epsilon,\\delta,EX)\\) is at most \\(O(3^Bq(\\delta/5^B))\\). The space \\(R(\\epsilon,\\delta)\\) needed to evaluate such an hypothesis is \\(O(B+r(\\delta/5^B))\\). Finally, the total space \\(S(\\epsilon,\\delta)\\) required by <em>Learn</em> is</p><p>\\[O\\bigl(3^Bq(\\delta/5^B)+s(\\delta/5^B)+B\\,r(\\delta/5^B)\\bigr).\\]</p>",
+        "proofHtml": "<p>For \\(\\epsilon\\geq1/2-1/p\\), the bounds are trivial. To bound \\(Q\\), note that the hypothesis returned by <em>Learn</em> is a composite of three (or fewer) hypotheses. Thus,</p><p>\\[Q(\\epsilon,\\delta)\\leq3Q(g^{-1}(\\epsilon),\\delta/5)+O(1).\\]</p><p>To evaluate such a composite hypothesis, each sub-hypothesis is evaluated one at a time. Thus,</p><p>\\[R(\\epsilon,\\delta)\\leq R(g^{-1}(\\epsilon),\\delta/5)+O(1).\\]</p><p>Finally, storage is dominated by the sub-hypotheses, their recursive computation, and the space needed to evaluate them. Since sub-hypotheses are computed one at a time,</p><p>\\[S(\\epsilon,\\delta)\\leq S(g^{-1}(\\epsilon),\\delta/5)+O\\bigl(Q(g^{-1}(\\epsilon),\\delta/5)+R(g^{-1}(\\epsilon),\\delta/5)\\bigr).\\]</p><p>The solutions of these three recurrences are all straightforward, and imply the stated bounds.</p>",
+        "pdfStart": {"statement": {"page": 16, "y": 486.01}, "proof": {"page": 16, "y": 544.08}}
+      },
+      {
+        "id": "lemma-8",
+        "type": "Lemma",
+        "number": "8",
+        "title": "Improved filtering overhead",
+        "section": "4.3. Analysis",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-3"],
+        "statementHtml": "<p>Let \\(r\\) be the expected number of examples drawn from \\(EX\\) by any oracle \\(EX_i\\) simulated by \\(\\operatorname{Learn}'\\) on a good run when asked to provide a single example. Then \\(r\\leq4/\\alpha\\).</p>",
+        "proofHtml": "<p>As in the original proof, \\(r=1\\) for \\(EX_1\\). We expect the second oracle to loop at most \\(1/a'_1\\) times on average. Since \\(a'_1\\geq\\alpha/2\\), \\(r\\) is at most \\(2/\\alpha\\) in this case.</p><p>Finally, to bound the number of iterations of \\(EX_3\\), we will shown that \\(w+y\\geq\\alpha/4\\) using Equation (7) as in the original proof. To lower bound \\(w+y\\), we find the minimum of the last formula \\(f\\) of Equation (7) (with \\(a_1\\) replaced by \\(a'_1\\) of course) on the interval \\([\\alpha/2,\\alpha]\\). As noted previously, the function \\(f\\) must achieve its minimum at one endpoint of the interval. We assume as in the original proof that \\(e\\geq(3/4+\\alpha/2)\\epsilon\\). It was previously shown that \\(f(\\alpha)\\geq\\alpha/4\\), and, by a similar argument, we can show \\(f(\\alpha/2)\\geq\\alpha/2+\\alpha^3+\\frac{\\alpha^2}{4(1-\\alpha)}\\geq\\alpha/2\\). This completes the proof.</p>",
+        "pdfStart": {"statement": {"page": 19, "y": 72.01}, "proof": {"page": 19, "y": 106.79}}
+      },
+      {
+        "id": "lemma-9",
+        "type": "Lemma",
+        "number": "9",
+        "title": "Improved sample complexity",
+        "section": "4.3. Analysis",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-4", "lemma-5", "lemma-8"],
+        "statementHtml": "<p>On a good run, the expected number of examples \\(M(\\epsilon,\\delta)\\) needed by \\(\\operatorname{Learn}'(\\epsilon,\\delta,EX)\\) is</p><p>\\[O\\!\\left(\\frac{36^B}{\\epsilon}\\left(p^2\\log(5^B/\\delta)+m(\\delta/5^B)\\right)\\right).\\]</p>",
+        "proofHtml": "<p>The proof is nearly the same as for Lemma 5. In addition to incorporating the superior bound given by Lemma 8 on the number of examples needed by the simulated oracles, we must also consider the number of examples needed to estimate \\(a_1\\) and \\(e\\). The first, \\(a_1\\), can be estimated using a sample of size \\(O(\\log(1/\\delta)/\\alpha^2)=O(\\log(1/\\delta)/\\epsilon)\\); this can be derived from the first bound of Lemma 4, and by noting that \\(\\epsilon=g(\\alpha)\\leq3\\alpha^2\\) for \\(\\alpha\\geq0\\). By estimating \\(e\\) in a slightly different manner, we can also achieve a better bound on the sample size needed. Specifically, we can choose a sample large enough that, with probability \\(1-\\delta/5\\), \\(\\hat e\\leq\\epsilon-\\tau_2\\) if \\(e\\leq\\epsilon-2\\tau_2\\), and \\(\\hat e\\geq\\epsilon-\\tau_2\\) if \\(e\\geq\\epsilon\\). Such an estimate has all of the properties needed by <em>Learn</em>′, but only requires a sample of size \\(O(p^2\\log(1/\\delta)/\\epsilon)\\) as can be derived using the second and third bound of Lemma 4. (See Haussler, Kearns, Littlestone and Warmuth (1988) for a detailed example of this sort of calculation.)</p><p>Thus, we arrive at the recurrence</p><p>\\[M(\\epsilon,\\delta)\\leq\\frac{12}{g^{-1}(\\epsilon)}\\cdot M(g^{-1}(\\epsilon),\\delta/5)+O\\!\\left(\\frac{p^2\\log(1/\\delta)}{\\epsilon}\\right)\\]</p><p>which implies the stated bound by an argument similar to that given in the proof of Lemma 5.</p>",
+        "pdfStart": {"statement": {"page": 19, "y": 226.09}, "proof": {"page": 19, "y": 296.89}}
+      },
+      {
+        "id": "lemma-10",
+        "type": "Lemma",
+        "number": "10",
+        "title": "Improved execution time",
+        "section": "4.3. Analysis",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-6", "lemma-9"],
+        "statementHtml": "<p>On a good run, the expected execution time of \\(\\operatorname{Learn}'(\\epsilon,\\delta,EX)\\) is given by</p><p>\\[T(\\epsilon,\\delta)=O\\!\\left(3^B t(\\delta/5^B)+\\frac{108^B u(\\delta/5^B)}{\\epsilon}\\left(p^2\\log(5^B/\\delta)+m(\\delta/5^B)\\right)\\right).\\]</p>",
+        "proofHtml": "<p>This bound follows from Equation (10), using the superior bound on \\(M\\) given by Lemma 9.</p>",
+        "pdfStart": {"statement": {"page": 19, "y": 521.77}, "proof": {"page": 19, "y": 580.57}}
+      },
+      {
+        "id": "theorem-4",
+        "type": "Theorem",
+        "number": "4",
+        "title": "General PAC-learning complexity bounds",
+        "section": "6. General complexity bounds for PAC learning",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-2", "lemma-2", "lemma-7", "lemma-9", "lemma-10"],
+        "statementHtml": "<p>If \\(C\\) is a learnable concept class, then there exists an efficient learning algorithm for \\(C\\) that:</p><ul><li>requires a sample of size \\(p_1(n,s,\\log(1/\\epsilon),\\log(1/\\delta))/\\epsilon\\),</li><li>halts in time \\(p_2(n,s,\\log(1/\\epsilon),\\log(1/\\delta))/\\epsilon\\),</li><li>uses space \\(p_3(n,s,\\log(1/\\epsilon),\\log(1/\\delta))\\), and</li><li>outputs hypotheses of size \\(p_4(n,s,\\log(1/\\epsilon))\\), evaluatable in time \\(p_5(n,s,\\log(1/\\epsilon))\\),</li></ul><p>for some polynomials \\(p_1,p_2,p_3,p_4\\), and \\(p_5\\).</p>",
+        "proofHtml": "<p>Given a strong learning algorithm \\(A\\) for \\(C\\), “hard-wire” \\(\\epsilon=1/4\\), thus converting \\(A\\) into a weak learning algorithm \\(A'\\) that outputs hypotheses \\(1/4\\)-close to the target concept. Now let \\(A''\\) be the procedure obtained by applying the construction of <em>Learn</em>′ with \\(A'\\) plugged in for <em>WeakLearn</em>. As remarked previously, we can assume without loss of generality that \\(A''\\) halts deterministically in polynomial time. Note, by the lemmas of Sections 3 and 4, that \\(A''\\) “almost” achieves the resource bounds given in the theorem, the only problem being that the bounds attained are polynomial in \\(1/\\delta\\) rather than \\(\\log(1/\\delta)\\) as desired.</p><p>This problem is alleviated by applying the construction of Haussler, Kearns, Littlestone and Warmuth (1988) for converting any learning algorithm \\(B\\) into one running in time polynomial in \\(\\log(1/\\delta)\\). Essentially, this construction works as follows: Given inputs \\(n,s,\\epsilon\\), and \\(\\delta\\), first simulate \\(B\\) \\(O(\\log(1/\\delta))\\) times, each time setting \\(B\\)’s accuracy parameter to \\(\\epsilon/4\\) and \\(B\\)’s confidence parameter to \\(1/2\\). Save all of the computed hypotheses. Next, draw a sample of \\(O(\\log(1/\\delta)/\\epsilon)\\) examples, and output the one that misclassifies the fewest examples in the sample. Haussler, et al. argue that the resulting procedure outputs an \\(\\epsilon\\)-close hypothesis with probability \\(1-\\delta\\).</p><p>Applying this construction to \\(A''\\), we obtain a final procedure that one can verify achieves all of the stated bounds.</p>",
+        "pdfStart": {"statement": {"page": 22, "y": 426.88}, "proof": {"page": 22, "y": 579.52}}
+      },
+      {
+        "id": "theorem-5",
+        "type": "Theorem",
+        "number": "5",
+        "title": "Polylogarithmic data compression",
+        "section": "6.2. Data compression",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-4"],
+        "statementHtml": "<p>Let \\(C\\) be a learnable concept class. Then there exists an efficient algorithm that, given \\(0&lt;\\delta\\leq1\\) and \\(m\\) (distinct) examples of a concept \\(c\\in C_n\\) of size \\(s\\), outputs with probability at least \\(1-\\delta\\) a deterministic hypothesis consistent with the sample and of size polynomial in \\(n,s\\) and \\(\\log m\\).</p>",
+        "proofHtml": "<p>Pitt and Valiant (1988) show how to convert any learning algorithm into one that finds hypotheses consistent with a set of data points. The idea is to choose \\(\\epsilon&lt;1/m\\) and to run the learning algorithm on a (simulated) uniform distribution over the data set. Since \\(\\epsilon\\) is less than the weight placed on any element of the sample, the output hypothesis must have error zero. Applying this technique to a learning algorithm \\(A\\) satisfying the conditions of Theorem 4, we see that the output hypothesis has size only polynomial in \\(n,s\\) and \\(\\log m\\), and so is far smaller than the original sample for large \\(m\\).</p><p>Technically, this technique requires that the learning algorithm output deterministic hypotheses. However, probabilistic hypotheses can also be handled by choosing a somewhat smaller value for \\(\\epsilon\\), and by “hard-wiring” the computed probabilistic hypothesis with a sequence of random bits. More precisely, set \\(\\epsilon=1/2m\\), and run \\(A\\) over the same distribution as before. Assume \\(A\\) has a good run. Note that the output hypothesis \\(h\\) can be regarded as a deterministic function of an instance \\(v\\) and a sequence of random bits \\(r\\). Let \\(p\\) be the chance that, for a randomly chosen sequence \\(r\\), \\(h(\\cdot,r)\\) misclassifies one or more of the instances in the sample. For such an \\(r\\), the chance is certainly at least \\(1/m\\) that an instance \\(v\\) is chosen (according to the simulated uniform distribution on the sample) for which \\(h(v,r)\\neq c(v)\\). Thus, the error of \\(h\\) is at least \\(p/m\\). By our choice of \\(\\epsilon\\), this implies that \\(p\\leq1/2\\), or, in other words, that the probability that a random sequence \\(r\\) is chosen for which \\(h(\\cdot,r)\\) correctly classifies all of the \\(m\\) examples is at least \\(1/2\\). Thus, choosing and testing random sequences \\(r\\), we can quickly find one for which the deterministic hypothesis \\(h(\\cdot,r)\\) is consistent with the sample. Finally, note that the size of this output hard-wired hypothesis is bounded by \\(|h|+|r|\\), and that \\(|r|\\) is bounded by the time it takes to evaluate \\(h\\), which is poly-logarithmic in \\(m\\).</p>",
+        "pdfStart": {"statement": {"page": 24, "y": 189.85}, "proof": {"page": 24, "y": 248.8}}
+      },
+      {
+        "id": "corollary-1",
+        "type": "Corollary",
+        "number": "1",
+        "title": "Sample-size-independent compression",
+        "section": "6.2. Data compression",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-5"],
+        "statementHtml": "<p>Let \\(C\\) be a learnable discrete concept class. Then there exists an efficient algorithm that, given \\(0&lt;\\delta\\leq1\\) and a sample as in Theorem 5, outputs with probability at least \\(1-\\delta\\) a deterministic consistent hypothesis of size polynomial in \\(n\\) and \\(s\\), and independent of \\(m\\).</p>",
+        "proofHtml": "<p>Since we assume (without loss of generality) that all the points of the sample are distinct, its size \\(m\\) cannot exceed \\(|X_n|\\). Since \\(\\log|X_n|\\) is bounded by a polynomial in \\(n\\), the corollary follows immediately.</p>",
+        "pdfStart": {"statement": {"page": 25, "y": 71.85}, "proof": {"page": 25, "y": 128.18}}
+      },
+      {
+        "id": "theorem-6",
+        "type": "Theorem",
+        "number": "6",
+        "title": "General sample-complexity bound",
+        "section": "6.2. Data compression",
+        "proofOrganization": "direct",
+        "dependencies": ["corollary-1"],
+        "statementHtml": "<p>Let \\(C\\) be a learnable discrete concept class. Then there exists an efficient learning algorithm for \\(C\\) requiring a sample of size</p><p>\\[O\\!\\left(\\frac{p(n,s)+\\log(1/\\delta)}{\\epsilon}\\right)\\]</p><p>for some polynomial \\(p\\).</p>",
+        "proofHtml": "<p>Blumer, et al. (1987) describe a technique for converting a so-called Occam algorithm \\(A\\) with the property described in Corollary 1 into an efficient learning algorithm with the stated sample complexity bound. Essentially, to make this conversion, one simply draws a sample of the stated size (choosing \\(p\\) appropriately), and runs \\(A\\) on the sample to find a consistent hypothesis. The authors argue that the computed hypothesis, simply by virtue of its small size and consistency with the sample, will be \\(\\epsilon\\)-close to the target concept with high-probability. (Technically, their approach needs some minor modifications to handle, for instance, a randomized Occam algorithm; these modifications are straightforward.)</p>",
+        "pdfStart": {"statement": {"page": 25, "y": 237.69}, "proof": {"page": 25, "y": 329.3}}
+      },
+      {
+        "id": "theorem-7",
+        "type": "Theorem",
+        "number": "7",
+        "title": "Learnable concepts have small exact circuits",
+        "section": "6.3. Hard functions are hard to learn",
+        "proofOrganization": "direct",
+        "dependencies": ["corollary-1"],
+        "statementHtml": "<p>Suppose \\(C\\) is learnable, and assume that \\(X_n=\\{0,1\\}^n\\). Then there exists a polynomial \\(p\\) such that for all concepts \\(c\\in C_n\\) of size \\(s\\), there exists a circuit of size \\(p(n,s)\\) exactly computing \\(c\\).</p>",
+        "proofHtml": "<p>Consider the set of \\(2^n\\) pairs \\(\\{(v,c(v))\\mid v\\in X_n\\}\\). By Corollary 1, there exists an algorithm that, with positive probability, will output an hypothesis consistent with this set of elements of size only polynomial in \\(n\\) and \\(s\\). Since this hypothesis is polynomially evaluatable, it can be converted using standard techniques into a circuit of the required size.</p>",
+        "pdfStart": {"statement": {"page": 26, "y": 76.09}, "proof": {"page": 26, "y": 123.37}}
+      },
+      {
+        "id": "theorem-8-hard-approximation",
+        "type": "Theorem",
+        "number": "8",
+        "title": "Hard functions are hard to approximate",
+        "section": "6.4. Hard functions are hard to approximate",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-1", "theorem-7"],
+        "statementHtml": "<p>Suppose some function \\(f\\) cannot be computed by any family of polynomial-size circuits. Then there exists a family of distributions \\(D_1,D_2,\\ldots\\), where \\(D_n\\) is over \\(\\{0,1\\}^n\\), such that for all polynomials \\(p\\) and \\(q\\), there exist infinitely many \\(n\\) for which there exists no \\(n\\)-variable circuit of size at most \\(q(n)\\) that \\((1/2-1/p(n))\\)-approximates \\(f\\) under \\(D_n\\).</p>",
+        "proofHtml": "<p>Throughout this proof, we will assume without loss of generality that \\(p(n)=q(n)=n^k\\) for some integer \\(k\\geq1\\).</p><p>Suppose first that there exists some \\(k\\) such that for all \\(n\\) and every distribution \\(D\\) on \\(\\{0,1\\}^n\\), there exists a circuit of size at most \\(n^k\\) that \\((1/2-1/n^k)\\)-approximates \\(f\\) under \\(D\\). Then \\(f\\) can, in a sense, be weakly learned. More precisely, there exists an (exponential-time) procedure that, by searching exhaustively the set of all circuits of size \\(n^k\\), will find one that \\((1/2-1/n^k)\\)-approximates \\(f\\) under some given distribution \\(D\\). Therefore, by Theorem 1, \\(f\\) is strongly learnable in a similar sense in exponential time. Applying Theorem 7 (whose validity depends only on the size of the output hypothesis, and not on the running time), this implies that \\(f\\) can be exactly computed by a family of polynomial-size circuits, contradicting the theorem’s hypothesis.</p><p>Thus, for all \\(k\\geq1\\), there exists an integer \\(n\\) and a distribution \\(D\\) on \\(\\{0,1\\}^n\\) such that no circuit of size at most \\(n^k\\) is able to \\((1/2-1/n^k)\\)-approximate \\(f\\) under \\(D\\). To complete the proof, it suffices to show that this implies the theorem’s conclusion.</p><p>Let \\(\\mathcal D_n^k\\) be the set of distributions \\(D\\) on \\(\\{0,1\\}^n\\) for which no circuit of size at most \\(n^k\\) \\((1/2-1/n^k)\\)-approximates \\(f\\) under \\(D\\). It is easy to verify that \\(\\mathcal D_n^k\\supseteq\\mathcal D_n^{k+1}\\) for all \\(k,n\\). Also, since every function can be computed by exponential size circuits, there must exist a constant \\(c&gt;0\\) for which \\(\\mathcal D_n^{cn}=\\varnothing\\) for all \\(n\\). Let \\(n[k]\\) be the smallest \\(n\\) for which \\(\\mathcal D_n^k\\neq\\varnothing\\). By the preceding argument, \\(n[k]\\) must exist. Furthermore, \\(n[k]\\geq k/c\\), which implies that the set \\(N=\\{n[k]\\mid k\\geq1\\}\\) cannot have finite cardinality.</p><p>To eliminate repeated elements from \\(N\\), let \\(k_1&lt;k_2&lt;\\cdots\\) be such that \\(n[k_i]\\neq n[k_j]\\) for \\(i\\neq j\\), and such that \\(\\{n[k_i]\\mid i\\geq1\\}=N\\). Let \\(D_i\\) be defined as follows: if \\(i=n[k_j]\\) for some \\(j\\), then let \\(D_i\\) be any distribution in \\(\\mathcal D_{n[k_j]}^{k_j}\\) (which cannot be empty by our definition of \\(n[k]\\)); otherwise, if \\(i\\notin N\\), then define \\(D_i\\) arbitrarily. Then \\(D_1,D_2,\\ldots\\) is the desired family of “hard” distributions. For if \\(k\\) is any integer, then for all \\(k_i\\geq k\\), \\(D_{n[k_i]}\\in\\mathcal D_{n[k_i]}^{k_i}\\subseteq\\mathcal D_{n[k_i]}^k\\). This proves the theorem.</p>",
+        "pdfStart": {"statement": {"page": 26, "y": 298.81}, "proof": {"page": 26, "y": 369.6}}
+      },
+      {
+        "id": "theorem-8-online-learning",
+        "type": "Theorem",
+        "number": "8",
+        "title": "General on-line learning bounds",
+        "section": "6.5. On-line learning",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-4"],
+        "statementHtml": "<p>Let \\(C\\) be a learnable concept class. Then there exists an efficient on-line learning algorithm for \\(C\\) with the properties that:</p><ul><li>the probability of a mistake on the \\(m\\)-th trial is at most \\(m^{-1}p_1(n,s,\\log m)\\),</li><li>the expected number of mistakes on the first \\(m\\) trials is at most \\(p_2(n,s,\\log m)\\),</li><li>the total computation time required on the first \\(m\\) trials is at most \\(m\\,p_3(n,s,\\log m)\\), and</li><li>the space used on the first \\(m\\) trials is at most \\(p_4(n,s,\\log m)\\),</li></ul><p>for some polynomials \\(p_1,p_2,p_3,p_4\\).</p>",
+        "proofHtml": "<p>Since \\(C\\) is learnable, there exists an efficient (batch) algorithm satisfying the properties of Theorem 4. Let \\(A\\) be such an algorithm, but with \\(\\epsilon/2\\) substituted for both \\(\\epsilon\\) and \\(\\delta\\). Then the chance that \\(A\\)’s output hypothesis incorrectly classifies a randomly chosen instance is at most \\(\\epsilon\\). (This technique is also used by Haussler, Kearns, Littlestone and Warmuth (1988).)</p><p>Fix \\(n\\) and \\(s\\), and let \\(m(\\epsilon)\\) be the number of examples needed by \\(A\\). From Theorem 4, \\(m(\\epsilon)\\leq(p/\\epsilon)\\cdot\\lg^c(1/\\epsilon)\\) for some constant \\(c\\) and some value \\(p\\) implicitly bounded by a polynomial in \\(n\\) and \\(s\\). Let \\(\\epsilon(m)=(p/m)\\cdot\\lg^c(m/p)\\). Then it can be verified that \\(m(\\epsilon(m))\\leq m\\) for \\(m\\geq2p\\). Thus, \\(m\\) examples suffice to find an hypothesis whose chance of error is at most \\(\\epsilon(m)\\).</p><p>To convert \\(A\\) into an on-line learning algorithm in a manner that preserves time and space efficiency, imagine breaking the sequence of trials into blocks of increasing size: the first block consists of the first \\(2p\\) trials, and each new block has twice the size of the last. Thus, in general, the \\(i\\)-th block has size \\(s_i=2^ip\\), and consists of trials \\(a_i=2(2^{i-1}-1)p+1\\) through \\(b_i=2(2^i-1)p\\).</p><p>On the trials of the \\(i\\)-th block, algorithm \\(A\\) is simulated to compute the \\(i\\)-th hypothesis \\(h_i\\). Specifically, \\(A\\) is simulated with \\(\\epsilon\\) set to \\(\\epsilon(s_i)\\), which thus bounds the probability that \\(h_i\\) misclassifies a new instance. (Note that there are enough instances available in this block for \\(A\\) to compute an hypothesis of the desired accuracy.) On the next block, as the \\((i+1)\\)st hypothesis is being computed, \\(h_i\\) is used to make predictions; at the end of this block, \\(h_i\\) is discarded as \\(h_{i+1}\\) takes its place.</p><p>Thus, if the \\(m\\)-th trial occurs in the \\(i\\)-th block (i.e., if \\(a_i\\leq m\\leq b_i\\)), then the probability of a mistake is bounded by \\(\\epsilon(s_{i-1})\\), the error rate of \\(h_{i-1}\\). From the definition of \\(\\epsilon(\\cdot)\\), this implies the desired bound on the probability of a mistake on the \\(m\\)-th trial, and, in turn, on the expected number of mistakes on the first \\(m\\) trials.</p><p>Finally, note that on the \\(i\\)-th block, space is needed only to store the hypothesis from the last block \\(h_{i-1}\\), and to simulate \\(A\\)’s computation of block \\(i\\)’s hypothesis. By Theorem 4, both of these quantities grow polynomially in \\(\\log(1/\\epsilon)\\). By our choice of \\(\\epsilon\\), this implies the desired bound on the algorithm’s space efficiency. The time complexity of the procedure is bounded in a similar fashion.</p>",
+        "proofNote": "The journal PDF prints this result as Theorem 8, duplicating the number of the preceding hard-approximation theorem.",
+        "pdfStart": {"statement": {"page": 28, "y": 296.41}, "proof": {"page": 28, "y": 414.73}}
+      }
+    ]
+  }
+]

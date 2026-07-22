@@ -1,0 +1,158 @@
+[
+  {
+    "id": "1984-a-theory-of-the-learnable",
+    "theorems": [
+      {
+        "id": "proposition-combinatorial-bound",
+        "type": "Proposition",
+        "number": "",
+        "title": "Upper bound for L(h,S)",
+        "section": "4. A Combinatorial Bound",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>For all integers \\(S \\geq 1\\) and all real \\(h &gt; 1\\),</p><p>\\[L(h,S) \\leq 2h(S + \\log_e h).\\]</p>",
+        "proofHtml": "<p>We use the following three well-known inequalities of which the last is due to Chernoff (see [6] page 18).</p><ol><li>For all \\(x &gt; 0\\), \\((1+x^{-1})^x &lt; e\\).</li><li>For all \\(x &gt; 0\\), \\((1-x^{-1})^x &lt; e^{-1}\\).</li><li>In \\(m\\) independent trials, each with probability at least \\(p\\) of success, the probability that there are at most \\(k\\) success, where \\(k &lt; mp\\), is at most \\[\\left(\\frac{m-mp}{m-k}\\right)^{m-k}\\left(\\frac{mp}{k}\\right)^k.\\]</li></ol><p>The first factor in the expression in (3) above can be rewritten as</p><p>\\[\\left(1-\\frac{mp-k}{m-k}\\right)^{((m-k)/(mp-k))(mp-k)}.\\]</p><p>Using (2) with \\(x=(m-k)/(mp-k)\\), we can upper bound the product by</p><p>\\[e^{-mp+k}(mp/k)^k.\\]</p><p>Substituting \\(m=2h(S+\\log_e h)\\), \\(p=h^{-1}\\), and \\(k=S\\) and using logarithms to the base \\(e\\) gives the bound</p><p>\\[e^{-2S-2\\log h+S}\\cdot[2(1+(\\log h)/S)]^{(S/\\log h)\\log h}.\\]</p><p>Rewriting this using (1) with \\(x=(\\log_e h)/S\\) gives</p><p>\\[e^{-S-2\\log h}\\cdot 2^S\\cdot e^{\\log h}\\leq (2/e)^S\\cdot e^{-\\log h}\\leq h^{-1}.\\]</p>",
+        "pdfStart": {
+          "statement": { "page": 4, "y": 262.81104 },
+          "proof": { "page": 4, "y": 306.73104 }
+        }
+      },
+      {
+        "id": "theorem-a",
+        "type": "Theorem",
+        "number": "A",
+        "title": "Learnability of bounded CNF expressions",
+        "section": "5. Bounded CNF Expressions",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>For any positive integer \\(k\\), the class of \\(k\\)-CNF expressions is learnable via an algorithm \\(A\\) that uses \\(L=L(h,(2t)^{k+1})\\) calls of EXAMPLES and no calls of ORACLE, where \\(t\\) is the number of variables.</p>",
+        "proofHtml": "<p>The algorithm is initialized with formula \\(g\\) as the product of all possible clauses of up to \\(k\\) literals from \\(\\{p_1,\\bar p_1,p_2,\\bar p_2,\\ldots,p_t,\\bar p_t\\}\\). Clearly the number of ways of choosing a clause of exactly \\(k\\) literals is at most \\((2t)^k\\), and hence the number of ways of choosing a clause with up to \\(k\\) literals is less than \\(2t+(2t)^2+\\cdots+(2t)^k&lt;(2t)^{k+1}\\). This bounds the initial number of clauses in \\(g\\).</p><p>The algorithm then calls EXAMPLES \\(L\\) times to give positive examples of the concept represented by \\(k\\)-CNF formula \\(f\\). For each vector \\(v\\) so obtained, it deletes all of the remaining clauses in \\(g\\) that do not contain a literal that is determined to be true in \\(v\\) (i.e., in the clauses deleted, each literal is either not determined or is negated in \\(v\\)). More precisely the following is repeated \\(L\\) times:</p><p>\\[\\begin{array}{l}\\mathbf{begin}\\ v:=\\mathrm{EXAMPLES}\\\\\\qquad\\mathbf{for\\ each}\\ c_i\\ \\mathbf{in}\\ g\\ \\mathbf{delete}\\ c_i\\ \\mathbf{if}\\ v\\not\\Rightarrow c_i.\\\\\\mathbf{end}\\end{array}\\]</p><p>The claim is that with high probability the value of \\(g\\) after the \\(L\\)th execution of this block will be the desired approximation to the formula \\(f\\) that is being learned.</p><p>Initially the set of vectors \\(\\{v\\mid v\\Rightarrow g\\}\\) is clearly empty. We first claim that as the algorithm proceeds the set \\(\\{v\\mid v\\Rightarrow g\\}\\) will always be a subset of \\(\\{v\\mid v\\Rightarrow f\\}\\). To prove this it is clearly sufficient to prove the same statement when both sets are restricted to only total vectors. Let \\(B\\) be the product of all the clauses \\(c\\) containing up to \\(k\\) literals with the property that “\\(\\forall v\\) if \\(v\\Rightarrow f\\) then \\(v\\Rightarrow c\\).” It is clear that in the course of the algorithm no clause in \\(B\\) can ever be deleted. Hence it is certainly true that \\(\\{v\\mid v\\Rightarrow g\\}\\subset\\{v\\mid v\\Rightarrow B\\}\\). To establish the claim, it remains only to prove that \\(B\\) computes the same Boolean function as \\(f\\). (In fact \\(B\\) will be the maximal \\(k\\)-CNF formula equivalent to \\(f\\).) It is easy to see that \\(f\\Rightarrow B\\), since by the definition of \\(B\\), for every \\(c\\) in \\(B\\) it is the case that “for all \\(v\\) if \\(v\\Rightarrow f\\) then \\(v\\Rightarrow c\\).” To verify the converse, that \\(B\\Rightarrow f\\), we first note that, by definition, \\(f\\) is a \\(k\\)-CNF formula. If some clause in \\(f\\) did not occur in \\(B\\), then this clause \\(c'\\) would have the property that “\\(\\exists v\\) such that \\(v\\Rightarrow f\\) but \\(v\\not\\Rightarrow c'\\).” But this is impossible since if \\(c'\\) is a clause of \\(f\\) and if \\(v\\not\\Rightarrow c'\\) then \\(v\\not\\Rightarrow f\\). We conclude that every \\(k\\)-CNF representation of the function that \\(f\\) represents consists of a set of clauses that is a subset of the clauses in \\(B\\). Hence \\(B\\Rightarrow f\\).</p><p>Let \\(X=\\sum D(v)\\) with summation over all (not necessarily total) vectors \\(v\\) such that \\(v\\Rightarrow f\\) but \\(v\\not\\Rightarrow g\\). This quantity is defined for each intermediate value of \\(g\\) in the course of the algorithm and, as is easily verified, it is monotone decreasing with time. Now clauses will be removed from \\(g\\) whenever EXAMPLES outputs a vector \\(v\\) such that \\(v\\not\\Rightarrow g\\). The probability of this happening at any moment is exactly the current value of \\(X\\). Also, the process of running the algorithm to completion can have one of just two possible outcomes: (1) At some point \\(X\\) becomes less than \\(h^{-1}\\), in which case the \\(g\\) found will approximate to \\(f\\) exactly as required by the definition of learnability. (2) The value of \\(X\\) never goes below \\(h^{-1}\\), and hence \\(g\\) is not an acceptable approximation. The probability of the latter eventuality is, however, at most \\(h^{-1}\\) since it corresponds to the situation of performing \\(L(h,(2t)^{k+1})\\) Bernoulli experiments (i.e., calls of EXAMPLES) each with probability greater than \\(h^{-1}\\) of success (i.e., finding a \\(v\\) such that \\(v\\not\\Rightarrow g\\)) and obtaining fewer than \\((2t)^{k+1}\\) successes (a success being manifested by the removal of at least one clause from \\(g\\)).</p>",
+        "pdfStart": {
+          "statement": { "page": 5, "y": 666.25104 },
+          "proof": { "page": 5, "y": 715.45104 }
+        }
+      },
+      {
+        "id": "theorem-b",
+        "type": "Theorem",
+        "number": "B",
+        "title": "Learnability of monotone DNF expressions",
+        "section": "6. DNF Expressions",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>The class of monotone DNF expressions is learnable via an algorithm \\(B\\) that uses \\(L=L(h,d)\\) calls of EXAMPLES and \\(dt\\) calls of ORACLE, where \\(d\\) is the degree of the DNF expression \\(f\\) to be learned and \\(t\\) the number of variables.</p>",
+        "proofHtml": "<p>The algorithm is initialized with formula \\(g\\) identically equal to the constant zero. The algorithm then calls EXAMPLES \\(L\\) times to produce positive examples of \\(f\\). Each time a vector \\(v\\) is produced such that \\(v\\not\\Rightarrow g\\), a new monomial \\(m\\) is added to \\(g\\). The monomial \\(m\\) is the product of those literals determined in \\(v\\) that are essential to make \\(v\\Rightarrow f\\). More precisely, the loop that is executed \\(L\\) times is the following:</p><p>\\[\\begin{array}{l}\\mathbf{begin}\\ v:=\\mathrm{EXAMPLES}\\\\\\quad\\mathbf{if}\\ v\\not\\Rightarrow g\\ \\mathbf{then}\\\\\\quad\\mathbf{begin}\\ \\mathbf{for}\\ i:=1\\ \\mathbf{to}\\ t\\ \\mathbf{do}\\\\\\qquad\\mathbf{if}\\ p_i\\ \\mathbf{is\\ determined\\ in}\\ v\\ \\mathbf{then}\\\\\\qquad\\mathbf{begin}\\ \\mathbf{set}\\ \\tilde v\\ \\mathbf{equal\\ to}\\ v\\ \\mathbf{but\\ with}\\ p_i:=*;\\\\\\qquad\\quad\\mathbf{if}\\ \\mathrm{ORACLE}(\\tilde v)=1\\ \\mathbf{then}\\ v:=\\tilde v\\\\\\qquad\\mathbf{end}\\\\\\qquad\\mathbf{set}\\ m\\ \\mathbf{equal\\ to\\ the\\ product\\ of\\ all\\ literals}\\ q\\\\\\qquad\\quad\\mathbf{such\\ that}\\ v\\Rightarrow q;\\\\\\qquad g:=g+m\\\\\\quad\\mathbf{end}\\\\\\mathbf{end}\\end{array}\\]</p><p>The test \\(v\\not\\Rightarrow g\\) amounts to asking whether none of the monomials of \\(g\\) are made true by the values determined to be true in \\(v\\). Every time EXAMPLES produces a value \\(v\\) such that \\(v\\not\\Rightarrow g\\), the inner loop of the algorithm will find a prime implicant \\(m\\) to add to \\(g\\). Each such \\(m\\) is different from any previously added (since the contrary would have implied that \\(v\\Rightarrow g\\)). It follows that such a \\(v\\) will be found at most \\(d\\) times, and hence ORACLE will be called at most \\(dt\\) times.</p><p>Let \\(X=\\sum D(w)\\) with summation over all (not necessarily total) vectors \\(w\\) such that \\(w\\Rightarrow f\\) but \\(w\\not\\Rightarrow g\\). This quantity is defined for each intermediate value of \\(g\\) in the course of the algorithm, is initially unity, and decreases monotonically with time. Now a monomial will be added to \\(g\\) each time EXAMPLES outputs a vector \\(v\\) such that \\(v\\not\\Rightarrow g\\). The probability of this occurring at any call of EXAMPLES is exactly \\(X\\). The process of running the algorithm to completion can have just two possible outcomes: (1) At some time \\(X\\) has become less than \\(h^{-1}\\), in which case the final expression \\(g\\) found will approximate to \\(f\\) as required by the definition of learnability; and (2) the value of \\(X\\) never goes below \\(h^{-1}\\), and hence \\(g\\) is not an acceptable approximation. The probability of this second eventuality is, however, at most \\(h^{-1}\\), since it corresponds to the situation of performing \\(L(h,d)\\) Bernoulli experiments (i.e., calls of EXAMPLES) each with probability greater than \\(h^{-1}\\) of success (i.e., of finding a \\(v\\) such that \\(v\\Rightarrow f\\) but \\(v\\not\\Rightarrow g\\)) and obtaining fewer than \\(d\\) successes (each manifested by the addition of a new monomial).</p>",
+        "pdfStart": {
+          "statement": { "page": 6, "y": 591.29496 },
+          "proof": { "page": 6, "y": 651.05496 }
+        }
+      },
+      {
+        "id": "theorem-b-prime",
+        "type": "Theorem",
+        "number": "B′",
+        "title": "DNF learnability for total-vector distributions",
+        "section": "6. DNF Expressions",
+        "proofOrganization": "stated-without-separate-proof",
+        "proofNote": "The paper presents Theorem B′ as an immediate consequence of Algorithm B and gives no separately labelled proof.",
+        "dependencies": ["theorem-b"],
+        "statementHtml": "<p>Suppose the notion of learnability is restricted to distributions \\(D\\) such that \\(D(v)=0\\) whenever \\(v\\) is not total. Then the class of DNF expressions is learnable, in the sense that programs for the functions (but not necessarily the concepts) can be deduced in \\(L(h,d)\\) calls of EXAMPLES and \\(dt\\) calls of ORACLE where \\(d\\) is the degree of the DNF expression to be learned.</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 6, "y": 693.53496 }
+        }
+      },
+      {
+        "id": "theorem-c",
+        "type": "Theorem",
+        "number": "C",
+        "title": "Exact learnability of μ-expressions",
+        "section": "7. μ-Expressions",
+        "proofOrganization": "composite",
+        "proofNote": "The proof contains five separately labelled claims. Claim 1 is proved later on page 9; the other claims are proved where they are stated.",
+        "dependencies": ["claim-1", "claim-2", "claim-3", "claim-4", "claim-5"],
+        "statementHtml": "<p>The class of \\(\\mu\\)-expressions in learnable via a deduction procedure \\(C\\) that uses \\(O(t^3)\\) calls of N-ORACLE, RP and RA altogether, where \\(t\\) is the number of variables (and no calls of EXAMPLES). The procedure always deduces exactly the correct expression.</p>",
+        "proofHtml": "<p>Let \\(\\lambda\\) be the monomial that is the product of no literals. The algorithm will first compute \\(RP(p_j)\\) for each \\(p_j\\) to determine which of the variables occur in the prime implicants of the function that the expression \\(f\\) to be learned represents. Let \\(g_1,\\ldots,g_r\\) be distinct single variable expressions, one for each \\(p_j\\) for which \\(RP(p_j)=1\\). Note that these are exactly the variables that occur in \\(f\\), since \\(f\\) is monotone.</p><p>With each \\(g_i\\) we associate two monomials \\(m_i\\) and \\(\\hat m_i\\). The former will be the single variable \\(p_j\\) that \\(g_i\\) represents. The latter is defined as any monomial \\(\\hat m\\) having no variable in common with \\(m_i\\) such that \\(m_i\\hat m\\) is a prime implicant of \\(f\\). The algorithm will construct each such \\(\\hat m_i\\) as the final value of \\(m\\) in the following procedure: Set \\(m:=\\lambda\\); while \\(PI(mm_i)=0\\) find a \\(p_k\\) not in \\(mm_i\\) such that \\(RP(p_kmm_i)=1\\) and set \\(m:=p_km\\). Hence in at most \\(t^2\\) calls of PI (i.e., \\(t^3\\) calls of N-ORACLE) and \\(t^2\\) calls of RP values for every \\(\\hat m_i\\) will be found.</p><p>Once initialized the algorithm proceeds by alternately executing a <em>plus-phase</em> and a <em>times-phase</em>. At the start of each phase, we have a set of expressions \\(g_1,\\ldots,g_r\\) where each \\(g_i\\) is associated with two monomials \\(m_i\\) and \\(\\hat m_i\\) (having no variables in common) where \\(m_i\\) is a prime implicant of \\(g_i\\) and \\(m_i\\hat m_i\\) is a prime implicant of \\(f\\). We distinguish the \\(g\\)s as <em>plus</em> or <em>times expressions</em> according to whether the outermost construction rule was addition or multiplication. A plus-phase will first compute an equivalence relation \\(S\\) on the subset of \\(\\{g_i\\}\\) that are times expressions. For each equivalence class \\(G\\) such that no \\(g_i\\in G\\) already occurs as a summand in a sum, we construct a new expression that is the sum of the members of \\(G\\) and call this sum \\(g_k\\) where \\(k\\) is a previously unused index. If some members of \\(G\\) already occur in a sum, say \\(g_j\\) (N.B. they are never distributed in more than one sum), then we modify the sum expression \\(g_j\\) to equal the sum of every expression in \\(G\\). A times-phase is exactly analogous except that it computes a different equivalence relation \\(T\\), now on plus expressions, and will form new, or extend old, times expressions. In the above context, single variable expressions will be regarded as both times and plus expressions. Also, it is immaterial which of the two kinds of phase is used to start the algorithm.</p><p>The intention of the algorithm is best expressed by the claim to follow, which will be verified later. Suppose that the expressions occurring in the definition of \\(f\\) are \\(f_1,\\ldots,f_q\\) (where \\(q\\leq 2t-1\\)). We shall say that \\(g\\preceq f_i\\) iff the set of prime implicants of \\(g\\) is a subset of the set of prime implicants of \\(\\tilde f_i\\) where (1) if \\(f_i\\) is a plus expression then \\(\\tilde f_i=f_i\\) and (2) if \\(f_i\\) is a times expression then \\(\\tilde f_i\\) is the product of some subset of the multiplicands of \\(f_i\\).</p><p><strong>Claim 1:</strong> After every phase of the algorithm for every \\(g_i\\) that has been constructed, there is exactly one expression \\(f_i\\) such that (1) \\(g_i\\preceq f_i\\) and (2) \\(f_i\\) is of the same kind (i.e., plus or times) as \\(g_i\\).</p><p>The procedure builds up the rooted tree of the expression as rooted subtrees starting from the leaves. One evident difficulty is that there is no a priori knowledge available about the shape of the tree. Hence in the grafting process a subtree may become attached to another at just about any node.</p><p>Whenever a plus or times expression \\(g_i\\) is created or enlarged, its associated \\(m_i\\) and \\(\\hat m_i\\) are updated as follows. If \\(g_i\\) is a sum, then we let \\(m_i=m_j\\) and \\(\\hat m_i=\\hat m_j\\) for any \\(g_j\\) that is a summand in \\(g_i\\). If \\(g_i\\) is a product, then \\(m_i\\) will be the product of all the \\(m_j\\)s that correspond to multiplicands in \\(g_i\\). Finally \\(\\hat m_i\\) will be generated as the final value of \\(m\\) in the following procedure: Set \\(m:=\\lambda\\); while \\(PI(mm_i)=0\\) find a \\(p_k\\) not in \\(mm_i\\) such that \\(RP(p_kmm_i)=1\\) and set \\(m:=p_km\\). Since such an \\(\\hat m_i\\) has to be found at most \\(t\\) times in the overall algorithm, the total cost is at most \\(t^2\\) calls of PI (i.e., \\(t^3\\) calls of N-ORACLE) and \\(t^2\\) calls of RP.</p><p>In order to complete the description of the algorithm, it remains only to define the equivalence relations \\(S\\) and \\(T\\).</p><p><strong>Definition:</strong> \\(g_iSg_j\\) if and only if</p><ol><li>\\(PI(m_i\\hat m_j)=PI(m_j\\hat m_i)=1\\) and</li><li>\\(m_i,\\hat m_j\\) contain disjoint sets of variables, as do \\(m_j,\\hat m_i\\).</li></ol><p>For defining \\(T\\) we shall denote by \\(V_i\\) the set of variables that occur in the expression \\(g_i\\).</p><p><strong>Definition:</strong> \\(g_iTg_j\\) if and only if \\(RA(V_i,V_j)=RA(V_j,V_i)=1\\).</p><p>First we shall verify that \\(S\\) and \\(T\\) are indeed equivalence relations under the assumption that Claim 1 holds at the beginning of each phase. Clearly \\(S\\) and \\(T\\) are defined to be both reflexive and symmetric. To verify that \\(T\\) is transitive, suppose that \\(g_iTg_j\\) and \\(g_jTg_k\\). The former implies that every prime implicant of \\(f\\) containing some variable from \\(g_i\\) also contains some variable from \\(g_j\\). The latter implies that every prime implicant of \\(f\\) containing some variable from \\(g_j\\) also contains a variable from \\(g_k\\). Hence \\(g_iTg_k\\) follows. In order to verify the transitivity of \\(S\\), we shall make a more general observation about any subexpression of \\(f\\).</p><p><strong>Claim 2:</strong> If \\(m_i,m_j\\) are prime implicants of distinct times subexpressions \\(f_i,f_j\\) of \\(f\\) and if for some \\(m\\), with no variable in common with either \\(m_i\\) or \\(m_j\\), both \\(m_im\\) and \\(m_jm\\) are prime implicants of \\(f\\), then \\(f_i,f_j\\) must occur as summands in the same plus expression of \\(f\\).</p><p><strong>Proof:</strong> Most easily verified by representing expression \\(f\\) as a directed graph (e.g., [8]) with edges labeled by the Boolean variables. The sets of labels along directed paths between a distinguished source node and a distinguished sink node correspond exactly to prime implicants in the case of \\(\\mu\\) expressions where all edges will have different labels.</p><p>Now to verify that \\(S\\) is transitive, suppose that \\(g_iSg_j\\) and \\(g_jSg_k\\) where, by Claim 1, \\(g_i\\preceq f_i\\), \\(g_j\\preceq f_j\\), and \\(g_k\\preceq f_k\\) for appropriate times expressions \\(f_i,f_j,f_k\\). Then it follows that \\(m_i\\hat m_j\\), \\(m_j\\hat m_j\\), and \\(m_k\\hat m_j\\) are all prime implicants of \\(f\\) where \\(m_i,m_j,m_k\\) have no variable in common with \\(\\hat m_j\\). It follows from Claim 2 that \\(f_i,f_j\\), and \\(f_k\\) are addends in the same sum expression. Hence \\(g_iSg_k\\) follows.</p><p><strong>Claim 3:</strong> Suppose that after some phase of the algorithm Claim 1 holds and times expressions \\(g_i,g_j\\) have been formed where \\(g_i\\preceq f_i\\), \\(g_j\\preceq f_j\\), and \\(f_i,f_j\\) are times expressions. Then \\(g_i\\) and \\(g_j\\) will be placed in the same sum expression at the next plus-phase if and only if \\(f_i=\\tilde f_i\\), \\(f_j=\\tilde f_j\\), and \\(f_i,f_j\\) are addends in the same sum expression in \\(f\\).</p><p><strong>Proof:</strong> \\((\\Rightarrow)\\) If \\(g_i\\preceq f_i=\\tilde f_i\\), \\(g_j\\preceq f_j=\\tilde f_j\\), and \\(f_i,f_j\\) are in the same sum, then \\(m_i,m_j\\) will be prime implicants of \\(f_i,f_j\\). Also \\(m_i\\hat m_j\\) and \\(m_j\\hat m_i\\) will both be prime implicants of \\(f\\), and the variables in \\(m_i\\) will be disjoint from those in \\(\\hat m_j\\), as will be those in \\(m_j\\) from those in \\(\\hat m_i\\). Hence \\(g_iSg_j\\) will hold and \\(g_i,g_j\\) will be in the same plus expression after the next plus-phase.</p><p>\\((\\Leftarrow)\\) Suppose that \\(g_i\\preceq f_i\\), \\(g_j\\preceq f_j\\), and \\(g_iSg_j\\) holds. Then \\(m_i,m_j\\) will be prime implicants of \\(g_i,g_j\\), respectively, \\(m_i\\hat m_j,m_j\\hat m_i\\) will both be prime implicants of \\(f\\), and the variables in \\(\\hat m_j\\) will be disjoint from those of both \\(m_i\\) and \\(m_j\\). It follows from Claim 2 that \\(f_i=\\tilde f_i\\) and \\(f_j=\\tilde f_j\\) must occur as summands in the same plus expression of \\(f\\). [N.B. Here we are using the fact that Claim 2 remains true if we allow a “times subexpression” to be the product of any subset of the multiplicands in a times expression in \\(f\\).]</p><p><strong>Claim 4:</strong> Suppose that after some phase of the algorithm, Claim 1 holds and some plus expressions \\(g_i\\preceq f_i\\) and \\(g_j\\preceq f_j\\) (\\(f_i,f_j\\) plus expressions) have been found. (1) If \\(g_i=f_i\\), \\(g_j=f_j\\), and \\(f_i,f_j\\) are multiplicands in the same times expression in \\(f\\), then \\(g_i,g_j\\) will be placed in the same times expression after the next times phase. (2) If \\(g_i,g_j\\) are placed in the same times expression at any subsequent phase, then \\(f_i,f_j\\) are in the same product in \\(f\\).</p><p><strong>Proof:</strong> (1) If the conditions of (1) above hold, then \\(g_iTg_j\\) will be discovered at the next times-phase and the claim follows. (2) If \\(f_i,f_j\\) are not in the same product in \\(f\\), then \\(f\\) contains some prime implicant containing variables from one of \\(g_i,g_j\\) and not from the other. Hence \\(g_iTg_j\\) will never hold.</p><p><strong>Proof of Claim 1:</strong> By induction on the number of phases on Claims 1, 3, and 4 simultaneously.</p><p>We define the <em>depth</em> of a formula \\(f_i\\) to be the maximum number of alternations of sum and product required in its definition.</p><p><strong>Claim 5:</strong> If \\(f_i\\) is an expression of depth \\(k\\) in \\(f\\), then after \\(k\\) phases a \\(g_i\\) identical to \\(f_i\\) will have been constructed by the algorithm.</p><p><strong>Proof:</strong> By induction on Claims 3 and 4.</p><p>To conclude the proof of the theorem, it remains to analyze the runtime. This is dominated by the cost of computing \\(m_i\\) and \\(\\hat m_i\\), for which we have already accounted, plus the cost of computing the equivalence relations \\(S\\) and \\(T\\). We first note that fewer than \\(2t\\) expression names \\(g_i\\) are used in the course of the algorithm. When an expression is grafted into another at a point deep in the latter, then the semantics of all the subexpressions above will change. By Claims 3 and 4 such grafting can occur when a \\(g_i\\) is added to a sum expression but not when added to a times expression. Hence the values \\(m_i\\) and \\(\\hat m_i\\) do not need to be changed for any expression when such grafting occurs. It follows that for computing \\(S\\) only \\(2t\\) values of \\(m_i,\\hat m_i\\) need to be considered. Hence \\(O(t^2)\\) calls of PI or \\(O(t^3)\\) calls of N-ORACLE suffice overall. For computing \\(T\\) grafting may cause a ripple effect. On each occasion the value of \\(V_j\\) may have to be updated for up to \\(t\\) such sets, and hence \\(t^2\\) calls of RA will suffice. Hence \\(O(t^3)\\) calls of RA in the overall algorithm will be enough.</p>",
+        "pdfStart": {
+          "statement": { "page": 7, "y": 340.40712 },
+          "proof": { "page": 7, "y": 400.73496 }
+        }
+      },
+      {
+        "id": "claim-1",
+        "type": "Claim",
+        "number": "1",
+        "title": "Unique corresponding subexpression",
+        "section": "7. μ-Expressions",
+        "proofOrganization": "deferred",
+        "dependencies": ["claim-3", "claim-4"],
+        "statementHtml": "<p>After every phase of the algorithm for every \\(g_i\\) that has been constructed, there is exactly one expression \\(f_i\\) such that (1) \\(g_i\\preceq f_i\\) and (2) \\(f_i\\) is of the same kind (i.e., plus or times) as \\(g_i\\).</p>",
+        "proofHtml": "<p>By induction on the number of phases on Claims 1, 3, and 4 simultaneously.</p>",
+        "pdfStart": {
+          "statement": { "page": 8, "y": 298.57104 },
+          "proof": { "page": 9, "y": 171.459 }
+        }
+      },
+      {
+        "id": "claim-2",
+        "type": "Claim",
+        "number": "2",
+        "title": "Common plus-expression placement",
+        "section": "7. μ-Expressions",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>If \\(m_i,m_j\\) are prime implicants of distinct times subexpressions \\(f_i,f_j\\) of \\(f\\) and if for some \\(m\\), with no variable in common with either \\(m_i\\) or \\(m_j\\), both \\(m_im\\) and \\(m_jm\\) are prime implicants of \\(f\\), then \\(f_i,f_j\\) must occur as summands in the same plus expression of \\(f\\).</p>",
+        "proofHtml": "<p>Most easily verified by representing expression \\(f\\) as a directed graph (e.g., [8]) with edges labeled by the Boolean variables. The sets of labels along directed paths between a distinguished source node and a distinguished sink node correspond exactly to prime implicants in the case of \\(\\mu\\) expressions where all edges will have different labels.</p>",
+        "pdfStart": {
+          "statement": { "page": 8, "y": 165.13104 },
+          "proof": { "page": 8, "y": 224.89104 }
+        }
+      },
+      {
+        "id": "claim-3",
+        "type": "Claim",
+        "number": "3",
+        "title": "Correct grouping in a plus-phase",
+        "section": "7. μ-Expressions",
+        "proofOrganization": "direct",
+        "dependencies": ["claim-1", "claim-2"],
+        "statementHtml": "<p>Suppose that after some phase of the algorithm Claim 1 holds and times expressions \\(g_i,g_j\\) have been formed where \\(g_i\\preceq f_i\\), \\(g_j\\preceq f_j\\), and \\(f_i,f_j\\) are times expressions. Then \\(g_i\\) and \\(g_j\\) will be placed in the same sum expression at the next plus-phase if and only if \\(f_i=\\tilde f_i\\), \\(f_j=\\tilde f_j\\), and \\(f_i,f_j\\) are addends in the same sum expression in \\(f\\).</p>",
+        "proofHtml": "<p>\\((\\Rightarrow)\\) If \\(g_i\\preceq f_i=\\tilde f_i\\), \\(g_j\\preceq f_j=\\tilde f_j\\), and \\(f_i,f_j\\) are in the same sum, then \\(m_i,m_j\\) will be prime implicants of \\(f_i,f_j\\). Also \\(m_i\\hat m_j\\) and \\(m_j\\hat m_i\\) will both be prime implicants of \\(f\\), and the variables in \\(m_i\\) will be disjoint from those in \\(\\hat m_j\\), as will be those in \\(m_j\\) from those in \\(\\hat m_i\\). Hence \\(g_iSg_j\\) will hold and \\(g_i,g_j\\) will be in the same plus expression after the next plus-phase.</p><p>\\((\\Leftarrow)\\) Suppose that \\(g_i\\preceq f_i\\), \\(g_j\\preceq f_j\\), and \\(g_iSg_j\\) holds. Then \\(m_i,m_j\\) will be prime implicants of \\(g_i,g_j\\), respectively, \\(m_i\\hat m_j,m_j\\hat m_i\\) will both be prime implicants of \\(f\\), and the variables in \\(\\hat m_j\\) will be disjoint from those of both \\(m_i\\) and \\(m_j\\). It follows from Claim 2 that \\(f_i=\\tilde f_i\\) and \\(f_j=\\tilde f_j\\) must occur as summands in the same plus expression of \\(f\\). [N.B. Here we are using the fact that Claim 2 remains true if we allow a “times subexpression” to be the product of any subset of the multiplicands in a times expression in \\(f\\).]</p>",
+        "pdfStart": {
+          "statement": { "page": 8, "y": 389.05104 },
+          "proof": { "page": 8, "y": 470.8032 }
+        }
+      },
+      {
+        "id": "claim-4",
+        "type": "Claim",
+        "number": "4",
+        "title": "Correct grouping in a times-phase",
+        "section": "7. μ-Expressions",
+        "proofOrganization": "direct",
+        "dependencies": ["claim-1"],
+        "statementHtml": "<p>Suppose that after some phase of the algorithm, Claim 1 holds and some plus expressions \\(g_i\\preceq f_i\\) and \\(g_j\\preceq f_j\\) (\\(f_i,f_j\\) plus expressions) have been found. (1) If \\(g_i=f_i\\), \\(g_j=f_j\\), and \\(f_i,f_j\\) are multiplicands in the same times expression in \\(f\\), then \\(g_i,g_j\\) will be placed in the same times expression after the next times phase. (2) If \\(g_i,g_j\\) are placed in the same times expression at any subsequent phase, then \\(f_i,f_j\\) are in the same product in \\(f\\).</p>",
+        "proofHtml": "<p>(1) If the conditions of (1) above hold, then \\(g_iTg_j\\) will be discovered at the next times-phase and the claim follows. (2) If \\(f_i,f_j\\) are not in the same product in \\(f\\), then \\(f\\) contains some prime implicant containing variables from one of \\(g_i,g_j\\) and not from the other. Hence \\(g_iTg_j\\) will never hold.</p>",
+        "pdfStart": {
+          "statement": { "page": 8, "y": 661.45104 },
+          "proof": { "page": 9, "y": 101.46672 }
+        }
+      },
+      {
+        "id": "claim-5",
+        "type": "Claim",
+        "number": "5",
+        "title": "Construction after depth-many phases",
+        "section": "7. μ-Expressions",
+        "proofOrganization": "direct",
+        "dependencies": ["claim-3", "claim-4"],
+        "statementHtml": "<p>If \\(f_i\\) is an expression of depth \\(k\\) in \\(f\\), then after \\(k\\) phases a \\(g_i\\) identical to \\(f_i\\) will have been constructed by the algorithm.</p>",
+        "proofHtml": "<p>By induction on Claims 3 and 4.</p>",
+        "pdfStart": {
+          "statement": { "page": 9, "y": 237.3072 },
+          "proof": { "page": 9, "y": 275.22672 }
+        }
+      }
+    ]
+  }
+]

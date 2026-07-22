@@ -1,0 +1,250 @@
+[
+  {
+    "id": "1988-learning-from-noisy-examples",
+    "theorems": [
+      {
+        "id": "theorem-1",
+        "type": "Theorem",
+        "number": "1",
+        "title": "Finite-class sample bound without noise",
+        "section": "2.2 How many noisy examples are enough?",
+        "proofOrganization": "preceding-text",
+        "dependencies": [],
+        "proofNote": "The derivation appears in Section 1.2 before the formal theorem statement in Section 2.2.",
+        "statementHtml": "<p>(Blumer et al., 1986) If \\(L_i\\) is any hypothesis that agrees with at least</p><p>\\[m=\\frac{1}{\\epsilon}\\ln\\!\\left(\\frac{N}{\\delta}\\right)\\]</p><p>samples drawn from the \\(EX_0(\\ )\\) oracle, then</p><p>\\[\\Pr[d(L_i,L_*)\\geq\\epsilon]\\leq\\delta.\\]</p>",
+        "proofHtml": "<p>Consider a rule \\(L\\) with error \\(d(L,L_*)\\geq\\epsilon\\). This means the likelihood that a random example agrees with \\(L\\) is less than \\((1-\\epsilon)\\); hence for \\(m\\) such examples, the likelihood that \\(L\\) agrees with all of them is less than \\((1-\\epsilon)^m\\). We can bound \\((1-\\epsilon)^m\\) by \\(e^{-\\epsilon m}\\). Substituting the value of \\(m\\) above, this in turn is bounded by \\(\\delta/N\\). Finally, there are at most \\(N-1\\) such rules with unacceptably large error; summing the probabilities that any one of them agrees with all \\(m\\) examples, we have a probability less than \\(\\delta\\). The requirements for <em>pac</em>-identification are therefore satisfied.</p>",
+        "pdfStart": {
+          "statement": { "page": 8, "y": 90.8244 },
+          "proof": { "page": 4, "y": 191.87616 }
+        }
+      },
+      {
+        "id": "theorem-2",
+        "type": "Theorem",
+        "number": "2",
+        "title": "Finite-class sample bound with classification noise",
+        "section": "2.2 How many noisy examples are enough?",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-10"],
+        "statementHtml": "<p>If we draw a sequence \\(\\sigma\\) of</p><p>\\[m\\geq\\frac{2}{\\epsilon^2(1-2\\eta_b)^2}\\ln\\!\\left(\\frac{2N}{\\delta}\\right) \\tag{1}\\]</p><p>samples from an \\(EX_\\eta(\\ )\\) oracle and find any hypothesis \\(L_i\\) that minimizes \\(F(L_i,\\sigma)\\), then</p><p>\\[\\Pr[d(L_i,L_*)\\geq\\epsilon]\\leq\\delta.\\]</p>",
+        "proofHtml": "<p>We analyze the expected rate of disagreement between any hypothesis \\(L_i\\) and sample sequences produced by the oracle \\(EX_\\eta(\\ )\\) with unknown set \\(L_*\\). Let</p><p>\\[d_i=d(L_i,L_*).\\]</p><p>The probability that an example produced by \\(EX_\\eta(\\ )\\) disagrees with \\(L_i\\) is the probability that an example is drawn from \\(L_i\\mathbin{\\triangle}L_*\\) and reported correctly (which is just \\(d_i(1-\\eta)\\)) plus the probability that an example is drawn from the complement of \\(L_i\\mathbin{\\triangle}L_*\\) and reported incorrectly (which is just \\((1-d_i)\\eta\\).) Let \\(p_i\\) denote the probability that an example from \\(EX_\\eta(\\ )\\) disagrees with \\(L_i\\); then we have</p><p>\\[p_i=d_i(1-\\eta)+(1-d_i)\\eta.\\]</p><p>In the case that the hypothesis \\(L_i\\) is equal to \\(L_*\\), we have \\(p_i=\\eta\\), since disagreements will only arise as the result of reporting errors. The expression for \\(p_i\\) may be rewritten as</p><p>\\[p_i=\\eta+d_i(1-2\\eta).\\]</p><p>Since \\(\\eta&lt;1/2\\), this shows that any hypothesis \\(L_i\\) has an expected rate of disagreement of at least \\(\\eta\\). In particular, if we define a hypothesis \\(L_i\\) to be \\(\\epsilon\\)-bad if and only if \\(d_i\\geq\\epsilon\\), then for any \\(\\epsilon\\)-bad hypothesis \\(L_i\\) we have</p><p>\\[p_i\\geq\\eta+\\epsilon(1-2\\eta).\\]</p><p>Thus we have a separation of at least \\(\\epsilon(1-2\\eta)\\) between the disagreement rates of correct and \\(\\epsilon\\)-bad hypotheses. By our assumptions, \\(\\eta\\) is not known, but an upper bound \\(\\eta_b&lt;1/2\\) is known, so we have a known lower bound on the separation, \\(\\epsilon(1-2\\eta_b)\\).</p><p>The problem is reduced to guaranteeing that the number \\(m\\) of samples drawn from \\(EX_\\eta(\\ )\\) is sufficient to guarantee that no \\(\\epsilon\\)-bad hypothesis has a lower observed rate of disagreement with the samples than \\(L_*\\), with probability greater than \\(1-\\delta\\).</p><p>At this point we must introduce some notation. Let \\(p\\) be a number between 0 and 1, and suppose that we have a coin \\(C_p\\) whose probability of coming up heads on each toss is \\(p\\). Let \\(r\\) be a number between 0 and 1, and let \\(m\\) be a non-negative integer. Then \\(GE(p,m,r)\\) will denote the probability of getting at least \\(rm\\) heads in a sequence of \\(m\\) independent flips of the coin \\(C_p\\). (Formally, this is the probability of getting at least \\(rm\\) successes in \\(m\\) independent Bernoulli trials with probability \\(p\\).) Analogously \\(LE(p,m,r)\\) will denote the probability of at most \\(rm\\) successes in \\(m\\) independent Bernoulli trials with probability \\(p\\). We present lemmas bounding these quantities in the Appendix.</p><p>Let \\(s=\\epsilon(1-2\\eta_b)\\), and let \\(\\sigma\\) denote a sequence of \\(m\\) examples drawn from the noisy sampling oracle \\(EX_\\eta(\\ )\\). In order for some \\(\\epsilon\\)-bad hypothesis \\(L_i\\) to minimize \\(F(L_i,\\sigma)\\), either</p><p>\\[F(L_*,\\sigma)/m\\geq\\eta+s/2\\]</p><p>or</p><p>\\[F(L_i,\\sigma)/m\\leq\\eta+s/2\\]</p><p>for some \\(\\epsilon\\)-bad hypothesis \\(L_i\\), or both. Applying Lemma 10 in the Appendix,</p><p>\\[\\begin{aligned}\\Pr[F(L_*,\\sigma)/m\\geq\\eta+s/2]&amp;=GE(\\eta,m,\\eta+s/2)\\\\&amp;\\leq\\delta/2N\\\\&amp;\\leq\\delta/2,\\end{aligned}\\]</p><p>and if \\(L_i\\) is \\(\\epsilon\\)-bad then</p><p>\\[\\begin{aligned}\\Pr[F(L_i,\\sigma)/m\\leq\\eta+s/2]&amp;\\leq LE(\\eta+s,m,\\eta+s/2)\\\\&amp;\\leq\\delta/2N.\\end{aligned}\\]</p><p>Thus the probability that any \\(\\epsilon\\)-bad hypothesis \\(L_i\\) has \\(F(L_i,\\sigma)/m\\leq\\eta+s/2\\) is at most \\(\\delta/2\\), since there are at most \\(N-1\\) \\(\\epsilon\\)-bad hypotheses. Putting these two inequalities together, the probability that some \\(\\epsilon\\)-bad hypothesis minimizes \\(F(L_i,\\sigma)\\) is at most \\(\\delta\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 9, "y": 91.66752 },
+          "proof": { "page": 9, "y": 200.05968 }
+        }
+      },
+      {
+        "id": "theorem-3",
+        "type": "Theorem",
+        "number": "3",
+        "title": "Estimating an upper bound on the noise rate",
+        "section": "2.3 Determining eta_b",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-9"],
+        "statementHtml": "<p>Let</p><p>\\[m_r(N,\\delta)=2^{2r+3}\\cdot\\ln\\!\\left(\\frac{N2^{r+2}}{\\delta}\\right).\\]</p><p>Then with probability greater than \\(1-\\delta\\), algorithm \\(E\\) halts on or before round \\(r'=1+\\lceil\\log_2(1-2\\eta)^{-1}\\rceil\\) and outputs an estimate \\(\\hat\\eta_b\\) such that \\(\\eta&lt;\\hat\\eta_b&lt;1/2\\).</p>",
+        "proofHtml": "<p>The value of \\(m_r\\) has been chosen so that, in \\(m_r\\) examples,</p><p>\\[GE(p,m_r,p+2^{-(r+2)})\\leq\\frac12\\cdot\\frac{\\delta/2}{N2^r}\\]</p><p>and</p><p>\\[LE(p,m_r,p-2^{-(r+2)})\\leq\\frac12\\cdot\\frac{\\delta/2}{N2^r}.\\]</p><p>(Apply Lemma 9 with \\(2^{-(r+2)}\\) in place of \\(s\\) and \\(\\delta/(N2^{r+2})\\) in place of \\(\\delta\\).) Thus if a rule \\(L_i\\) is expected to disagree with a fraction \\(p_i\\) of the examples, the probability that \\(|\\hat p_i-p_i|\\geq2^{-(r+2)}\\) is at most \\((\\delta/2)/(N2^r)\\). After summing over \\(N\\) rules and over all possible rounds, we find that the probability that in any round \\(r\\) the empirical value \\(\\hat p_i\\) for some rule differs from its expected value \\(p_i\\) by as much as \\(2^{-(r+2)}\\) is at most \\(\\delta/2\\). We claim that, with probability greater than \\(1-\\delta/2\\),</p><ul><li>the algorithm halts on or before round \\(r'=1+\\lceil\\log_2(1-2\\eta)^{-1}\\rceil\\).</li><li>when it halts, \\(\\hat\\eta_b&gt;\\eta\\).</li></ul><p>In round \\(r'\\), \\(\\eta\\leq\\frac12-1/2^{r'}\\), and \\(m_{r'}\\) is sufficient to ensure that \\(\\hat p_{\\min}\\leq\\eta+2^{-(r'+2)}\\), with a probability of more than \\(1-\\delta/2\\). However,</p><p>\\[\\begin{aligned}\\hat\\eta_b-2^{-(r'+2)}&amp;=\\left(\\frac12-\\frac{1}{2^{r'+1}}\\right)-\\frac{1}{2^{r'+2}}\\\\&amp;&gt;\\left(\\frac12-\\frac{1}{2^{r'}}\\right)-\\frac{1}{2^{r'+2}}\\\\&amp;\\geq\\eta+2^{-(r'+2)}\\\\&amp;\\geq\\hat p_{\\min}.\\end{aligned}\\]</p><p>with probability \\(&gt;1-\\delta/2\\). Thus the algorithm will halt at or before round \\(r'\\) with this probability.</p><p>Suppose the algorithm halts in round \\(r\\). By choice of \\(m_r\\), \\(\\hat p_{\\min}\\geq\\eta-2^{-(r+2)}\\) with probability more than \\(1-\\delta/2\\). The fact that it stops implies that \\(\\hat p_{\\min}&lt;\\hat\\eta_b-2^{-(r+2)}\\). Thus</p><p>\\[\\eta-\\frac{1}{2^{r+2}}&lt;\\hat\\eta_b-\\frac{1}{2^{r+2}},\\]</p><p>and hence \\(\\eta&lt;\\hat\\eta_b\\) with probability \\(&gt;1-\\delta/2\\).</p><p>Finally, the algorithm fails only if at least one of the above two conditions fails. Since each occurs with probability at most \\(\\delta/2\\), failure occurs with probability at most \\(\\delta\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 13, "y": 128.14752 },
+          "proof": { "page": 13, "y": 236.28792 }
+        }
+      },
+      {
+        "id": "theorem-4",
+        "type": "Theorem",
+        "number": "4",
+        "title": "Minimizing disagreements for positive products is NP-complete",
+        "section": "2.4 How hard is minimizing disagreements?",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>Given positive integers \\(n\\) and \\(c\\) and a sample sequence \\(\\sigma\\), the problem of determining whether there is an element \\(\\pi\\in PP(n)\\) such that \\(F(\\pi,\\sigma)\\leq c\\) is NP-complete.</p>",
+        "proofHtml": "<p>The proof is a polynomial-time reduction of the vertex cover problem to the specified problem. The vertex cover problem is specified by an undirected graph \\(G\\) of \\(n\\) vertices and a positive integer \\(c\\leq n\\), and the question is whether there exists a set \\(C\\) of at most \\(c\\) vertices of \\(G\\) such that every edge of \\(G\\) is incident to at least one vertex in \\(C\\). (Such a set \\(C\\) is called a <em>vertex cover</em>.) The vertex cover problem is NP-complete.</p><p>Let a vertex cover problem, \\(\\langle G,c\\rangle\\), be given. Suppose the vertices of \\(G\\) are \\(v_1,v_2,\\ldots,v_n\\). There will be \\(n\\) variables: \\(x_1,x_2,\\ldots,x_n\\). For each vertex \\(v_i\\), define a truth assignment \\(a_i\\) that maps \\(x_i\\) to 0 and every other \\(x_j\\) to 1. For each edge \\(e=\\{v_i,v_j\\}\\), define a truth assignment \\(b_e\\) that maps \\(x_i\\) and \\(x_j\\) to 0 and every other \\(x_k\\) to 1. The sample sequence \\(\\sigma\\) consists of one copy of \\(\\langle a_i,+\\rangle\\) for each vertex \\(v_i\\) and \\(n+1\\) copies of \\(\\langle b_e,-\\rangle\\) for each edge \\(e\\) in \\(G\\). Then we claim that \\(G\\) has a vertex cover of at most \\(c\\) vertices if and only if there is an element \\(\\pi\\) of \\(PP(n)\\) such that \\(F(\\pi,\\sigma)\\leq c\\).</p><p>Suppose \\(G\\) has a vertex cover \\(C\\) of at most \\(c\\) vertices. Let \\(\\pi\\) denote the product of those \\(x_i\\) such that \\(v_i\\) is in \\(C\\). How many examples from \\(\\sigma\\) disagree with \\(\\pi\\)? For each vertex \\(v_i\\), the assignment \\(a_i\\) assigns 0 to \\(\\pi\\) if and only if \\(v_i\\in C\\). Thus, \\(\\pi\\) disagrees with at most \\(c\\) positive examples from \\(\\sigma\\). For each edge \\(e=\\{v_i,v_j\\}\\), the set \\(C\\) contains at least one of \\(v_i\\) or \\(v_j\\), so the product \\(\\pi\\) contains at least one of \\(x_i\\) or \\(x_j\\). Since the assignment \\(b_e\\) is 0 on both \\(x_i\\) and \\(x_j\\), it must be 0 on \\(\\pi\\). Thus, \\(\\pi\\) agrees with all the negative examples in \\(\\sigma\\). Hence \\(F(\\pi,\\sigma)\\leq c\\), as claimed.</p><p>Now suppose that there exists some \\(\\pi\\in PP(n)\\) such that \\(F(\\pi,\\sigma)\\leq c\\). Since \\(c\\leq n\\), this means that \\(\\pi\\) must agree with all the negative examples in \\(\\sigma\\), since each one is repeated \\(n+1\\) times. Hence \\(\\pi\\) can only disagree with positive examples in \\(\\sigma\\), and at most \\(c\\) of them. Thus \\(\\pi\\) must contain at most \\(c\\) literals \\(x_i\\). Define the set \\(C\\) to be all those vertices \\(v_i\\) such that \\(x_i\\) appears in the product \\(\\pi\\). Then \\(C\\) contains at most \\(c\\) vertices; it remains to see that it is a vertex cover. If \\(e=\\{v_i,v_j\\}\\) is any edge in \\(G\\) then the assignment \\(b_e\\) must assign 0 to \\(\\pi\\), since \\(\\pi\\) agrees with all the negative examples. But \\(b_e\\) assigns 0 to \\(\\pi\\) if and only if \\(\\pi\\) contains at least one of \\(x_i\\) or \\(x_j\\). Thus \\(C\\) contains at least one of \\(v_i\\) or \\(v_j\\), so \\(C\\) is a vertex cover of \\(G\\).</p><p>The computation of \\(n\\), \\(c\\), and \\(\\sigma\\) from \\(\\langle G,c\\rangle\\) can clearly be carried out in polynomial time.</p>",
+        "pdfStart": {
+          "statement": { "page": 15, "y": 92.07144 },
+          "proof": { "page": 15, "y": 134.07144 }
+        }
+      },
+      {
+        "id": "lemma-1",
+        "type": "Lemma",
+        "number": "1",
+        "title": "Important and non-harmful clauses give an epsilon-approximation",
+        "section": "3.1 Motivation for the procedure V'",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>Let \\(D\\) and \\(\\phi_*\\) be fixed. Let \\(\\phi\\) be any product of clauses from \\(\\mathcal C\\) that contains every important clause in \\(\\phi_*\\) and contains no harmful clauses. Then \\(d(\\phi,\\phi_*)&lt;\\epsilon\\).</p>",
+        "proofHtml": "<p>We analyze the probability of an assignment \\(a\\) such that \\(a(\\phi_*)=1\\) and \\(a(\\phi)=0\\) or vice versa. Let \\(\\phi-\\phi_*\\) denote the set of clauses in \\(\\phi\\) but not in \\(\\phi_*\\).</p><p>\\[\\begin{aligned}\\Pr[a(\\phi_*)=1\\text{ and }a(\\phi)=0]&amp;\\leq\\sum_{C\\in\\phi-\\phi_*}p_{01}(C),\\\\&amp;&lt;MQ_H\\quad\\text{(no element of \\(\\phi-\\phi_*\\) is harmful)},\\\\&amp;=\\epsilon/2.\\end{aligned}\\]</p><p>For the other side,</p><p>\\[\\begin{aligned}\\Pr[a(\\phi)=1\\text{ and }a(\\phi_*)=0]&amp;\\leq\\sum_{C\\in\\phi_*-\\phi}p_0(C),\\\\&amp;&lt;MQ_I\\quad\\text{(no element of \\(\\phi_*-\\phi\\) is important)},\\\\&amp;&lt;\\epsilon/2.\\end{aligned}\\]</p><p>Thus,</p><p>\\[\\Pr[a(\\phi)\\neq a(\\phi_*)]&lt;\\epsilon/2+\\epsilon/2.\\]</p>",
+        "pdfStart": {
+          "statement": { "page": 17, "y": 374.7036 },
+          "proof": { "page": 17, "y": 422.4636 }
+        }
+      },
+      {
+        "id": "theorem-5",
+        "type": "Theorem",
+        "number": "5",
+        "title": "V' PAC-identifies k-CNF under classification noise",
+        "section": "3.3 Proof of correctness of V'",
+        "proofOrganization": "composite",
+        "dependencies": ["lemma-1", "lemma-2", "lemma-3", "lemma-4", "lemma-5", "lemma-6", "lemma-7"],
+        "proofNote": "The paper proves the theorem through Lemmas 1-7; all component lemmas are included separately.",
+        "statementHtml": "<p>For every \\(\\phi_*\\in CNF(n,k)\\), \\(V'\\) <em>pac</em>-identifies \\(\\phi_*\\), that is,</p><p>\\[\\Pr[d(\\phi,\\phi_*)\\geq\\epsilon]\\leq\\delta.\\]</p>",
+        "proofHtml": "<p>Consider how the algorithm could go astray:</p><ul><li>Some important clause might not be selected for inclusion in \\(I\\).</li><li>The estimate \\(\\eta'\\) could be too large or too small.</li><li>Some harmful clause could have an abnormally small number of failures on positive examples and thereby be included in the output expression.</li><li>Some correct clause could have an abnormally large number of failures on positive examples and thereby be excluded from the output expression.</li></ul><p>The series of lemmas below show that the second possibility has probability at most \\(\\delta/2\\), while the others each have probability at most \\(\\delta/6\\). In all, therefore, these mishaps have probability at most \\(\\delta\\), and by Lemma 1 the output expression will be \\(\\epsilon\\)-good with high probability.</p><p>In the following technical lemmas, “with high probability” means “with probability \\(&gt;1-\\delta/6\\).”</p>",
+        "pdfStart": {
+          "statement": { "page": 21, "y": 91.97184 },
+          "proof": { "page": 21, "y": 137.98752 }
+        }
+      },
+      {
+        "id": "lemma-2",
+        "type": "Lemma",
+        "number": "2",
+        "title": "I contains every important clause with high probability",
+        "section": "3.3 Proof of correctness of V'",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-8"],
+        "statementHtml": "<p>With high probability the set \\(I\\) includes all important clauses—i.e., all clauses \\(C\\) such that \\(p_0(C)\\geq Q_I\\).</p>",
+        "proofHtml": "<p>For an important clause \\(C\\) to be omitted, the value \\(Z_0(C)/m\\) must be less than \\(Q_I/2\\)—an amount more than \\(Q_I/2\\) below its expected value of at least \\(Q_I\\). With the sample size \\(m\\), Lemma 8 can be applied to show that \\(LE(p_0(C),m,Q_I/2)\\leq\\delta/(6M)\\). Summing this probability over \\(M\\) clauses completes the proof.</p>",
+        "pdfStart": {
+          "statement": { "page": 21, "y": 345.34752 },
+          "proof": { "page": 21, "y": 381.89184 }
+        }
+      },
+      {
+        "id": "lemma-3",
+        "type": "Lemma",
+        "number": "3",
+        "title": "The first noise estimate is not too small",
+        "section": "3.3 Proof of correctness of V'",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-8"],
+        "statementHtml": "<p>Let \\(s=Q_H(1-2\\eta)\\). Then with high probability \\(\\eta_1\\) is not “too small”—i.e., \\(\\eta_1\\geq\\eta-s/4\\) with high probability.</p>",
+        "proofHtml": "<p>Consider the probability \\(p_-\\) that an example is classified negative by the noisy oracle. Without noise this probability is \\(p_0(\\phi_*)\\). With noise, this probability becomes</p><p>\\[\\begin{aligned}p_-&amp;=(1-\\eta)p_0(\\phi_*)+\\eta(1-p_0(\\phi_*))\\\\&amp;=\\eta+p_0(\\phi_*)(1-2\\eta)\\\\&amp;\\geq\\eta.\\end{aligned} \\tag{4}\\]</p><p>By Lemma 8, \\(LE(\\eta,m,\\eta-s/4)\\leq LE(\\eta,m,\\eta-s_b/4)\\leq\\delta/6\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 21, "y": 456.77184 },
+          "proof": { "page": 21, "y": 494.62752 }
+        }
+      },
+      {
+        "id": "lemma-4",
+        "type": "Lemma",
+        "number": "4",
+        "title": "The second noise estimate is not too small",
+        "section": "3.3 Proof of correctness of V'",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-8"],
+        "statementHtml": "<p>Given that \\(I\\) contains all important clauses, with high probability \\(\\eta_2\\) is not “too small”—i.e., \\(\\eta_2\\geq\\eta-s/4\\) with high probability.</p>",
+        "proofHtml": "<p>\\(\\eta_2\\) will be too small iff, for some clause \\(C\\),</p><p>\\[h(C)&lt;\\eta-s/4.\\]</p><p>But by Eq. (2) the expected value of \\(h(C)\\) is \\(p_{0+}(C)/p_0(C)\\geq\\eta\\). The sample size over which the ratio is being measured is at least \\(mQ_I/2\\) since \\(C\\in I\\). Using Lemma 8, \\(LE(\\eta,mQ_I/2,\\eta-s/4)\\leq LE(\\eta,mQ_I/2,\\eta-s_b/4)\\leq\\delta/(6M)\\). Summing this probability over all \\(M\\) clauses ends the proof.</p>",
+        "pdfStart": {
+          "statement": { "page": 22, "y": 91.7436 },
+          "proof": { "page": 22, "y": 128.2236 }
+        }
+      },
+      {
+        "id": "lemma-5",
+        "type": "Lemma",
+        "number": "5",
+        "title": "At least one noise estimate is not too large",
+        "section": "3.3 Proof of correctness of V'",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-8"],
+        "statementHtml": "<p>Given that \\(I\\) contains all important clauses, then with high probability either \\(\\eta_1\\) or \\(\\eta_2\\) is not “too large”—i.e., either \\(\\eta_1\\leq\\eta+s/4\\) or \\(\\eta_2\\leq\\eta+s/4\\). Thus \\(\\eta'=\\min\\{\\eta_1,\\eta_2\\}\\leq\\eta+s/4\\).</p>",
+        "proofHtml": "<p>There are two cases.</p><p><strong>Case:</strong> There is a clause \\(C\\) in \\(I\\) that is also in \\(\\phi_*\\). Then</p><p>\\[\\frac{p_{0+}(C)}{p_0(C)}=\\eta\\]</p><p>by Eq. (2). By Lemma 8, \\(LE(\\eta,mQ_I/2,\\eta+s_b/4)\\leq\\delta/6\\). Thus \\(\\eta_2\\leq\\eta+s/4\\) with high probability.</p><p><strong>Case:</strong> There is no clause \\(C\\) in \\(I\\) that is also in \\(\\phi_*\\). \\(\\eta_1\\) estimates \\(p_-\\), and by Eq. (4) \\(p_-\\) depends on \\(p_0(\\phi_*)\\). We can bound the latter as follows:</p><p>\\[\\begin{aligned}p_0(\\phi_*)&amp;\\leq\\sum_{C\\in\\phi_*}p_0(C),\\\\&amp;&lt;\\sum_{C\\in\\phi_*}Q_I,\\quad\\text{since no clause in \\(\\phi_*\\) is in \\(I\\)},\\\\&amp;\\leq MQ_I,\\\\&amp;=Q_H/8.\\end{aligned}\\]</p><p>Thus \\(p_-&lt;\\eta+Q_H(1-2\\eta)/8=\\eta+s/8\\), and by Lemma 8, \\(GE(\\eta+s/8,m,\\eta+s/4)\\leq GE(\\eta+s/8,m,\\eta+s/8+s_b/8)\\leq\\delta/6\\). Hence \\(\\eta_1\\leq\\eta+s/4\\) with high probability.</p>",
+        "pdfStart": {
+          "statement": { "page": 22, "y": 253.0236 },
+          "proof": { "page": 22, "y": 302.2236 }
+        }
+      },
+      {
+        "id": "lemma-6",
+        "type": "Lemma",
+        "number": "6",
+        "title": "The combined noise estimate is close to the true rate",
+        "section": "3.3 Proof of correctness of V'",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-3", "lemma-4", "lemma-5"],
+        "statementHtml": "<p>Given that \\(I\\) contains all important clauses, with probability \\(&gt;1-\\delta/2\\), \\(\\eta'\\) is “close to” \\(\\eta\\)—i.e., \\(|\\eta'-\\eta|\\leq s/4\\).</p>",
+        "proofHtml": "<p>Immediate from Lemmas 3–5.</p>",
+        "pdfStart": {
+          "statement": { "page": 22, "y": 607.2636 },
+          "proof": { "page": 23, "y": 92.7036 }
+        }
+      },
+      {
+        "id": "lemma-7",
+        "type": "Lemma",
+        "number": "7",
+        "title": "No harmful clause is included and no important clause omitted",
+        "section": "3.3 Proof of correctness of V'",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-8"],
+        "statementHtml": "<p>Given that \\(I\\) contains all important clauses and that \\(|\\eta'-\\eta|\\leq s/4\\), with high probability no harmful clause will be included in the output \\(\\phi\\) of \\(V'\\). And with high probability, no important clause will be omitted.</p>",
+        "proofHtml": "<p>A harmful clause \\(C\\) is included if</p><p>\\[h(C)\\leq\\eta'+s_b/2,\\]</p><p>and given that \\(\\eta'\\leq\\eta+s/4\\), it certainly must be the case that</p><p>\\[h(C)\\leq\\eta+3s/4\\]</p><p>if the clause is to be included.</p><p>But for such a clause \\(h(C)\\) has an expected value of at least \\(\\eta+s\\). To be included, it must therefore deviate from its expected value by at least \\(s/4\\), in a sample of at least \\(mQ_I/2\\) positive examples. And \\(LE(\\eta+s,mQ_I/2,\\eta+3s/4)\\leq LE(\\eta+s,mQ_I/2,\\eta+3s_b/4)\\leq\\delta/(6M)\\). Summing this probability over possibly \\(M\\) harmful clauses yields the first result.</p><p>For a correct clause \\(C\\), \\(p_{0+}(C)/p_0(C)=\\eta\\), and it will be discarded only if the empirical value \\(h(C)\\) of this ratio exceeds \\(\\eta\\) by more than \\(s_b/4\\). Lemma 8 shows that this probability is \\(\\leq\\delta/(6M)\\). Summing over possibly \\(M\\) correct clauses yields the result.</p>",
+        "pdfStart": {
+          "statement": { "page": 23, "y": 116.7036 },
+          "proof": { "page": 23, "y": 165.4236 }
+        }
+      },
+      {
+        "id": "theorem-6",
+        "type": "Theorem",
+        "number": "6",
+        "title": "Learning k-CNF from positive examples with adversarial noise",
+        "section": "4. Random noise processes",
+        "proofOrganization": "preceding-text",
+        "dependencies": ["lemma-8"],
+        "proofNote": "The proof is the analysis immediately preceding the formal theorem statement.",
+        "statementHtml": "<p>There is an algorithm that runs in time polynomial in \\(1/\\epsilon\\), \\(\\log 1/\\delta\\), \\(n^k\\), and \\(1/(1-2\\eta_b)\\) and <em>pac</em>-identifies \\(CNF(n,k)\\) formulas from positive examples subject to adversarial noise, provided the rate \\(\\eta\\) of noise satisfies</p><p>\\[\\eta\\leq\\eta_b&lt;\\frac{1}{(M/\\epsilon)+1},\\]</p><p>where \\(M\\) is the number of clauses.</p>",
+        "proofHtml": "<p>Let \\(M\\) be the number of clauses. For a given target formula \\(\\phi_*\\) the examples oracle \\(EX_0(\\ )\\) selects satisfying assignments of \\(\\phi_*\\) from some distribution \\(D^+\\). Before presentation, the example is subjected to an ANP that, with probability \\(\\eta\\) may replace the positive example by another assignment. Clauses in \\(\\phi_*\\) can thus be falsified on average by at most a fraction \\(\\eta\\) of the examples. By contrast, we denounce as harmful any clause \\(C\\) for which \\(p_{01}(C)\\geq\\epsilon/M\\), as measured by the distribution \\(D^+\\). Despite the best efforts of an adversary, a harmful clause must fail at a rate of at least \\(\\epsilon(1-\\eta)/M\\). Our approach is to eliminate all harmful clauses while including all correct ones. Clearly the error in the resulting formula will then be at most \\(\\epsilon\\).</p><p>Provided \\(\\eta&lt;\\epsilon(1-\\eta)/M\\) (or, equivalently, \\(\\eta&lt;[(M/\\epsilon)+1]^{-1}\\)), there is a separation of at least \\(s_b=\\epsilon/M-\\eta_b(1+\\epsilon/M)\\) between the rate at which a harmful clause is falsified and this rate for a correct clause. Also, harmful clauses are falsified on average by a proportion of at least \\(\\epsilon(1-\\eta_b)/M\\) of the examples. Therefore we use the following algorithm, \\(V''\\):</p><ol><li>Obtain a sample of \\(m=(2/s_b^2)\\ln(M/\\delta)\\) positive examples.</li><li>Output the conjunction of all clauses falsified by no more than \\((\\eta_b+s_b/2)m\\) examples.</li></ol><p>To see that this works, consider first <em>errors of omission</em> (discarding a correct clause). For this to occur, the proportion of examples falsifying a correct clause must exceed its expected value (\\(\\eta\\)) by at least \\(s_b/2\\); but \\(m\\) has been chosen so that (Lemma 8) the likelihood of this is at most \\(\\delta/M\\).</p><p>Similarly, <em>errors of commission</em> (including a harmful clause) occur only when a harmful clause is falsified less than expected, by a deviation of at least \\(s_b/2\\). The chances of this are less than \\(\\delta/M\\). Summing the probabilities of both types of errors over at most \\(M\\) clauses gives a probability for error of at most \\(\\delta\\). Thus we have shown the following theorem.</p>",
+        "pdfStart": {
+          "statement": { "page": 25, "y": 347.02752 },
+          "proof": { "page": 24, "y": 494.7036 }
+        }
+      },
+      {
+        "id": "lemma-8",
+        "type": "Lemma",
+        "number": "8",
+        "title": "Hoeffding's inequality",
+        "section": "Appendix: Bounding lemmas",
+        "proofOrganization": "quoted-without-proof",
+        "dependencies": [],
+        "proofNote": "The paper identifies this as Hoeffding's Inequality (Hoeffding, 1963) and gives no proof.",
+        "statementHtml": "<p>If \\(0\\leq p\\leq1\\), \\(0\\leq s\\leq1\\), and \\(m\\) is any positive integer then</p><p>\\[LE(p,m,p-s)\\leq e^{-2s^2m},\\]</p><p>and</p><p>\\[GE(p,m,p+s)\\leq e^{-2s^2m}.\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 27, "y": 527.99928 }
+        }
+      },
+      {
+        "id": "lemma-9",
+        "type": "Lemma",
+        "number": "9",
+        "title": "Sample bound for additive Bernoulli estimates",
+        "section": "Appendix: Bounding lemmas",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-8"],
+        "statementHtml": "<p>Let \\(0\\leq p\\leq1\\), \\(0&lt;s&lt;1\\), and \\(0&lt;\\delta&lt;1\\). If</p><p>\\[m\\geq\\frac{1}{2s^2}\\ln\\!\\left(\\frac{1}{\\delta}\\right)\\]</p><p>then</p><p>\\[LE(p,m,p-s)\\leq\\delta,\\]</p><p>and</p><p>\\[GE(p,m,p+s)\\leq\\delta.\\]</p>",
+        "proofHtml": "<p>This follows directly from Lemma 8 by setting \\(e^{-2s^2m}\\leq\\delta\\) and solving for \\(m\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 28, "y": 92.5632 },
+          "proof": { "page": 28, "y": 214.0032 }
+        }
+      },
+      {
+        "id": "lemma-10",
+        "type": "Lemma",
+        "number": "10",
+        "title": "Tail bounds at the classification-noise separation",
+        "section": "Appendix: Bounding lemmas",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-9"],
+        "statementHtml": "<p>Let \\(N\\) be a positive integer, \\(0&lt;\\epsilon&lt;1\\), \\(0&lt;\\delta&lt;1\\), and \\(0\\leq\\eta\\leq\\eta_b&lt;1/2\\). Define \\(s=\\epsilon(1-2\\eta_b)\\) so that \\(0&lt;s&lt;1\\). If</p><p>\\[m\\geq\\frac{2}{\\epsilon^2(1-2\\eta_b)^2}\\ln\\!\\left(\\frac{2N}{\\delta}\\right),\\]</p><p>then</p><p>\\[GE(\\eta,m,\\eta+s/2)\\leq\\delta/2N,\\]</p><p>and</p><p>\\[LE(\\eta+s,m,\\eta+s/2)\\leq\\delta/2N.\\]</p>",
+        "proofHtml": "<p>We apply Lemma 9 with \\(s/2\\) in place of \\(s\\) and \\(\\delta/2N\\) in place of \\(\\delta\\) to find the indicated lower bound on \\(m\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 28, "y": 276.8832 },
+          "proof": { "page": 28, "y": 409.66752 }
+        }
+      }
+    ]
+  }
+]

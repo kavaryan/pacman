@@ -1,0 +1,204 @@
+[
+  {
+    "id": "1997-a-decision-theoretic-generalization-of-on-line-learning-and-an-application-to-boosting",
+    "theorems": [
+      {
+        "id": "lemma-1",
+        "type": "Lemma",
+        "number": "1",
+        "title": "Upper bound on the total Hedge weight",
+        "section": "2.1 Analysis",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>For any sequence of loss vectors \\(\\boldsymbol{\\ell}^{1},\\ldots,\\boldsymbol{\\ell}^{T}\\),</p><p>\\[\\ln\\left(\\sum_{i=1}^{N} w_i^{T+1}\\right) \\leq -(1-\\beta)L_{\\mathrm{Hedge}(\\beta)}.\\]</p>",
+        "proofHtml": "<p>By a convexity argument, it can be shown that</p><p>\\[\\alpha^r \\leq 1-(1-\\alpha)r \\tag{3}\\]</p><p>for \\(\\alpha \\geq 0\\) and \\(r \\in [0,1]\\). Combined with Equations (1) and (2), this implies</p><p>\\[\\sum_{i=1}^{N}w_i^{t+1}=\\sum_{i=1}^{N}w_i^t\\beta^{\\ell_i^t} \\leq \\sum_{i=1}^{N}w_i^t\\bigl(1-(1-\\beta)\\ell_i^t\\bigr)=\\left(\\sum_{i=1}^{N}w_i^t\\right)\\bigl(1-(1-\\beta)\\mathbf{p}^t\\cdot\\boldsymbol{\\ell}^t\\bigr). \\tag{4}\\]</p><p>Applying repeatedly for \\(t=1,\\ldots,T\\) yields</p><p>\\[\\begin{aligned}\\sum_{i=1}^{N}w_i^{T+1}&amp;\\leq\\prod_{t=1}^{T}\\bigl(1-(1-\\beta)\\mathbf{p}^t\\cdot\\boldsymbol{\\ell}^t\\bigr)\\\\&amp;\\leq\\exp\\left(-(1-\\beta)\\sum_{t=1}^{T}\\mathbf{p}^t\\cdot\\boldsymbol{\\ell}^t\\right)\\end{aligned}\\]</p><p>since \\(1+x\\leq e^x\\) for all \\(x\\). The lemma follows immediately.</p>",
+        "pdfStart": {
+          "statement": { "page": 5, "y": 273.38 },
+          "proof": { "page": 5, "y": 334.06 }
+        }
+      },
+      {
+        "id": "theorem-2",
+        "type": "Theorem",
+        "number": "2",
+        "title": "Hedge loss bounds",
+        "section": "2.1 Analysis",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-1"],
+        "statementHtml": "<p>For any sequence of loss vectors \\(\\boldsymbol{\\ell}^{1},\\ldots,\\boldsymbol{\\ell}^{T}\\), and for any \\(i\\in\\{1,\\ldots,N\\}\\), we have</p><p>\\[L_{\\mathrm{Hedge}(\\beta)} \\leq \\frac{-\\ln(w_i^1)-L_i\\ln\\beta}{1-\\beta}. \\tag{7}\\]</p><p>More generally, for any nonempty set \\(S\\subseteq\\{1,\\ldots,N\\}\\), we have</p><p>\\[L_{\\mathrm{Hedge}(\\beta)} \\leq \\frac{-\\ln\\left(\\sum_{i\\in S}w_i^1\\right)-(\\ln\\beta)\\max_{i\\in S}L_i}{1-\\beta}. \\tag{8}\\]</p>",
+        "proofHtml": "<p>We prove the more general statement (8) since Equation (7) follows in the special case that \\(S=\\{i\\}\\).</p><p>From Equation (6),</p><p>\\[\\sum_{i=1}^{N}w_i^{T+1} \\geq \\sum_{i\\in S}w_i^{T+1}=\\sum_{i\\in S}w_i^1\\beta^{L_i} \\geq \\beta^{\\max_{i\\in S}L_i}\\sum_{i\\in S}w_i^1.\\]</p><p>The theorem now follows immediately from Equation (5).</p>",
+        "pdfStart": {
+          "statement": { "page": 6, "y": 56.16 },
+          "proof": { "page": 6, "y": 172.26 }
+        }
+      },
+      {
+        "id": "theorem-3",
+        "type": "Theorem",
+        "number": "3",
+        "title": "Optimal constants for on-line allocation",
+        "section": "2.1 Analysis; Appendix A Proof of Theorem 3",
+        "proofOrganization": "deferred",
+        "proofNote": "The statement says that the proof is given in the appendix; the complete proof begins under 'Proof of Theorem 3' on PDF page 33.",
+        "dependencies": ["theorem-13"],
+        "statementHtml": "<p>Let \\(B\\) be an algorithm for the on-line allocation problem with an arbitrary number of strategies. Suppose that there exist positive real numbers \\(a\\) and \\(c\\) such that for any number of strategies \\(N\\) and for any sequence of loss vectors \\(\\boldsymbol{\\ell}^{1},\\ldots,\\boldsymbol{\\ell}^{T}\\)</p><p>\\[L_B \\leq c\\min_i L_i+a\\ln N.\\]</p><p>Then for all \\(\\beta\\in(0,1)\\), either</p><p>\\[c\\geq\\frac{\\ln(1/\\beta)}{1-\\beta}\\qquad\\text{or}\\qquad a\\geq\\frac{1}{1-\\beta}.\\]</p>",
+        "proofHtml": "<p>The proof consists of the following three steps: We first define a decision problem that conforms to Vovk's framework. We then show a lower bound on the function \\(c(\\beta)\\) for this problem. Finally, we show how any algorithm \\(A\\), for the on-line allocation problem can be used to generate decisions in the defined problem, and so we get from Theorem 13 a lower bound on the worst case cumulative loss of \\(A\\).</p><p>The decision problem is defined as follows. We fix an integer \\(K&gt;1\\) and set \\(\\Delta=S_K\\) where \\(S_K\\) is the \\(K\\) dimensional simplex, i.e., \\(S_K=\\{\\mathbf{x}\\in[0,1]^K:\\sum_{i=1}^{K}x_i=1\\}\\). We set \\(\\Omega\\) to be the set of unit vectors in \\(\\mathbb{R}^K\\), i.e., \\(\\Omega=\\{\\mathbf{e}_1,\\ldots,\\mathbf{e}_K\\}\\) where \\(\\mathbf{e}_i\\in\\{0,1\\}^K\\) has a 1 in the \\(i\\)th component, and 0 in all other components. Finally, we define the loss function to be \\(\\lambda(\\boldsymbol{\\delta},\\mathbf{e}_i)=\\boldsymbol{\\delta}\\cdot\\mathbf{e}_i=\\delta_i\\). One can easily verify that these definitions conform to Assumptions 1–4.</p><p>To prove a lower bound on \\(c(\\beta)\\) for this decision problem we choose a particular simple distribution over the decision space \\(\\Delta\\). Let \\(D\\) be the uniform distribution over the unit vectors, i.e., \\(\\operatorname{dom}(D)=\\{\\mathbf{e}_1,\\ldots,\\mathbf{e}_K\\}\\). For this distribution, we can explicitly calculate</p><p>\\[c(\\beta)\\geq\\inf_{\\boldsymbol{\\delta}\\in\\Delta}\\sup_{\\boldsymbol{\\omega}\\in\\Omega}\\frac{\\lambda(\\boldsymbol{\\delta},\\boldsymbol{\\omega})}{\\log_{\\beta}\\sum_{\\boldsymbol{\\epsilon}\\in\\operatorname{dom}(D)}\\beta^{\\lambda(\\boldsymbol{\\epsilon},\\boldsymbol{\\omega})}D(\\boldsymbol{\\epsilon})}. \\tag{28}\\]</p><p>First, it is easy to see that the denominator in Equation (28) is a constant:</p><p>\\[\\sum_{\\boldsymbol{\\epsilon}\\in\\operatorname{dom}(D)}\\beta^{\\lambda(\\boldsymbol{\\epsilon},\\boldsymbol{\\omega})}D(\\boldsymbol{\\epsilon})=\\frac{\\beta}{K}+\\frac{K-1}{K}. \\tag{29}\\]</p><p>For any probability vector \\(\\boldsymbol{\\delta}\\in\\Delta\\), there must exist one component \\(i\\) for which \\(\\delta_i\\geq1/K\\). Thus</p><p>\\[\\inf_{\\boldsymbol{\\delta}\\in\\Delta}\\sup_{\\boldsymbol{\\omega}\\in\\Omega}\\lambda(\\boldsymbol{\\delta},\\boldsymbol{\\omega})=1/K. \\tag{30}\\]</p><p>Combining Equations (28), (29) and (30), we get that</p><p>\\[c(\\beta)\\geq\\frac{\\ln(1/\\beta)}{K\\ln\\left(1-\\frac{1-\\beta}{K}\\right)}. \\tag{31}\\]</p><p>We now show how an on-line allocation algorithm \\(A\\) can be used as a subroutine for solving this decision problem. We match each of the \\(N\\) experts of the decision problem with a strategy of the allocation problem. Each iteration \\(t\\) of the decision problem proceeds as follows.</p><ol><li>Each of the \\(N\\) experts generates a decision \\(\\boldsymbol{\\epsilon}_i^t\\in S_K\\).</li><li>The algorithm \\(A\\) generates a distribution \\(\\mathbf{p}^t\\in S_N\\).</li><li>The learner chooses the decision \\(\\boldsymbol{\\delta}^t=\\sum_{i=1}^{N}p_i^t\\boldsymbol{\\epsilon}_i^t\\).</li><li>The outcome \\(\\boldsymbol{\\omega}^t\\in\\Omega\\) is generated.</li><li>The learner incurs loss \\(\\boldsymbol{\\delta}^t\\cdot\\boldsymbol{\\omega}^t\\), and each expert suffers loss \\(\\boldsymbol{\\epsilon}_i^t\\cdot\\boldsymbol{\\omega}^t\\).</li><li>Algorithm \\(A\\) receives the loss vector \\(\\boldsymbol{\\ell}^t\\) where \\(\\ell_i^t=\\boldsymbol{\\epsilon}_i^t\\cdot\\boldsymbol{\\omega}^t\\), and incurs loss \\[\\mathbf{p}^t\\cdot\\boldsymbol{\\ell}^t=\\sum_{i=1}^{N}p_i^t(\\boldsymbol{\\epsilon}_i^t\\cdot\\boldsymbol{\\omega}^t)=\\left(\\sum_{i=1}^{N}p_i^t\\boldsymbol{\\epsilon}_i^t\\right)\\cdot\\boldsymbol{\\omega}^t=\\boldsymbol{\\delta}^t\\cdot\\boldsymbol{\\omega}^t.\\]</li></ol><p>Observe that the loss incurred by the learner in the decision problem is equal to the loss incurred by \\(A\\). Thus, if for algorithm \\(A\\) we have an upper bound of the form</p><p>\\[L_A\\leq c\\min_i L_i+a\\ln N,\\]</p><p>then the decision problem is \\((c,a)\\)-bounded. On the other hand, using the lower bound given by Theorem 13 and the lower bound on \\(c(\\beta)\\) given in Equation (31), we get that for any \\(K\\) and any \\(\\beta\\), either</p><p>\\[c\\geq\\frac{\\ln(1/\\beta)}{K\\ln\\left(1-\\frac{1-\\beta}{K}\\right)}\\qquad\\text{or}\\qquad a\\geq\\frac{1}{K\\ln\\left(1-\\frac{1-\\beta}{K}\\right)}. \\tag{32}\\]</p><p>As \\(K\\) is a free parameter we can let \\(K\\to\\infty\\) and the denominators in Equation (32) become \\(1-\\beta\\) which gives the statement of the theorem.</p>",
+        "pdfStart": {
+          "statement": { "page": 6, "y": 566.26 },
+          "proof": { "page": 33, "y": 313.66 }
+        }
+      },
+      {
+        "id": "lemma-4",
+        "type": "Lemma",
+        "number": "4",
+        "title": "Choice of beta from loss and remainder bounds",
+        "section": "2.2 How to choose β",
+        "proofOrganization": "sketch",
+        "dependencies": [],
+        "statementHtml": "<p>Suppose \\(0\\leq L\\leq\\widetilde L\\) and \\(0&lt;R\\leq\\widetilde R\\). Let \\(\\beta=g(\\widetilde L/\\widetilde R)\\) where \\(g(z)=1/(1+\\sqrt{2/z})\\). Then</p><p>\\[\\frac{-L\\ln\\beta+R}{1-\\beta}\\leq L+\\sqrt{2\\widetilde L\\widetilde R}+R.\\]</p>",
+        "proofHtml": "<p>(Sketch) It can be shown that \\(-\\ln\\beta\\leq(1-\\beta^2)/(2\\beta)\\) for \\(\\beta\\in(0,1]\\). Applying this approximation and the given choice of \\(\\beta\\) yields the result.</p>",
+        "pdfStart": {
+          "statement": { "page": 7, "y": 146.88 },
+          "proof": { "page": 7, "y": 201.76 }
+        }
+      },
+      {
+        "id": "theorem-5",
+        "type": "Theorem",
+        "number": "5",
+        "title": "Expected loss with expert advice",
+        "section": "3 Applications",
+        "proofOrganization": "stated-without-separate-proof",
+        "proofNote": "The theorem is introduced as the result of applying Equation (11); the paper gives no separately labelled proof.",
+        "dependencies": ["theorem-2", "lemma-4"],
+        "statementHtml": "<p>For any loss function \\(\\lambda\\), for any set of experts, and for any sequence of outcomes, the expected loss of \\(\\mathrm{Hedge}(\\beta)\\) if used as described above is at most</p><p>\\[\\sum_{t=1}^{T}\\Lambda(D^t,\\omega^t)\\leq\\min_i\\sum_{t=1}^{T}\\Lambda(\\mathcal{E}_i^t,\\omega^t)+\\sqrt{2\\widetilde L\\ln N}+\\ln N\\]</p><p>where \\(\\widetilde L\\leq T\\) is an assumed bound on the expected loss of the best expert, and \\(\\beta=g(\\widetilde L/\\ln N)\\).</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 8, "y": 323.96 }
+        }
+      },
+      {
+        "id": "theorem-6",
+        "type": "Theorem",
+        "number": "6",
+        "title": "AdaBoost training-error bound",
+        "section": "4.2 Analysis",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-1", "theorem-2"],
+        "statementHtml": "<p>Suppose the weak learning algorithm <strong>WeakLearn</strong>, when called by <strong>AdaBoost</strong>, generates hypotheses with errors \\(\\epsilon_1,\\ldots,\\epsilon_T\\) (as defined in Step 3 of Figure 2.) Then the error \\(\\epsilon=\\Pr_{i\\sim D}[h_f(x_i)\\neq y_i]\\) of the final hypothesis \\(h_f\\) output by <strong>AdaBoost</strong> is bounded above by</p><p>\\[\\epsilon\\leq 2^T\\prod_{t=1}^{T}\\sqrt{\\epsilon_t(1-\\epsilon_t)}. \\tag{14}\\]</p>",
+        "proofHtml": "<p>We adapt the main arguments from Lemma 1 and Theorem 2. We use \\(\\mathbf{p}^t\\) and \\(\\mathbf{w}^t\\) as they are defined in Figure 2.</p><p>Similar to Equation (4), the update rule given in Step 5 in Figure 2 implies that</p><p>\\[\\sum_{i=1}^{N}w_i^{t+1}=\\sum_{i=1}^{N}w_i^t\\beta_t^{1-|h_t(x_i)-y_i|}\\leq\\sum_{i=1}^{N}w_i^t\\bigl(1-(1-\\beta_t)(1-|h_t(x_i)-y_i|)\\bigr)=\\left(\\sum_{i=1}^{N}w_i^t\\right)\\bigl(1-(1-\\epsilon_t)(1-\\beta_t)\\bigr). \\tag{15}\\]</p><p>Combining this inequality over \\(t=1,\\ldots,T\\), we get that</p><p>\\[\\sum_{i=1}^{N}w_i^{T+1}\\leq\\prod_{t=1}^{T}\\bigl(1-(1-\\epsilon_t)(1-\\beta_t)\\bigr). \\tag{16}\\]</p><p>The final hypothesis \\(h_f\\), as defined in Figure 2, makes a mistake on instance \\(i\\) only if</p><p>\\[\\prod_{t=1}^{T}\\beta_t^{-|h_t(x_i)-y_i|}\\geq\\left(\\prod_{t=1}^{T}\\beta_t\\right)^{-1/2} \\tag{17}\\]</p><p>(since \\(y_i\\in\\{0,1\\}\\)). The final weight of any instance \\(i\\) is</p><p>\\[w_i^{T+1}=D(i)\\prod_{t=1}^{T}\\beta_t^{1-|h_t(x_i)-y_i|}. \\tag{18}\\]</p><p>Combining Equations (17) and (18) we can lower bound the sum of the final weights by the sum of the final weights of the examples on which \\(h_f\\) is incorrect:</p><p>\\[\\sum_{i=1}^{N}w_i^{T+1}\\geq\\sum_{i:h_f(x_i)\\neq y_i}w_i^{T+1}\\geq\\left(\\sum_{i:h_f(x_i)\\neq y_i}D(i)\\right)\\left(\\prod_{t=1}^{T}\\beta_t\\right)^{1/2}=\\epsilon\\left(\\prod_{t=1}^{T}\\beta_t\\right)^{1/2}, \\tag{19}\\]</p><p>where \\(\\epsilon\\) is the error of \\(h_f\\). Combining Equations (16) and (19), we get that</p><p>\\[\\epsilon\\leq\\prod_{t=1}^{T}\\frac{1-(1-\\epsilon_t)(1-\\beta_t)}{\\sqrt{\\beta_t}}. \\tag{20}\\]</p><p>As all the factors in the product are positive, we can minimize the right hand side by minimizing each factor separately. Setting the derivative of the \\(t\\)th factor to zero, we find that the choice of \\(\\beta_t\\) which minimizes the right hand side is \\(\\beta_t=\\epsilon_t/(1-\\epsilon_t)\\). Plugging this choice of \\(\\beta_t\\) into Equation (20) we get Equation (14), completing the proof.</p>",
+        "pdfStart": {
+          "statement": { "page": 14, "y": 243.96 },
+          "proof": { "page": 14, "y": 313.66 }
+        }
+      },
+      {
+        "id": "theorem-7",
+        "type": "Theorem",
+        "number": "7",
+        "title": "Vapnik uniform-convergence bound",
+        "section": "4.3 Generalization error",
+        "proofOrganization": "quoted-without-proof",
+        "proofNote": "The paper explicitly quotes this as Vapnik's Theorem 6.7 and gives no proof.",
+        "dependencies": [],
+        "statementHtml": "<p><strong>(Vapnik)</strong> Let \\(H\\) be a class of binary functions over some domain \\(X\\). Let \\(d\\) be the VC-dimension of \\(H\\). Let \\(P\\) be a distribution over the pairs \\(X\\times\\{0,1\\}\\). For \\(h\\in H\\), define the (generalization) error of \\(h\\) with respect to \\(P\\) to be</p><p>\\[\\epsilon_g(h)\\mathrel{:=}\\Pr_{(x,y)\\sim P}[h(x)\\neq y].\\]</p><p>Let \\(S=\\{(x_1,y_1),\\ldots,(x_N,y_N)\\}\\) be a sample (training set) of \\(N\\) independent random examples drawn from \\(X\\times\\{0,1\\}\\) according to \\(P\\). Define the empirical error of \\(h\\) with respect to the sample \\(S\\) to be</p><p>\\[\\widehat\\epsilon(h)\\mathrel{:=}\\frac{|\\{i:h(x_i)\\neq y_i\\}|}{N}.\\]</p><p>Then, for any \\(\\delta&gt;0\\) we have that</p><p>\\[\\Pr\\left[\\exists h\\in H:\\left|\\widehat\\epsilon(h)-\\epsilon_g(h)\\right|&gt;2\\sqrt{\\frac{d\\left(\\ln\\frac{2N}{d}+1\\right)+\\ln\\frac{9}{\\delta}}{N}}\\right]\\leq\\delta\\]</p><p>where the probability is computed with respect to the random choice of the sample \\(S\\).</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 16, "y": 108.66 }
+        }
+      },
+      {
+        "id": "theorem-8",
+        "type": "Theorem",
+        "number": "8",
+        "title": "VC-dimension of boosted threshold classes",
+        "section": "4.3 Generalization error",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>Let \\(H\\) be a class of binary functions of VC-dimension \\(d\\geq2\\). Then the VC-dimension of \\(\\Theta_T(H)\\) is at most \\(2(d+1)(T+1)\\log_2(e(T+1))\\) (where \\(e\\) is the base of the natural logarithm.)</p><p>Therefore, if the hypotheses generated by <strong>WeakLearn</strong> are chosen from a class of VC-dimension \\(d\\geq2\\), then the final hypotheses generated by <strong>AdaBoost</strong> after \\(T\\) iterations belong to a class of VC-dimension at most \\(2(d+1)(T+1)\\log_2[e(T+1)]\\).</p>",
+        "proofHtml": "<p>We use a result about the VC-dimension of computation networks proved by Baum and Haussler [1]. We can view the final hypothesis output by <strong>AdaBoost</strong> as a function that is computed by a two-layer feed-forward network where the computation units of the first layer are the weak hypotheses and the computation unit of the second layer is the linear threshold function which combines the weak hypotheses. The VC-dimension of the set of linear threshold functions over \\(\\mathbb{R}^T\\) is \\(T+1\\) [20]. Thus the sum over all computation units of the VC-dimensions of the classes of functions associated with each unit is \\(Td+(T+1)&lt;(T+1)(d+1)\\). Baum and Haussler's Theorem 1 [1] implies that the number of different functions that can be realized by \\(h\\in\\Theta_T(H)\\) when the domain is restricted to a set of size \\(m\\) is at most</p><p>\\[\\left(\\frac{(T+1)em}{(T+1)(d+1)}\\right)^{(T+1)(d+1)}.\\]</p><p>If \\(d\\geq2\\), \\(T\\geq1\\) and we set \\(m=\\lceil2(T+1)(d+1)\\log_2[e(T+1)]\\rceil\\), then the number of realizable functions is smaller than \\(2^m\\) which implies that the VC-dimension of \\(\\Theta_T(H)\\) is smaller than \\(m\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 16, "y": 556.26 },
+          "proof": { "page": 16, "y": 632.86 }
+        }
+      },
+      {
+        "id": "theorem-9",
+        "type": "Theorem",
+        "number": "9",
+        "title": "Improved soft-threshold error bound",
+        "section": "4.5 Improving the error bound",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-6"],
+        "statementHtml": "<p>Let \\(\\epsilon_1,\\ldots,\\epsilon_T\\) be as in Theorem 6, and let \\(r(x_i)\\) be as defined above. Let the modified final hypothesis be defined by \\(h_f=F(r(x_i))\\) where \\(F\\) satisfies the following for \\(r\\in[0,1]\\):</p><p>\\[F(1-r)=1-F(r);\\qquad\\text{and}\\qquad F(r)\\leq\\frac{1}{2}\\left(\\prod_{t=1}^{T}\\beta_t\\right)^{1/2-r}.\\]</p><p>Then the error \\(\\epsilon\\) of \\(h_f\\) is bounded above by</p><p>\\[\\epsilon\\leq2^{T-1}\\prod_{t=1}^{T}\\sqrt{\\epsilon_t(1-\\epsilon_t)}.\\]</p><p>For instance, it can be shown that the sigmoid function \\(F(r)=\\left(1+\\prod_{t=1}^{T}\\beta_t^{2r-1}\\right)^{-1}\\) satisfies the conditions of the theorem.</p>",
+        "proofHtml": "<p>By our assumptions on \\(F\\), the error of \\(h_f\\) is</p><p>\\[\\begin{aligned}\\epsilon&amp;=\\sum_{i=1}^{N}D(i)\\cdot|F(r(x_i))-y_i|\\\\&amp;=\\sum_{i=1}^{N}D(i)F(|r(x_i)-y_i|)\\\\&amp;\\leq\\frac{1}{2}\\sum_{i=1}^{N}D(i)\\left(\\prod_{t=1}^{T}\\beta_t\\right)^{1/2-|r(x_i)-y_i|}.\\end{aligned}\\]</p><p>Since \\(y_i\\in\\{0,1\\}\\) and by definition of \\(r(x_i)\\), this implies that</p><p>\\[\\begin{aligned}\\epsilon&amp;\\leq\\frac{1}{2}\\sum_{i=1}^{N}D(i)\\prod_{t=1}^{T}\\beta_t^{1/2-|h_t(x_i)-y_i|}\\\\&amp;=\\frac{1}{2}\\left(\\sum_{i=1}^{N}w_i^{T+1}\\right)\\prod_{t=1}^{T}\\beta_t^{-1/2}\\\\&amp;\\leq\\frac{1}{2}\\prod_{t=1}^{T}\\bigl(1-(1-\\epsilon_t)(1-\\beta_t)\\bigr)\\beta_t^{-1/2}.\\end{aligned}\\]</p><p>The last two steps follow from Equations (18) and (16), respectively. The theorem now follows from our choice of \\(\\beta_t\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 18, "y": 416.76 },
+          "proof": { "page": 18, "y": 608.36 }
+        }
+      },
+      {
+        "id": "theorem-10",
+        "type": "Theorem",
+        "number": "10",
+        "title": "AdaBoost.M1 error bound",
+        "section": "5.1 First multi-class extension",
+        "proofOrganization": "reduction",
+        "dependencies": ["theorem-6"],
+        "statementHtml": "<p>Suppose the weak learning algorithm <strong>WeakLearn</strong>, when called by <strong>AdaBoost.M1</strong>, generates hypotheses with errors \\(\\epsilon_1,\\ldots,\\epsilon_T\\), where \\(\\epsilon_t\\) is as defined in Figure 3. Assume each \\(\\epsilon_t\\leq1/2\\). Then the error \\(\\epsilon=\\Pr_{i\\sim D}[h_f(x_i)\\neq y_i]\\) of the final hypothesis \\(h_f\\) output by <strong>AdaBoost.M1</strong> is bounded above by</p><p>\\[\\epsilon\\leq2^T\\prod_{t=1}^{T}\\sqrt{\\epsilon_t(1-\\epsilon_t)}.\\]</p>",
+        "proofHtml": "<p>To prove this theorem, we reduce our setup for <strong>AdaBoost.M1</strong> to an instantiation of <strong>AdaBoost</strong>, and then apply Theorem 6. For clarity, we mark with tildes variables in the reduced <strong>AdaBoost</strong> space. For each of the given examples \\((x_i,y_i)\\), we define an <strong>AdaBoost</strong> example \\((\\widetilde x_i,\\widetilde y_i)\\) in which \\(\\widetilde x_i=i\\) and \\(\\widetilde y_i=0\\). We define the <strong>AdaBoost</strong> distribution \\(\\widetilde D\\) over examples to be equal to the <strong>AdaBoost.M1</strong> distribution \\(D\\). On the \\(t\\)th round, we provide <strong>AdaBoost</strong> with a hypothesis \\(\\widetilde h_t\\) defined by the rule</p><p>\\[\\widetilde h_t(i)=\\llbracket h_t(x_i)\\neq y_i\\rrbracket\\]</p><p>in terms of the \\(t\\)th hypothesis \\(h_t\\) which was returned to <strong>AdaBoost.M1</strong> by <strong>WeakLearn</strong>.</p><p>Given this setup, it can be easily proved by induction on the number of rounds that the weight vectors, distributions and errors computed by <strong>AdaBoost</strong> and <strong>AdaBoost.M1</strong> are identical so that \\(\\widetilde{\\mathbf{w}}^t=\\mathbf{w}^t\\), \\(\\widetilde{\\mathbf{p}}^t=\\mathbf{p}^t\\), \\(\\widetilde\\epsilon_t=\\epsilon_t\\) and \\(\\widetilde\\beta_t=\\beta_t\\).</p><p>Suppose that <strong>AdaBoost.M1</strong>'s final hypothesis \\(h_f\\) makes a mistake on instance \\(i\\) so that \\(h_f(x_i)\\neq y_i\\). Then, by definition of \\(h_f\\),</p><p>\\[\\sum_{t=1}^{T}\\alpha_t\\llbracket h_t(x_i)=y_i\\rrbracket\\leq\\sum_{t=1}^{T}\\alpha_t\\llbracket h_t(x_i)=h_f(x_i)\\rrbracket\\]</p><p>where \\(\\alpha_t=\\ln(1/\\beta_t)\\). This implies</p><p>\\[\\sum_{t=1}^{T}\\alpha_t\\llbracket h_t(x_i)=y_i\\rrbracket\\leq\\frac{1}{2}\\sum_{t=1}^{T}\\alpha_t,\\]</p><p>using the fact that each \\(\\alpha_t\\geq0\\) since \\(\\epsilon_t\\leq1/2\\). By definition of \\(\\widetilde h_t\\), this implies</p><p>\\[\\sum_{t=1}^{T}\\alpha_t\\widetilde h_t(i)\\geq\\frac{1}{2}\\sum_{t=1}^{T}\\alpha_t,\\]</p><p>so \\(\\widetilde h_f(i)=1\\) by definition of the final <strong>AdaBoost</strong> hypothesis.</p><p>Therefore,</p><p>\\[\\Pr_{i\\sim D}[h_f(x_i)\\neq y_i]\\leq\\Pr_{i\\sim D}[\\widetilde h_f(i)=1].\\]</p><p>Since each <strong>AdaBoost</strong> instance has a 0-label, \\(\\Pr_{i\\sim D}[\\widetilde h_f(i)=1]\\) is exactly the error of \\(\\widetilde h_f\\). Applying Theorem 6, we can obtain a bound on this error, completing the proof.</p>",
+        "pdfStart": {
+          "statement": { "page": 22, "y": 107.86 },
+          "proof": { "page": 22, "y": 177.26 }
+        }
+      },
+      {
+        "id": "theorem-11",
+        "type": "Theorem",
+        "number": "11",
+        "title": "AdaBoost.M2 pseudo-loss bound",
+        "section": "5.2 Second multi-class extension",
+        "proofOrganization": "reduction",
+        "dependencies": ["theorem-6", "theorem-10"],
+        "statementHtml": "<p>Suppose the weak learning algorithm <strong>WeakLearn</strong>, when called by <strong>AdaBoost.M2</strong> generates hypotheses with pseudo-losses \\(\\epsilon_1,\\ldots,\\epsilon_T\\), where \\(\\epsilon_t\\) is as defined in Figure 4. Then the error \\(\\epsilon=\\Pr_{i\\sim D}[h_f(i)\\neq y_i]\\) of the final hypothesis \\(h_f\\) output by <strong>AdaBoost.M2</strong> is bounded above by</p><p>\\[\\epsilon\\leq(k-1)2^T\\prod_{t=1}^{T}\\sqrt{\\epsilon_t(1-\\epsilon_t)}.\\]</p>",
+        "proofHtml": "<p>As in the proof of Theorem 10, we reduce to an instance of <strong>AdaBoost</strong> and apply Theorem 6. As before, we mark <strong>AdaBoost</strong> variables with a tilde.</p><p>For each training instance \\((x_i,y_i)\\) and for each incorrect label \\(y\\in Y-\\{y_i\\}\\), we define one <strong>AdaBoost</strong> instance \\(\\widetilde x_{i,y}=(i,y)\\) with associated label \\(\\widetilde y_{i,y}=0\\). Thus, there are \\(\\widetilde N=N(k-1)\\) <strong>AdaBoost</strong> instances, each indexed by a pair \\((i,y)\\). The distribution over these instances is defined to be \\(\\widetilde D(i,y)=D(i)/(k-1)\\). The \\(t\\)th hypothesis \\(\\widetilde h_t\\) provided to <strong>AdaBoost</strong> for this reduction is defined by the rule</p><p>\\[\\widetilde h_t(i,y)=\\frac{1}{2}\\bigl(1-h_t(x_i,y_i)+h_t(x_i,y)\\bigr).\\]</p><p>With this setup, it can be verified that the computed distributions and errors will be identical so that \\(\\widetilde w_{i,y}^t=w_{i,y}^t\\), \\(\\widetilde p_{i,y}^t=p_{i,y}^t\\), \\(\\widetilde\\epsilon_t=\\epsilon_t\\) and \\(\\widetilde\\beta_t=\\beta_t\\).</p><p>Suppose now that \\(h_f(x_i)\\neq y_i\\) for some example \\(i\\). Then, by definition of \\(h_f\\),</p><p>\\[\\sum_{t=1}^{T}\\alpha_t h_t(x_i,y_i)\\leq\\sum_{t=1}^{T}\\alpha_t h_t(x_i,h_f(x_i)),\\]</p><p>where \\(\\alpha_t=\\ln(1/\\beta_t)\\). This implies that</p><p>\\[\\sum_{t=1}^{T}\\alpha_t\\widetilde h_t(i,h_f(x_i))=\\frac{1}{2}\\sum_{t=1}^{T}\\alpha_t\\bigl(1-h_t(x_i,y_i)+h_t(x_i,h_f(x_i))\\bigr)\\geq\\frac{1}{2}\\sum_{t=1}^{T}\\alpha_t\\]</p><p>so \\(\\widetilde h_f(i,h_f(x_i))=1\\) by definition of \\(\\widetilde h_f\\).</p><p>Therefore,</p><p>\\[\\Pr_{i\\sim D}[h_f(x_i)\\neq y_i]\\leq\\Pr_{i\\sim D}[\\exists y\\neq y_i:\\widetilde h_f(i,y)=1].\\]</p><p>Since all <strong>AdaBoost</strong> instances have a 0-label, and by definition of \\(\\widetilde D\\), the error of \\(\\widetilde h_f\\) is</p><p>\\[\\Pr_{(i,y)\\sim\\widetilde D}[\\widetilde h_f(i,y)=1]\\geq\\frac{1}{k-1}\\Pr_{i\\sim D}[\\exists y\\neq y_i:\\widetilde h_f(i,y)=1].\\]</p><p>Applying Theorem 6 to bound the error of \\(\\widetilde h_f\\), this completes the proof.</p>",
+        "pdfStart": {
+          "statement": { "page": 25, "y": 550.16 },
+          "proof": { "page": 25, "y": 620.06 }
+        }
+      },
+      {
+        "id": "theorem-12",
+        "type": "Theorem",
+        "number": "12",
+        "title": "AdaBoost.R mean-squared-error bound",
+        "section": "5.3 Boosting regression algorithms",
+        "proofOrganization": "preceding-text",
+        "proofNote": "Immediately before the theorem, the paper states that the proof follows from the preceding reduction and a direct application of Theorem 6; it gives no proof after the statement.",
+        "dependencies": ["theorem-6"],
+        "statementHtml": "<p>Suppose the weak learning algorithm <strong>WeakLearn</strong>, when called by <strong>AdaBoost.R</strong>, generates hypotheses with errors \\(\\epsilon_1,\\ldots,\\epsilon_T\\), where \\(\\epsilon_t\\) is as defined in Figure 5. Then the mean squared error \\(\\epsilon=\\mathbb{E}_{i\\sim D}[(h_f(x_i)-y_i)^2]\\) of the final hypothesis \\(h_f\\) output by <strong>AdaBoost.R</strong> is bounded above by</p><p>\\[\\epsilon\\leq2^T\\prod_{t=1}^{T}\\sqrt{\\epsilon_t(1-\\epsilon_t)}. \\tag{26}\\]</p>",
+        "proofHtml": "<p>The proof follows from the reduction described above coupled with a direct application of Theorem 6.</p>",
+        "pdfStart": {
+          "statement": { "page": 30, "y": 416.76 },
+          "proof": { "page": 30, "y": 355.21 }
+        }
+      },
+      {
+        "id": "theorem-13",
+        "type": "Theorem",
+        "number": "13",
+        "title": "Vovk characterization of bounded decision problems",
+        "section": "Appendix A Proof of Theorem 3",
+        "proofOrganization": "quoted-without-proof",
+        "proofNote": "The paper quotes this as Vovk's main result and does not reproduce its proof; the following labelled proof is the paper's proof of Theorem 3.",
+        "dependencies": [],
+        "statementHtml": "<p><strong>(Vovk)</strong> A decision problem is \\((c,a)\\)-bounded if and only if for all \\(\\beta\\in(0,1)\\),</p><p>\\[c\\geq c(\\beta)\\qquad\\text{or}\\qquad a\\geq c(\\beta)/\\ln(1/\\beta).\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 33, "y": 282.57 }
+        }
+      }
+    ]
+  }
+]

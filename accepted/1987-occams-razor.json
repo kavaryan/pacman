@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1987-occams-razor",
+    "theorems": [
+      {
+        "id": "lemma-2-1",
+        "type": "Lemma",
+        "number": "2.1",
+        "title": "Consistency bound for finite hypothesis classes",
+        "section": "2. The Razor applied",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>Given any function \\(f\\) in a hypothesis class of \\(r\\) hypotheses, the probability that any hypothesis with error larger than \\(\\epsilon\\) is consistent with a sample of \\(f\\) of size \\(m\\) is less than \\((1-\\epsilon)^m r\\).</p>",
+        "proofHtml": "<p>Let \\(E_i\\) be the event that hypothesis \\(h_i\\) agrees with an observation of \\(f\\), and \\(E_i^m\\) be the event that \\(h_i\\) agrees with all \\(m\\) observations of \\(f\\). The probability we are trying to bound is</p><p>\\[P^m\\!\\left(\\bigcup E_i^m\\right),\\]</p><p>where the union is over all \\(i\\) such that \\(h_i\\) has error larger than \\(\\epsilon\\). For such an \\(i\\), by independence and by the definition of error,</p><p>\\[P^m(E_i^m)&lt;(1-\\epsilon)^m.\\]</p><p>The subadditivity of probability measures now gives the desired results. \\(\\square\\)</p>",
+        "pdfStart": {
+          "statement": { "page": 2, "y": 237.22752 },
+          "proof": { "page": 2, "y": 306.10752 }
+        }
+      },
+      {
+        "id": "theorem-2-3",
+        "type": "Theorem",
+        "number": "2.3",
+        "title": "Occam algorithms imply polynomial learnability",
+        "section": "2. The Razor applied",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-2-1"],
+        "statementHtml": "<p>Given independent observations of any function in \\(H\\) of complexity at most \\(n\\), an Occam-algorithm with parameters \\(c\\geq 1\\) and \\(0\\leq\\alpha&lt;1\\) produces a hypothesis of error at most \\(\\epsilon\\) with probability at least \\(1-\\delta\\) using sample size polynomial in \\(n\\), \\(1/\\epsilon\\), and \\(1/\\delta\\), independent of the function and of the probability distribution. The sample size required is</p><p>\\[O\\!\\left(\\frac{\\ln(1/\\delta)}{\\epsilon}+\\left(\\frac{n^c}{\\epsilon}\\right)^{1/(1-\\alpha)}\\right).\\]</p>",
+        "proofHtml": "<p>We will show that the sample size</p><p>\\[m\\geq\\max\\left\\{\\frac{2\\ln(1/\\delta)}{-\\ln(1-\\epsilon)},\\left(\\frac{2n^c\\ln(2)}{-\\ln(1-\\epsilon)}\\right)^{1/(1-\\alpha)}\\right\\}\\]</p><p>is sufficient. The result then follows from the definition of Occam-algorithm. The second lower bound on \\(m\\) implies that</p><p>\\[m^{1-\\alpha}\\geq\\frac{2n^c\\ln(2)}{-\\ln(1-\\epsilon)},\\]</p><p>or</p><p>\\[n^c m^\\alpha\\ln(2)\\leq-\\tfrac{1}{2}m\\ln(1-\\epsilon).\\]</p><p>Hence, since the hypotheses under consideration are given by binary strings of length at most \\(n^c m^\\alpha\\), the number of hypotheses, \\(r\\), is at most</p><p>\\[2^{n^c m^\\alpha}\\leq(1-\\epsilon)^{-m/2}.\\]</p><p>By Lemma 2.1 and the first lower bound on \\(m\\), the probability of producing a hypothesis with error larger than \\(\\epsilon\\) is less than</p><p>\\[(1-\\epsilon)^m r\\leq(1-\\epsilon)^{m/2}\\leq\\delta.\\qquad\\square\\]</p>",
+        "pdfStart": {
+          "statement": { "page": 3, "y": 251.61576 },
+          "proof": { "page": 3, "y": 402.09576 }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,116 @@
+[
+  {
+    "id": "1999-pac-bayesian-model-averaging",
+    "theorems": [
+      {
+        "id": "theorem-1",
+        "type": "Theorem",
+        "number": "1",
+        "title": "PAC-Bayesian bound for pruned model mixtures",
+        "section": "2 Statement of Main Results",
+        "proofOrganization": "composite",
+        "proofNote": "The paper derives Theorem 1 from Lemma 2 immediately after stating that lemma; Lemma 2 is proved later in Section 3.",
+        "dependencies": ["lemma-2"],
+        "statementHtml": "<p>With probability at least \\(1-\\delta\\) over the selection of the sample \\(S\\) of size \\(m\\) we have the following for all pruned distributions \\(Q\\).</p><p>\\[\\ell(Q)\\leq \\hat\\ell(Q,S)+\\sqrt{\\frac{D(Q\\mathbin\\|P)+\\ln\\frac{1}{\\delta}+\\frac{5}{2}\\ln m+8}{2m-1}}\\]</p>",
+        "proofHtml": "<p>Theorem 1 is proved from the following lemma.</p><p>Lemma 2 is proved in section 3. Note that if \\(\\ln\\frac{1}{\\delta}&gt;2m\\) or \\(D(Q\\mathbin\\|P)&gt;2m\\) then the bound in theorem 1 follows from the fact that \\(\\ell(Q)\\leq 1\\). If \\(\\ln\\frac{1}{\\delta}\\leq 2m\\) and \\(D(Q\\mathbin\\|P)\\leq 2m\\) then theorem 1 follows from lemma 2 by an application of Jensen’s inequality. Assuming that we are only interested in cases where the premises of lemma 2 hold, lemma 2 gives a tighter bound than theorem 1.</p>",
+        "pdfStart": {
+          "statement": { "page": 2, "y": 575.89488 },
+          "proof": { "page": 3, "y": 171.49488 }
+        }
+      },
+      {
+        "id": "lemma-2",
+        "type": "Lemma",
+        "number": "2",
+        "title": "Pruned-distribution deviation bound",
+        "section": "2 Statement of Main Results; 3 Proof of Lemma 2",
+        "proofOrganization": "composite",
+        "proofNote": "Section 3 proves the lemma through Lemmas 3–7. Their statements and proofs are separate entries; the encompassing argument and the final calculation are transcribed here.",
+        "dependencies": ["lemma-3", "lemma-4", "lemma-5", "lemma-6", "lemma-7"],
+        "statementHtml": "<p>For \\(\\ln\\frac{1}{\\delta}\\leq 2m\\) we have that with probability \\(1-\\delta\\) over the selection of a sample \\(S\\) of size \\(m\\) the following holds for all pruned distributions satisfying \\(D(Q\\mathbin\\|P)\\leq 2m\\).</p><p>\\[\\ell(Q)\\leq \\hat\\ell(Q,S)+\\sum_i Q_i\\sqrt{\\frac{\\ln\\frac{Q_i}{P_i}+\\ln\\frac{1}{\\delta}+\\frac{5}{2}\\ln m+8}{2m-1}}\\]</p>",
+        "proofHtml": "<p>The departure point for the proof of lemma 2 is the following where \\(S\\) is a sample of size \\(m\\) and \\(\\gamma_i\\) abbreviates \\(|\\ell(c_i)-\\hat\\ell(c_i,S)|\\).</p><p>To prove lemma 2 we consider selecting a sample \\(S\\). Lemma 3 implies that with probability at least \\(1-\\delta\\) we have the following.</p><p>\\[\\sum_i P_i e^{(2m-1)\\gamma_i^2}\\leq\\frac{4m}{\\delta}. \\tag{5}\\]</p><p>After selecting \\(S\\) satisfying (5) we consider an arbitrary “posterior” distribution \\(Q\\). Lemma 2 can be viewed as an upper bound on the quantity \\(\\ell(Q)-\\hat\\ell(Q,S)\\). But note that</p><p>\\[\\ell(Q)-\\hat\\ell(Q,S)=\\sum_iQ_i\\bigl(\\ell(c_i)-\\hat\\ell(c_i,S)\\bigr)\\leq\\sum_iQ_i\\gamma_i.\\]</p><p>So to prove lemma 2 it now suffices to show that (5) plus \\(\\ln\\frac{1}{\\delta}\\leq 2m\\) implies the following for all pruned distributions \\(Q\\) such that \\(D(Q\\mathbin\\|P)\\leq 2m\\).</p><p>\\[\\sum_iQ_i\\gamma_i\\leq\\sum_iQ_i\\sqrt{\\frac{\\ln\\frac{Q_i}{P_i}+\\ln\\frac{1}{\\delta}+\\frac{5}{2}\\ln m+8}{2m-1}}. \\tag{6}\\]</p><p>To prove (6) for a given \\(Q\\) we select \\(\\gamma_i\\) so as to maximize the quantity \\(\\sum_iQ_i\\gamma_i\\) subject to the constraint (5). Using Lagrange multipliers we set the gradient of the constraint to be equal to a multiplier \\(\\lambda\\) times the gradient of the objective function.</p><p>\\[P_i2(2m-1)\\gamma_i e^{(2m-1)\\gamma_i^2}=\\lambda Q_i.\\]</p><p>Formula (6) is trivially true if \\(Q_i&gt;0\\) but \\(P_i=0\\) for some \\(i\\). So we can assume without loss of generality that \\(P_i&gt;0\\) whenever \\(Q_i&gt;0\\). This allows the above to be rewritten as follows.</p><p>\\[2(2m-1)\\gamma_i e^{(2m-1)\\gamma_i^2}=\\frac{\\lambda Q_i}{P_i}.\\]</p><p>Note that \\(2(2m-1)xe^{(2m-1)x^2}\\) is an unbounded monotonically increasing function of \\(x\\). We now define \\(\\Delta_i(\\lambda)\\) to be the unique non-negative value satisfying the following.</p><p>\\[2(2m-1)\\Delta_i(\\lambda)e^{(2m-1)\\Delta_i^2(\\lambda)}=\\frac{\\lambda Q_i}{P_i}. \\tag{7}\\]</p><p>Now note that \\(\\sum_iP_i e^{(2m-1)\\Delta_i^2(\\lambda)}\\) is an unbounded monotonically increasing function of \\(\\lambda\\). We now define \\(\\lambda^*\\) to be the unique nonnegative value such that we have the following.</p><p>\\[\\sum_iP_i e^{(2m-1)\\Delta_i^2(\\lambda^*)}=\\frac{4m}{\\delta}. \\tag{8}\\]</p><p>Note that \\(\\Delta_i(0)=0\\) and \\(\\sum_iP_i e^{(2m-1)\\Delta_i^2(0)}=1&lt;\\frac{4m}{\\delta}\\). So we must have \\(\\lambda^*&gt;0\\) and hence \\(\\Delta_i(\\lambda^*)&gt;0\\) for \\(Q_i&gt;0\\).</p><p>It now suffices to bound \\(\\sum_iQ_i\\Delta_i(\\lambda^*)\\). Equation (7) implies that for \\(\\lambda\\gg 1\\) and \\(Q_i\\geq P_i\\) we have the following.</p><p>\\[\\Delta_i(\\lambda)\\approx\\sqrt{\\frac{\\ln\\frac{\\lambda Q_i}{P_i}}{2m-1}}.\\]</p><p>This approximate relationship is made more precise in the following two lemmas.</p><p>Lemma 2 now follows from the following calculation.</p><p>\\[\\begin{aligned}\\ell(Q)-\\hat\\ell(Q,S)&amp;\\leq\\sum_iQ_i\\gamma_i\\\\&amp;\\leq\\sum_iQ_i\\Delta_i(\\lambda^*)\\\\&amp;\\leq\\sum_iQ_i\\Delta_i\\!\\left(\\frac{64e^2m^{5/2}}{\\delta}\\right)\\\\&amp;\\leq\\sum_iQ_i\\sqrt{\\frac{\\ln\\frac{64e^2m^{5/2}Q_i}{\\delta P_i}}{2m-1}}\\\\&amp;\\leq\\sum_iQ_i\\sqrt{\\frac{\\ln\\frac{Q_i}{P_i}+\\frac{5}{2}\\ln m+\\ln\\frac{1}{\\delta}+8}{2m-1}}.\\end{aligned}\\]</p>",
+        "pdfStart": {
+          "statement": { "page": 3, "y": 189.49488 },
+          "proof": { "page": 3, "y": 57.97488 }
+        }
+      },
+      {
+        "id": "lemma-3",
+        "type": "Lemma",
+        "number": "3",
+        "title": "Exponential deviation sum",
+        "section": "3 Proof of Lemma 2",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>\\[\\forall^{\\delta}S\\qquad \\sum_iP_i e^{(2m-1)\\gamma_i^2}\\leq\\frac{4m}{\\delta}.\\]</p>",
+        "proofHtml": "<p>It suffices to prove the following.</p><p>\\[E_S E_{c_i}\\,e^{(2m-1)\\gamma_i^2}\\leq 4m. \\tag{3}\\]</p><p>Lemma 3 follows from (3) by an application of Markov’s inequality. To prove (3) it suffices to prove the following for any individual given concept.</p><p>\\[E_S e^{(2m-1)\\gamma^2}\\leq 4m. \\tag{4}\\]</p><p>By the Chernoff bound we have \\(P(\\gamma\\geq x)\\leq 2e^{-2mx^2}\\). We now consider the density function \\(f(\\gamma)\\) maximizing \\(\\int_0^\\infty e^{(2m-1)\\gamma^2}f(\\gamma)\\,d\\gamma\\) subject to the constraint that \\(\\int_x^\\infty f(\\gamma)\\,d\\gamma\\leq 2e^{-2mx^2}\\). The maximum occurs when we have \\(\\int_x^\\infty f(\\gamma)\\,d\\gamma=2e^{-2mx^2}\\) which is realized when \\(f(\\gamma)=8m\\gamma e^{-2m\\gamma^2}\\). So we have the following.</p><p>\\[\\begin{aligned}E_S e^{(2m-1)\\gamma^2}&amp;\\leq\\int_0^\\infty e^{(2m-1)\\gamma^2}f(\\gamma)\\,d\\gamma\\\\&amp;=\\int_0^\\infty 8m\\gamma e^{(2m-1)\\gamma^2}e^{-2m\\gamma^2}\\,d\\gamma\\\\&amp;=\\int_0^\\infty 8m\\gamma e^{-\\gamma^2}\\,d\\gamma\\\\&amp;=4m.\\end{aligned}\\]</p>",
+        "pdfStart": {
+          "statement": { "page": 3, "y": 100.93488 },
+          "proof": { "page": 3, "y": 145.33488 }
+        }
+      },
+      {
+        "id": "lemma-4",
+        "type": "Lemma",
+        "number": "4",
+        "title": "Lagrange optimum for the deviation sum",
+        "section": "3 Proof of Lemma 2",
+        "proofOrganization": "direct",
+        "proofNote": "The displayed comparison in the supplied PDF prints \\(\\gamma_i\\) with the first fraction and \\(\\gamma_j\\) with the second, while the exponential subscripts are \\(j\\) and \\(k\\). Those printed subscripts are preserved rather than silently repaired.",
+        "dependencies": [],
+        "statementHtml": "<p>For any values of \\(\\gamma_i\\) satisfying (5) we have</p><p>\\[\\sum_iQ_i\\gamma_i\\leq\\sum_iQ_i\\Delta_i(\\lambda^*).\\]</p>",
+        "proofHtml": "<p>If \\(\\gamma_i&lt;0\\) then replacing \\(\\gamma_i\\) by \\(-\\gamma_i\\) increases \\(\\sum_iQ_i\\gamma_i\\) without violating (5). Hence we can assume without loss of generality that \\(\\gamma_i\\geq 0\\). Also, note that if \\(\\sum_iP_i e^{(2m-1)\\gamma_i^2}&lt;\\frac{4m}{\\delta}\\) then \\(\\sum_iQ_i\\gamma_i\\) can be increased by increasing some \\(\\gamma_i\\). Hence we can assume without loss of generality that \\(\\sum_iP_i e^{(2m-1)\\gamma_i^2}=\\frac{4m}{\\delta}\\). Also, if \\(\\gamma_j&gt;0\\) for some \\(j\\) such that \\(Q_j=0\\) then \\(\\sum_iQ_i\\gamma_i\\) can be increased by setting \\(\\gamma_j=0\\) while increasing some other \\(\\gamma_k\\) with \\(Q_k&gt;0\\). Hence we can assume without loss of generality that \\(\\gamma_j=0\\) whenever \\(Q_j=0\\). Finally, if there exist two indices \\(j\\) and \\(k\\) with \\(Q_j&gt;0\\) and \\(Q_k&gt;0\\) and</p><p>\\[\\frac{P_j}{Q_j}\\gamma_i e^{(2m-1)\\gamma_j^2}&gt;\\frac{P_k}{Q_k}\\gamma_j e^{(2m-1)\\gamma_k^2}\\]</p><p>then \\(\\sum_iQ_i\\gamma_i\\) can be increased by increasing \\(\\gamma_k\\) and decreasing \\(\\gamma_j\\) while holding \\(\\sum_iP_i e^{(2m-1)\\gamma_i^2}\\) constant. So we can assume without loss of generality that there exists a value \\(\\lambda'\\) such that for all indices \\(i\\) with \\(Q_i&gt;0\\) we have</p><p>\\[2(2m-1)\\gamma_i e^{(2m-1)\\gamma_i^2}=\\frac{\\lambda'Q_i}{P_i}.\\]</p><p>This implies that \\(\\gamma_i=\\Delta_i(\\lambda')\\). But we then have that \\(\\sum_iP_i e^{(2m-1)\\Delta_i^2(\\lambda')}=\\frac{4m}{\\delta}\\) which implies that \\(\\lambda'=\\lambda^*\\). So we now have that \\(\\gamma_i=\\Delta_i(\\lambda^*)\\) which implies the result.</p>",
+        "pdfStart": {
+          "statement": { "page": 4, "y": 332.29488 },
+          "proof": { "page": 4, "y": 367.57488 }
+        }
+      },
+      {
+        "id": "lemma-5",
+        "type": "Lemma",
+        "number": "5",
+        "title": "Upper bound on the Lagrange solution",
+        "section": "3 Proof of Lemma 2",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>For \\(m\\geq 1\\), \\(P_i&gt;0\\), \\(Q_i\\geq P_i\\), and \\(\\lambda\\geq e\\), we have the following.</p><p>\\[\\Delta_i(\\lambda)\\leq\\sqrt{\\frac{\\ln\\frac{\\lambda Q_i}{P_i}}{2m-1}}.\\]</p>",
+        "proofHtml": "<p>Let \\(f(x)\\) be the function mapping \\(x\\) to the quantity \\(2(2m-1)xe^{(2m-1)x^2}\\). By definition, \\(\\Delta_i(\\lambda)\\) satisfies \\(f(\\Delta_i(\\lambda))=\\frac{\\lambda Q_i}{P_i}\\). Note that for \\(x\\geq 0\\) we have that \\(f(x)\\) is a monotonically increasing function. Hence for \\(x\\geq 0\\) and \\(f(x)\\geq\\frac{\\lambda Q_i}{P_i}\\) we must have \\(\\Delta_i(\\lambda)\\leq x\\). Under the assumptions of the lemma we have \\(\\ln\\frac{\\lambda Q_i}{P_i}\\geq 1\\) which implies the following.</p><p>\\[\\begin{aligned}f\\!\\left(\\sqrt{\\frac{\\ln\\frac{\\lambda Q_i}{P_i}}{2m-1}}\\right)&amp;=2\\sqrt{(2m-1)\\ln\\frac{\\lambda Q_i}{P_i}}\\,\\frac{\\lambda Q_i}{P_i}\\\\&amp;\\geq\\frac{\\lambda Q_i}{P_i}.\\end{aligned}\\]</p>",
+        "pdfStart": {
+          "statement": { "page": 4, "y": 41.89488 },
+          "proof": { "page": 4, "y": 113.89488 }
+        }
+      },
+      {
+        "id": "lemma-6",
+        "type": "Lemma",
+        "number": "6",
+        "title": "Lower bound on the Lagrange solution",
+        "section": "3 Proof of Lemma 2",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-5"],
+        "statementHtml": "<p>For \\(m\\geq 1\\), \\(P_i&gt;0\\), \\(Q_i\\geq P_i\\), and \\(\\lambda\\geq e\\) we have the following.</p><p>\\[\\Delta_i(\\lambda)\\geq\\sqrt{\\frac{\\ln\\frac{\\lambda Q_i}{P_i}-\\frac{1}{2}\\ln m-\\ln\\ln\\frac{\\lambda Q_i}{P_i}-2}{2m-1}}.\\]</p>",
+        "proofHtml": "<p>By an argument similar to that in the proof of lemma 5, to show that \\(\\Delta_i(\\lambda)\\geq x\\) it suffices to show that \\(f(x)\\leq\\frac{\\lambda Q_i}{P_i}\\). In particular we have the following.</p><p>\\[\\begin{aligned}&amp;f\\!\\left(\\sqrt{\\frac{\\ln\\frac{\\lambda Q_i}{P_i}-\\frac{1}{2}\\ln m-\\ln\\ln\\frac{\\lambda Q_i}{P_i}-2}{2m-1}}\\right)\\\\&amp;=2\\sqrt{(2m-1)\\!\\left(\\ln\\frac{\\lambda Q_i}{P_i}-\\frac{1}{2}\\ln m-\\ln\\ln\\frac{\\lambda Q_i}{P_i}-2\\right)}\\,\\frac{\\lambda Q_i}{P_i}\\frac{1}{\\sqrt m\\ln\\frac{\\lambda Q_i}{P_i}e^2}\\\\&amp;\\leq4\\sqrt{m\\ln\\frac{\\lambda Q_i}{P_i}}\\,\\frac{\\lambda Q_i}{P_i}\\frac{1}{\\sqrt m\\ln\\frac{\\lambda Q_i}{P_i}e^2}\\\\&amp;=\\frac{\\lambda Q_i}{P_i}\\frac{1}{\\sqrt{\\ln\\frac{\\lambda Q_i}{P_i}}}\\frac{4}{e^2}\\\\&amp;\\leq\\frac{\\lambda Q_i}{P_i}.\\end{aligned}\\]</p>",
+        "pdfStart": {
+          "statement": { "page": 4, "y": 318.61488 },
+          "proof": { "page": 4, "y": 390.61488 }
+        }
+      },
+      {
+        "id": "lemma-7",
+        "type": "Lemma",
+        "number": "7",
+        "title": "Upper bound on the Lagrange multiplier",
+        "section": "3 Proof of Lemma 2",
+        "proofOrganization": "direct",
+        "proofNote": "The printed proof says that \\(g(x)\\geq 2m/\\delta\\) implies \\(\\lambda^*\\leq x\\), although it defines \\(g(\\lambda^*)=4m/\\delta\\) and later proves the latter threshold. The printed text is preserved here.",
+        "dependencies": ["lemma-6"],
+        "statementHtml": "<p>For \\(Q\\) pruned, \\(D(Q\\mathbin\\|P)\\leq 2m\\), and \\(\\ln\\frac{1}{\\delta}\\leq 2m\\) we have</p><p>\\[\\lambda^*\\leq\\frac{64e^2m^{5/2}}{\\delta}.\\]</p>",
+        "proofHtml": "<p>Let \\(g(\\lambda)\\) be the function mapping \\(\\lambda\\) to the quantity \\(\\sum_iP_i e^{(2m-1)\\Delta_i^2(\\lambda)}\\). The quantity \\(\\lambda^*\\) is defined by \\(g(\\lambda^*)=\\frac{4m}{\\delta}\\). Since \\(g\\) is a monotonically increasing function, \\(g(x)\\geq\\frac{2m}{\\delta}\\) implies \\(\\lambda^*\\leq x\\). Lemma 6 implies that for \\(x\\geq e\\) we have the following.</p><p>\\[\\begin{aligned}g(x)&amp;=\\sum_iP_i e^{(2m-1)\\Delta_i^2(x)}\\\\&amp;\\geq\\sum_iP_i\\frac{xQ_i}{P_i}\\frac{1}{\\sqrt{m\\ln\\frac{xQ_i}{P_i}}e^2}\\\\&amp;=\\frac{x}{e^2\\sqrt m}\\sum_i\\frac{Q_i}{\\sqrt{\\ln\\frac{xQ_i}{P_i}}}\\\\&amp;\\geq\\frac{x}{e^2\\sqrt m}\\frac{1}{\\sqrt{\\sum_iQ_i\\ln\\frac{xQ_i}{P_i}}}\\\\&amp;=\\frac{x}{e^2\\sqrt{m\\bigl(D(Q\\mathbin\\|P)+\\ln x\\bigr)}}\\\\&amp;\\geq\\frac{x}{e^2\\sqrt{m(2m+\\ln x)}}.\\end{aligned}\\]</p><p>Now inserting \\(x=\\frac{64e^2m^{5/2}}{\\delta}\\) we get the following.</p><p>\\[\\begin{aligned}g\\!\\left(\\frac{64e^2m^{5/2}}{\\delta}\\right)&amp;\\geq\\frac{64m^2}{\\delta\\left(2m+\\frac{5}{2}\\ln m+\\ln\\frac{1}{\\delta}+8\\right)}\\\\&amp;\\geq\\frac{64m^2}{\\delta\\left(2m+\\frac{5}{2}m+2m+8m\\right)}\\\\&amp;\\geq\\frac{4m}{\\delta}.\\end{aligned}\\]</p>",
+        "pdfStart": {
+          "statement": { "page": 4, "y": 676.69488 },
+          "proof": { "page": 5, "y": 42.89488 }
+        }
+      }
+    ]
+  }
+]

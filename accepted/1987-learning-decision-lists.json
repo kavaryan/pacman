@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1987-learning-decision-lists",
+    "theorems": [
+      {
+        "id": "theorem-1",
+        "type": "Theorem",
+        "number": "1",
+        "title": "Decision lists generalize k-CNF and k-DNF",
+        "section": "3.1 Decision lists generalize k-CNF and k-DNF formulae",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>For \\(0 &lt; k &lt; n\\), \\(k\\text{-CNF}(n)\\) and \\(k\\text{-DNF}(n)\\) are proper subsets of \\(k\\text{-DL}(n)\\).</p>",
+        "proofHtml": "<p>To see that \\(k\\)-DNF is a subset of \\(k\\)-DL, observe that we can easily transform a given formula in \\(k\\)-DNF into a decision list representing the same function. Each term of a DNF formula is converted into an item of a decision list with value 1. For example, the term \\(x_1\\overline{x}_2\\) would yield the item \\((x_1\\overline{x}_2,1)\\). The last (default) item of the decision list has the value 0.</p><p>To see that \\(k\\)-CNF is a subset of \\(k\\)-DL, recall that every \\(k\\)-CNF formula is the complement of some \\(k\\)-DNF formula, and that \\(k\\)-DL is closed under complementation.</p><p>The subset relations are proper, since neither \\(k\\)-CNF nor \\(k\\)-DNF is a subset of the other if \\(0 &lt; k &lt; n\\). ■</p>",
+        "pdfStart": {
+          "statement": { "page": 8, "y": 352.05576 },
+          "proof": { "page": 8, "y": 389.25576 }
+        }
+      },
+      {
+        "id": "corollary-1",
+        "type": "Corollary",
+        "number": "1",
+        "title": "Decision lists generalize bounded-size CNF and DNF",
+        "section": "3.1 Decision lists generalize k-CNF and k-DNF formulae",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-1"],
+        "statementHtml": "<p>For \\(0 &lt; k &lt; n\\), \\(k\\text{-clause-CNF}(n)\\) and \\(k\\text{-term-DNF}(n)\\) are proper subsets of \\(k\\text{-DL}(n)\\).</p>",
+        "proofHtml": "<p>This follows from the previous theorem and the previously noted facts that \\(k\\text{-clause-CNF}(n)\\) is a subset of \\(k\\text{-DNF}(n)\\), and that \\(k\\text{-term-DNF}(n)\\) is a subset of \\(k\\text{-CNF}(n)\\). ■</p>",
+        "pdfStart": {
+          "statement": { "page": 8, "y": 532.29576 },
+          "proof": { "page": 8, "y": 569.25576 }
+        }
+      },
+      {
+        "id": "theorem-2",
+        "type": "Theorem",
+        "number": "2",
+        "title": "Decision lists properly generalize the union of k-CNF and k-DNF",
+        "section": "3.1 Decision lists generalize k-CNF and k-DNF formulae",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>For \\(0 &lt; k &lt; n\\) and \\(n &gt; 2\\), \\((k\\text{-CNF}(n) \\cup k\\text{-DNF}(n))\\) is a proper subset of \\(k\\text{-DL}(n)\\).</p>",
+        "proofHtml": "<p>Our proof makes essential use of the notion of the <em>prime implicants</em> of a Boolean function \\(f\\). An <em>implicant</em> of \\(f\\) is any term that logically implies \\(f\\). A <em>prime implicant</em> is an implicant all of whose literals are essential: if any literal is dropped it is no longer an implicant. For example, for the function represented by Table 1, \\(\\overline{x}_1\\overline{x}_3\\overline{x}_4\\) is a prime implicant. We will also use the fact that if a function \\(f\\) has a prime implicant of size \\(t\\), then \\(f\\) has no \\(k\\)-DNF representation if \\(k &lt; t\\). It follows from this that if the negation of a function \\(f\\) has a prime implicant of size \\(t\\), then \\(f\\) has no \\(k\\)-CNF representation if \\(k &lt; t\\).</p><p>We break our proof into the cases \\(k=1\\) and \\(1 &lt; k &lt; n\\). For \\(k=1\\), we claim that the following decision list from \\(1\\text{-DL}(n)\\) represents a function \\(f\\) that is not in \\(1\\text{-CNF}(n) \\cup 1\\text{-DNF}(n)\\):</p><p>\\[(x_1,0),(x_2,1),(x_3,1),(\\mathrm{true},0). \\tag{3}\\]</p><p>To see that \\(f\\) is not in \\(1\\text{-DNF}(n)\\), note that \\(\\overline{x}_1x_2\\) is a prime implicant of \\(f\\). Similarly, to see that \\(f\\) is not in \\(1\\text{-CNF}(n)\\), note that \\(\\overline{x}_2\\overline{x}_3\\) is a prime implicant of the negation of \\(f\\).</p><p>For \\(1 &lt; k &lt; n\\), we consider the decision list:</p><p>\\[(\\overline{x}_1x_{k+1},1),(x_1\\overline{x}_{k+1},0),(x_1\\mathbin{\\oplus}x_2\\mathbin{\\oplus}\\cdots\\mathbin{\\oplus}x_k,1),(\\mathrm{true},0). \\tag{4}\\]</p><p>This is not a proper decision list according to our definition, since the third item does not have a term as its first part, but rather the “exclusive-or” of \\(x_1,\\ldots,x_k\\), where “\\(\\oplus\\)” denotes the exclusive-or (mod 2 addition) operator. However, it is simple to convert the function into a proper \\(k\\)-DL representation, since we are only taking the exclusive-or of \\(k\\) variables. The conversion would involve replacing the third item above with a sequence of \\(2^{k-1}\\) items whose first parts are all possible terms of length \\(k\\) involving variables \\(x_1,\\ldots,x_k\\) having an odd number of unnegated variables, and whose second parts are always 1.</p><p>The function \\(f\\) represented above has the prime implicant</p><p>\\[x_1\\overline{x}_2\\overline{x}_3\\cdots\\overline{x}_k x_{k+1}, \\tag{5}\\]</p><p>so that it has no \\(k\\)-DNF representation. Similarly, its negation \\(\\overline{f}\\) has the prime implicant</p><p>\\[\\overline{x}_1\\overline{x}_2\\overline{x}_3\\cdots\\overline{x}_k\\overline{x}_{k+1}, \\tag{6}\\]</p><p>so that \\(f\\) has no \\(k\\)-CNF representation either. ■</p>",
+        "pdfStart": {
+          "statement": { "page": 9, "y": 129.97968 },
+          "proof": { "page": 9, "y": 165.01968 }
+        }
+      },
+      {
+        "id": "theorem-3",
+        "type": "Theorem",
+        "number": "3",
+        "title": "Decision lists generalize decision trees",
+        "section": "3.2 Decision lists generalize decision trees",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-1"],
+        "statementHtml": "<p>\\(k\\text{-DT}(n)\\) is a proper subset of \\(k\\text{-DL}(n)\\), for \\(0 &lt; k &lt; n\\).</p>",
+        "proofHtml": "<p>By theorem 1 it suffices to observe that</p><p>\\[k\\text{-DT}(n) \\subset k\\text{-DNF}(n), \\tag{7}\\]</p><p>since one can create a \\(k\\text{-DNF}(n)\\) formula equivalent to a given decision tree in \\(k\\text{-DT}(n)\\) by creating one term for each leaf labelled with “1”. One could also create a \\(k\\text{-CNF}(n)\\) formula equivalent to the given tree by creating one clause for each leaf labelled with “0”; this additional fact suffices to prove that \\(k\\text{-DT}(n) \\subset k\\text{-CNF}(n) \\cap k\\text{-DNF}(n)\\). ■</p>",
+        "pdfStart": {
+          "statement": { "page": 10, "y": 120.69576 },
+          "proof": { "page": 10, "y": 147.09576 }
+        }
+      },
+      {
+        "id": "theorem-4",
+        "type": "Theorem",
+        "number": "4",
+        "title": "Probability of a bad consistent hypothesis",
+        "section": "4.6 Proving polynomial learnability",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>Given a function \\(f \\in \\mathcal{F}_n\\) and a sample \\(S\\) of \\(f\\) of size \\(m\\) drawn according to \\(P_n\\), the probability is at most</p><p>\\[|\\mathcal{F}_n|(1-\\epsilon)^m\\]</p><p>that there exists a hypothesis \\(g \\in \\mathcal{F}_n\\) such that</p><ul><li>the error of \\(g\\) is greater than \\(\\epsilon\\), and</li><li>\\(g\\) is consistent with \\(S\\).</li></ul>",
+        "proofHtml": "<p>If \\(g\\) is a single hypothesis in \\(\\mathcal{F}_n\\) of error greater than \\(\\epsilon\\), the chance that \\(g\\) is consistent with a randomly drawn sample \\(S\\) of size \\(m\\) is less than \\((1-\\epsilon)^m\\). Since \\(\\mathcal{F}_n\\) has \\(|\\mathcal{F}_n|\\) members, the chance that there exists any member of \\(\\mathcal{F}_n\\) satisfying both conditions above is at most \\(|\\mathcal{F}_n|(1-\\epsilon)^m\\). ■</p>",
+        "pdfStart": {
+          "statement": { "page": 14, "y": 218.05968 },
+          "proof": { "page": 14, "y": 333.31224 }
+        }
+      }
+    ]
+  }
+]

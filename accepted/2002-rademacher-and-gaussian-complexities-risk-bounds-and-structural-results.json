@@ -1,0 +1,327 @@
+[
+  {
+    "id": "2002-rademacher-and-gaussian-complexities-risk-bounds-and-structural-results",
+    "theorems": [
+      {
+        "id": "theorem-1",
+        "type": "Theorem",
+        "number": "1",
+        "title": "VC-dimension classification bound",
+        "section": "1. Introduction",
+        "proofOrganization": "quoted-without-proof",
+        "proofNote": "The paper presents this as an improvement of a classical Vapnik-Chervonenkis result and gives no proof.",
+        "dependencies": [],
+        "statementHtml": "<p>Let \\(F\\) be a class of \\(\\{\\pm1\\}\\)-valued functions defined on a set \\(\\mathcal X\\). Let \\(P\\) be a probability distribution on \\(\\mathcal X\\times\\{\\pm1\\}\\), and suppose that \\((X_1,Y_1),\\ldots,(X_n,Y_n)\\) and \\((X,Y)\\) are chosen independently according to \\(P\\). Then, there is an absolute constant \\(c\\) such that for any integer \\(n\\), with probability at least \\(1-\\delta\\) over samples of length \\(n\\), every \\(f\\) in \\(F\\) satisfies</p><p>\\[P(Y\\neq f(X))\\leq \\widehat P_n(Y\\neq f(X))+c\\sqrt{\\frac{\\operatorname{VCdim}(F)}{n}},\\]</p><p>where \\(\\operatorname{VCdim}(F)\\) denotes the Vapnik-Chervonenkis dimension of \\(F\\),</p><p>\\[\\widehat P_n(S)=\\frac1n\\sum_{i=1}^n \\mathbf 1_S(X_i,Y_i),\\]</p><p>and \\(\\mathbf 1_S\\) is the indicator function of \\(S\\).</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 1, "y": 558.003596 }
+        }
+      },
+      {
+        "id": "lemma-3",
+        "type": "Lemma",
+        "number": "3",
+        "title": "Maximum discrepancy and Rademacher complexity",
+        "section": "1. Introduction",
+        "proofOrganization": "deferred",
+        "proofNote": "The proof is deferred to Appendix A.",
+        "dependencies": ["theorem-9"],
+        "statementHtml": "<p>Let \\(F\\) be a class of functions that map to \\([-1,1]\\). Then for every integer \\(n\\),</p><p>\\[\\frac{R_n(F)}2-2\\sqrt{\\frac2n}\\leq D_n(F)\\leq R_n(F)+4\\sqrt{\\frac2n}.\\]</p><p>If \\(F\\) is closed under negation, the lower bound can be strengthened to</p><p>\\[R_n(F)-4\\sqrt{\\frac2n}\\leq D_n(F).\\]</p><p>Furthermore,</p><p>\\[P\\!\\left\\{\\left|\\widehat D_n(F)-D_n(F)\\right|\\geq\\epsilon\\right\\}\\leq 2\\exp\\!\\left(-\\frac{\\epsilon^2n}{2}\\right).\\]</p>",
+        "proofHtml": "<p>The expected maximum discrepancy, \\(D_n(F)\\), measures the average difference between function values on two fixed subsets of the data. The Rademacher complexity, \\(R_n(F)\\), measures the difference on two randomly chosen subsets. The idea behind the proof of the first part of the lemma is to show that the size of the random subsets is very close to their expectation, and, because the data is independent, all choices of these equally sized subsets are equivalent.</p><p>Define</p><p>\\[s(N)=\\frac2n\\,\\mathbf E\\!\\left[\\left.\\sup_{f\\in F}\\sum_{i=1}^n\\sigma_i f(X_i)\\,\\right|\\,\\sum_{i=1}^n\\sigma_i=N\\right].\\]</p><p>Then we have</p><p>\\[\\begin{aligned}R_n(F)&amp;=\\mathbf E\\sup_{f\\in F}\\left|\\frac2n\\sum_{i=1}^n\\sigma_i f(X_i)\\right|\\\\&amp;\\geq \\mathbf E\\sup_{f\\in F}\\frac2n\\sum_{i=1}^n\\sigma_i f(X_i)\\\\&amp;=\\mathbf E\\mathbf E\\!\\left[\\left.\\sup_{f\\in F}\\frac2n\\sum_{i=1}^n\\sigma_i f(X_i)\\,\\right|\\,\\sum_{i=1}^n\\sigma_i\\right]\\\\&amp;=\\mathbf E s\\!\\left(\\sum_{i=1}^n\\sigma_i\\right),\\end{aligned}\\]</p><p>where the inequality is an equality when \\(f\\in F\\) implies \\(-f\\in F\\). It is easy to see (from the independence of the \\(X_i\\)) that</p><p>\\[D_n(F)=s(0)=s\\!\\left(\\mathbf E\\sum_{i=1}^n\\sigma_i\\right).\\]</p><p>Furthermore, \\(s\\) satisfies a Lipschitz condition. To see this, choose \\(n_1,n_2\\) satisfying \\(0\\leq n_2&lt;n_1\\leq n\\) and write</p><p>\\[s(n_1)=\\frac2n\\mathbf E\\sup\\left(\\sum_{i=1}^{n/2-n_1/2}\\bigl(f(X_{2i})-f(X_{2i-1})\\bigr)+\\sum_{i=n-n_1+1}^n f(X_i)\\right),\\]</p><p>\\[s(n_2)=\\frac2n\\mathbf E\\sup\\left(\\sum_{i=1}^{n/2-n_1/2}\\bigl(f(X_{2i})-f(X_{2i-1})\\bigr)+\\sum_{i=n-n_1+1}^n f(X_i)+\\sum_{i=n/2-n_1/2+1}^{n/2-n_2/2}\\bigl(f(X_{2i})-f(X_{2i-1})\\bigr)-\\sum_{i=n-n_1+1}^{n-n_2}f(X_i)\\right).\\]</p><p>Clearly, the two expressions differ only in the last two terms inside the supremum in the expression for \\(s(n_2)\\). Each of these has magnitude no more than \\((n_2-n_1)\\). Thus,</p><p>\\[|s(n_1)-s(n_2)|\\leq\\frac{4|n_2-n_1|}{n}.\\]</p><p>Thus, if \\(N=\\sum_i\\sigma_i\\),</p><p>\\[\\begin{aligned}\\Pr\\bigl(|s(N)-s(\\mathbf EN)|\\geq\\epsilon\\bigr)&amp;\\leq\\Pr\\left(|N-\\mathbf EN|&gt;\\frac{\\epsilon n}{4}\\right)\\\\&amp;\\leq2\\exp\\!\\left(-\\frac{\\epsilon^2n}{32}\\right),\\end{aligned}\\]</p><p>by Chernoff's inequality. A standard integration (see, for example, Devroye et al., 1996, p208) shows that</p><p>\\[|\\mathbf Es(N)-s(\\mathbf EN)|\\leq\\mathbf E|s(N)-s(\\mathbf EN)|\\leq4\\sqrt{\\frac2n}.\\]</p><p>Since \\(R_n(F)\\geq\\mathbf Es(N)\\), this proves the upper bound on \\(D_n(F)\\).</p><p>Define \\(-F=\\{-f:f\\in F\\}\\). If \\(F=-F\\), \\(R_n(F)=\\mathbf Es(N)\\), so</p><p>\\[R_n(F)=R_n(F\\cup-F)\\leq D_n(F\\cup-F)+4\\sqrt{\\frac2n},\\]</p><p>which is the required lower bound if \\(F\\) is closed under negation. In general, it is easy to see that \\(D_n(F\\cup-F)\\leq2D_n(F)\\).</p><p>The final part of the lemma follows immediately from McDiarmid's inequality.</p>",
+        "pdfStart": {
+          "statement": { "page": 3, "y": 94.186155 },
+          "proof": { "page": 16, "y": 541.378725 }
+        }
+      },
+      {
+        "id": "lemma-4",
+        "type": "Lemma",
+        "number": "4",
+        "title": "Gaussian and Rademacher complexity comparison",
+        "section": "1. Introduction",
+        "proofOrganization": "quoted-without-proof",
+        "proofNote": "The result is attributed to Tomczak-Jaegermann (1989); the paper gives no proof.",
+        "dependencies": [],
+        "statementHtml": "<p>There are absolute constants \\(c\\) and \\(C\\) such that for every class \\(F\\) and every integer \\(n\\),</p><p>\\[cR_n(F)\\leq G_n(F)\\leq C\\ln n\\,R_n(F).\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 3, "y": 260.443241 }
+        }
+      },
+      {
+        "id": "theorem-5",
+        "type": "Theorem",
+        "number": "5",
+        "title": "Data-dependent classification bounds",
+        "section": "1. Introduction",
+        "proofOrganization": "composite",
+        "proofNote": "Part (a) is attributed to Bartlett et al. (2002). Appendix B proves part (b), by refining the proof of Theorem 8.",
+        "dependencies": ["theorem-8", "theorem-9"],
+        "statementHtml": "<p>Let \\(P\\) be a probability distribution on \\(\\mathcal X\\times\\{\\pm1\\}\\), let \\(F\\) be a set of \\(\\{\\pm1\\}\\)-valued functions defined on \\(\\mathcal X\\), and let \\((X_i,Y_i)_{i=1}^n\\) be training samples drawn according to \\(P^n\\).</p><ol type=\"a\"><li>With probability at least \\(1-\\delta\\), every function \\(f\\) in \\(F\\) satisfies \\[P(Y\\neq f(X))\\leq\\widehat P_n(Y\\neq f(X))+\\widehat D_n(F)+\\sqrt{\\frac{9\\ln(1/\\delta)}{2n}}.\\]</li><li>With probability at least \\(1-\\delta\\), every function \\(f\\) in \\(F\\) satisfies \\[P(Y\\neq f(X))\\leq\\widehat P_n(Y\\neq f(X))+\\frac{R_n(F)}2+\\sqrt{\\frac{\\ln(1/\\delta)}{2n}}.\\]</li></ol>",
+        "proofHtml": "<p>We set \\(\\mathcal L(Y,f(X))=\\mathbf 1(Y\\neq f(X))\\) and proceed as in the proof of Theorem 8. For all \\(f\\in F\\),</p><p>\\[P(Y\\neq f(X))=\\mathbf E\\mathcal L(Y,f(X))\\leq\\widehat{\\mathbf E}_n\\mathcal L(Y,f(X))+\\sup_{h\\in\\mathcal L\\circ F}\\bigl(\\mathbf Eh-\\widehat{\\mathbf E}_nh\\bigr).\\]</p><p>In this case, when \\((X_i,Y_i)\\) changes, the supremum changes by no more than \\(1/n\\), so McDiarmid's inequality implies that with probability at least \\(1-\\delta\\), every \\(f\\in F\\) satisfies</p><p>\\[\\mathbf E\\mathcal L(Y,f(X))\\leq\\widehat{\\mathbf E}_n\\mathcal L(Y,f(X))+\\mathbf E\\sup_{h\\in\\mathcal L\\circ F}\\bigl(\\mathbf Eh-\\widehat{\\mathbf E}_nh\\bigr)+\\sqrt{\\frac{\\ln(1/\\delta)}{2n}}.\\]</p><p>The same argument as in the proof of Theorem 8 shows that</p><p>\\[\\begin{aligned}\\mathbf E\\sup_{h\\in\\mathcal L\\circ F}\\bigl(\\mathbf Eh-\\widehat{\\mathbf E}_nh\\bigr)&amp;\\leq\\mathbf E\\sup_{h\\in\\mathcal L\\circ F}\\frac2n\\sum_{i=1}^n\\sigma_i h(X_i,Y_i)\\\\&amp;=\\mathbf E\\sup_{f\\in F}\\frac2n\\sum_{i=1}^n\\sigma_i\\mathbf 1(Y_i\\neq f(X_i))\\\\&amp;=\\mathbf E\\sup_{f\\in F}\\frac2n\\sum_{i=1}^n\\sigma_i(1-Y_if(X_i))/2\\\\&amp;=\\mathbf E\\sup_{f\\in F}\\frac1n\\sum_{i=1}^n\\sigma_i f(X_i)\\\\&amp;=\\frac{R_n(F)}2,\\end{aligned}\\]</p><p>where we have used the fact that \\(Y_i,f(X_i)\\in\\{\\pm1\\}\\), and that the conditional distribution of \\(\\sigma_iY_i\\), given \\(Y_i\\), is the same as the distribution of \\(\\sigma_i\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 3, "y": 360.854613 },
+          "proof": { "page": 18, "y": 221.356725 }
+        }
+      },
+      {
+        "id": "theorem-6",
+        "type": "Theorem",
+        "number": "6",
+        "title": "Empirical VC bounds for Gaussian complexity",
+        "section": "1. Introduction",
+        "proofOrganization": "stated-without-proof",
+        "proofNote": "The paper describes the ingredients of a proof following the statement but does not give the proof.",
+        "dependencies": [],
+        "statementHtml": "<p>Fix a sample \\(X_1,\\ldots,X_n\\). For a function class \\(F\\subseteq\\{\\pm1\\}^{\\mathcal X}\\), define the restriction of \\(F\\) to the sample as</p><p>\\[F|_{X_i}=\\{(f(X_1),\\ldots,f(X_n)):f\\in F\\}.\\]</p><p>Define the empirical VC-dimension of \\(F\\) as \\(d=\\operatorname{VCdim}(F|_{X_i})\\) and the empirical VC-entropy of \\(F\\) as \\(E=\\log_2|F|_{X_i}|\\). Then \\(\\widehat G_n(F)=O(\\sqrt{d/n})\\) and \\(\\widehat G_n(F)=O(\\sqrt{E/n})\\).</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 3, "y": 611.5715 }
+        }
+      },
+      {
+        "id": "theorem-7",
+        "type": "Theorem",
+        "number": "7",
+        "title": "Margin bound via Rademacher complexity",
+        "section": "1. Introduction",
+        "proofOrganization": "quoted-without-proof",
+        "proofNote": "The result is attributed to Koltchinskii and Panchenko (2000a); the paper gives no proof.",
+        "dependencies": [],
+        "statementHtml": "<p>Let \\(P\\) be a probability distribution on \\(\\mathcal X\\times\\{\\pm1\\}\\) and let \\(F\\) be a set of real-valued functions defined on \\(\\mathcal X\\), with \\(\\sup\\{|f(x)|:f\\in F\\}\\) finite for all \\(x\\in\\mathcal X\\). Suppose that \\(\\phi:\\mathbb R\\to[0,1]\\) satisfies \\(\\phi(\\alpha)\\geq\\mathbf 1(\\alpha\\leq0)\\) and is Lipschitz with constant \\(L\\). Then with probability at least \\(1-\\delta\\) with respect to training samples \\((X_i,Y_i)_{i=1}^n\\) drawn according to \\(P^n\\), every function in \\(F\\) satisfies</p><p>\\[P(Yf(X)\\leq0)\\leq\\widehat{\\mathbf E}_n\\phi(Yf(X))+2LR_n(F)+\\sqrt{\\frac{\\ln(2/\\delta)}{2n}}.\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 4, "y": 212.589888 }
+        }
+      },
+      {
+        "id": "theorem-8",
+        "type": "Theorem",
+        "number": "8",
+        "title": "Decision-theoretic risk bound",
+        "section": "2. Risk Bounds",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-9"],
+        "statementHtml": "<p>Consider a loss function \\(\\mathcal L:\\mathcal Y\\times\\mathcal A\\to[0,1]\\) and a dominating cost function \\(\\phi:\\mathcal Y\\times\\mathcal A\\to[0,1]\\). Let \\(F\\) be a class of functions mapping from \\(\\mathcal X\\) to \\(\\mathcal A\\) and let \\((X_i,Y_i)_{i=1}^n\\) be independently selected according to the probability measure \\(P\\). Then, for any integer \\(n\\) and any \\(0&lt;\\delta&lt;1\\), with probability at least \\(1-\\delta\\) over samples of length \\(n\\), every \\(f\\) in \\(F\\) satisfies</p><p>\\[\\mathbf E\\mathcal L(Y,f(X))\\leq\\widehat{\\mathbf E}_n\\phi(Y,f(X))+R_n(\\widetilde\\phi\\circ F)+\\sqrt{\\frac{8\\ln(2/\\delta)}n},\\]</p><p>where \\(\\widetilde\\phi\\circ F=\\{(x,y)\\mapsto\\phi(y,f(x))-\\phi(y,0):f\\in F\\}\\).</p>",
+        "proofHtml": "<p>Since \\(\\phi\\) dominates \\(\\mathcal L\\), for all \\(f\\in F\\) we can write</p><p>\\[\\begin{aligned}\\mathbf E\\mathcal L(Y,f(X))&amp;\\leq\\mathbf E\\phi(Y,f(X))\\\\&amp;\\leq\\widehat{\\mathbf E}_n\\phi(Y,f(X))+\\sup_{h\\in\\phi\\circ F}(\\mathbf Eh-\\widehat{\\mathbf E}_nh)\\\\&amp;=\\widehat{\\mathbf E}_n\\phi(Y,f(X))+\\sup_{h\\in\\widetilde\\phi\\circ F}(\\mathbf Eh-\\widehat{\\mathbf E}_nh)\\\\&amp;\\qquad+\\mathbf E\\phi(Y,0)-\\widehat{\\mathbf E}_n\\phi(Y,0).\\end{aligned}\\]</p><p>When an \\((X_i,Y_i)\\) pair changes, the random variable \\(\\sup_{h\\in\\widetilde\\phi\\circ F}(\\mathbf Eh-\\widehat{\\mathbf E}_nh)\\) can change by no more than \\(2/n\\). McDiarmid's inequality implies that with probability at least \\(1-\\delta/2\\),</p><p>\\[\\sup(\\mathbf Eh-\\widehat{\\mathbf E}_nh)\\leq\\mathbf E\\sup(\\mathbf Eh-\\widehat{\\mathbf E}_nh)+\\sqrt{2\\ln(2/\\delta)/n}.\\]</p><p>A similar argument, together with the fact that \\(\\mathbf E\\widehat{\\mathbf E}_n\\phi(Y,0)=\\mathbf E\\phi(Y,0)\\), shows that with probability at least \\(1-\\delta\\),</p><p>\\[\\mathbf E\\mathcal L(Y,f(X))\\leq\\widehat{\\mathbf E}_n\\phi(Y,f(X))+\\mathbf E\\sup_{h\\in\\widetilde\\phi\\circ F}(\\mathbf Eh-\\widehat{\\mathbf E}_nh)+\\sqrt{\\frac{8\\ln(2/\\delta)}n}.\\]</p><p>It remains to show that the second term on the right hand side is no more than \\(R_n(\\widetilde\\phi\\circ F)\\). If \\((X'_1,Y'_1),\\ldots,(X'_n,Y'_n)\\) are independent random variables with the same distribution as \\((X,Y)\\), then</p><p>\\[\\begin{aligned}\\mathbf E\\sup_{h\\in\\widetilde\\phi\\circ F}(\\mathbf Eh-\\widehat{\\mathbf E}_nh)&amp;=\\mathbf E\\sup_{h\\in\\widetilde\\phi\\circ F}\\mathbf E\\!\\left[\\left.\\frac1n\\sum_{i=1}^n h(X'_i,Y'_i)-\\widehat{\\mathbf E}_nh\\,\\right|\\,(X_i,Y_i)\\right]\\\\&amp;\\leq\\mathbf E\\sup_{h\\in\\widetilde\\phi\\circ F}\\left(\\frac1n\\sum_{i=1}^n h(X'_i,Y'_i)-\\widehat{\\mathbf E}_nh\\right)\\\\&amp;=\\mathbf E\\sup_{h\\in\\widetilde\\phi\\circ F}\\frac1n\\sum_{i=1}^n\\sigma_i\\bigl(h(X'_i,Y'_i)-h(X_i,Y_i)\\bigr)\\\\&amp;\\leq2\\mathbf E\\sup_{h\\in\\widetilde\\phi\\circ F}\\frac1n\\sum_{i=1}^n\\sigma_i h(X_i,Y_i)\\\\&amp;\\leq R_n(\\widetilde\\phi\\circ F).\\end{aligned}\\]</p>",
+        "pdfStart": {
+          "statement": { "page": 5, "y": 246.674212 },
+          "proof": { "page": 5, "y": 518.770516 }
+        }
+      },
+      {
+        "id": "theorem-9",
+        "type": "Theorem",
+        "number": "9",
+        "title": "McDiarmid's inequality",
+        "section": "2. Risk Bounds",
+        "proofOrganization": "quoted-without-proof",
+        "proofNote": "The paper states McDiarmid's inequality for use in Theorem 8 and gives no proof.",
+        "dependencies": [],
+        "statementHtml": "<p><strong>(McDiarmid's Inequality)</strong> Let \\(X_1,\\ldots,X_n\\) be independent random variables taking values in a set \\(A\\), and assume that \\(f:A^n\\to\\mathbb R\\) satisfies</p><p>\\[\\sup_{x_1,\\ldots,x_n,x'_i\\in A}\\left|f(x_1,\\ldots,x_n)-f(x_1,\\ldots,x_{i-1},x'_i,x_{i+1},\\ldots,x_n)\\right|\\leq c_i\\]</p><p>for every \\(1\\leq i\\leq n\\). Then, for every \\(t&gt;0\\),</p><p>\\[P\\{f(X_1,\\ldots,X_n)-\\mathbf Ef(X_1,\\ldots,X_n)\\geq t\\}\\leq e^{-2t^2/\\sum_{i=1}^n c_i^2}.\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 5, "y": 400.15014 }
+        }
+      },
+      {
+        "id": "theorem-10",
+        "type": "Theorem",
+        "number": "10",
+        "title": "Fat-shattering bounds for Gaussian complexity",
+        "section": "2. Risk Bounds",
+        "proofOrganization": "cited-without-proof",
+        "proofNote": "The result is described as essentially appearing in Mendelson (2002), with the same proof applying to empirical fat-shattering dimension; no proof is reproduced.",
+        "dependencies": [],
+        "statementHtml": "<p>Fix a sample \\(X_1,\\ldots,X_n\\). Let \\(F\\) be a class of functions whose range is contained in \\([-1,1]\\). Assume that there is some \\(\\gamma&gt;1\\) such that for any \\(\\epsilon&gt;0\\), \\(\\operatorname{fat}_\\epsilon(F|_{X_i})\\leq\\gamma\\epsilon^{-p}\\). Then, there are absolute constants \\(C_p\\), which depend only on \\(p\\), such that</p><p>\\[\\widehat G_n(F)\\leq\\begin{cases}C_p\\gamma^{1/2}\\ln\\gamma\\,n^{-1/2},&amp;\\text{if }0&lt;p&lt;2,\\\\C_2(\\gamma^{1/2}\\ln\\gamma)\\,n^{-1/2}\\ln^2n,&amp;\\text{if }p=2,\\\\C_p(\\gamma^{1/2}\\ln\\gamma)\\,n^{-1/p},&amp;\\text{if }p&gt;2.\\end{cases}\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 6, "y": 510.850155 }
+        }
+      },
+      {
+        "id": "theorem-11",
+        "type": "Theorem",
+        "number": "11",
+        "title": "Concentration of empirical Rademacher complexity",
+        "section": "3. Estimating the Rademacher and Gaussian Complexities of Function Classes",
+        "proofOrganization": "stated-without-proof",
+        "proofNote": "The paper says this follows from McDiarmid's inequality and gives no separate proof.",
+        "dependencies": ["theorem-9"],
+        "statementHtml": "<p>Let \\(F\\) be a class of functions mapping to \\([-1,1]\\). For any integer \\(n\\),</p><p>\\[P\\!\\left\\{\\left|R_n(F)-\\frac2n\\sup_{f\\in F}\\left|\\sum_{i=1}^n\\sigma_if(X_i)\\right|\\right|\\geq\\epsilon\\right\\}\\leq2\\exp\\!\\left(-\\frac{\\epsilon^2n}{8}\\right),\\]</p><p>and</p><p>\\[P\\!\\left\\{\\left|R_n(F)-\\widehat R_n(F)\\right|\\geq\\epsilon\\right\\}\\leq2\\exp\\!\\left(-\\frac{\\epsilon^2n}{8}\\right).\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 7, "y": 94.186155 }
+        }
+      },
+      {
+        "id": "theorem-12",
+        "type": "Theorem",
+        "number": "12",
+        "title": "Structural properties of Rademacher complexity",
+        "section": "3.1 Simple Structural Results",
+        "proofOrganization": "composite",
+        "proofNote": "The paper proves parts 1-3 and 5-7 directly and attributes part 4 to Ledoux and Talagrand (1991, Corollary 3.17).",
+        "dependencies": [],
+        "statementHtml": "<p>Let \\(F,F_1,\\ldots,F_k\\) and \\(H\\) be classes of real functions. Then</p><ol><li>If \\(F\\subseteq H\\), \\(R_n(F)\\leq R_n(H)\\).</li><li>\\(R_n(F)=R_n(\\operatorname{conv}F)=R_n(\\operatorname{absconv}F)\\).</li><li>For every \\(c\\in\\mathbb R\\), \\(R_n(cF)=|c|R_n(F)\\).</li><li>If \\(\\phi:\\mathbb R\\to\\mathbb R\\) is Lipschitz with constant \\(L_\\phi\\) and satisfies \\(\\phi(0)=0\\), then \\(R_n(\\phi\\circ F)\\leq2L_\\phi R_n(F)\\).</li><li>For any uniformly bounded function \\(h\\), \\(R_n(F+h)\\leq R_n(F)+\\|h\\|_\\infty/\\sqrt n\\).</li><li>For \\(1\\leq q&lt;\\infty\\), let \\(L_{F,h,q}=\\{|f-h|^q:f\\in F\\}\\), where \\(h\\) is uniformly bounded. If \\(\\|f-h\\|_\\infty\\leq1\\) for every \\(f\\in F\\), then \\(R_n(L_{F,h,q})\\leq2q(R_n(F)+\\|h\\|_\\infty/\\sqrt n)\\).</li><li>\\(R_n(\\sum_{i=1}^kF_i)\\leq\\sum_{i=1}^kR_n(F_i)\\).</li></ol>",
+        "proofHtml": "<p>Parts 1 and 3 are immediate from the definitions. To see part 2, notice that for every \\(x_1,\\ldots,x_n\\) and \\(\\sigma_1,\\ldots,\\sigma_n\\),</p><p>\\[\\begin{aligned}\\sup_{f\\in\\operatorname{absconv}F}\\left|\\sum_{i=1}^n\\sigma_if(x_i)\\right|&amp;=\\sup_{f\\in\\operatorname{conv}F}\\left|\\sum_i\\sigma_if(x_i)\\right|\\\\&amp;=\\max\\left(\\sup_{f\\in\\operatorname{conv}F}\\sum_i\\sigma_if(x_i),\\sup_{f\\in\\operatorname{conv}F}-\\sum_i\\sigma_if(x_i)\\right)\\\\&amp;=\\max\\left(\\sup_{f\\in F}\\sum_i\\sigma_if(x_i),\\sup_{f\\in F}-\\sum_i\\sigma_if(x_i)\\right)\\\\&amp;=\\sup_{f\\in F}\\left|\\sum_i\\sigma_if(x_i)\\right|.\\end{aligned}\\]</p><p>The inequality of part 4 is due to Ledoux and Talagrand (1991, Corollary 3.17). As for part 5, note that for every realization of \\(X_1,\\ldots,X_n\\),</p><p>\\[\\begin{aligned}\\mathbf E\\sup_{f\\in F}\\left|\\sum_{i=1}^n\\sigma_i(f(x_i)+h(x_i))\\right|&amp;\\leq\\mathbf E\\sup_{f\\in F}\\left|\\sum_{i=1}^n\\sigma_if(x_i)\\right|+\\mathbf E\\left|\\sum_{i=1}^n\\sigma_i h(x_i)\\right|\\\\&amp;\\leq\\mathbf E\\sup_{f\\in F}\\left|\\sum_{i=1}^n\\sigma_if(x_i)\\right|+\\left(\\sum_{i=1}^n h(x_i)^2\\right)^{1/2},\\end{aligned}\\]</p><p>where the last inequality follows since for any function \\(g\\), \\(\\mathbf E|g|\\leq(\\mathbf Eg^2)^{1/2}\\). Hence,</p><p>\\[R_n(F+h)\\leq R_n(F)+\\|h\\|_\\infty/\\sqrt n,\\]</p><p>as claimed.</p><p>To see part 6, notice that \\(\\phi(x)=|x|^q\\) is a Lipschitz function which passes through the origin with a Lipschitz constant \\(q\\). By parts 4 and 5 of Theorem 12,</p><p>\\[R_n(L_{F,h,q})\\leq2qR_n(F-h)\\leq2q\\left(R_n(F)+\\frac{\\|h\\|_\\infty}{\\sqrt n}\\right).\\]</p><p>Finally, part 7 follows from the triangle inequality.</p>",
+        "pdfStart": {
+          "statement": { "page": 7, "y": 413.388681 },
+          "proof": { "page": 8, "y": 94.186155 }
+        }
+      },
+      {
+        "id": "lemma-13",
+        "type": "Lemma",
+        "number": "13",
+        "title": "Slepian comparison theorem",
+        "section": "3.2 Lipschitz Functions on R^k",
+        "proofOrganization": "quoted-without-proof",
+        "proofNote": "The result is introduced as Slepian's comparison theorem and cited to Pisier (1989); the paper gives no proof.",
+        "dependencies": [],
+        "statementHtml": "<p>Let \\(\\{X_i,1\\leq i\\leq m\\}\\) and \\(\\{Y_i,1\\leq i\\leq m\\}\\) be two Gaussian processes which satisfy that, for every \\(i,j\\),</p><p>\\[\\|X_i-X_j\\|_2\\leq\\|Y_i-Y_j\\|_2,\\]</p><p>where \\(\\|X_i-X_j\\|_2^2=\\mathbf E(X_i-X_j)^2\\). Then</p><p>\\[\\mathbf E\\sup_iX_i\\leq2\\mathbf E\\sup_iY_i.\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 9, "y": 125.956436 }
+        }
+      },
+      {
+        "id": "theorem-14",
+        "type": "Theorem",
+        "number": "14",
+        "title": "Gaussian complexity of Lipschitz direct sums",
+        "section": "3.2 Lipschitz Functions on R^k",
+        "proofOrganization": "direct",
+        "dependencies": ["lemma-13"],
+        "statementHtml": "<p>Let \\(A=\\mathbb R^m\\) and let \\(F\\) be a class of functions mapping from \\(\\mathcal X\\) to \\(A\\). Suppose that there are real-valued classes \\(F_1,\\ldots,F_m\\) such that \\(F\\) is a subset of their direct sum. Assume further that \\(\\phi:\\mathcal Y\\times A\\to\\mathbb R\\) is such that, for all \\(y\\in\\mathcal Y\\), \\(\\phi(y,\\cdot)\\) is a Lipschitz function (with respect to Euclidean distance on \\(A\\)) with constant \\(L\\) which passes through the origin and is uniformly bounded. For \\(f\\in F\\), define \\(\\phi\\circ f\\) as the mapping \\((x,y)\\mapsto\\phi(y,f(x))\\). Then, for every integer \\(n\\) and every sample \\((X_1,Y_1),\\ldots,(X_n,Y_n)\\),</p><p>\\[\\widehat G_n(\\phi\\circ F)\\leq2L\\sum_{i=1}^m\\widehat G_n(F_i),\\]</p><p>where \\(\\widehat G_n(\\phi\\circ F)\\) are the Gaussian averages of \\(\\phi\\circ F\\) with respect to the sample \\((X_1,Y_1),\\ldots,(X_n,Y_n)\\) and \\(\\widehat G_n(F_i)\\) are the Gaussian averages of \\(F_i\\) with respect to the sample \\(X_1,\\ldots,X_n\\).</p>",
+        "proofHtml": "<p>Without loss of generality, we may assume that each class \\(F_i\\) is finite, denote by \\(|F_i|\\) its cardinality and let \\(f_k^i\\) be the \\(k\\)-th element in \\(F_i\\). Let \\(\\Gamma\\) be a multi-index set \\(\\Gamma=\\{(j_1,\\ldots,j_m):1\\leq j_i\\leq|F_i|\\}\\). Hence, there is a one-to-one correspondence between \\(F\\) and \\(\\Gamma\\), which is given by \\(\\alpha=(j_1,\\ldots,j_m)\\mapsto f_\\alpha=(f_{j_1}^1,\\ldots,f_{j_m}^m)\\). For every \\(\\alpha=(j_1,\\ldots,j_m)\\in\\Gamma\\), let</p><p>\\[X_\\alpha=\\sum_{k=1}^n\\phi(y_k,f_\\alpha(x_k))g_k,\\]</p><p>and</p><p>\\[Y_\\alpha=L\\sum_{i=1}^m\\sum_{k=1}^n f_{j_i}^i(x_k)h_{ik}\\]</p><p>where \\((g_k)\\) and \\((h_{ik})\\) are all standard independent normal random variables. It is easy to see that for every \\(\\alpha,\\alpha'\\in\\Gamma\\),</p><p>\\[\\begin{aligned}\\|X_\\alpha-X_{\\alpha'}\\|_2^2&amp;=\\sum_{k=1}^n\\bigl(\\phi(y_k,f_\\alpha(x_k))-\\phi(y_k,f_{\\alpha'}(x_k))\\bigr)^2\\\\&amp;\\leq L^2\\sum_{i=1}^m\\sum_{k=1}^n\\bigl(f_{j_i}^i(x_k)-f_{j'_i}^i(x_k)\\bigr)^2\\\\&amp;=\\|Y_\\alpha-Y_{\\alpha'}\\|_2^2.\\end{aligned}\\]</p><p>Our claim follows from Slepian's Lemma and the observation that \\(\\mathbf E\\sup_\\alpha X_\\alpha=n\\widehat G_n(\\phi\\circ F)\\) and that \\(\\mathbf E\\sup_\\alpha Y_\\alpha=nL\\sum_{i=1}^m\\widehat G_n(F_i)\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 9, "y": 259.62309 },
+          "proof": { "page": 9, "y": 432.540686 }
+        }
+      },
+      {
+        "id": "corollary-15",
+        "type": "Corollary",
+        "number": "15",
+        "title": "Risk bound for vector-valued classes",
+        "section": "3.2 Lipschitz Functions on R^k",
+        "proofOrganization": "derived-without-separate-proof",
+        "proofNote": "The corollary follows from Theorem 8, Lemma 4, and Theorem 14; the paper gives no separate proof.",
+        "dependencies": ["theorem-8", "lemma-4", "theorem-14"],
+        "statementHtml": "<p>Let \\(A,F,F_1,\\ldots,F_m,\\phi\\) be as in Theorem 14. Consider a loss function \\(\\mathcal L:\\mathcal Y\\times A\\to[0,1]\\) and suppose that \\(\\phi:\\mathcal Y\\times A\\to[0,1]\\) dominates \\(\\mathcal L\\). Then, for any integer \\(n\\) there is a probability of at least \\(1-\\delta\\) that every \\(f\\) in \\(F\\) has</p><p>\\[\\mathbf E\\mathcal L(Y,f(X))\\leq\\widehat{\\mathbf E}_n\\phi(Y,f(X))+cL\\sum_{j=1}^mG_n(F_j)+\\sqrt{\\frac{8\\ln(2/\\delta)}n}.\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 10, "y": 159.56245 }
+        }
+      },
+      {
+        "id": "theorem-16",
+        "type": "Theorem",
+        "number": "16",
+        "title": "Gaussian complexity of Boolean combinations",
+        "section": "3.3 Boolean Combinations of Functions",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-14"],
+        "statementHtml": "<p>For a fixed boolean function \\(g:\\{\\pm1\\}^k\\to\\{\\pm1\\}\\) and classes \\(F_1,\\ldots,F_k\\) of \\(\\{\\pm1\\}\\)-valued functions,</p><p>\\[G_n(g(F_1,\\ldots,F_k))\\leq2\\sum_{j=1}^kG_n(F_j).\\]</p>",
+        "proofHtml": "<p>First, we extend the boolean function \\(g\\) to a function \\(g:\\mathbb R^k\\to[-1,1]\\) as follows: for \\(x\\in\\mathbb R^k\\), define \\(g(x)=(1-\\|x-a\\|)g(a)\\) if \\(\\|x-a\\|&lt;1\\) for some \\(a\\in\\{\\pm1\\}^k\\), and \\(g(x)=0\\) otherwise. The function is well-defined since all pairs of points in the \\(k\\)-cube are separated by distance at least 2. Clearly, \\(g(0)=0\\), and \\(g\\) is Lipschitz with constant 1. The theorem follows from Theorem 14, with \\(m=k\\) and \\(\\phi=g\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 10, "y": 285.481002 },
+          "proof": { "page": 10, "y": 374.221337 }
+        }
+      },
+      {
+        "id": "theorem-17",
+        "type": "Theorem",
+        "number": "17",
+        "title": "Data-dependent decision-tree bound",
+        "section": "4.1 Decision Trees",
+        "proofOrganization": "direct",
+        "dependencies": ["theorem-7", "theorem-12", "theorem-16", "lemma-4"],
+        "statementHtml": "<p>Let \\(P\\) be a probability distribution on \\(\\mathcal X\\times\\{-1,1\\}\\), and let \\(H\\) be a set of binary-valued functions defined on \\(\\mathcal X\\). Let \\(T\\) be the class of decision trees of depth no more than \\(d\\), with decision functions from \\(H\\). For a training sample \\((X_1,Y_1,\\ldots,X_n,Y_n)\\) drawn from \\(P^n\\) and a decision tree from \\(T\\), let \\(\\widetilde P_n(l)\\) denote the proportion of all training examples which reach leaf \\(l\\) and are correctly classified. Then with probability at least \\(1-\\delta\\), every decision tree \\(t\\) from \\(T\\) with \\(L\\) leaves has \\(\\Pr(y\\neq t(x))\\) no more than</p><p>\\[\\widehat P_n(y\\neq t(x))+\\sum_l\\min(\\widetilde P_n(l),cdG_n(H))+\\sqrt{\\frac{c\\ln(L/\\delta)}{2n}}.\\]</p>",
+        "proofHtml": "<p>For a tree of depth \\(d\\), the indicator function of a leaf is a conjunction of no more than \\(d\\) decision functions. More specifically, if the decision tree consists of decision nodes chosen from a class \\(H\\) of binary-valued functions, the indicator function of leaf \\(l\\) (which takes value 1 at a point \\(x\\) if \\(x\\) reaches \\(l\\), and 0 otherwise) is a conjunction of \\(d_l\\) functions from \\(H\\), where \\(d_l\\) is the depth of leaf \\(l\\). We can represent the function computed by the tree as the sign of</p><p>\\[f(x)=\\sum_lw_l\\sigma_l\\bigwedge_{i=1}^{d_l}h_{l,i}(x),\\]</p><p>where the sum is over all leaves \\(l\\), \\(w_l&gt;0\\), \\(\\sum_lw_l=1\\), \\(\\sigma_l\\in\\{\\pm1\\}\\) is the label of leaf \\(l\\), \\(h_{l,i}\\in H\\), and the conjunction is understood to map to \\(\\{0,1\\}\\). Let \\(F\\) be this class of functions. Choose a family \\(\\{\\phi_L:L\\in\\mathbb N\\}\\) of cost functions such that each \\(\\phi_L\\) dominates the step function \\(\\mathbf 1(yf(x)\\leq0)\\) and has a Lipschitz constant \\(L\\). For each \\(L\\), Theorem 7 implies that with probability at least \\(1-\\delta\\),</p><p>\\[\\Pr(yf(x)\\leq0)\\leq\\widehat{\\mathbf E}_n(\\phi_L(yf(x)))+2LR_n(F)+\\sqrt{\\frac{\\ln(2/\\delta)}{2n}}.\\]</p><p>By setting \\(\\delta_L=6\\delta/(\\pi^2L)\\), applying this result to all positive integer values of \\(L\\), and summing over \\(L\\), we see that with probability at least \\(1-\\delta\\), every \\(f\\in F\\) and every \\(\\phi_L\\) has</p><p>\\[\\Pr(yf(x)\\leq0)\\leq\\widehat{\\mathbf E}_n(\\phi_L(yf(x)))+2LR_n(F)+\\sqrt{\\frac{\\ln(\\pi^2L/3\\delta)}{2n}}.\\]</p><p>Define \\(\\phi_L(\\alpha)\\) to be 1 if \\(\\alpha\\leq0\\), \\(1-L\\alpha\\) if \\(0&lt;\\alpha\\leq1/L\\), and 0 otherwise, where \\(L\\) will be computed later. Let \\(\\widetilde P_n(l)\\) denote the proportion of training examples which reach leaf \\(l\\) and are correctly classified (\\(y=\\sigma_l\\)). Then we have</p><p>\\[\\begin{aligned}\\widehat{\\mathbf E}_n(\\phi_L(yf(x)))+2LR_n(F)&amp;=\\widehat P_n(yf(x)\\leq0)+\\sum_l\\widetilde P_n(l)\\phi_L(w_l)+2LR_n(F)\\\\&amp;=\\widehat P_n(yf(x)\\leq0)+\\sum_l\\widetilde P_n(l)\\max(0,1-Lw_l)+2LR_n(F)\\\\&amp;=\\widehat P_n(yf(x)\\leq0)+\\sum_l\\max(0,(1-Lw_l)\\widetilde P_n(l))+2LR_n(F).\\end{aligned}\\]</p><p>Now, choose \\(w_l=0\\) for \\(\\widetilde P_n(l)\\leq2R_n(F)\\), and \\(w_l=1/L\\) otherwise, where \\(L=|\\{l:\\widetilde P_n(l)&gt;2R_n(F)\\}|\\). (Notice that choosing \\(w_l=0\\) for labelled examples for which \\(yf(x)&gt;0\\) can only increase the bound.) Then we have</p><p>\\[\\begin{aligned}\\widehat P_n(\\phi(yf(x)))+2LR_n(F)&amp;\\leq\\widehat P_n(yf(x)\\leq0)+\\sum_l\\mathbf 1(\\widetilde P_n(l)\\leq2R_n(F))\\widetilde P_n(l)\\\\&amp;\\qquad+2R_n(F)\\sum_l\\mathbf 1(\\widetilde P_n(l)&gt;2R_n(F))\\\\&amp;=\\widehat P_n(yf(x)\\leq0)+\\sum_l\\min(\\widetilde P_n(l),2R_n(F)).\\end{aligned}\\]</p><p>Theorem 12 part 2, Theorem 16, and Lemma 4 together imply that</p><p>\\[R_n(F)\\leq C\\left(dG_n(H)+\\frac1n\\right)\\ln n,\\]</p><p>which implies the result.</p>",
+        "pdfStart": {
+          "statement": { "page": 11, "y": 220.112015 },
+          "proof": { "page": 11, "y": 403.290766 }
+        }
+      },
+      {
+        "id": "theorem-18",
+        "type": "Theorem",
+        "number": "18",
+        "title": "Gaussian complexity of a two-layer neural network",
+        "section": "4.2 Neural Networks",
+        "proofOrganization": "derived-without-separate-proof",
+        "proofNote": "The paper says the theorem is immediate from Lemma 19 and gives no separate proof.",
+        "dependencies": ["lemma-19"],
+        "statementHtml": "<p>Suppose that \\(\\sigma:\\mathbb R\\to[-1,1]\\) has Lipschitz constant \\(L\\) and satisfies \\(\\sigma(0)=0\\). Define the class computed by a two-layer neural network with 1-norm weight constraints as</p><p>\\[F=\\left\\{x\\mapsto\\sum_iw_i\\sigma(v_i\\cdot x):\\|w\\|_1\\leq1,\\ \\|v_i\\|_1\\leq B\\right\\}.\\]</p><p>Then for \\(x_1,\\ldots,x_n\\) in \\(\\mathbb R^k\\),</p><p>\\[\\widehat G_n(F)\\leq\\frac{cLB(\\ln k)^{1/2}}n\\max_{j,j'}\\sqrt{\\sum_{i=1}^n(x_{ij}-x_{ij'})^2},\\]</p><p>where \\(x_i=(x_{i1},\\ldots,x_{ik})\\).</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 12, "y": 634.92424 }
+        }
+      },
+      {
+        "id": "lemma-19",
+        "type": "Lemma",
+        "number": "19",
+        "title": "Gaussian complexity of bounded linear functions",
+        "section": "4.2 Neural Networks",
+        "proofOrganization": "deferred",
+        "proofNote": "The proof follows the statement of Lemma 20, the Gaussian-process inequality it uses.",
+        "dependencies": ["lemma-20"],
+        "statementHtml": "<p>For \\(x\\in\\mathbb R^k\\), define</p><p>\\[F_1=\\{x\\mapsto w\\cdot x:w\\in\\mathbb R^k,\\ \\|w\\|_1\\leq1\\}.\\]</p><p>For any \\(x_1,\\ldots,x_n\\in\\mathbb R^k\\) we have</p><p>\\[\\widehat G_n(F_1)\\leq\\frac cn(\\ln k)^{1/2}\\max_{j,j'}\\left(\\sum_{i=1}^n(x_{ij}-x_{ij'})^2\\right)^{1/2}.\\]</p>",
+        "proofHtml": "<p>From the definitions, \\(\\widehat G_n(F_1)\\) is equal to</p><p>\\[\\begin{aligned}\\mathbf E\\sup_{f\\in F}\\frac2n\\sum_{i=1}^ng_if(x_i)&amp;=\\mathbf E\\sup_{w:\\|w\\|_1\\leq1}\\frac2n\\sum_{i=1}^ng_iw\\cdot x_i\\\\&amp;=\\mathbf E\\sup_{w:\\|w\\|_1\\leq1}w\\cdot\\frac2n\\sum_{i=1}^ng_ix_i.\\end{aligned}\\]</p><p>Clearly, this inner product is maximized when \\(w\\) is at one of the extreme points of the \\(\\ell_1\\) ball, which implies</p><p>\\[\\widehat G_n(F_1)=\\mathbf E\\max_j\\frac2n\\sum_{i=1}^ng_ix_{ij},\\]</p><p>where \\(x_i=(x_{i1},\\ldots,x_{ik})\\). Note that we can write</p><p>\\[\\widehat G_n(F_1)=\\frac2n\\mathbf E\\max_jZ_j\\]</p><p>where \\(Z_j=\\sum_{i=1}^ng_ix_{ij}\\). Since each \\(Z_j\\) is Gaussian, we can apply Slepian's Lemma to obtain</p><p>\\[\\begin{aligned}\\widehat G_n(F_1)&amp;\\leq\\frac{2c}{n}(\\ln k)^{1/2}\\max_{j,j'}\\sqrt{\\mathbf E(Z_j-Z_{j'})^2}\\\\&amp;=\\frac{2c}{n}(\\ln k)^{1/2}\\max_{j,j'}\\sqrt{\\mathbf E\\left(\\sum_{i=1}^ng_i(x_{ij}-x_{ij'})\\right)^2}\\\\&amp;=\\frac{2c}{n}(\\ln k)^{1/2}\\max_{j,j'}\\sqrt{\\sum_{i=1}^n(x_{ij}-x_{ij'})^2}.\\end{aligned}\\]</p>",
+        "pdfStart": {
+          "statement": { "page": 13, "y": 242.759166 },
+          "proof": { "page": 13, "y": 495.054606 }
+        }
+      },
+      {
+        "id": "lemma-20",
+        "type": "Lemma",
+        "number": "20",
+        "title": "Maximum of Gaussian linear forms",
+        "section": "4.2 Neural Networks",
+        "proofOrganization": "quoted-without-proof",
+        "proofNote": "The paper says this inequality follows from Slepian's Lemma and cites Ledoux and Talagrand (1991) and Pisier (1989); no proof is given.",
+        "dependencies": ["lemma-13"],
+        "statementHtml": "<p>Let \\(Z_1,\\ldots,Z_k\\) be random variables such that for every \\(1\\leq j\\leq k\\), \\(Z_j=\\sum_{i=1}^na_{ij}g_i\\), where \\(g_1,\\ldots,g_n\\) are independent \\(N(0,1)\\) random variables. Then there is an absolute constant \\(c\\) such that</p><p>\\[\\mathbf E\\max_{1\\leq j\\leq k}Z_j\\leq c(\\ln k)^{1/2}\\max_{j,j'}\\sqrt{\\mathbf E(Z_j-Z_{j'})^2}.\\]</p>",
+        "proofHtml": "",
+        "pdfStart": {
+          "statement": { "page": 13, "y": 406.66645 }
+        }
+      },
+      {
+        "id": "theorem-21",
+        "type": "Theorem",
+        "number": "21",
+        "title": "Kernel classification margin bound",
+        "section": "4.3 Kernel Methods",
+        "proofOrganization": "composite",
+        "proofNote": "The theorem is reduced to a Hilbert-space class before Lemma 22; the paper then says Lemma 22 combined with Theorems 7 and 11 implies the result.",
+        "dependencies": ["theorem-7", "theorem-11", "lemma-22"],
+        "statementHtml": "<p>Fix \\(B,\\gamma&gt;0\\), let \\(k:\\mathcal X\\times\\mathcal X\\to\\mathbb R\\) be a kernel with</p><p>\\[\\sup_{x\\in\\mathcal X}|k(x,x)|&lt;\\infty.\\]</p><p>Define the margin cost function \\(\\phi:\\mathbb R\\to[0,1]\\) as</p><p>\\[\\phi(\\alpha)=\\begin{cases}1,&amp;\\text{if }\\alpha\\leq0,\\\\1-\\alpha/\\gamma,&amp;\\text{if }0&lt;\\alpha\\leq\\gamma,\\\\0,&amp;\\text{if }\\alpha&gt;\\gamma.\\end{cases}\\]</p><p>Suppose that \\((X_1,Y_1),\\ldots,(X_n,Y_n)\\) are chosen independently according to some probability distribution \\(P\\) on \\(\\mathcal X\\times\\{\\pm1\\}\\). Then with probability at least \\(1-\\delta\\), every function \\(f\\) of the form</p><p>\\[f(x)=\\sum_{i=1}^n\\alpha_i k(X_i,x)\\]</p><p>with \\(\\sum_{i,j}\\alpha_i\\alpha_jk(X_i,X_j)\\leq B^2\\) satisfies</p><p>\\[P(Yf(X)\\leq0)\\leq\\widehat{\\mathbf E}_n\\phi(Yf(X))+\\frac{4B}{\\gamma n}\\sqrt{\\sum_{i=1}^nk(X_i,X_i)}+\\left(\\frac8\\gamma+1\\right)\\sqrt{\\frac{\\ln(4/\\delta)}{2n}}.\\]</p>",
+        "proofHtml": "<p>To prove this theorem, we need to recall some properties of kernel expansions. To every kernel \\(k\\) we can associate a feature map \\(\\Phi:\\mathcal X\\to\\mathcal H\\), where \\(\\mathcal H\\) is a Hilbert space with inner product \\(\\langle\\cdot,\\cdot\\rangle\\), and for all \\(x_1,x_2\\in\\mathcal X\\), \\(k(x_1,x_2)=\\langle\\Phi(x_1),\\Phi(x_2)\\rangle\\). If \\(\\|\\cdot\\|\\) denotes the norm in \\(\\mathcal H\\), we have</p><p>\\[\\left\\|\\sum_{i=1}^n\\alpha_i\\Phi(x_i)\\right\\|^2=\\sum_{i,j}\\alpha_i\\alpha_jk(x_i,x_j),\\]</p><p>and hence</p><p>\\[\\begin{aligned}F={}&amp;\\left\\{x\\mapsto\\sum_{i=1}^m\\alpha_i k(x,x_i):m\\in\\mathbb N,\\ x_i\\in\\mathcal X,\\ \\sum_{i,j}\\alpha_i\\alpha_jk(x_i,x_j)\\leq B^2\\right\\}\\\\&amp;\\subseteq\\{x\\mapsto\\langle w,\\Phi(x)\\rangle:\\|w\\|\\leq B\\}.\\end{aligned}\\]</p><p>The following lemma, combined with Theorem 7 and Theorem 11, implies the theorem.</p>",
+        "pdfStart": {
+          "statement": { "page": 14, "y": 439.093963 },
+          "proof": { "page": 15, "y": 94.186155 }
+        }
+      },
+      {
+        "id": "lemma-22",
+        "type": "Lemma",
+        "number": "22",
+        "title": "Empirical complexity of bounded kernel expansions",
+        "section": "4.3 Kernel Methods",
+        "proofOrganization": "direct",
+        "dependencies": [],
+        "statementHtml": "<p>Suppose that \\(k:\\mathcal X\\times\\mathcal X\\to\\mathbb R\\) is a kernel, and let \\(X_1,\\ldots,X_n\\) be random elements of \\(\\mathcal X\\). Then for the class \\(F\\) defined above,</p><p>\\[\\widehat G_n(F)\\leq\\frac{2B}{n}\\sqrt{\\sum_{i=1}^nk(X_i,X_i)},\\]</p><p>\\[\\widehat R_n(F)\\leq\\frac{2B}{n}\\sqrt{\\sum_{i=1}^nk(X_i,X_i)}.\\]</p>",
+        "proofHtml": "<p>Suppose that \\(\\mathcal H\\) is a Hilbert space with inner product \\(\\langle\\cdot,\\cdot\\rangle\\) and induced norm \\(\\|\\cdot\\|\\), and the kernel \\(k\\) has feature map \\(\\Phi:\\mathcal X\\to\\mathcal H\\). Let \\(g_1,\\ldots,g_n\\) be independent standard normal random variables. Then</p><p>\\[\\begin{aligned}\\widehat G_n(F)&amp;\\leq\\mathbf E\\!\\left[\\left.\\sup_{\\|w\\|\\leq B}\\left\\langle w,\\frac2n\\sum_{i=1}^ng_i\\Phi(X_i)\\right\\rangle\\,\\right|\\,X_i\\right]\\\\&amp;=\\frac{2B}{n}\\mathbf E\\!\\left[\\left.\\left\\|\\sum_{i=1}^ng_i\\Phi(X_i)\\right\\|\\,\\right|\\,X_i\\right]\\\\&amp;=\\frac{2B}{n}\\mathbf E\\!\\left[\\left.\\left(\\sum_{i,j}g_ig_jk(X_i,X_j)\\right)^{1/2}\\,\\right|\\,X_i\\right]\\\\&amp;\\leq\\frac{2B}{n}\\left(\\sum_{i,j}\\mathbf E[g_ig_jk(X_i,X_j)\\mid X_i]\\right)^{1/2}\\\\&amp;=\\frac{2B}{n}\\left(\\sum_i\\mathbf E[g_i^2k(X_i,X_i)\\mid X_i]\\right)^{1/2}\\\\&amp;=\\frac{2B}{n}\\left(\\sum_i k(X_i,X_i)\\right)^{1/2},\\end{aligned}\\]</p><p>where the second inequality is Jensen's (and it is easy to see that the first inequality is an equality).</p><p>Clearly, the same argument applies with any independent, zero mean, unit variance random variables replacing the \\(g_i\\), which gives the same bound for \\(\\widehat R_n(F)\\).</p>",
+        "pdfStart": {
+          "statement": { "page": 15, "y": 287.271663 },
+          "proof": { "page": 15, "y": 411.10317 }
+        }
+      }
+    ]
+  }
+]
