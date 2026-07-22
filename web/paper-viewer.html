@@ -102,6 +102,30 @@
     .resource-link img { width: 19px; height: 19px; display: block; }
     .resource-link:hover img { filter: brightness(.82); transform: scale(1.07); }
     .resource-link:focus-visible { outline: 2px solid white; outline-offset: 2px; border-radius: 3px; }
+    .paper-tags { margin-top: 12px; display: grid; gap: 6px; }
+    .paper-tags[hidden], .paper-tag-row[hidden] { display: none; }
+    .paper-tag-row { display: flex; align-items: flex-start; gap: 8px; }
+    .paper-tag-label {
+      width: 72px;
+      padding-top: 3px;
+      flex: 0 0 auto;
+      color: #bed0df;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .paper-tag-list { display: flex; gap: 6px; flex-wrap: wrap; }
+    .paper-tag-chip {
+      padding: 3px 8px;
+      border: 1px solid rgba(255,255,255,.32);
+      border-radius: 999px;
+      color: white;
+      background: rgba(255,255,255,.1);
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
     .workspace {
       width: min(1480px, calc(100% - 40px));
       margin: 24px auto 60px;
@@ -360,6 +384,15 @@
     }
     .pdf-only-note h2 { margin: 0 0 7px; color: var(--ink); font: 600 22px/1.25 Georgia, "Times New Roman", serif; }
     .pdf-only-note p { margin: 0; }
+    .site-footer {
+      width: min(1480px, calc(100% - 40px));
+      margin: -28px auto 38px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    body.pdf-pinned .site-footer { width: min(100% - 24px, 1480px); }
 
     @media (max-width: 1050px) {
       .workspace { grid-template-columns: 280px minmax(0,1fr); }
@@ -378,6 +411,7 @@
       .section-head-meta > span { display: none; }
       .pdf-panel { width: calc(100vw - 42px); }
       .pdf-pin { display: none; }
+      .site-footer { width: min(100% - 22px, 1480px); margin-top: -28px; font-size: 12px; }
     }
     @media print {
       .resource-links, .sidebar, .pdf-panel, .pdf-source-button { display: none !important; }
@@ -421,6 +455,16 @@
         <div class="author-line">
           <p id="paperAuthors" class="authors"></p>
           <nav id="resourceLinks" class="resource-links" aria-label="Paper resources"></nav>
+        </div>
+        <div id="paperTags" class="paper-tags" hidden>
+          <div id="paperContentTagRow" class="paper-tag-row" hidden>
+            <span class="paper-tag-label">Content</span>
+            <div id="paperContentTags" class="paper-tag-list"></div>
+          </div>
+          <div id="paperProofTagRow" class="paper-tag-row" hidden>
+            <span class="paper-tag-label">Proof style</span>
+            <div id="paperProofTags" class="paper-tag-list"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -469,6 +513,10 @@
     </main>
   </div>
 
+  <footer class="site-footer">
+    Literature crawling, proof extraction, and tagging are AI-assisted. Source checks, structured validation, and targeted review are used to improve reliability, but errors and omissions may remain. Please verify important claims against the original papers.
+  </footer>
+
   <aside id="pdfPanel" class="pdf-panel" aria-label="Source PDF panel" aria-hidden="true">
     <button id="pdfEdgeToggle" class="pdf-edge-toggle" type="button" aria-label="Open source PDF panel" aria-expanded="false">
       <img src="images/pdf-acrobat.svg" alt="" aria-hidden="true">
@@ -499,15 +547,37 @@
       'use strict';
 
       const $ = id => document.getElementById(id);
+      function configuredTags(config, key) {
+        if (!config || !Array.isArray(config[key])) throw new Error(`tags.json must contain a "${key}" array.`);
+        return [...new Set(config[key]
+          .filter(tag => typeof tag === 'string')
+          .map(tag => tag.trim())
+          .filter(Boolean))];
+      }
+
+      function intersectTags(paperTags, allowedTags) {
+        const paperTagSet = new Set(Array.isArray(paperTags) ? paperTags : []);
+        return allowedTags.filter(tag => paperTagSet.has(tag));
+      }
+
       const requestedId = new URLSearchParams(location.search).get('id') || '';
       if (!/^[a-z0-9][a-z0-9-]*$/.test(requestedId)) {
         throw new Error('A valid paper id is required. Return to the paper catalogue and select a paper.');
       }
-      const catalogueResponse = await fetch('accepted-catalog.json', { cache: 'no-store' });
+      const [catalogueResponse, tagsResponse] = await Promise.all([
+        fetch('accepted-catalog.json', { cache: 'no-store' }),
+        fetch('tags.json', { cache: 'no-store' })
+      ]);
       if (!catalogueResponse.ok) throw new Error(`Paper catalogue could not load (${catalogueResponse.status}).`);
+      if (!tagsResponse.ok) throw new Error(`Tag configuration could not load (${tagsResponse.status}).`);
       const catalogue = await catalogueResponse.json();
+      const tagConfig = await tagsResponse.json();
+      const configuredContentTags = configuredTags(tagConfig, 'content tags');
+      const configuredProofTags = configuredTags(tagConfig, 'proof-tags');
       const metadata = (Array.isArray(catalogue) ? catalogue : []).find(item => item.id === requestedId);
       if (!metadata) throw new Error('The requested paper is not present in the accepted catalogue.');
+      const visibleContentTags = intersectTags(metadata.content_tags, configuredContentTags);
+      const visibleProofTags = intersectTags(metadata.proof_tags, configuredProofTags);
       const dataUrl = `pdfs/${requestedId}.json`;
       const pdfUrl = metadata.pdf_path ? `pdfs/${metadata.pdf_path.split('/').pop()}` : '';
       if (!pdfUrl) throw new Error('The accepted catalogue does not provide a PDF for this paper.');
@@ -553,11 +623,26 @@
         $('resourceLinks').appendChild(link);
       }
 
+      function renderPaperTagRow(rowId, listId, tags) {
+        const row = $(rowId);
+        const tagList = $(listId);
+        tagList.replaceChildren(...tags.map(tag => {
+          const chip = document.createElement('span');
+          chip.className = 'paper-tag-chip';
+          chip.textContent = tag;
+          return chip;
+        }));
+        row.hidden = tags.length === 0;
+      }
+
       $('paperTitle').textContent = metadata.title;
       $('paperAuthors').textContent = (metadata.authors || []).join(' · ');
+      renderPaperTagRow('paperContentTagRow', 'paperContentTags', visibleContentTags);
+      renderPaperTagRow('paperProofTagRow', 'paperProofTags', visibleProofTags);
+      $('paperTags').hidden = visibleContentTags.length === 0 && visibleProofTags.length === 0;
       document.title = `${$('paperTitle').textContent} — Paper Viewer`;
       addResourceLink(pdfUrl, 'Open local PDF', 'images/pdf-acrobat.svg');
-      if (paperData) addResourceLink(dataUrl, 'Open local theorem JSON', 'images/code.svg');
+      if (paperData) addResourceLink(dataUrl, 'Open extracted theorems JSON', 'images/code.svg');
       if (metadata.arxiv_id) addResourceLink(`https://arxiv.org/abs/${metadata.arxiv_id}`, 'Open on arXiv', 'images/globe.svg');
       if (metadata.doi) addResourceLink(`https://doi.org/${metadata.doi}`, 'Open DOI', 'images/globe.svg');
       addResourceLink(metadata.semantic_scholar_url, 'Open on Semantic Scholar', 'images/globe.svg');
@@ -880,6 +965,11 @@
       });
       $('pdfClose').addEventListener('click', closePdfPanel);
       $('pdfPin').addEventListener('click', () => setPdfPinned(!pdfPinned));
+      document.addEventListener('pointerdown', event => {
+        const panel = $('pdfPanel');
+        if (pdfPinned || !panel.classList.contains('open') || panel.contains(event.target)) return;
+        setPdfPanel(false);
+      });
       window.addEventListener('hashchange', () => { const id = location.hash.slice(1); if (byId.has(id)) select(id, false); });
       document.addEventListener('keydown', event => {
         if (event.key === 'Escape' && $('pdfPanel').classList.contains('open')) closePdfPanel();

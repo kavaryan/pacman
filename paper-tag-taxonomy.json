@@ -1,0 +1,299 @@
+{
+  "version": 1,
+  "scope": "Influential PAC papers listed in influential-pac-paper-ids.txt",
+  "assignment_rules": {
+    "content_tags": "Assign only topics that are central to the paper's problem, main results, or principal applications. Tags are faceted so a paper may have field, learning-model, and technical-subject tags.",
+    "proof_tags": "Assign salient argument techniques evidenced by substantive proofs in the extracted theorem JSON. These are paper-level aggregates, not replacements for each theorem's proofOrganization field. Generic direct algebra and the location of a proof are intentionally not tags."
+  },
+  "content_tags": [
+    {
+      "name": "Agnostic learning",
+      "facet": "learning model",
+      "description": "Learning relative to the best available hypothesis without assuming the target belongs to the hypothesis class."
+    },
+    {
+      "name": "Attribute-efficient learning",
+      "facet": "technical subject",
+      "description": "Learning guarantees whose dependence on irrelevant or ambient attributes is especially small."
+    },
+    {
+      "name": "Automata learning",
+      "facet": "technical subject",
+      "description": "Learning finite automata or automaton-representable languages."
+    },
+    {
+      "name": "Bayesian inference",
+      "facet": "field",
+      "description": "Learning with prior distributions, posterior-like weighting, or Bayesian model combination."
+    },
+    {
+      "name": "Boolean function learning",
+      "facet": "technical subject",
+      "description": "Learning Boolean concepts such as CNF, DNF, thresholds, formulas, or related representation classes."
+    },
+    {
+      "name": "Boosting",
+      "facet": "learning model",
+      "description": "Combining weak hypotheses to obtain a high-accuracy predictor."
+    },
+    {
+      "name": "Classification noise",
+      "facet": "technical subject",
+      "description": "Random corruption of example labels, typically below noise rate one half."
+    },
+    {
+      "name": "Combinatorial optimization",
+      "facet": "field",
+      "description": "Learning results formulated through or reduced to discrete optimization problems such as set cover."
+    },
+    {
+      "name": "Complexity theory",
+      "facet": "field",
+      "description": "Classical computational-complexity assumptions, completeness, or reductions central to the paper."
+    },
+    {
+      "name": "Computational hardness",
+      "facet": "result focus",
+      "description": "Intractability or non-learnability under computational assumptions."
+    },
+    {
+      "name": "Concept learning",
+      "facet": "technical subject",
+      "description": "Learning a target concept from labeled examples in a formal concept class."
+    },
+    {
+      "name": "Cryptographic hardness",
+      "facet": "result focus",
+      "description": "Hardness of learning obtained from the assumed security of cryptographic primitives."
+    },
+    {
+      "name": "Cryptography",
+      "facet": "field",
+      "description": "Cryptographic primitives or security problems are a central part of the paper."
+    },
+    {
+      "name": "Decision lists",
+      "facet": "technical subject",
+      "description": "Representation and learnability of ordered if-then decision rules."
+    },
+    {
+      "name": "Decision-theoretic learning",
+      "facet": "learning model",
+      "description": "Learning formulated as choosing actions or predictors to minimize a general loss."
+    },
+    {
+      "name": "Generalization bounds",
+      "facet": "result focus",
+      "description": "Bounds transferring empirical or training performance to population or test performance."
+    },
+    {
+      "name": "Hidden-variable learning",
+      "facet": "technical subject",
+      "description": "Learning problems in which relevant explanatory variables are unobserved."
+    },
+    {
+      "name": "Inductive bias",
+      "facet": "technical subject",
+      "description": "Quantifying how restrictions or preferences over hypotheses affect learnability."
+    },
+    {
+      "name": "Information theory",
+      "facet": "field",
+      "description": "Information measures such as relative entropy are central to the learning bounds."
+    },
+    {
+      "name": "Kernel methods",
+      "facet": "technical subject",
+      "description": "Generalization or complexity analysis for kernel predictors and kernel expansions."
+    },
+    {
+      "name": "Lower bounds",
+      "facet": "result focus",
+      "description": "Necessary sample, query, representation, or computational resources for learning."
+    },
+    {
+      "name": "Malicious-noise learning",
+      "facet": "learning model",
+      "description": "Learning when an adaptive or worst-case adversary corrupts examples."
+    },
+    {
+      "name": "Mistake bounds",
+      "facet": "result focus",
+      "description": "Worst-case bounds on prediction mistakes in sequential learning."
+    },
+    {
+      "name": "Model averaging",
+      "facet": "technical subject",
+      "description": "Prediction by a weighted mixture rather than selection of one model."
+    },
+    {
+      "name": "Multiplicative weights",
+      "facet": "technical subject",
+      "description": "Learners or decision rules based on multiplicative updates of hypothesis, expert, or feature weights."
+    },
+    {
+      "name": "Neural networks",
+      "facet": "technical subject",
+      "description": "Capacity, generalization, or learnability of neural-network architectures."
+    },
+    {
+      "name": "Noise-tolerant learning",
+      "facet": "learning model",
+      "description": "Learning algorithms and guarantees that remain valid under corrupted examples."
+    },
+    {
+      "name": "Occam bounds",
+      "facet": "technical subject",
+      "description": "Generalization from compact or nearly minimal hypotheses consistent with the data."
+    },
+    {
+      "name": "Online learning",
+      "facet": "learning model",
+      "description": "Sequential prediction and updating against a stream of outcomes."
+    },
+    {
+      "name": "PAC learning",
+      "facet": "learning model",
+      "description": "Distribution-free probably approximately correct learning from random examples."
+    },
+    {
+      "name": "PAC-Bayes",
+      "facet": "learning model",
+      "description": "Distribution-free PAC guarantees for predictors or mixtures controlled by a prior."
+    },
+    {
+      "name": "Parity learning",
+      "facet": "technical subject",
+      "description": "Learning parity concepts or using parity classes to establish limitations."
+    },
+    {
+      "name": "Probability theory",
+      "facet": "field",
+      "description": "Probability-theoretic convergence or deviation results are the paper's primary subject."
+    },
+    {
+      "name": "Pseudo-dimension",
+      "facet": "technical subject",
+      "description": "Real-valued analogue of VC dimension used to control function classes."
+    },
+    {
+      "name": "Query complexity",
+      "facet": "result focus",
+      "description": "Number or precision of oracle queries required for learning."
+    },
+    {
+      "name": "Rademacher and Gaussian complexity",
+      "facet": "technical subject",
+      "description": "Data-dependent function-class complexity measured with random signs or Gaussian variables."
+    },
+    {
+      "name": "Real-valued function learning",
+      "facet": "technical subject",
+      "description": "Learning real-valued predictors, losses, regressors, or function classes."
+    },
+    {
+      "name": "Robust learning",
+      "facet": "learning model",
+      "description": "Learning guarantees designed to withstand contamination or adversarially bad data."
+    },
+    {
+      "name": "Sample complexity",
+      "facet": "result focus",
+      "description": "Sufficient or necessary number of examples for a learning guarantee."
+    },
+    {
+      "name": "Statistical query learning",
+      "facet": "learning model",
+      "description": "Learning through approximate expectations rather than access to individual labeled examples."
+    },
+    {
+      "name": "Uniform convergence",
+      "facet": "technical subject",
+      "description": "Uniform control of empirical frequencies, risks, or losses over a class."
+    },
+    {
+      "name": "VC theory",
+      "facet": "technical subject",
+      "description": "Growth functions, shattering, and Vapnik-Chervonenkis dimension."
+    },
+    {
+      "name": "Weak learning",
+      "facet": "learning model",
+      "description": "Learning with only a guaranteed advantage over chance or a weak accuracy target."
+    }
+  ],
+  "proof_tags": [
+    {
+      "name": "Adversarial construction",
+      "description": "Builds a hard distribution, target, sample, sequence, or corruption strategy against an arbitrary learner."
+    },
+    {
+      "name": "Algorithmic construction",
+      "description": "Proves the result by explicitly constructing and analyzing an algorithm, hypothesis, representation, or witness."
+    },
+    {
+      "name": "Combinatorial counting",
+      "description": "Uses cardinality, growth functions, shattering patterns, encodings, binomial estimates, or related counting arguments."
+    },
+    {
+      "name": "Comparison and contraction inequalities",
+      "description": "Compares stochastic complexities or contracts a composed class through Lipschitz or Gaussian comparison arguments."
+    },
+    {
+      "name": "Concentration and union bounds",
+      "description": "Turns pointwise random guarantees into high-probability uniform statements using tail inequalities or union bounds."
+    },
+    {
+      "name": "Constrained optimization",
+      "description": "Solves a constrained extremum, commonly with convexity, duality, or Lagrange multipliers."
+    },
+    {
+      "name": "Contradiction",
+      "description": "Assumes the negation or a forbidden learner exists and derives an explicit contradiction."
+    },
+    {
+      "name": "Convexity and analytic inequalities",
+      "description": "Relies materially on convexity, calculus, logarithmic or exponential estimates, or comparable analytic inequalities."
+    },
+    {
+      "name": "Game-theoretic argument",
+      "description": "Reasons through competing strategies, allocation games, or minimax-style adversarial interaction."
+    },
+    {
+      "name": "Geometric argument",
+      "description": "Uses hyperplanes, orthants, metric covers or packings, or geometric separation."
+    },
+    {
+      "name": "Induction and recursion",
+      "description": "Uses induction over structure or rounds, or a recursive construction with maintained invariants."
+    },
+    {
+      "name": "Information-theoretic inequality",
+      "description": "Uses relative entropy, KL divergence, change of measure, or another information inequality."
+    },
+    {
+      "name": "Potential-function argument",
+      "description": "Tracks a scalar potential, often a total weight or exponential loss, whose evolution proves progress."
+    },
+    {
+      "name": "Probabilistic analysis",
+      "description": "Uses random choice, averaging, expectations, or event probabilities as a substantive part of the argument."
+    },
+    {
+      "name": "Quantifier reversal",
+      "description": "Changes the order of high-probability and randomized-concept quantifiers through an explicit measure argument."
+    },
+    {
+      "name": "Reduction",
+      "description": "Transforms the claimed task into another learning, optimization, or hardness problem whose solution transfers back."
+    },
+    {
+      "name": "Simulation",
+      "description": "Emulates one oracle, learner, noise process, representation, or computational primitive with another."
+    },
+    {
+      "name": "Symmetrization",
+      "description": "Introduces ghost samples, random swaps, permutations, or random signs to replace population deviations by sample comparisons."
+    }
+  ]
+}

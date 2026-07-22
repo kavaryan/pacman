@@ -21,18 +21,18 @@
       margin: 0;
       color: var(--ink);
       background: var(--canvas);
-      font: 14px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font: 16px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-    .shell { width: min(1040px, calc(100% - 32px)); margin: 44px auto 72px; }
-    .page-title-row { margin-bottom: 22px; display: flex; align-items: center; gap: 13px; }
-    .home-logo { width: 100px; height: 76px; flex: 0 0 auto; display: block; }
+    .shell { width: min(1180px, calc(100% - 32px)); margin: 44px auto 72px; }
+    .page-title-row { margin-bottom: 24px; display: flex; align-items: center; gap: 15px; }
+    .home-logo { width: 104px; height: 80px; flex: 0 0 auto; display: block; }
     .home-logo img { width: 130%; height: 130%; display: block; object-fit: contain; object-position: left center; }
     .home-logo:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 3px; }
     .notebook-link {
-      width: 54px;
-      height: 44px;
+      width: clamp(190px, 19vw, 240px);
+      height: 42px;
       margin-left: auto;
-      padding: 5px;
+      padding: 5px 6px;
       flex: 0 0 auto;
       display: block;
       border-radius: 6px;
@@ -40,44 +40,70 @@
     .notebook-link:hover { background: rgba(255, 255, 255, .58); }
     .notebook-link:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
     .notebook-link img { width: 100%; height: 100%; display: block; object-fit: contain; }
-    h1 { margin: 0; font: 500 clamp(28px, 4vw, 42px)/1.1 Georgia, "Times New Roman", serif; }
+    h1 { margin: 0; font: 500 clamp(32px, 4vw, 48px)/1.08 Georgia, "Times New Roman", serif; }
     h1 a, h1 a:visited { color: var(--blue); }
     .controls {
       padding-bottom: 18px;
       border-bottom: 1px solid var(--line);
     }
     #paperSearch {
-      width: min(520px, 100%);
-      padding: 10px 12px;
+      width: min(600px, 100%);
+      padding: 12px 14px;
       border: 1px solid #bfcbd8;
       border-radius: 5px;
       color: var(--ink);
       background: white;
       outline: none;
+      font-size: 15px;
     }
     #paperSearch:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(35, 103, 168, .13); }
-    .venue-filters { margin-top: 12px; }
-    .year-filters { margin-top: 7px; }
-    .venue-filters, .year-filters { display: flex; gap: 7px; flex-wrap: wrap; }
-    .venue-chip, .year-chip {
-      padding: 5px 10px;
-      border: 1px solid #bcc9d6;
-      border-radius: 999px;
-      color: #475467;
-      background: white;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 700;
+    .year-filters { margin-top: 12px; display: flex; gap: 7px; flex-wrap: wrap; }
+    .venue-filters {
+      min-width: 0;
+      padding: 2px 1px 5px;
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      scrollbar-width: thin;
     }
-    .venue-chip[aria-pressed="true"], .year-chip[aria-pressed="true"] {
+    .tag-filter-row {
+      margin-top: 7px;
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+    }
+    .tag-filter-label { color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+    .tag-filters {
+      min-width: 0;
+      padding: 2px 1px 5px;
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+    .venue-chip, .year-chip, .tag-chip {
+      padding: 7px 11px;
+      border: 1px solid var(--chip-border, #e5cf83);
+      border-radius: 999px;
+      color: #59450a;
+      background: var(--chip-background, #fff8dc);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      transition: border-color .15s ease, background-color .15s ease, color .15s ease;
+    }
+    .venue-chip:hover, .year-chip:hover, .tag-chip:hover { filter: brightness(.97); }
+    .venue-chip, .tag-chip { flex: 0 0 auto; }
+    .venue-chip[aria-pressed="true"], .year-chip[aria-pressed="true"], .tag-chip[aria-pressed="true"] {
       border-color: var(--blue);
       color: white;
       background: var(--blue);
     }
-    .list-meta { margin: 16px 0 8px; color: var(--muted); font-size: 12px; }
+    .list-meta { margin: 18px 0 9px; color: var(--muted); font-size: 13px; }
     .paper-list { border-top: 1px solid var(--line); }
     .paper-row {
-      padding: 18px 4px;
+      padding: 20px 5px;
       border-bottom: 1px solid var(--line);
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -88,14 +114,14 @@
     .paper-row-link:hover { background: rgba(255, 255, 255, .58); }
     .paper-row-link:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
     .paper-title-line { display: flex; align-items: center; gap: 9px; }
-    .paper-title { margin: 0; font: 600 20px/1.3 Georgia, "Times New Roman", serif; }
+    .paper-title { margin: 0; font: 600 22px/1.28 Georgia, "Times New Roman", serif; }
     .artifact-icons {
       display: flex;
       align-items: center;
       gap: 5px;
       flex: 0 0 auto;
     }
-    .artifact-icon { width: 18px; height: 18px; display: block; }
+    .artifact-icon { width: 19px; height: 19px; display: block; }
     .artifact-icon img { width: 100%; height: 100%; display: block; object-fit: contain; }
     .artifact-icon-code {
       background-color: var(--blue);
@@ -105,16 +131,42 @@
     .artifact-icon-code img { visibility: hidden; }
     .paper-authors { margin: 5px 0 0; color: #475467; }
     .paper-venues { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
-    .paper-venue { color: #245980; font-size: 11px; font-weight: 750; }
+    .paper-venue { color: #245980; font-size: 12px; font-weight: 750; }
     .paper-venue + .paper-venue::before { content: "·"; margin-right: 6px; color: #98a2b3; }
-    .paper-side { color: var(--muted); text-align: right; white-space: nowrap; font-size: 12px; }
-    .paper-side strong { display: block; color: var(--ink); font-size: 13px; }
+    .paper-side { color: var(--muted); text-align: right; white-space: nowrap; font-size: 13px; }
+    .paper-side strong { display: block; color: var(--ink); font-size: 14px; }
     .empty { padding: 36px 4px; color: var(--muted); }
-    @media (max-width: 620px) {
-      .shell { width: min(100% - 22px, 1040px); margin-top: 26px; }
-      .notebook-link { width: 46px; height: 38px; padding: 4px; }
+    .site-footer {
+      margin-top: 46px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 700px) {
+      .shell { width: min(100% - 20px, 1180px); margin: 22px auto 44px; }
+      .page-title-row {
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: 82px minmax(0, 1fr);
+        gap: 8px 10px;
+      }
+      .home-logo { width: 82px; height: 68px; }
+      h1 { font-size: clamp(29px, 8vw, 38px); }
+      .notebook-link {
+        grid-column: 1 / -1;
+        width: min(250px, 100%);
+        height: 36px;
+        margin: 2px 0 0;
+        padding: 3px 4px;
+        justify-self: end;
+      }
+      #paperSearch { width: 100%; font-size: 16px; }
+      .tag-filter-row { grid-template-columns: 76px minmax(0, 1fr); gap: 6px; }
+      .tag-filter-label { white-space: normal; }
       .paper-row { grid-template-columns: 1fr; gap: 8px; }
       .paper-side { text-align: left; }
+      .site-footer { margin-top: 34px; font-size: 12px; }
     }
   </style>
 </head>
@@ -132,11 +184,25 @@
     </div>
     <section class="controls" aria-label="Paper filters">
       <input id="paperSearch" type="search" placeholder="Search papers or authors" autocomplete="off">
-      <div id="venueFilters" class="venue-filters" aria-label="Filter by venue"></div>
       <div id="yearFilters" class="year-filters" aria-label="Filter by year"></div>
+      <div class="tag-filter-row">
+        <span class="tag-filter-label">Venues</span>
+        <div id="venueFilters" class="venue-filters" aria-label="Filter by venue"></div>
+      </div>
+      <div class="tag-filter-row">
+        <span class="tag-filter-label">Content</span>
+        <div id="contentTagFilters" class="tag-filters" aria-label="Filter by content tag"></div>
+      </div>
+      <div class="tag-filter-row">
+        <span class="tag-filter-label">Proof style</span>
+        <div id="proofTagFilters" class="tag-filters" aria-label="Filter by proof-style tag"></div>
+      </div>
     </section>
     <p id="listMeta" class="list-meta" aria-live="polite">Loading papers…</p>
     <div id="paperList" class="paper-list"></div>
+    <footer class="site-footer">
+      Literature crawling, proof extraction, and tagging are AI-assisted. Source checks, structured validation, and targeted review are used to improve reliability, but errors and omissions may remain. Please verify important claims against the original papers.
+    </footer>
   </main>
   <script>
     (() => {
@@ -145,11 +211,17 @@
       const search = document.getElementById('paperSearch');
       const filters = document.getElementById('venueFilters');
       const yearFilters = document.getElementById('yearFilters');
+      const contentTagFilters = document.getElementById('contentTagFilters');
+      const proofTagFilters = document.getElementById('proofTagFilters');
       const list = document.getElementById('paperList');
       const meta = document.getElementById('listMeta');
       let papers = [];
+      let configuredContentTags = [];
+      let configuredProofTags = [];
       let activeVenue = 'All';
       let activeYearRange = 'all';
+      let activeContentTag = 'All';
+      let activeProofTag = 'All';
 
       const currentYear = new Date().getFullYear();
       const previousYear = currentYear - 1;
@@ -209,6 +281,22 @@
         renderPapers();
       }
 
+      function mixColor(from, to, amount) {
+        const channel = index => Math.round(from[index] + (to[index] - from[index]) * amount);
+        return `rgb(${channel(0)}, ${channel(1)}, ${channel(2)})`;
+      }
+
+      function setChipFrequency(button, count) {
+        const frequency = Math.max(0, Number(count) || 0);
+        const logScale = Math.log1p(frequency) / Math.log1p(Math.max(1, papers.length));
+        const scale = Math.pow(logScale, 2.2);
+        button.style.setProperty('--chip-background', mixColor([255, 254, 247], [226, 166, 36], scale));
+        button.style.setProperty('--chip-border', mixColor([231, 226, 210], [183, 124, 14], scale));
+        button.dataset.frequency = String(frequency);
+        const countLabel = `${frequency} paper${frequency === 1 ? '' : 's'}`;
+        button.title = button.title ? `${button.title} · ${countLabel}` : countLabel;
+      }
+
       function renderVenues() {
         const venues = [...new Set(papers.map(paper => paper.venue).filter(Boolean))].sort((a, b) => a.localeCompare(b));
         filters.replaceChildren();
@@ -223,6 +311,7 @@
             button.title = venue;
             button.setAttribute('aria-label', `Filter by ${venue}`);
           }
+          setChipFrequency(button, venue === 'All' ? papers.length : papers.filter(paper => paper.venue === venue).length);
           button.setAttribute('aria-pressed', String(venue === activeVenue));
           button.addEventListener('click', () => setVenue(venue));
           filters.appendChild(button);
@@ -245,9 +334,57 @@
           button.className = 'year-chip';
           button.dataset.yearRange = range.id;
           button.textContent = range.label;
+          setChipFrequency(button, papers.filter(paper => range.includes(Number(paper.year))).length);
           button.setAttribute('aria-pressed', String(range.id === activeYearRange));
           button.addEventListener('click', () => setYearRange(range.id));
           yearFilters.appendChild(button);
+        }
+      }
+
+      function configuredTags(config, key) {
+        if (!config || !Array.isArray(config[key])) throw new Error(`tags.json must contain a "${key}" array.`);
+        return [...new Set(config[key]
+          .filter(tag => typeof tag === 'string')
+          .map(tag => tag.trim())
+          .filter(Boolean))];
+      }
+
+      function intersectTags(paperTags, allowedTags) {
+        const paperTagSet = new Set(Array.isArray(paperTags) ? paperTags : []);
+        return allowedTags.filter(tag => paperTagSet.has(tag));
+      }
+
+      function setTag(kind, tag) {
+        const isContent = kind === 'content';
+        const activeTag = isContent ? activeContentTag : activeProofTag;
+        const nextTag = tag !== 'All' && tag === activeTag ? 'All' : tag;
+        if (isContent) activeContentTag = nextTag;
+        else activeProofTag = nextTag;
+        const container = isContent ? contentTagFilters : proofTagFilters;
+        let selectedButton = null;
+        for (const button of container.querySelectorAll('button')) {
+          const selected = button.dataset.tag === nextTag;
+          button.setAttribute('aria-pressed', String(selected));
+          if (selected) selectedButton = button;
+        }
+        selectedButton?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+        renderPapers();
+      }
+
+      function renderTagFilters(container, tags, kind) {
+        container.replaceChildren();
+        const activeTag = kind === 'content' ? activeContentTag : activeProofTag;
+        for (const tag of ['All', ...tags]) {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'tag-chip';
+          button.dataset.tag = tag;
+          button.textContent = tag;
+          const paperTagField = kind === 'content' ? 'visibleContentTags' : 'visibleProofTags';
+          setChipFrequency(button, tag === 'All' ? papers.length : papers.filter(paper => paper[paperTagField].includes(tag)).length);
+          button.setAttribute('aria-pressed', String(tag === activeTag));
+          button.addEventListener('click', () => setTag(kind, tag));
+          container.appendChild(button);
         }
       }
 
@@ -267,7 +404,7 @@
         artifactIcons.className = 'artifact-icons';
         const artifacts = [
           { src: 'images/pdf-acrobat.svg', className: 'artifact-icon-pdf', label: 'PDF available' },
-          ...(paper.processed ? [{ src: 'images/code.svg', className: 'artifact-icon-code', label: 'Theorem JSON available' }] : [])
+          ...(paper.processed ? [{ src: 'images/code.svg', className: 'artifact-icon-code', label: 'Theorems extracted' }] : [])
         ];
         for (const artifact of artifacts) {
           const icon = document.createElement('span');
@@ -313,8 +450,10 @@
         const visible = papers.filter(paper => {
           if (activeVenue !== 'All' && paper.venue !== activeVenue) return false;
           if (selectedYearRange && !selectedYearRange.includes(Number(paper.year))) return false;
+          if (activeContentTag !== 'All' && !paper.visibleContentTags.includes(activeContentTag)) return false;
+          if (activeProofTag !== 'All' && !paper.visibleProofTags.includes(activeProofTag)) return false;
           if (!query) return true;
-          return [paper.title, ...(paper.authors || []), paper.year, paper.venue, paper.venue_type]
+          return [paper.title, ...(paper.authors || []), paper.year, paper.venue, paper.venue_type, ...paper.visibleContentTags, ...paper.visibleProofTags]
             .join(' ').toLowerCase().includes(query);
         });
         list.replaceChildren(...visible.map(paperRow));
@@ -329,15 +468,29 @@
       }
 
       search.addEventListener('input', renderPapers);
-      fetch('accepted-catalog.json', { cache: 'no-store' })
-        .then(response => {
-          if (!response.ok) throw new Error(`Catalogue could not load (${response.status}).`);
+      function fetchJson(url, label) {
+        return fetch(url, { cache: 'no-store' }).then(response => {
+          if (!response.ok) throw new Error(`${label} could not load (${response.status}).`);
           return response.json();
-        })
-        .then(catalogue => {
-          papers = Array.isArray(catalogue) ? catalogue : [];
+        });
+      }
+
+      Promise.all([
+        fetchJson('accepted-catalog.json', 'Catalogue'),
+        fetchJson('tags.json', 'Tag configuration')
+      ])
+        .then(([catalogue, tagConfig]) => {
+          configuredContentTags = configuredTags(tagConfig, 'content tags');
+          configuredProofTags = configuredTags(tagConfig, 'proof-tags');
+          papers = (Array.isArray(catalogue) ? catalogue : []).map(paper => ({
+            ...paper,
+            visibleContentTags: intersectTags(paper.content_tags, configuredContentTags),
+            visibleProofTags: intersectTags(paper.proof_tags, configuredProofTags)
+          }));
           renderVenues();
           renderYears();
+          renderTagFilters(contentTagFilters, configuredContentTags, 'content');
+          renderTagFilters(proofTagFilters, configuredProofTags, 'proof');
           renderPapers();
         })
         .catch(error => {

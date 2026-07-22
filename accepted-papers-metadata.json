@@ -1803,7 +1803,20 @@
     "doi": "10.1006/jcss.1997.1504",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/4ba566223e426677d12a9a18418c023a4deec77e",
     "sha256": "9eb02e6ef024d56684fd01b70296c929c411184766b969ef77ee00f6b9d5a68e",
-    "pdf_path": "accepted/1997-a-decision-theoretic-generalization-of-on-line-learning-and-an-application-to-boosting.pdf"
+    "pdf_path": "accepted/1997-a-decision-theoretic-generalization-of-on-line-learning-and-an-application-to-boosting.pdf",
+    "content_tags": [
+      "Online learning",
+      "Boosting",
+      "Multiplicative weights",
+      "Decision-theoretic learning",
+      "Generalization bounds"
+    ],
+    "proof_tags": [
+      "Potential-function argument",
+      "Reduction",
+      "Convexity and analytic inequalities",
+      "Game-theoretic argument"
+    ]
   },
   {
     "title": "A Theory of the Learnable",
@@ -1815,7 +1828,19 @@
     "doi": "10.1145/1968.1972",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/d37b3a66d55d5361aeb5ef0793af66049535c24d",
     "sha256": "381ee2e774542ccec25db2e8ed59e29c67e6dd106430e90bdd2debd50df558db",
-    "pdf_path": "accepted/1984-a-theory-of-the-learnable.pdf"
+    "pdf_path": "accepted/1984-a-theory-of-the-learnable.pdf",
+    "content_tags": [
+      "PAC learning",
+      "Concept learning",
+      "Boolean function learning",
+      "Sample complexity"
+    ],
+    "proof_tags": [
+      "Algorithmic construction",
+      "Induction and recursion",
+      "Combinatorial counting",
+      "Concentration and union bounds"
+    ]
   },
   {
     "title": "The Strength of Weak Learnability",
@@ -1827,7 +1852,20 @@
     "doi": "10.1007/BF00116037",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/35702d642c5f1b7950d088497837486b4ca682a3",
     "sha256": "b432dfc986cfeb3b157ce35102a9c8ac9bbd15bc7b0666e0e103e76d3146babd",
-    "pdf_path": "accepted/1990-the-strength-of-weak-learnability.pdf"
+    "pdf_path": "accepted/1990-the-strength-of-weak-learnability.pdf",
+    "content_tags": [
+      "PAC learning",
+      "Boosting",
+      "Weak learning",
+      "Sample complexity"
+    ],
+    "proof_tags": [
+      "Algorithmic construction",
+      "Reduction",
+      "Induction and recursion",
+      "Probabilistic analysis",
+      "Simulation"
+    ]
   },
   {
     "title": "On the Uniform Convergence of Relative Frequencies of Events to Their Probabilities",
@@ -1839,7 +1877,18 @@
     "doi": "10.1137/1116025",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/a36b028d024bf358c4af1a5e1dc3ca0aed23b553",
     "sha256": "c86ae06d178f410b7bedd292814ae354f90b15ce561f7e0408065db49893e439",
-    "pdf_path": "accepted/1971-on-the-uniform-convergence-of-relative-frequencies-of-events-to-their-probabilities.pdf"
+    "pdf_path": "accepted/1971-on-the-uniform-convergence-of-relative-frequencies-of-events-to-their-probabilities.pdf",
+    "content_tags": [
+      "Probability theory",
+      "Uniform convergence",
+      "VC theory"
+    ],
+    "proof_tags": [
+      "Symmetrization",
+      "Combinatorial counting",
+      "Probabilistic analysis",
+      "Contradiction"
+    ]
   },
   {
     "title": "Rademacher and Gaussian Complexities: Risk Bounds and Structural Results",
@@ -1851,7 +1900,20 @@
     "doi": null,
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/009f35c0e453f2435efd8d8ef8086b76b294967a",
     "sha256": "157a952bc8499febd05ea3115dfea40634891c93ca55e1838d5ae0c9fbb9b4bc",
-    "pdf_path": "accepted/2002-rademacher-and-gaussian-complexities-risk-bounds-and-structural-results.pdf"
+    "pdf_path": "accepted/2002-rademacher-and-gaussian-complexities-risk-bounds-and-structural-results.pdf",
+    "content_tags": [
+      "Rademacher and Gaussian complexity",
+      "Generalization bounds",
+      "Decision-theoretic learning",
+      "Neural networks",
+      "Kernel methods"
+    ],
+    "proof_tags": [
+      "Symmetrization",
+      "Concentration and union bounds",
+      "Comparison and contraction inequalities",
+      "Convexity and analytic inequalities"
+    ]
   },
   {
     "title": "Learnability and the Vapnik-Chervonenkis Dimension",
@@ -1863,7 +1925,21 @@
     "doi": "10.1145/76359.76371",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/e0b8fa3496283d4d808fba9ff62d5f024bcf23be",
     "sha256": "2ad0c2c1b3db03d999f3e1d0ab28faa606bf1539da03419d67aa1f34249df9ed",
-    "pdf_path": "accepted/1989-learnability-and-the-vapnik-chervonenkis-dimension.pdf"
+    "pdf_path": "accepted/1989-learnability-and-the-vapnik-chervonenkis-dimension.pdf",
+    "content_tags": [
+      "PAC learning",
+      "VC theory",
+      "Uniform convergence",
+      "Sample complexity",
+      "Occam bounds"
+    ],
+    "proof_tags": [
+      "Symmetrization",
+      "Combinatorial counting",
+      "Algorithmic construction",
+      "Induction and recursion",
+      "Concentration and union bounds"
+    ]
   },
   {
     "title": "Boosting a Weak Learning Algorithm by Majority",
@@ -1875,7 +1951,20 @@
     "doi": "10.1006/inco.1995.1136",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/b824cb051ffbdd81b529c4b82379a3af270fb6f7",
     "sha256": "50c851371b320e416b0461b9809fdfe4c4317a2074b72e0fbfb757406421f526",
-    "pdf_path": "accepted/1995-boosting-a-weak-learning-algorithm-by-majority.pdf"
+    "pdf_path": "accepted/1995-boosting-a-weak-learning-algorithm-by-majority.pdf",
+    "content_tags": [
+      "Boosting",
+      "Weak learning",
+      "PAC learning",
+      "Sample complexity"
+    ],
+    "proof_tags": [
+      "Potential-function argument",
+      "Game-theoretic argument",
+      "Algorithmic construction",
+      "Concentration and union bounds",
+      "Information-theoretic inequality"
+    ]
   },
   {
     "title": "What Size Net Gives Valid Generalization?",
@@ -1887,7 +1976,19 @@
     "doi": null,
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/25406e6733a698bfc4ac836f8e74f458e75dad4f",
     "sha256": "f48ce72965e653c694fd0c5be4b76a5a2f30b5ddc35e8dd04055841739ca6d8b",
-    "pdf_path": "accepted/1988-what-size-net-gives-valid-generalization.pdf"
+    "pdf_path": "accepted/1988-what-size-net-gives-valid-generalization.pdf",
+    "content_tags": [
+      "Neural networks",
+      "Generalization bounds",
+      "VC theory",
+      "Sample complexity"
+    ],
+    "proof_tags": [
+      "Combinatorial counting",
+      "Probabilistic analysis",
+      "Adversarial construction",
+      "Geometric argument"
+    ]
   },
   {
     "title": "Learning Quickly When Irrelevant Attributes Abound: A New Linear-Threshold Algorithm",
@@ -1899,7 +2000,21 @@
     "doi": "10.1007/BF00116827",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/3cf9932e54bb71efa7549923aa72594ab771f0c7",
     "sha256": "23770fc4939ec52bcb1055bdaeb36899782ab41a023c5d5f08dc78c8cdda3438",
-    "pdf_path": "accepted/1988-learning-quickly-when-irrelevant-attributes-abound-a-new-linear-threshold-algorithm.pdf"
+    "pdf_path": "accepted/1988-learning-quickly-when-irrelevant-attributes-abound-a-new-linear-threshold-algorithm.pdf",
+    "content_tags": [
+      "Online learning",
+      "Attribute-efficient learning",
+      "Multiplicative weights",
+      "Boolean function learning",
+      "Mistake bounds"
+    ],
+    "proof_tags": [
+      "Potential-function argument",
+      "Adversarial construction",
+      "Induction and recursion",
+      "Reduction",
+      "Algorithmic construction"
+    ]
   },
   {
     "title": "Decision Theoretic Generalizations of the PAC Model for Neural Net and Other Learning Applications",
@@ -1911,7 +2026,22 @@
     "doi": "10.1016/0890-5401(92)90010-D",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/fedfc9fbcfe46d50b81078560bce724678f90176",
     "sha256": "f83cde5c10065ab291ab2bcfca7818d62996c4be9954bc48a886bdebb43c1f34",
-    "pdf_path": "accepted/1992-decision-theoretic-generalizations-of-the-pac-model-for-neural-net-and-other-learning-applications.pdf"
+    "pdf_path": "accepted/1992-decision-theoretic-generalizations-of-the-pac-model-for-neural-net-and-other-learning-applications.pdf",
+    "content_tags": [
+      "Decision-theoretic learning",
+      "Real-valued function learning",
+      "Uniform convergence",
+      "Pseudo-dimension",
+      "Neural networks",
+      "Generalization bounds"
+    ],
+    "proof_tags": [
+      "Symmetrization",
+      "Concentration and union bounds",
+      "Combinatorial counting",
+      "Geometric argument",
+      "Induction and recursion"
+    ]
   },
   {
     "title": "Learning Decision Lists",
@@ -1923,7 +2053,18 @@
     "doi": "10.1007/BF00058680",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/2c386026b24f993aca44a7a684152778d46c51b0",
     "sha256": "3a3ee9119826e194416196d551ac739066382e77f86434657c4e3c4d04c393b6",
-    "pdf_path": "accepted/1987-learning-decision-lists.pdf"
+    "pdf_path": "accepted/1987-learning-decision-lists.pdf",
+    "content_tags": [
+      "Decision lists",
+      "Boolean function learning",
+      "PAC learning",
+      "Concept learning"
+    ],
+    "proof_tags": [
+      "Algorithmic construction",
+      "Combinatorial counting",
+      "Concentration and union bounds"
+    ]
   },
   {
     "title": "Cryptographic Limitations on Learning Boolean Formulae and Finite Automata",
@@ -1935,7 +2076,22 @@
     "doi": "10.1145/174644.174647",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/3ae43d62122bffc2d921a363291ca184645d2376",
     "sha256": "8fb61ed12e405f046995fa92ce33d6c2815b24ec2f359ef41fc20573566dd74b",
-    "pdf_path": "accepted/1994-cryptographic-limitations-on-learning-boolean-formulae-and-finite-automata.pdf"
+    "pdf_path": "accepted/1994-cryptographic-limitations-on-learning-boolean-formulae-and-finite-automata.pdf",
+    "content_tags": [
+      "Cryptography",
+      "Cryptographic hardness",
+      "Computational hardness",
+      "Complexity theory",
+      "PAC learning",
+      "Boolean function learning",
+      "Automata learning"
+    ],
+    "proof_tags": [
+      "Reduction",
+      "Contradiction",
+      "Algorithmic construction",
+      "Simulation"
+    ]
   },
   {
     "title": "Efficient Noise-Tolerant Learning from Statistical Queries",
@@ -1947,7 +2103,21 @@
     "doi": "10.1145/293347.293351",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/88caa4a21da7d31a63d7cc7e7de1897ba2c211b8",
     "sha256": "e4ad0a33ce20e263ad1b61d840b314fe95fe612a775486bcc52d9fdecc0de599",
-    "pdf_path": "accepted/1998-efficient-noise-tolerant-learning-from-statistical-queries.pdf"
+    "pdf_path": "accepted/1998-efficient-noise-tolerant-learning-from-statistical-queries.pdf",
+    "content_tags": [
+      "Statistical query learning",
+      "Noise-tolerant learning",
+      "Classification noise",
+      "Query complexity",
+      "Parity learning"
+    ],
+    "proof_tags": [
+      "Simulation",
+      "Concentration and union bounds",
+      "Combinatorial counting",
+      "Adversarial construction",
+      "Probabilistic analysis"
+    ]
   },
   {
     "title": "Learning from Noisy Examples",
@@ -1959,7 +2129,20 @@
     "doi": "10.1007/BF00116829",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/d15289b07f8f13ac22439845a45a41744511cd17",
     "sha256": "b790858a92494b8557d6b1c95e30f3d96ae5abe6ff956e47201a214ad7bd2fe3",
-    "pdf_path": "accepted/1988-learning-from-noisy-examples.pdf"
+    "pdf_path": "accepted/1988-learning-from-noisy-examples.pdf",
+    "content_tags": [
+      "Noise-tolerant learning",
+      "Classification noise",
+      "PAC learning",
+      "Boolean function learning",
+      "Computational hardness"
+    ],
+    "proof_tags": [
+      "Concentration and union bounds",
+      "Algorithmic construction",
+      "Reduction",
+      "Probabilistic analysis"
+    ]
   },
   {
     "title": "Computational Limitations on Learning from Examples",
@@ -1971,7 +2154,19 @@
     "doi": "10.1145/48014.63140",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/93849122caf1b10c9611eddb707e0720441c73f6",
     "sha256": "9309ead150e616d32cb685772454e22aa0bb533165c34ab779aca0d91ad5c764",
-    "pdf_path": "accepted/1988-computational-limitations-on-learning-from-examples.pdf"
+    "pdf_path": "accepted/1988-computational-limitations-on-learning-from-examples.pdf",
+    "content_tags": [
+      "Computational hardness",
+      "Complexity theory",
+      "PAC learning",
+      "Boolean function learning"
+    ],
+    "proof_tags": [
+      "Reduction",
+      "Algorithmic construction",
+      "Contradiction",
+      "Combinatorial counting"
+    ]
   },
   {
     "title": "Quantifying Inductive Bias: AI Learning Algorithms and Valiant's Learning Framework",
@@ -1983,7 +2178,20 @@
     "doi": "10.1016/0004-3702(88)90002-1",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/3b814ad3055d6bfd7828effdbfbf1372646b7c22",
     "sha256": "24f8b46392ba703d18c68a5150e54836f177423a29efe8fd8c49761e0f72d7f2",
-    "pdf_path": "accepted/1988-quantifying-inductive-bias-ai-learning-algorithms-and-valiants-learning-framework.pdf"
+    "pdf_path": "accepted/1988-quantifying-inductive-bias-ai-learning-algorithms-and-valiants-learning-framework.pdf",
+    "content_tags": [
+      "Inductive bias",
+      "VC theory",
+      "Sample complexity",
+      "Boolean function learning",
+      "Occam bounds"
+    ],
+    "proof_tags": [
+      "Combinatorial counting",
+      "Algorithmic construction",
+      "Concentration and union bounds",
+      "Reduction"
+    ]
   },
   {
     "title": "Some PAC-Bayesian Theorems",
@@ -1995,7 +2203,17 @@
     "doi": "10.1023/A:1007618624809",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/0e2f6482e7230e1d12af88d6b8afcef3d5d733e3",
     "sha256": "dcf407307fc21b6728bed3f6120607789e35aa3e033acd957868a5a689078eaa",
-    "pdf_path": "accepted/1999-some-pac-bayesian-theorems.pdf"
+    "pdf_path": "accepted/1999-some-pac-bayesian-theorems.pdf",
+    "content_tags": [
+      "PAC-Bayes",
+      "Bayesian inference",
+      "Generalization bounds"
+    ],
+    "proof_tags": [
+      "Concentration and union bounds",
+      "Quantifier reversal",
+      "Probabilistic analysis"
+    ]
   },
   {
     "title": "A General Lower Bound on the Number of Examples Needed for Learning",
@@ -2007,7 +2225,20 @@
     "doi": "10.1016/0890-5401(89)90002-3",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/b83396caf4762c906530c9219a9e4dd0658232b0",
     "sha256": "da345a86373faafd574252c54b94108ec93dc5934785019bd0013fe9fa5a1e3d",
-    "pdf_path": "accepted/1989-a-general-lower-bound-on-the-number-of-examples-needed-for-learning.pdf"
+    "pdf_path": "accepted/1989-a-general-lower-bound-on-the-number-of-examples-needed-for-learning.pdf",
+    "content_tags": [
+      "Sample complexity",
+      "Lower bounds",
+      "VC theory",
+      "PAC learning"
+    ],
+    "proof_tags": [
+      "Adversarial construction",
+      "Probabilistic analysis",
+      "Combinatorial counting",
+      "Induction and recursion",
+      "Concentration and union bounds"
+    ]
   },
   {
     "title": "Learning in the Presence of Malicious Errors",
@@ -2019,7 +2250,21 @@
     "doi": "10.1137/0222052",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/25875a29eded2acdad72cf897df11c2df2d92ec1",
     "sha256": "11cd3afdb97628757d39468d22643594f32fa46ad332b1ac88813d537f0ef399",
-    "pdf_path": "accepted/1993-learning-in-the-presence-of-malicious-errors.pdf"
+    "pdf_path": "accepted/1993-learning-in-the-presence-of-malicious-errors.pdf",
+    "content_tags": [
+      "Malicious-noise learning",
+      "Robust learning",
+      "PAC learning",
+      "Boolean function learning",
+      "Combinatorial optimization"
+    ],
+    "proof_tags": [
+      "Adversarial construction",
+      "Algorithmic construction",
+      "Reduction",
+      "Combinatorial counting",
+      "Simulation"
+    ]
   },
   {
     "title": "Toward Efficient Agnostic Learning",
@@ -2031,7 +2276,21 @@
     "doi": "10.1007/BF00993468",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/78cb4ca2c9c78348ade4c17621491d14d72f2a19",
     "sha256": "5440f193d09ea8b8ebc1b1ff0cd154ac30989e6cfa06f4519d8dbfa13f40065f",
-    "pdf_path": "accepted/1994-toward-efficient-agnostic-learning.pdf"
+    "pdf_path": "accepted/1994-toward-efficient-agnostic-learning.pdf",
+    "content_tags": [
+      "Agnostic learning",
+      "PAC learning",
+      "Computational hardness",
+      "Real-valued function learning",
+      "Hidden-variable learning"
+    ],
+    "proof_tags": [
+      "Reduction",
+      "Algorithmic construction",
+      "Induction and recursion",
+      "Concentration and union bounds",
+      "Contradiction"
+    ]
   },
   {
     "title": "Occam's Razor",
@@ -2043,7 +2302,18 @@
     "doi": "10.1016/0020-0190(87)90114-1",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/71448a9b8d35d5f3123405d3d7a66288618daab2",
     "sha256": "556b9e7aadbd614cc3692edbda442cf1fc7c7320c631d403cb45cf754181b988",
-    "pdf_path": "accepted/1987-occams-razor.pdf"
+    "pdf_path": "accepted/1987-occams-razor.pdf",
+    "content_tags": [
+      "Occam bounds",
+      "PAC learning",
+      "Sample complexity",
+      "Concept learning"
+    ],
+    "proof_tags": [
+      "Combinatorial counting",
+      "Concentration and union bounds",
+      "Reduction"
+    ]
   },
   {
     "title": "PAC-Bayesian Model Averaging",
@@ -2055,6 +2325,19 @@
     "doi": "10.1145/307400.307435",
     "semantic_scholar_url": "https://www.semanticscholar.org/paper/609be06b5a91ffb8c35abd1636cd2431ff32435d",
     "sha256": "809deac243aa03a4c317d9cc334d9fd784788c3b233ec8235d169e4a63ae70a7",
-    "pdf_path": "accepted/1999-pac-bayesian-model-averaging.pdf"
+    "pdf_path": "accepted/1999-pac-bayesian-model-averaging.pdf",
+    "content_tags": [
+      "PAC-Bayes",
+      "Bayesian inference",
+      "Model averaging",
+      "Generalization bounds",
+      "Information theory"
+    ],
+    "proof_tags": [
+      "Constrained optimization",
+      "Concentration and union bounds",
+      "Information-theoretic inequality",
+      "Convexity and analytic inequalities"
+    ]
   }
 ]
