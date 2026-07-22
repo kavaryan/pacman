@@ -5,6 +5,7 @@ verdicts
 candidates
 logs
 scripts
+!/.agents/skills/pdf-to-theorem-json/scripts/
 .agents/skills/fulltext-literature-discovery
 .agents/skills/literature-discovery-crawler 
 
