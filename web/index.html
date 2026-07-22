@@ -12,7 +12,7 @@
       --muted: #667085;
       --canvas: #eef2f6;
       --line: #d5dde7;
-      --blue: #2367a8;
+      --blue: #17365b;
       --blue-soft: #e8f2fb;
     }
     html { overflow-y: scroll; scrollbar-gutter: stable; }
@@ -28,7 +28,20 @@
     .home-logo { width: 100px; height: 76px; flex: 0 0 auto; display: block; }
     .home-logo img { width: 130%; height: 130%; display: block; object-fit: contain; object-position: left center; }
     .home-logo:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 3px; }
+    .notebook-link {
+      width: 54px;
+      height: 44px;
+      margin-left: auto;
+      padding: 5px;
+      flex: 0 0 auto;
+      display: block;
+      border-radius: 6px;
+    }
+    .notebook-link:hover { background: rgba(255, 255, 255, .58); }
+    .notebook-link:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+    .notebook-link img { width: 100%; height: 100%; display: block; object-fit: contain; }
     h1 { margin: 0; font: 500 clamp(28px, 4vw, 42px)/1.1 Georgia, "Times New Roman", serif; }
+    h1 a, h1 a:visited { color: var(--blue); }
     .controls {
       padding-bottom: 18px;
       border-bottom: 1px solid var(--line);
@@ -76,13 +89,20 @@
     .paper-row-link:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
     .paper-title-line { display: flex; align-items: center; gap: 9px; }
     .paper-title { margin: 0; font: 600 20px/1.3 Georgia, "Times New Roman", serif; }
-    .processed-dot {
-      width: 13px;
-      height: 13px;
+    .artifact-icons {
+      display: flex;
+      align-items: center;
+      gap: 5px;
       flex: 0 0 auto;
-      border-radius: 50%;
-      background: #1f9d55;
     }
+    .artifact-icon { width: 18px; height: 18px; display: block; }
+    .artifact-icon img { width: 100%; height: 100%; display: block; object-fit: contain; }
+    .artifact-icon-code {
+      background-color: var(--blue);
+      -webkit-mask: url("images/code.svg") center / contain no-repeat;
+      mask: url("images/code.svg") center / contain no-repeat;
+    }
+    .artifact-icon-code img { visibility: hidden; }
     .paper-authors { margin: 5px 0 0; color: #475467; }
     .paper-venues { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
     .paper-venue { color: #245980; font-size: 11px; font-weight: 750; }
@@ -92,6 +112,7 @@
     .empty { padding: 36px 4px; color: var(--muted); }
     @media (max-width: 620px) {
       .shell { width: min(100% - 22px, 1040px); margin-top: 26px; }
+      .notebook-link { width: 46px; height: 38px; padding: 4px; }
       .paper-row { grid-template-columns: 1fr; gap: 8px; }
       .paper-side { text-align: left; }
     }
@@ -105,6 +126,9 @@
       </a>
       <!-- <h1>PACMan: <a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning">Probably Approximately Correct</a> (PAC) Papers</h1> -->
        <h1>PACMan: <a href="https://en.wikipedia.org/wiki/Probably_approximately_correct_learning" title="Probably Approximately Correct">PAC</a> Papers</h1>
+      <a class="notebook-link" href="https://notebooklm.google.com/notebook/77801cac-bd35-4b62-9735-076f07fd5360" title="Gemini Notebooks (former NotebookL M)" aria-label="Gemini Notebooks (former NotebookL M)" target="_blank" rel="noopener noreferrer">
+        <img src="images/notebook-logo.svg" alt="">
+      </a>
     </div>
     <section class="controls" aria-label="Paper filters">
       <input id="paperSearch" type="search" placeholder="Search papers or authors" autocomplete="off">
@@ -125,7 +149,19 @@
       const meta = document.getElementById('listMeta');
       let papers = [];
       let activeVenue = 'All';
-      let activeYear = 'All';
+      let activeYearRange = 'all';
+
+      const currentYear = new Date().getFullYear();
+      const previousYear = currentYear - 1;
+      const recentCutoff = previousYear - 3;
+      const yearRanges = Object.freeze([
+        { id: 'all', label: 'All years', includes: () => true },
+        { id: `since-${currentYear}`, label: `Since ${currentYear}`, includes: year => year >= currentYear },
+        { id: `since-${previousYear}`, label: `Since ${previousYear}`, includes: year => year >= previousYear },
+        { id: `since-${recentCutoff}`, label: `Since ${recentCutoff}`, includes: year => year >= recentCutoff },
+        { id: `2000-${recentCutoff}`, label: `2000-${recentCutoff}`, includes: year => year >= 2000 && year <= recentCutoff },
+        { id: 'before-2000', label: 'Before 2000', includes: year => year < 2000 }
+      ]);
 
       const venueAcronyms = Object.freeze({
         'AAAI Conference on Artificial Intelligence': 'AAAI',
@@ -193,27 +229,24 @@
         }
       }
 
-      function setYear(year) {
-        activeYear = year !== 'All' && year === activeYear ? 'All' : year;
+      function setYearRange(rangeId) {
+        activeYearRange = rangeId !== 'all' && rangeId === activeYearRange ? 'all' : rangeId;
         for (const button of yearFilters.querySelectorAll('button')) {
-          button.setAttribute('aria-pressed', String(button.dataset.year === activeYear));
+          button.setAttribute('aria-pressed', String(button.dataset.yearRange === activeYearRange));
         }
         renderPapers();
       }
 
       function renderYears() {
-        const years = [...new Set(papers.map(paper => paper.year).filter(Boolean))]
-          .sort((a, b) => b - a)
-          .map(String);
         yearFilters.replaceChildren();
-        for (const year of ['All', ...years]) {
+        for (const range of yearRanges) {
           const button = document.createElement('button');
           button.type = 'button';
           button.className = 'year-chip';
-          button.dataset.year = year;
-          button.textContent = year === 'All' ? 'All years' : year;
-          button.setAttribute('aria-pressed', String(year === activeYear));
-          button.addEventListener('click', () => setYear(year));
+          button.dataset.yearRange = range.id;
+          button.textContent = range.label;
+          button.setAttribute('aria-pressed', String(range.id === activeYearRange));
+          button.addEventListener('click', () => setYearRange(range.id));
           yearFilters.appendChild(button);
         }
       }
@@ -229,14 +262,28 @@
         const title = document.createElement('h2');
         title.className = 'paper-title';
         title.textContent = paper.title;
-        if (paper.processed) {
-          const dot = document.createElement('span');
-          dot.className = 'processed-dot';
-          dot.setAttribute('role', 'img');
-          dot.setAttribute('aria-label', 'Processed: theorem JSON available');
-          dot.title = 'Processed';
-          titleLine.appendChild(dot);
+
+        const artifactIcons = document.createElement('span');
+        artifactIcons.className = 'artifact-icons';
+        const artifacts = [
+          { src: 'images/pdf-acrobat.svg', className: 'artifact-icon-pdf', label: 'PDF available' },
+          ...(paper.processed ? [{ src: 'images/code.svg', className: 'artifact-icon-code', label: 'Theorem JSON available' }] : [])
+        ];
+        for (const artifact of artifacts) {
+          const icon = document.createElement('span');
+          icon.className = 'artifact-icon';
+          icon.classList.add(artifact.className);
+          icon.setAttribute('role', 'img');
+          icon.setAttribute('aria-label', artifact.label);
+          icon.title = artifact.label;
+          const image = document.createElement('img');
+          image.src = artifact.src;
+          image.alt = '';
+          image.setAttribute('aria-hidden', 'true');
+          icon.appendChild(image);
+          artifactIcons.appendChild(icon);
         }
+        titleLine.appendChild(artifactIcons);
         titleLine.appendChild(title);
         const authors = document.createElement('p');
         authors.className = 'paper-authors';
@@ -262,9 +309,10 @@
 
       function renderPapers() {
         const query = search.value.trim().toLowerCase();
+        const selectedYearRange = yearRanges.find(range => range.id === activeYearRange);
         const visible = papers.filter(paper => {
           if (activeVenue !== 'All' && paper.venue !== activeVenue) return false;
-          if (activeYear !== 'All' && String(paper.year) !== activeYear) return false;
+          if (selectedYearRange && !selectedYearRange.includes(Number(paper.year))) return false;
           if (!query) return true;
           return [paper.title, ...(paper.authors || []), paper.year, paper.venue, paper.venue_type]
             .join(' ').toLowerCase().includes(query);

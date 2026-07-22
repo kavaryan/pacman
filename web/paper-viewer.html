@@ -62,9 +62,13 @@
       width: min(1480px, calc(100% - 40px));
       margin: auto;
       padding: 28px 0 25px;
+      display: grid;
+      grid-template-columns: 128px minmax(0, 1fr);
+      gap: 14px;
+      align-items: stretch;
     }
-    .masthead-title-row { display: flex; align-items: center; gap: 14px; }
-    .home-logo { width: 128px; height: 84px; flex: 0 0 auto; display: block; }
+    .masthead-copy { min-width: 0; align-self: center; }
+    .home-logo { width: 128px; min-height: 84px; display: block; align-self: stretch; }
     .home-logo img { width: 100%; height: 100%; display: block; object-fit: contain; }
     .home-logo:focus-visible { outline: 2px solid white; outline-offset: 3px; border-radius: 3px; }
     .masthead h1 {
@@ -77,7 +81,7 @@
       letter-spacing: -.02em;
     }
     .author-line {
-      margin-top: 11px;
+      margin: 11px 0 0;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -409,15 +413,15 @@
   <div id="viewerStatus" class="viewer-status">Loading paper…</div>
   <header class="masthead">
     <div class="masthead-inner">
-      <div class="masthead-title-row">
-        <a class="home-logo" href="./" aria-label="PAC Papers home">
-          <img src="images/logo.svg" alt="">
-        </a>
+      <a class="home-logo" href="./" aria-label="PAC Papers home">
+        <img src="images/logo.svg" alt="">
+      </a>
+      <div class="masthead-copy">
         <h1 id="paperTitle"></h1>
-      </div>
-      <div class="author-line">
-        <p id="paperAuthors" class="authors"></p>
-        <nav id="resourceLinks" class="resource-links" aria-label="Paper resources"></nav>
+        <div class="author-line">
+          <p id="paperAuthors" class="authors"></p>
+          <nav id="resourceLinks" class="resource-links" aria-label="Paper resources"></nav>
+        </div>
       </div>
     </div>
   </header>
@@ -438,7 +442,6 @@
         <div class="section-head">
           <h2 id="statementHeading">Statement</h2>
           <div class="section-head-meta">
-            <span>Author text · not paraphrased</span>
             <button id="statementPdfButton" class="pdf-source-button" type="button" aria-label="Open statement in PDF panel">
               <img src="images/pdf-acrobat.svg" alt="" aria-hidden="true">
             </button>
@@ -524,7 +527,7 @@
       let activeId = location.hash.slice(1);
       if (results.length && !byId.has(activeId)) activeId = results[0].id;
       let pdfViewerPromise = null;
-      let pdfHighlightRequest = 0;
+      let pdfNavigationRequest = 0;
       let pdfPinned = false;
 
       const PDFJS_VIEWER = 'pdfjs-6.1.200/web/viewer.html';
@@ -578,14 +581,14 @@
           button.className = `nav-item${item.id === activeId ? ' active' : ''}`;
           button.dataset.id = item.id;
           const typeInitial = item.type.charAt(0).toUpperCase();
-          button.innerHTML = `<span class="nav-no">${typeInitial} ${item.number}</span><span><span class="nav-title">${item.title}</span><span class="nav-meta">${item.type} · pp. ${pageLabel(item.sourcePages)}</span></span>`;
+          button.innerHTML = `<span class="nav-no">${typeInitial} ${item.number}</span><span><span class="nav-title">${item.title}</span><span class="nav-meta">${item.type} · pp. ${pageLabel(resultPages(item))}</span></span>`;
           button.addEventListener('click', () => select(item.id));
           list.appendChild(button);
         }
       }
 
       function pageLabel(pages) {
-        if (!pages.length) return '—';
+        if (!Array.isArray(pages) || !pages.length) return '—';
         const groups = [];
         let start = pages[0], previous = pages[0];
         for (let i = 1; i <= pages.length; i++) {
@@ -595,6 +598,14 @@
           start = previous = current;
         }
         return groups.join(', ');
+      }
+
+      function resultPages(item) {
+        if (Array.isArray(item.sourcePages)) return item.sourcePages;
+        return [...new Set(Object.values(item.pdfStart || {})
+          .map(target => target?.page)
+          .filter(Number.isFinite))]
+          .sort((a, b) => a - b);
       }
 
       function setPdfPanel(open) {
@@ -625,7 +636,10 @@
       }
 
       function pdfTargets(item, kind) {
-        return item.images.filter(image => image.kind === kind);
+        if (Array.isArray(item.images)) return item.images.filter(image => image.kind === kind);
+        const start = item.pdfStart?.[kind];
+        if (!start || !Number.isFinite(start.page) || !Number.isFinite(start.y)) return [];
+        return [{ kind, page: start.page, yStart: start.y }];
       }
 
       function waitForPdfViewer(frame) {
@@ -677,25 +691,6 @@
       function pdfViewerStylesheet(frame) {
         const viewerDocument = frame.contentDocument;
         return [...viewerDocument.styleSheets].find(sheet => sheet.href?.endsWith('/viewer.css'));
-      }
-
-      function installPdfHighlightStyle(frame) {
-        const viewerDocument = frame.contentDocument;
-        if (viewerDocument.documentElement.dataset.theoremHighlightStyle === 'installed') return;
-        const sheet = pdfViewerStylesheet(frame);
-        if (!sheet) throw new Error('PDF.js viewer stylesheet is unavailable.');
-        sheet.insertRule(`
-          .theorem-source-highlight {
-            position: absolute !important;
-            z-index: 100;
-            border: 3px solid rgba(211, 145, 25, .94);
-            border-radius: 3px;
-            background: rgba(255, 211, 82, .16);
-            box-shadow: 0 0 0 2px rgba(255,255,255,.76), 0 2px 12px rgba(107, 69, 4, .22);
-            pointer-events: none;
-          }
-        `, sheet.cssRules.length);
-        viewerDocument.documentElement.dataset.theoremHighlightStyle = 'installed';
       }
 
       function installPdfReaderMode(frame) {
@@ -774,7 +769,6 @@
           $('pdfStatus').hidden = false;
           $('pdfStatus').textContent = 'Loading Mozilla PDF.js and the original paper…';
           pdfViewerPromise = waitForPdfViewer(frame).then(async app => {
-            installPdfHighlightStyle(frame);
             installPdfReaderMode(frame);
             await closePdfJsSidebarAfterInitialView(app, frame);
             $('pdfStatus').hidden = true;
@@ -792,55 +786,24 @@
         return pdfViewerPromise;
       }
 
-      function clearPdfHighlights(frame) {
-        frame.contentDocument.querySelectorAll('.theorem-source-highlight').forEach(node => node.remove());
-        const sheet = pdfViewerStylesheet(frame);
-        if (!sheet) return;
-        for (let index = sheet.cssRules.length - 1; index >= 0; index--) {
-          const selector = sheet.cssRules[index].selectorText || '';
-          if (selector.startsWith('.theorem-source-highlight[data-theorem-highlight=')) sheet.deleteRule(index);
-        }
-      }
-
-      async function addPdfHighlight(app, target, highlightId) {
-        const page = await app.pdfDocument.getPage(target.page);
-        const viewport = page.getViewport({ scale: 1 });
-        const pageView = app.pdfViewer.getPageView(target.page - 1);
-        const highlight = app.pdfViewer.container.ownerDocument.createElement('div');
-        highlight.className = 'theorem-source-highlight';
-        highlight.dataset.sourcePage = String(target.page);
-        highlight.dataset.theoremHighlight = highlightId;
-        const sheet = pdfViewerStylesheet($('pdfViewerFrame'));
-        sheet.insertRule(`
-          .theorem-source-highlight[data-theorem-highlight="${highlightId}"] {
-            left: ${(62 / viewport.width) * 100}%;
-            top: ${(target.yStart / viewport.height) * 100}%;
-            width: ${((550 - 62) / viewport.width) * 100}%;
-            height: ${(Math.max(18, target.yEnd - target.yStart) / viewport.height) * 100}%;
-          }
-        `, sheet.cssRules.length);
-        pageView.div.appendChild(highlight);
-        return { page, viewport };
-      }
-
       async function showPdfTargets(targets) {
-        const request = ++pdfHighlightRequest;
+        const request = ++pdfNavigationRequest;
         setPdfPanel(true);
         try {
           const app = await getPdfViewer();
-          if (request !== pdfHighlightRequest) return;
+          if (request !== pdfNavigationRequest) return;
           const frame = $('pdfViewerFrame');
           closePdfJsSidebar(app, frame);
-          clearPdfHighlights(frame);
-          const targetGeometry = await Promise.all(targets.map((target, index) => addPdfHighlight(app, target, `${request}-${index}`)));
-          if (request !== pdfHighlightRequest) return;
           const first = targets[0];
-          const firstViewport = targetGeometry[0].viewport;
-          app.pdfViewer.scrollPageIntoView({
-            pageNumber: first.page,
-            destArray: [null, { name: 'XYZ' }, 0, firstViewport.height - first.yStart, null],
-            allowNegativeOffset: true,
-            ignoreDestinationZoom: true
+          const page = await app.pdfDocument.getPage(first.page);
+          const viewport = page.getViewport({ scale: 1 });
+          if (request !== pdfNavigationRequest) return;
+          const pageView = app.pdfViewer.getPageView(first.page - 1);
+          const scaledY = (first.yStart / viewport.height) * pageView.viewport.height;
+          app.pdfViewer.currentPageNumber = first.page;
+          app.pdfViewer.container.scrollTo({
+            top: Math.max(0, pageView.div.offsetTop + scaledY - 16),
+            behavior: 'auto'
           });
         } catch (_) {
           // getPdfViewer presents an actionable error inside the panel.
@@ -877,7 +840,9 @@
         $('resultLabel').textContent = `${item.type} ${item.number}`;
         $('statementText').innerHTML = item.statementHtml;
         $('proofText').innerHTML = item.proofHtml;
-        $('proofLabel').textContent = item.proofOrganization === 'direct' ? 'Direct proof environment' : item.proofOrganization === 'deferred' ? 'Proof deferred elsewhere in the paper' : 'Proof assembled as organized by the paper';
+        $('proofLabel').textContent = item.proofOrganization === 'direct' ? 'Direct proof environment' : item.proofOrganization === 'deferred' ? 'Proof deferred elsewhere in the paper' : '';
+        $('statementPdfButton').hidden = !pdfTargets(item, 'statement').length;
+        $('proofPdfButton').hidden = !pdfTargets(item, 'proof').length;
         $('sourceNote').hidden = !item.proofNote;
         $('sourceNote').textContent = item.proofNote || '';
         renderList();

@@ -1,5 +1,376 @@
 [
   {
+    "title": "Rademacher and Gaussian Complexities: Risk Bounds and Structural Results",
+    "authors": [
+      "Peter L. Bartlett",
+      "Shahar Mendelson"
+    ],
+    "year": 2002,
+    "venue": "Journal of Machine Learning Research",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/009f35c0e453f2435efd8d8ef8086b76b294967a",
+    "sha256": "157a952bc8499febd05ea3115dfea40634891c93ca55e1838d5ae0c9fbb9b4bc",
+    "pdf_path": "accepted/2002-rademacher-and-gaussian-complexities-risk-bounds-and-structural-results.pdf",
+    "id": "2002-rademacher-and-gaussian-complexities-risk-bounds-and-structural-results",
+    "processed": true
+  },
+  {
+    "title": "PAC-Bayesian Model Averaging",
+    "authors": [
+      "David A. McAllester"
+    ],
+    "year": 1999,
+    "venue": "Conference on Learning Theory (COLT)",
+    "venue_type": "conference",
+    "arxiv_id": null,
+    "doi": "10.1145/307400.307435",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/609be06b5a91ffb8c35abd1636cd2431ff32435d",
+    "sha256": "809deac243aa03a4c317d9cc334d9fd784788c3b233ec8235d169e4a63ae70a7",
+    "pdf_path": "accepted/1999-pac-bayesian-model-averaging.pdf",
+    "id": "1999-pac-bayesian-model-averaging",
+    "processed": true
+  },
+  {
+    "title": "Some PAC-Bayesian Theorems",
+    "authors": [
+      "David A. McAllester"
+    ],
+    "year": 1999,
+    "venue": "Machine Learning",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1023/A:1007618624809",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/0e2f6482e7230e1d12af88d6b8afcef3d5d733e3",
+    "sha256": "dcf407307fc21b6728bed3f6120607789e35aa3e033acd957868a5a689078eaa",
+    "pdf_path": "accepted/1999-some-pac-bayesian-theorems.pdf",
+    "id": "1999-some-pac-bayesian-theorems",
+    "processed": true
+  },
+  {
+    "title": "Efficient Noise-Tolerant Learning from Statistical Queries",
+    "authors": [
+      "Michael Kearns"
+    ],
+    "year": 1998,
+    "venue": "Journal of the ACM",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1145/293347.293351",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/88caa4a21da7d31a63d7cc7e7de1897ba2c211b8",
+    "sha256": "e4ad0a33ce20e263ad1b61d840b314fe95fe612a775486bcc52d9fdecc0de599",
+    "pdf_path": "accepted/1998-efficient-noise-tolerant-learning-from-statistical-queries.pdf",
+    "id": "1998-efficient-noise-tolerant-learning-from-statistical-queries",
+    "processed": true
+  },
+  {
+    "title": "A Decision-Theoretic Generalization of On-Line Learning and an Application to Boosting",
+    "authors": [
+      "Yoav Freund",
+      "Robert E. Schapire"
+    ],
+    "year": 1997,
+    "venue": "Journal of Computer and System Sciences",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1006/jcss.1997.1504",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/4ba566223e426677d12a9a18418c023a4deec77e",
+    "sha256": "9eb02e6ef024d56684fd01b70296c929c411184766b969ef77ee00f6b9d5a68e",
+    "pdf_path": "accepted/1997-a-decision-theoretic-generalization-of-on-line-learning-and-an-application-to-boosting.pdf",
+    "id": "1997-a-decision-theoretic-generalization-of-on-line-learning-and-an-application-to-boosting",
+    "processed": true
+  },
+  {
+    "title": "Boosting a Weak Learning Algorithm by Majority",
+    "authors": [
+      "Yoav Freund"
+    ],
+    "year": 1995,
+    "venue": "Information and Computation",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1006/inco.1995.1136",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/b824cb051ffbdd81b529c4b82379a3af270fb6f7",
+    "sha256": "50c851371b320e416b0461b9809fdfe4c4317a2074b72e0fbfb757406421f526",
+    "pdf_path": "accepted/1995-boosting-a-weak-learning-algorithm-by-majority.pdf",
+    "id": "1995-boosting-a-weak-learning-algorithm-by-majority",
+    "processed": true
+  },
+  {
+    "title": "Cryptographic Limitations on Learning Boolean Formulae and Finite Automata",
+    "authors": [
+      "Michael Kearns",
+      "Leslie G. Valiant"
+    ],
+    "year": 1994,
+    "venue": "Journal of the ACM",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1145/174644.174647",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/3ae43d62122bffc2d921a363291ca184645d2376",
+    "sha256": "8fb61ed12e405f046995fa92ce33d6c2815b24ec2f359ef41fc20573566dd74b",
+    "pdf_path": "accepted/1994-cryptographic-limitations-on-learning-boolean-formulae-and-finite-automata.pdf",
+    "id": "1994-cryptographic-limitations-on-learning-boolean-formulae-and-finite-automata",
+    "processed": true
+  },
+  {
+    "title": "Toward Efficient Agnostic Learning",
+    "authors": [
+      "Michael Kearns",
+      "Robert E. Schapire",
+      "Linda M. Sellie"
+    ],
+    "year": 1994,
+    "venue": "Machine Learning",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1007/BF00993468",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/78cb4ca2c9c78348ade4c17621491d14d72f2a19",
+    "sha256": "5440f193d09ea8b8ebc1b1ff0cd154ac30989e6cfa06f4519d8dbfa13f40065f",
+    "pdf_path": "accepted/1994-toward-efficient-agnostic-learning.pdf",
+    "id": "1994-toward-efficient-agnostic-learning",
+    "processed": true
+  },
+  {
+    "title": "Learning in the Presence of Malicious Errors",
+    "authors": [
+      "Michael Kearns",
+      "Ming Li"
+    ],
+    "year": 1993,
+    "venue": "SIAM Journal on Computing",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1137/0222052",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/25875a29eded2acdad72cf897df11c2df2d92ec1",
+    "sha256": "11cd3afdb97628757d39468d22643594f32fa46ad332b1ac88813d537f0ef399",
+    "pdf_path": "accepted/1993-learning-in-the-presence-of-malicious-errors.pdf",
+    "id": "1993-learning-in-the-presence-of-malicious-errors",
+    "processed": true
+  },
+  {
+    "title": "Decision Theoretic Generalizations of the PAC Model for Neural Net and Other Learning Applications",
+    "authors": [
+      "David Haussler"
+    ],
+    "year": 1992,
+    "venue": "Information and Computation",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1016/0890-5401(92)90010-D",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/fedfc9fbcfe46d50b81078560bce724678f90176",
+    "sha256": "f83cde5c10065ab291ab2bcfca7818d62996c4be9954bc48a886bdebb43c1f34",
+    "pdf_path": "accepted/1992-decision-theoretic-generalizations-of-the-pac-model-for-neural-net-and-other-learning-applications.pdf",
+    "id": "1992-decision-theoretic-generalizations-of-the-pac-model-for-neural-net-and-other-learning-applications",
+    "processed": true
+  },
+  {
+    "title": "The Strength of Weak Learnability",
+    "authors": [
+      "Robert E. Schapire"
+    ],
+    "year": 1990,
+    "venue": "Machine Learning",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1007/BF00116037",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/35702d642c5f1b7950d088497837486b4ca682a3",
+    "sha256": "b432dfc986cfeb3b157ce35102a9c8ac9bbd15bc7b0666e0e103e76d3146babd",
+    "pdf_path": "accepted/1990-the-strength-of-weak-learnability.pdf",
+    "id": "1990-the-strength-of-weak-learnability",
+    "processed": true
+  },
+  {
+    "title": "A General Lower Bound on the Number of Examples Needed for Learning",
+    "authors": [
+      "Andrzej Ehrenfeucht",
+      "David Haussler",
+      "Michael Kearns",
+      "Leslie G. Valiant"
+    ],
+    "year": 1989,
+    "venue": "Information and Computation",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1016/0890-5401(89)90002-3",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/b83396caf4762c906530c9219a9e4dd0658232b0",
+    "sha256": "da345a86373faafd574252c54b94108ec93dc5934785019bd0013fe9fa5a1e3d",
+    "pdf_path": "accepted/1989-a-general-lower-bound-on-the-number-of-examples-needed-for-learning.pdf",
+    "id": "1989-a-general-lower-bound-on-the-number-of-examples-needed-for-learning",
+    "processed": true
+  },
+  {
+    "title": "Learnability and the Vapnik-Chervonenkis Dimension",
+    "authors": [
+      "Anselm Blumer",
+      "Andrzej Ehrenfeucht",
+      "David Haussler",
+      "Manfred K. Warmuth"
+    ],
+    "year": 1989,
+    "venue": "Journal of the ACM",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1145/76359.76371",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/e0b8fa3496283d4d808fba9ff62d5f024bcf23be",
+    "sha256": "2ad0c2c1b3db03d999f3e1d0ab28faa606bf1539da03419d67aa1f34249df9ed",
+    "pdf_path": "accepted/1989-learnability-and-the-vapnik-chervonenkis-dimension.pdf",
+    "id": "1989-learnability-and-the-vapnik-chervonenkis-dimension",
+    "processed": true
+  },
+  {
+    "title": "Computational Limitations on Learning from Examples",
+    "authors": [
+      "Leonard Pitt",
+      "Leslie G. Valiant"
+    ],
+    "year": 1988,
+    "venue": "Journal of the ACM",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1145/48014.63140",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/93849122caf1b10c9611eddb707e0720441c73f6",
+    "sha256": "9309ead150e616d32cb685772454e22aa0bb533165c34ab779aca0d91ad5c764",
+    "pdf_path": "accepted/1988-computational-limitations-on-learning-from-examples.pdf",
+    "id": "1988-computational-limitations-on-learning-from-examples",
+    "processed": true
+  },
+  {
+    "title": "Learning from Noisy Examples",
+    "authors": [
+      "Dana Angluin",
+      "Philip Laird"
+    ],
+    "year": 1988,
+    "venue": "Machine Learning",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1007/BF00116829",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/d15289b07f8f13ac22439845a45a41744511cd17",
+    "sha256": "b790858a92494b8557d6b1c95e30f3d96ae5abe6ff956e47201a214ad7bd2fe3",
+    "pdf_path": "accepted/1988-learning-from-noisy-examples.pdf",
+    "id": "1988-learning-from-noisy-examples",
+    "processed": true
+  },
+  {
+    "title": "Learning Quickly When Irrelevant Attributes Abound: A New Linear-Threshold Algorithm",
+    "authors": [
+      "Nick Littlestone"
+    ],
+    "year": 1988,
+    "venue": "Machine Learning",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1007/BF00116827",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/3cf9932e54bb71efa7549923aa72594ab771f0c7",
+    "sha256": "23770fc4939ec52bcb1055bdaeb36899782ab41a023c5d5f08dc78c8cdda3438",
+    "pdf_path": "accepted/1988-learning-quickly-when-irrelevant-attributes-abound-a-new-linear-threshold-algorithm.pdf",
+    "id": "1988-learning-quickly-when-irrelevant-attributes-abound-a-new-linear-threshold-algorithm",
+    "processed": true
+  },
+  {
+    "title": "Quantifying Inductive Bias: AI Learning Algorithms and Valiant's Learning Framework",
+    "authors": [
+      "David Haussler"
+    ],
+    "year": 1988,
+    "venue": "Artificial Intelligence",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1016/0004-3702(88)90002-1",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/3b814ad3055d6bfd7828effdbfbf1372646b7c22",
+    "sha256": "24f8b46392ba703d18c68a5150e54836f177423a29efe8fd8c49761e0f72d7f2",
+    "pdf_path": "accepted/1988-quantifying-inductive-bias-ai-learning-algorithms-and-valiants-learning-framework.pdf",
+    "id": "1988-quantifying-inductive-bias-ai-learning-algorithms-and-valiants-learning-framework",
+    "processed": true
+  },
+  {
+    "title": "What Size Net Gives Valid Generalization?",
+    "authors": [
+      "Eric B. Baum",
+      "David Haussler"
+    ],
+    "year": 1988,
+    "venue": "Advances in Neural Information Processing Systems",
+    "venue_type": "conference",
+    "arxiv_id": null,
+    "doi": null,
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/25406e6733a698bfc4ac836f8e74f458e75dad4f",
+    "sha256": "f48ce72965e653c694fd0c5be4b76a5a2f30b5ddc35e8dd04055841739ca6d8b",
+    "pdf_path": "accepted/1988-what-size-net-gives-valid-generalization.pdf",
+    "id": "1988-what-size-net-gives-valid-generalization",
+    "processed": true
+  },
+  {
+    "title": "Learning Decision Lists",
+    "authors": [
+      "Ronald L. Rivest"
+    ],
+    "year": 1987,
+    "venue": "Machine Learning",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1007/BF00058680",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/2c386026b24f993aca44a7a684152778d46c51b0",
+    "sha256": "3a3ee9119826e194416196d551ac739066382e77f86434657c4e3c4d04c393b6",
+    "pdf_path": "accepted/1987-learning-decision-lists.pdf",
+    "id": "1987-learning-decision-lists",
+    "processed": true
+  },
+  {
+    "title": "Occam's Razor",
+    "authors": [
+      "Anselm Blumer",
+      "Andrzej Ehrenfeucht",
+      "David Haussler",
+      "Manfred K. Warmuth"
+    ],
+    "year": 1987,
+    "venue": "Information Processing Letters",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1016/0020-0190(87)90114-1",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/71448a9b8d35d5f3123405d3d7a66288618daab2",
+    "sha256": "556b9e7aadbd614cc3692edbda442cf1fc7c7320c631d403cb45cf754181b988",
+    "pdf_path": "accepted/1987-occams-razor.pdf",
+    "id": "1987-occams-razor",
+    "processed": true
+  },
+  {
+    "title": "A Theory of the Learnable",
+    "authors": [
+      "Leslie G. Valiant"
+    ],
+    "year": 1984,
+    "venue": "Communications of the ACM",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1145/1968.1972",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/d37b3a66d55d5361aeb5ef0793af66049535c24d",
+    "sha256": "381ee2e774542ccec25db2e8ed59e29c67e6dd106430e90bdd2debd50df558db",
+    "pdf_path": "accepted/1984-a-theory-of-the-learnable.pdf",
+    "id": "1984-a-theory-of-the-learnable",
+    "processed": true
+  },
+  {
+    "title": "On the Uniform Convergence of Relative Frequencies of Events to Their Probabilities",
+    "authors": [
+      "Vladimir N. Vapnik",
+      "Alexey Ya. Chervonenkis"
+    ],
+    "year": 1971,
+    "venue": "Theory of Probability and Its Applications",
+    "venue_type": "journal",
+    "arxiv_id": null,
+    "doi": "10.1137/1116025",
+    "semantic_scholar_url": "https://www.semanticscholar.org/paper/a36b028d024bf358c4af1a5e1dc3ca0aed23b553",
+    "sha256": "c86ae06d178f410b7bedd292814ae354f90b15ce561f7e0408065db49893e439",
+    "pdf_path": "accepted/1971-on-the-uniform-convergence-of-relative-frequencies-of-events-to-their-probabilities.pdf",
+    "id": "1971-on-the-uniform-convergence-of-relative-frequencies-of-events-to-their-probabilities",
+    "processed": true
+  },
+  {
     "title": "Diff2SP: Diffusion Models for Correlated Scenario Generation in Stochastic Programming",
     "authors": [
       "Haixiang Sun",
@@ -2015,377 +2386,6 @@
     "sha256": "344635732ea43173c6e4ab7996d433566496a36b5b7083a4332a149910fb6e37",
     "pdf_path": "accepted/2010-evolution-with-drifting-targets.pdf",
     "id": "2010-evolution-with-drifting-targets",
-    "processed": false
-  },
-  {
-    "title": "Rademacher and Gaussian Complexities: Risk Bounds and Structural Results",
-    "authors": [
-      "Peter L. Bartlett",
-      "Shahar Mendelson"
-    ],
-    "year": 2002,
-    "venue": "Journal of Machine Learning Research",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": null,
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/009f35c0e453f2435efd8d8ef8086b76b294967a",
-    "sha256": "157a952bc8499febd05ea3115dfea40634891c93ca55e1838d5ae0c9fbb9b4bc",
-    "pdf_path": "accepted/2002-rademacher-and-gaussian-complexities-risk-bounds-and-structural-results.pdf",
-    "id": "2002-rademacher-and-gaussian-complexities-risk-bounds-and-structural-results",
-    "processed": false
-  },
-  {
-    "title": "PAC-Bayesian Model Averaging",
-    "authors": [
-      "David A. McAllester"
-    ],
-    "year": 1999,
-    "venue": "Conference on Learning Theory (COLT)",
-    "venue_type": "conference",
-    "arxiv_id": null,
-    "doi": "10.1145/307400.307435",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/609be06b5a91ffb8c35abd1636cd2431ff32435d",
-    "sha256": "809deac243aa03a4c317d9cc334d9fd784788c3b233ec8235d169e4a63ae70a7",
-    "pdf_path": "accepted/1999-pac-bayesian-model-averaging.pdf",
-    "id": "1999-pac-bayesian-model-averaging",
-    "processed": false
-  },
-  {
-    "title": "Some PAC-Bayesian Theorems",
-    "authors": [
-      "David A. McAllester"
-    ],
-    "year": 1999,
-    "venue": "Machine Learning",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1023/A:1007618624809",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/0e2f6482e7230e1d12af88d6b8afcef3d5d733e3",
-    "sha256": "dcf407307fc21b6728bed3f6120607789e35aa3e033acd957868a5a689078eaa",
-    "pdf_path": "accepted/1999-some-pac-bayesian-theorems.pdf",
-    "id": "1999-some-pac-bayesian-theorems",
-    "processed": false
-  },
-  {
-    "title": "Efficient Noise-Tolerant Learning from Statistical Queries",
-    "authors": [
-      "Michael Kearns"
-    ],
-    "year": 1998,
-    "venue": "Journal of the ACM",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1145/293347.293351",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/88caa4a21da7d31a63d7cc7e7de1897ba2c211b8",
-    "sha256": "e4ad0a33ce20e263ad1b61d840b314fe95fe612a775486bcc52d9fdecc0de599",
-    "pdf_path": "accepted/1998-efficient-noise-tolerant-learning-from-statistical-queries.pdf",
-    "id": "1998-efficient-noise-tolerant-learning-from-statistical-queries",
-    "processed": false
-  },
-  {
-    "title": "A Decision-Theoretic Generalization of On-Line Learning and an Application to Boosting",
-    "authors": [
-      "Yoav Freund",
-      "Robert E. Schapire"
-    ],
-    "year": 1997,
-    "venue": "Journal of Computer and System Sciences",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1006/jcss.1997.1504",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/4ba566223e426677d12a9a18418c023a4deec77e",
-    "sha256": "9eb02e6ef024d56684fd01b70296c929c411184766b969ef77ee00f6b9d5a68e",
-    "pdf_path": "accepted/1997-a-decision-theoretic-generalization-of-on-line-learning-and-an-application-to-boosting.pdf",
-    "id": "1997-a-decision-theoretic-generalization-of-on-line-learning-and-an-application-to-boosting",
-    "processed": false
-  },
-  {
-    "title": "Boosting a Weak Learning Algorithm by Majority",
-    "authors": [
-      "Yoav Freund"
-    ],
-    "year": 1995,
-    "venue": "Information and Computation",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1006/inco.1995.1136",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/b824cb051ffbdd81b529c4b82379a3af270fb6f7",
-    "sha256": "50c851371b320e416b0461b9809fdfe4c4317a2074b72e0fbfb757406421f526",
-    "pdf_path": "accepted/1995-boosting-a-weak-learning-algorithm-by-majority.pdf",
-    "id": "1995-boosting-a-weak-learning-algorithm-by-majority",
-    "processed": false
-  },
-  {
-    "title": "Cryptographic Limitations on Learning Boolean Formulae and Finite Automata",
-    "authors": [
-      "Michael Kearns",
-      "Leslie G. Valiant"
-    ],
-    "year": 1994,
-    "venue": "Journal of the ACM",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1145/174644.174647",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/3ae43d62122bffc2d921a363291ca184645d2376",
-    "sha256": "8fb61ed12e405f046995fa92ce33d6c2815b24ec2f359ef41fc20573566dd74b",
-    "pdf_path": "accepted/1994-cryptographic-limitations-on-learning-boolean-formulae-and-finite-automata.pdf",
-    "id": "1994-cryptographic-limitations-on-learning-boolean-formulae-and-finite-automata",
-    "processed": false
-  },
-  {
-    "title": "Toward Efficient Agnostic Learning",
-    "authors": [
-      "Michael Kearns",
-      "Robert E. Schapire",
-      "Linda M. Sellie"
-    ],
-    "year": 1994,
-    "venue": "Machine Learning",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1007/BF00993468",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/78cb4ca2c9c78348ade4c17621491d14d72f2a19",
-    "sha256": "5440f193d09ea8b8ebc1b1ff0cd154ac30989e6cfa06f4519d8dbfa13f40065f",
-    "pdf_path": "accepted/1994-toward-efficient-agnostic-learning.pdf",
-    "id": "1994-toward-efficient-agnostic-learning",
-    "processed": false
-  },
-  {
-    "title": "Learning in the Presence of Malicious Errors",
-    "authors": [
-      "Michael Kearns",
-      "Ming Li"
-    ],
-    "year": 1993,
-    "venue": "SIAM Journal on Computing",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1137/0222052",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/25875a29eded2acdad72cf897df11c2df2d92ec1",
-    "sha256": "11cd3afdb97628757d39468d22643594f32fa46ad332b1ac88813d537f0ef399",
-    "pdf_path": "accepted/1993-learning-in-the-presence-of-malicious-errors.pdf",
-    "id": "1993-learning-in-the-presence-of-malicious-errors",
-    "processed": false
-  },
-  {
-    "title": "Decision Theoretic Generalizations of the PAC Model for Neural Net and Other Learning Applications",
-    "authors": [
-      "David Haussler"
-    ],
-    "year": 1992,
-    "venue": "Information and Computation",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1016/0890-5401(92)90010-D",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/fedfc9fbcfe46d50b81078560bce724678f90176",
-    "sha256": "f83cde5c10065ab291ab2bcfca7818d62996c4be9954bc48a886bdebb43c1f34",
-    "pdf_path": "accepted/1992-decision-theoretic-generalizations-of-the-pac-model-for-neural-net-and-other-learning-applications.pdf",
-    "id": "1992-decision-theoretic-generalizations-of-the-pac-model-for-neural-net-and-other-learning-applications",
-    "processed": false
-  },
-  {
-    "title": "The Strength of Weak Learnability",
-    "authors": [
-      "Robert E. Schapire"
-    ],
-    "year": 1990,
-    "venue": "Machine Learning",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1007/BF00116037",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/35702d642c5f1b7950d088497837486b4ca682a3",
-    "sha256": "b432dfc986cfeb3b157ce35102a9c8ac9bbd15bc7b0666e0e103e76d3146babd",
-    "pdf_path": "accepted/1990-the-strength-of-weak-learnability.pdf",
-    "id": "1990-the-strength-of-weak-learnability",
-    "processed": false
-  },
-  {
-    "title": "A General Lower Bound on the Number of Examples Needed for Learning",
-    "authors": [
-      "Andrzej Ehrenfeucht",
-      "David Haussler",
-      "Michael Kearns",
-      "Leslie G. Valiant"
-    ],
-    "year": 1989,
-    "venue": "Information and Computation",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1016/0890-5401(89)90002-3",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/b83396caf4762c906530c9219a9e4dd0658232b0",
-    "sha256": "da345a86373faafd574252c54b94108ec93dc5934785019bd0013fe9fa5a1e3d",
-    "pdf_path": "accepted/1989-a-general-lower-bound-on-the-number-of-examples-needed-for-learning.pdf",
-    "id": "1989-a-general-lower-bound-on-the-number-of-examples-needed-for-learning",
-    "processed": false
-  },
-  {
-    "title": "Learnability and the Vapnik-Chervonenkis Dimension",
-    "authors": [
-      "Anselm Blumer",
-      "Andrzej Ehrenfeucht",
-      "David Haussler",
-      "Manfred K. Warmuth"
-    ],
-    "year": 1989,
-    "venue": "Journal of the ACM",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1145/76359.76371",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/e0b8fa3496283d4d808fba9ff62d5f024bcf23be",
-    "sha256": "2ad0c2c1b3db03d999f3e1d0ab28faa606bf1539da03419d67aa1f34249df9ed",
-    "pdf_path": "accepted/1989-learnability-and-the-vapnik-chervonenkis-dimension.pdf",
-    "id": "1989-learnability-and-the-vapnik-chervonenkis-dimension",
-    "processed": false
-  },
-  {
-    "title": "Computational Limitations on Learning from Examples",
-    "authors": [
-      "Leonard Pitt",
-      "Leslie G. Valiant"
-    ],
-    "year": 1988,
-    "venue": "Journal of the ACM",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1145/48014.63140",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/93849122caf1b10c9611eddb707e0720441c73f6",
-    "sha256": "9309ead150e616d32cb685772454e22aa0bb533165c34ab779aca0d91ad5c764",
-    "pdf_path": "accepted/1988-computational-limitations-on-learning-from-examples.pdf",
-    "id": "1988-computational-limitations-on-learning-from-examples",
-    "processed": false
-  },
-  {
-    "title": "Learning from Noisy Examples",
-    "authors": [
-      "Dana Angluin",
-      "Philip Laird"
-    ],
-    "year": 1988,
-    "venue": "Machine Learning",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1007/BF00116829",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/d15289b07f8f13ac22439845a45a41744511cd17",
-    "sha256": "b790858a92494b8557d6b1c95e30f3d96ae5abe6ff956e47201a214ad7bd2fe3",
-    "pdf_path": "accepted/1988-learning-from-noisy-examples.pdf",
-    "id": "1988-learning-from-noisy-examples",
-    "processed": false
-  },
-  {
-    "title": "Learning Quickly When Irrelevant Attributes Abound: A New Linear-Threshold Algorithm",
-    "authors": [
-      "Nick Littlestone"
-    ],
-    "year": 1988,
-    "venue": "Machine Learning",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1007/BF00116827",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/3cf9932e54bb71efa7549923aa72594ab771f0c7",
-    "sha256": "23770fc4939ec52bcb1055bdaeb36899782ab41a023c5d5f08dc78c8cdda3438",
-    "pdf_path": "accepted/1988-learning-quickly-when-irrelevant-attributes-abound-a-new-linear-threshold-algorithm.pdf",
-    "id": "1988-learning-quickly-when-irrelevant-attributes-abound-a-new-linear-threshold-algorithm",
-    "processed": false
-  },
-  {
-    "title": "Quantifying Inductive Bias: AI Learning Algorithms and Valiant's Learning Framework",
-    "authors": [
-      "David Haussler"
-    ],
-    "year": 1988,
-    "venue": "Artificial Intelligence",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1016/0004-3702(88)90002-1",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/3b814ad3055d6bfd7828effdbfbf1372646b7c22",
-    "sha256": "24f8b46392ba703d18c68a5150e54836f177423a29efe8fd8c49761e0f72d7f2",
-    "pdf_path": "accepted/1988-quantifying-inductive-bias-ai-learning-algorithms-and-valiants-learning-framework.pdf",
-    "id": "1988-quantifying-inductive-bias-ai-learning-algorithms-and-valiants-learning-framework",
-    "processed": false
-  },
-  {
-    "title": "What Size Net Gives Valid Generalization?",
-    "authors": [
-      "Eric B. Baum",
-      "David Haussler"
-    ],
-    "year": 1988,
-    "venue": "Advances in Neural Information Processing Systems",
-    "venue_type": "conference",
-    "arxiv_id": null,
-    "doi": null,
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/25406e6733a698bfc4ac836f8e74f458e75dad4f",
-    "sha256": "f48ce72965e653c694fd0c5be4b76a5a2f30b5ddc35e8dd04055841739ca6d8b",
-    "pdf_path": "accepted/1988-what-size-net-gives-valid-generalization.pdf",
-    "id": "1988-what-size-net-gives-valid-generalization",
-    "processed": false
-  },
-  {
-    "title": "Learning Decision Lists",
-    "authors": [
-      "Ronald L. Rivest"
-    ],
-    "year": 1987,
-    "venue": "Machine Learning",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1007/BF00058680",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/2c386026b24f993aca44a7a684152778d46c51b0",
-    "sha256": "3a3ee9119826e194416196d551ac739066382e77f86434657c4e3c4d04c393b6",
-    "pdf_path": "accepted/1987-learning-decision-lists.pdf",
-    "id": "1987-learning-decision-lists",
-    "processed": false
-  },
-  {
-    "title": "Occam's Razor",
-    "authors": [
-      "Anselm Blumer",
-      "Andrzej Ehrenfeucht",
-      "David Haussler",
-      "Manfred K. Warmuth"
-    ],
-    "year": 1987,
-    "venue": "Information Processing Letters",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1016/0020-0190(87)90114-1",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/71448a9b8d35d5f3123405d3d7a66288618daab2",
-    "sha256": "556b9e7aadbd614cc3692edbda442cf1fc7c7320c631d403cb45cf754181b988",
-    "pdf_path": "accepted/1987-occams-razor.pdf",
-    "id": "1987-occams-razor",
-    "processed": false
-  },
-  {
-    "title": "A Theory of the Learnable",
-    "authors": [
-      "Leslie G. Valiant"
-    ],
-    "year": 1984,
-    "venue": "Communications of the ACM",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1145/1968.1972",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/d37b3a66d55d5361aeb5ef0793af66049535c24d",
-    "sha256": "381ee2e774542ccec25db2e8ed59e29c67e6dd106430e90bdd2debd50df558db",
-    "pdf_path": "accepted/1984-a-theory-of-the-learnable.pdf",
-    "id": "1984-a-theory-of-the-learnable",
-    "processed": false
-  },
-  {
-    "title": "On the Uniform Convergence of Relative Frequencies of Events to Their Probabilities",
-    "authors": [
-      "Vladimir N. Vapnik",
-      "Alexey Ya. Chervonenkis"
-    ],
-    "year": 1971,
-    "venue": "Theory of Probability and Its Applications",
-    "venue_type": "journal",
-    "arxiv_id": null,
-    "doi": "10.1137/1116025",
-    "semantic_scholar_url": "https://www.semanticscholar.org/paper/a36b028d024bf358c4af1a5e1dc3ca0aed23b553",
-    "sha256": "c86ae06d178f410b7bedd292814ae354f90b15ce561f7e0408065db49893e439",
-    "pdf_path": "accepted/1971-on-the-uniform-convergence-of-relative-frequencies-of-events-to-their-probabilities.pdf",
-    "id": "1971-on-the-uniform-convergence-of-relative-frequencies-of-events-to-their-probabilities",
     "processed": false
   }
 ]
