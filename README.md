@@ -4,9 +4,13 @@
 - [x] skill
 - [x] icon
 - [x] discover 20 influential PAC papers and show top papers
-- [ ] show pdfs only if no json
-- [ ] isabelle
-- [ ]
+- [x] show pdfs only if no json
+- [x] update skill based on the experience on 20 papers
+- [x] icons in the main page (pdf, code)
+- [x] tags (subject, proof method)
+- [x] disclaimer on footer
+- [ ] proof tags should be bound to proofs not whole papers
+- [ ] isabelle (skill, autoformalise, icon in index, viewer's top icon and openner and pane (with syntax highlighting))
 - [ ] all papers
 
 
